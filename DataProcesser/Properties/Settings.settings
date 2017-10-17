@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BitAuto.CarDataUpdate.DataProcesser.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DataProcesser_com_bitauto_dealer_api_VendorInfor" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.dealer.bitauto.com/api/Service/VendorInfor.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_com_bitauto_news_NewsService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://news.bitauto.com/comment/newsservice.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_cn_com_baa_api_ForumService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.baa.bitauto.com/forumservice.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_com_bitauto_dealer_api1_VendorNews" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.dealer.bitauto.com/api/Service/VendorNews.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_com_bitauto_imgsvr_CommonService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://imgsvr.bitauto.com/common/commonservice.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_com_bitauto_price_MaintainService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://price.bitauto.com/interface/common/maintainservice.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_com_bitauto_dealer_api1_VendorInfor" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.dealer.bitauto.com/api/Service/VendorInfor.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_cn_ucar_api_CarPrice_CarPrice" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://yicheapi.taoche.cn/CarBasicIno/ForXml/CarPrice.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_cn_ucar_api_CarSourceForBitAuto" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.taoche.cn/CarSourceInterface/CarSourceForBitAuto.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_com_bitauto_dealer_api_ReplaceNews_ReplaceNews" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.dealer.bitauto.com/api/Service/ReplaceNews.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_com_bitauto_dealer_api_jiangjia_GetFavourableNews" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.dealer.bitauto.com/api/Service/GetFavourableNews.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_com_bitauto_index_IndexData" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api2.easypass.cn/indexapi/Service/IndexData.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_com_bitauto_carser_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://carser.bitauto.com/ForPicMasterToSerial/service.asmx</Value>
+    </Setting>
+    <Setting Name="DataProcesser_com_bitauto_baa_api_userCarService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.baa.bitauto.com/koubei/usercar/userCarService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

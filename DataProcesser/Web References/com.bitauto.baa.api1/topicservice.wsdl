@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetTopicListByRating">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="rating" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListByRatingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicListByRatingResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApiSoapHeader" type="tns:ApiSoapHeader" />
+      <s:complexType name="ApiSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AppKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppPwd" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetTopic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="topicGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListByGuids">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="topicGuids" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTopicListByGuidsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicListByGuidsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="carId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicListResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodTopicList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="carId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isGood" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodTopicListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGoodTopicListResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListBySort">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="carId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sortType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListBySortResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicListBySortResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListBySerialIdAndIssueKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="issueKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListBySerialIdAndIssueKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicListBySerialIdAndIssueKeyResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTopicListByRatingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicListByRating" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListByRatingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicListByRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListByRatingApiSoapHeader">
+    <wsdl:part name="ApiSoapHeader" element="tns:ApiSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopic" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicApiSoapHeader">
+    <wsdl:part name="ApiSoapHeader" element="tns:ApiSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListByGuidsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicListByGuids" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListByGuidsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicListByGuidsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListByGuidsApiSoapHeader">
+    <wsdl:part name="ApiSoapHeader" element="tns:ApiSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicList" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListApiSoapHeader">
+    <wsdl:part name="ApiSoapHeader" element="tns:ApiSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodTopicListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGoodTopicList" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodTopicListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGoodTopicListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodTopicListApiSoapHeader">
+    <wsdl:part name="ApiSoapHeader" element="tns:ApiSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListBySortSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicListBySort" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListBySortSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicListBySortResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListBySortApiSoapHeader">
+    <wsdl:part name="ApiSoapHeader" element="tns:ApiSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListBySerialIdAndIssueKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicListBySerialIdAndIssueKey" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListBySerialIdAndIssueKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicListBySerialIdAndIssueKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListBySerialIdAndIssueKeyApiSoapHeader">
+    <wsdl:part name="ApiSoapHeader" element="tns:ApiSoapHeader" />
+  </wsdl:message>
+  <wsdl:portType name="topicServiceSoap">
+    <wsdl:operation name="GetTopicListByRating">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取口碑差、中、好评价</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicListByRatingSoapIn" />
+      <wsdl:output message="tns:GetTopicListByRatingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过Guid获取口碑</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicSoapIn" />
+      <wsdl:output message="tns:GetTopicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListByGuids">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通过Guid组获取口碑</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicListByGuidsSoapIn" />
+      <wsdl:output message="tns:GetTopicListByGuidsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据子品牌车款分页获取数据</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicListSoapIn" />
+      <wsdl:output message="tns:GetTopicListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodTopicList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据子品牌车款分页获取优质口碑数据（isGood：0-精华和完美；1-精华；2-完美）</wsdl:documentation>
+      <wsdl:input message="tns:GetGoodTopicListSoapIn" />
+      <wsdl:output message="tns:GetGoodTopicListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListBySort">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据子品牌车款分页获取数据，并自定义排序（0：默认，1：最新，2：最热）</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicListBySortSoapIn" />
+      <wsdl:output message="tns:GetTopicListBySortSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListBySerialIdAndIssueKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据子品牌车款和常见问题分页获取数据</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicListBySerialIdAndIssueKeySoapIn" />
+      <wsdl:output message="tns:GetTopicListBySerialIdAndIssueKeySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="topicServiceSoap" type="tns:topicServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTopicListByRating">
+      <soap:operation soapAction="http://tempuri.org/GetTopicListByRating" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTopicListByRatingApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopic">
+      <soap:operation soapAction="http://tempuri.org/GetTopic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTopicApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListByGuids">
+      <soap:operation soapAction="http://tempuri.org/GetTopicListByGuids" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTopicListByGuidsApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicList">
+      <soap:operation soapAction="http://tempuri.org/GetTopicList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTopicListApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodTopicList">
+      <soap:operation soapAction="http://tempuri.org/GetGoodTopicList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetGoodTopicListApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListBySort">
+      <soap:operation soapAction="http://tempuri.org/GetTopicListBySort" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTopicListBySortApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListBySerialIdAndIssueKey">
+      <soap:operation soapAction="http://tempuri.org/GetTopicListBySerialIdAndIssueKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTopicListBySerialIdAndIssueKeyApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="topicServiceSoap12" type="tns:topicServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTopicListByRating">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicListByRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTopicListByRatingApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopic">
+      <soap12:operation soapAction="http://tempuri.org/GetTopic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTopicApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListByGuids">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicListByGuids" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTopicListByGuidsApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicList">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTopicListApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodTopicList">
+      <soap12:operation soapAction="http://tempuri.org/GetGoodTopicList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetGoodTopicListApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListBySort">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicListBySort" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTopicListBySortApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListBySerialIdAndIssueKey">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicListBySerialIdAndIssueKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTopicListBySerialIdAndIssueKeyApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="topicService">
+    <wsdl:port name="topicServiceSoap" binding="tns:topicServiceSoap">
+      <soap:address location="http://api.baa.bitauto.com/koubei/topic/topicservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="topicServiceSoap12" binding="tns:topicServiceSoap12">
+      <soap12:address location="http://api.baa.bitauto.com/koubei/topic/topicservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,36 @@
+﻿ @{
+	var tagName=Model.TagName;
+	var tagId=Model.TagId;
+	var allspell=Model.Data["csAllSpell"];
+	var serialId=Model.Data["cs_id"];
+	}
+<!--@DateTime.Now.ToString()-->
+<div id="m-car-nav" class="car-nav car-nav10">
+	<ul>
+		<li @Raw(tagId==0?"class=\"current\"":"")><a href="http://car.m.yiche.com/@(allspell)/" data-channelid="27.23.713"><strong>综述<s></s></strong></a></li>
+	    <li @Raw(tagId==8?"class=\"current\"":"")><a href="http://price.m.yiche.com/nb@(serialId)/" data-channelid="27.23.714"><strong>报价</strong></a></li>
+	    <li @Raw(tagId==1?"class=\"current\"":"")><a href="http://car.m.yiche.com/@(allspell)/peizhi/" data-channelid="27.23.715"><strong>参数</strong></a></li>
+		<li @Raw(tagId==2?"class=\"current\"":"")><a href="http://photo.m.yiche.com/serial/@(serialId)/" data-channelid="27.23.716"><strong>图片</strong></a></li>
+        <li @Raw(tagId==11?"class =\"current\"":"")><a href="http://dealer.m.yiche.com/0/@(serialId)/2/" data-channelid="27.23.1936"><strong>经销商</strong></a></li>
+		<li @Raw(tagId==4?"class=\"current\"":"")><a href="http://car.m.yiche.com/@(allspell)/wenzhang/" data-channelid="27.23.717"><strong>文章</strong></a></li>
+		<li @Raw(tagId==5?"class=\"current\"":"")><a href="http://car.m.yiche.com/@(allspell)/koubei/" data-channelid="27.23.718"><strong>口碑</strong></a></li>
+		<li @Raw(tagId==12?"class=\"current\"":"")><a href="http://v.m.yiche.com/pv/@(allspell).html" data-channelid="27.23.2185"><strong>视频</strong></a></li>
+		<li><a href="@(Model.BBSUrl.Replace("baa.bitauto.com","baa.m.bitauto.com"))" data-channelid="27.23.720"><strong>社区</strong></a></li>
+		<li><a href="http://m.taoche.com/@(allspell)/?ref=Hlht_esc" data-channelid="27.23.721"><strong>二手车</strong></a></li>
+	</ul>
+</div>
+ <script type="text/javascript">
+	if (typeof (bitLoadScript) == "undefined"){
+		bitLoadScript = function (url, callback, charset) {
+			var s = document.createElement("script"); s.type = "text/javascript"; if (charset) s.charset = charset;
+			if (s.readyState) { s.onreadystatechange = function () { if (s.readyState == "loaded" || s.readyState == "complete") { s.onreadystatechange = null; if (callback) callback(); } }; }
+			else { s.onload = function () { if (callback) callback(); }; }
+			s.src = url; document.getElementsByTagName("head")[0].appendChild(s);
+		};
+	}	bitLoadScript("http://image.bitautoimg.com/carchannel/WirelessJs/NavigationJs.js?v=20160126", function () {
+		try
+		{ mainWirelessPVStatisticFunction(@(serialId), 0, @tagId); }
+		catch (err) { }
+	}, "utf-8");
+</script>
+

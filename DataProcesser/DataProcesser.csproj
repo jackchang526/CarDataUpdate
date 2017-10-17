@@ -1,0 +1,581 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE715CF4-B0AA-42A6-99B1-F0CFD0AF37AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.CarDataUpdate.DataProcesser</RootNamespace>
+    <AssemblyName>DataProcesser</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.Services">
+      <HintPath>..\..\..\..\..\P公用平台\Release\BitAuto.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Services.FileServer.Client">
+      <HintPath>..\..\..\Dll\BitAuto.Services.FileServer.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils">
+      <HintPath>..\..\..\..\..\P公用平台\Release\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\..\Dll\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\..\Dll\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.7.7.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Dll\RazorEngine.3.8.1\lib\net40\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\..\..\Dll\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\..\..\Dll\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\..\..\Dll\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\Dll\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode">
+      <HintPath>..\..\..\Dll\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AskAndKouBei.cs" />
+    <Compile Include="AskDataService.cs" />
+    <Compile Include="AskHtmlChunkGenerator.cs" />
+    <Compile Include="CarDataCompare.cs" />
+    <Compile Include="CarGroupByLevelAndPrice.cs" />
+    <Compile Include="CarInfoForSelecting.cs" />
+    <Compile Include="CarNewsTypeUpdate.cs" />
+    <Compile Include="CarProduceAndSellData.cs" />
+    <Compile Include="CarReplacementInfo.cs" />
+    <Compile Include="CarsEvaluationStyleJoinBrand.cs" />
+    <Compile Include="CarSummaryKouBei.cs" />
+    <Compile Include="EPProcesser.cs" />
+    <Compile Include="InsuranceAndLoan.cs" />
+    <Compile Include="KoubeiRatingDetail.cs" />
+    <Compile Include="Repository\CarRepository.cs" />
+    <Compile Include="Repository\SerialCityPVRepository.cs" />
+    <Compile Include="Repository\SerialRepository.cs" />
+    <Compile Include="RequestCarserInterface.cs" />
+    <Compile Include="RewriteMemCache.cs" />
+    <Compile Include="CarTreeXmlDataGetter.cs" />
+    <Compile Include="CityGroupJsonUTF8JS.cs" />
+    <Compile Include="CityProcesser.cs" />
+    <Compile Include="CommonNavigation.cs" />
+    <Compile Include="CommonNavigationService.cs" />
+    <Compile Include="ContentGetter.cs" />
+    <Compile Include="DeleteNewsTool.cs" />
+    <Compile Include="EditorComment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exhibition.cs" />
+    <Compile Include="HangQing.cs" />
+    <Compile Include="HeXinKanDian.cs" />
+    <Compile Include="Insurance.cs" />
+    <Compile Include="JiangJiaNews.cs" />
+    <Compile Include="MaiCheSite.cs" />
+    <Compile Include="MasterBrand.cs" />
+    <Compile Include="NavigationBarGenerator.cs" />
+    <Compile Include="NewsNumXml\NewsNumXmlBuilder.cs" />
+    <Compile Include="PhotoImageService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SelectCarKoubei.cs" />
+    <Compile Include="Serial.cs" />
+    <Compile Include="SerialBaoZhiLv.cs" />
+    <Compile Include="SerialCityPriceRank.cs" />
+    <Compile Include="SerialColorImage.cs" />
+    <Compile Include="SerialCommerceNews.cs" />
+    <Compile Include="SerialDataToJingZan.cs" />
+    <Compile Include="SerialDetailZoneM.cs" />
+    <Compile Include="SerialOutSet.cs" />
+    <Compile Include="SerialPingCeData.cs" />
+    <Compile Include="SerialQrImageGenerator.cs" />
+    <Compile Include="SerialTuanService.cs" />
+    <Compile Include="Service References\DataCenter.WCF\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CarService.cs" />
+    <Compile Include="Services\SerialService.cs" />
+    <Compile Include="SparkleSerialRelUpdate.cs" />
+    <Compile Include="SUVSaleRankService.cs" />
+    <Compile Include="UCarDataGetter.cs" />
+    <Compile Include="UpdateCarDataForSelectToolV2.cs" />
+    <Compile Include="UsedCarDataService.cs" />
+    <Compile Include="UsedCarHtmlChunkGenerator.cs" />
+    <Compile Include="VendorListMapInfor.cs" />
+    <Compile Include="VideoOrder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web References\cn.com.baa.api\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\cn.ucar.api.CarPrice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\cn.ucar.api\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.bitauto.baa.api\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.bitauto.carser\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.bitauto.dealer.api.jiangjia\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.bitauto.dealer.api.ReplaceNews\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.bitauto.dealer.api\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.bitauto.dealer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.bitauto.imgsvr\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.bitauto.index\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.bitauto.news\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.bitauto.price\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{248AC5CD-C06E-449C-97A0-B5249D5B8401}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Config\Config.csproj">
+      <Project>{1B43C3B6-1FBF-4F10-98EF-59B7F587C283}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HtmlBuilder\HtmlBuilder.csproj">
+      <Project>{80C277F7-FAF7-43B8-B029-437DF48554CF}</Project>
+      <Name>HtmlBuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://api.baa.bitauto.com/forumservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\cn.com.baa.api\</RelPath>
+      <UpdateFromURL>http://api.baa.bitauto.com/forumservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_cn_com_baa_api_ForumService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api.baa.bitauto.com/koubei/usercar/userCarService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.bitauto.baa.api\</RelPath>
+      <UpdateFromURL>http://api.baa.bitauto.com/koubei/usercar/userCarService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_com_bitauto_baa_api_userCarService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api.dealer.bitauto.com/api/Service/GetFavourableNews.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.bitauto.dealer.api.jiangjia\</RelPath>
+      <UpdateFromURL>http://api.dealer.bitauto.com/api/Service/GetFavourableNews.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_com_bitauto_dealer_api_jiangjia_GetFavourableNews</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api.dealer.bitauto.com/api/Service/ReplaceNews.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.bitauto.dealer.api.ReplaceNews\</RelPath>
+      <UpdateFromURL>http://api.dealer.bitauto.com/api/Service/ReplaceNews.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_com_bitauto_dealer_api_ReplaceNews_ReplaceNews</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api.dealer.bitauto.com/api/Service/VendorInfor.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.bitauto.dealer.api\</RelPath>
+      <UpdateFromURL>http://api.dealer.bitauto.com/api/Service/VendorInfor.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_com_bitauto_dealer_api1_VendorInfor</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api.dealer.bitauto.com/api/Service/VendorNews.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.bitauto.dealer\</RelPath>
+      <UpdateFromURL>http://api.dealer.bitauto.com/api/Service/VendorNews.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_com_bitauto_dealer_api1_VendorNews</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://yicheapi.taoche.cn/CarBasicIno/ForXml/CarPrice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\cn.ucar.api.CarPrice\</RelPath>
+      <UpdateFromURL>http://yicheapi.taoche.cn/CarBasicIno/ForXml/CarPrice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_cn_ucar_api_CarPrice_CarPrice</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api.taoche.cn/CarSourceInterface/CarSourceForBitAuto.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\cn.ucar.api\</RelPath>
+      <UpdateFromURL>http://api.taoche.cn/CarSourceInterface/CarSourceForBitAuto.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_cn_ucar_api_CarSourceForBitAuto</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://carser.bitauto.com/ForPicMasterToSerial/service.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.bitauto.carser\</RelPath>
+      <UpdateFromURL>http://carser.bitauto.com/ForPicMasterToSerial/service.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_com_bitauto_carser_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://imgsvr.bitauto.com/common/commonservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.bitauto.imgsvr\</RelPath>
+      <UpdateFromURL>http://imgsvr.bitauto.com/common/commonservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_com_bitauto_imgsvr_CommonService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://api2.easypass.cn/indexapi/Service/IndexData.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.bitauto.index\</RelPath>
+      <UpdateFromURL>http://api2.easypass.cn/indexapi/Service/IndexData.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_com_bitauto_index_IndexData</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://news.bitauto.com/comment/newsservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.bitauto.news\</RelPath>
+      <UpdateFromURL>http://news.bitauto.com/comment/newsservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_com_bitauto_news_NewsService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://price.bitauto.com/interface/common/maintainservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.bitauto.price\</RelPath>
+      <UpdateFromURL>http://price.bitauto.com/interface/common/maintainservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DataProcesser_com_bitauto_price_MaintainService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Fakes Include="Fakes\RazorEngine.fakes" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\DataCenter.WCF\DataProvide.wsdl" />
+    <None Include="Service References\DataCenter.WCF\DataProvide.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataCenter.WCF\DataProvide1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataCenter.WCF\DataProvide2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\cn.com.baa.api\DictionaryEntry.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\cn.com.baa.api\forumservice.wsdl" />
+    <None Include="Web References\cn.com.baa.api\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\cn.com.baa.api\TopicImgsInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\cn.ucar.api.CarPrice\CarPrice.wsdl" />
+    <None Include="Web References\cn.ucar.api.CarPrice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\cn.ucar.api\CarSourceForBitAuto.wsdl" />
+    <None Include="Web References\cn.ucar.api\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.bitauto.baa.api\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.bitauto.baa.api\userCarService.wsdl" />
+    <None Include="Web References\com.bitauto.carser\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.bitauto.carser\service.wsdl" />
+    <None Include="Web References\com.bitauto.dealer.api.jiangjia\GetFavourableNews.wsdl" />
+    <None Include="Web References\com.bitauto.dealer.api.jiangjia\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.bitauto.dealer.api.ReplaceNews\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.bitauto.dealer.api.ReplaceNews\ReplaceNews.wsdl" />
+    <None Include="Web References\com.bitauto.dealer.api\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.bitauto.dealer.api\VendorInfoEntity1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.bitauto.dealer.api\VendorInfor.wsdl" />
+    <None Include="Web References\com.bitauto.dealer\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.bitauto.dealer\VendorNews.wsdl" />
+    <None Include="Web References\com.bitauto.imgsvr\commonservice.wsdl" />
+    <None Include="Web References\com.bitauto.imgsvr\PagedImageList.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.bitauto.imgsvr\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.bitauto.index\CitySortItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.bitauto.index\DateObj.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.bitauto.index\IndexData.wsdl" />
+    <None Include="Web References\com.bitauto.index\IndexItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.bitauto.index\IndexRegionSortItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.bitauto.index\IndexTrendItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.bitauto.index\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.bitauto.news\Article.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.bitauto.news\GroupRelation.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.bitauto.news\newsservice.wsdl" />
+    <None Include="Web References\com.bitauto.news\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.bitauto.price\maintainservice.wsdl" />
+    <None Include="Web References\com.bitauto.price\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.bitauto.news\newsservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\cn.com.baa.api\forumservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.bitauto.dealer\VendorNews.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.bitauto.imgsvr\commonservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.bitauto.price\maintainservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.bitauto.dealer.api\VendorInfor.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\cn.ucar.api.CarPrice\CarPrice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\cn.ucar.api\CarSourceForBitAuto.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.bitauto.dealer.api.ReplaceNews\ReplaceNews.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.bitauto.dealer.api.jiangjia\GetFavourableNews.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.bitauto.index\IndexData.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.bitauto.carser\service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.bitauto.baa.api\userCarService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DataCenter.WCF\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataCenter.WCF\DataProvide.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataCenter.WCF\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataCenter.WCF\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataCenter.WCF\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

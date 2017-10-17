@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\public\service.car.bitauto.com</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Data/DataSync.xml">
+      <publishTime>08/08/2017 10:45:21</publishTime>
+    </File>
+    <File Include="App_Data/VideoVip.xml">
+      <publishTime>08/04/2017 15:35:19</publishTime>
+    </File>
+    <File Include="bin/App_Data/DataSync.xml">
+      <publishTime>08/08/2017 10:45:21</publishTime>
+    </File>
+    <File Include="bin/BitAuto.Services.Dal.dll">
+      <publishTime>07/10/2015 09:20:43</publishTime>
+    </File>
+    <File Include="bin/BitAuto.Services.Dal.SqlClient.dll">
+      <publishTime>07/10/2015 09:20:43</publishTime>
+    </File>
+    <File Include="bin/BitAuto.Services.dll">
+      <publishTime>01/22/2017 14:53:01</publishTime>
+    </File>
+    <File Include="bin/BitAuto.Services.Entities.dll">
+      <publishTime>07/10/2015 09:20:44</publishTime>
+    </File>
+    <File Include="bin/BitAuto.Services.pdb">
+      <publishTime>01/22/2017 14:53:01</publishTime>
+    </File>
+    <File Include="bin/BitAuto.Utils.dll">
+      <publishTime>01/22/2017 14:53:01</publishTime>
+    </File>
+    <File Include="bin/BitAuto.Utils.pdb">
+      <publishTime>01/22/2017 14:53:01</publishTime>
+    </File>
+    <File Include="bin/CarDataWebService.dll">
+      <publishTime>08/08/2017 11:27:32</publishTime>
+    </File>
+    <File Include="bin/CarDataWebService.pdb">
+      <publishTime>08/08/2017 11:27:32</publishTime>
+    </File>
+    <File Include="bin/Common.dll">
+      <publishTime>08/04/2017 10:00:41</publishTime>
+    </File>
+    <File Include="bin/Common.pdb">
+      <publishTime>08/04/2017 10:00:40</publishTime>
+    </File>
+    <File Include="bin/Config.dll">
+      <publishTime>08/04/2017 10:00:38</publishTime>
+    </File>
+    <File Include="bin/Config.pdb">
+      <publishTime>08/04/2017 10:00:35</publishTime>
+    </File>
+    <File Include="bin/Enyim.Caching.dll">
+      <publishTime>07/10/2015 09:20:44</publishTime>
+    </File>
+    <File Include="bin/HtmlBuilder.dll">
+      <publishTime>08/08/2017 09:58:28</publishTime>
+    </File>
+    <File Include="bin/HtmlBuilder.pdb">
+      <publishTime>08/08/2017 09:58:28</publishTime>
+    </File>
+    <File Include="bin/HtmlBuilder.XmlSerializers.dll">
+      <publishTime>08/08/2017 09:58:31</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>07/10/2015 09:20:44</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>07/10/2015 09:17:57</publishTime>
+    </File>
+    <File Include="bin/Memcached.ClientLibrary.dll">
+      <publishTime>07/10/2015 09:20:44</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>07/10/2015 09:17:58</publishTime>
+    </File>
+    <File Include="bin/NVelocity.dll">
+      <publishTime>07/10/2015 09:16:03</publishTime>
+    </File>
+    <File Include="bin/ServiceStack.Common.dll">
+      <publishTime>08/31/2015 13:54:55</publishTime>
+    </File>
+    <File Include="bin/ServiceStack.Interfaces.dll">
+      <publishTime>08/31/2015 13:54:55</publishTime>
+    </File>
+    <File Include="bin/ServiceStack.Redis.dll">
+      <publishTime>08/31/2015 13:54:55</publishTime>
+    </File>
+    <File Include="bin/TemplateFiles/二手车数据块.htm">
+      <publishTime>07/10/2015 09:15:56</publishTime>
+    </File>
+    <File Include="bin/TemplateFiles/答疑数据块.htm">
+      <publishTime>07/10/2015 09:15:56</publishTime>
+    </File>
+    <File Include="bin/TemplateFiles/车型频道导航条.htm">
+      <publishTime>07/10/2015 09:15:56</publishTime>
+    </File>
+    <File Include="bin/TemplateFiles/车型频道首页搜索定制.htm">
+      <publishTime>07/10/2015 09:15:56</publishTime>
+    </File>
+    <File Include="bin/WebServiceBLL.dll">
+      <publishTime>08/08/2017 11:27:30</publishTime>
+    </File>
+    <File Include="bin/WebServiceBLL.pdb">
+      <publishTime>08/08/2017 11:27:29</publishTime>
+    </File>
+    <File Include="bin/WebServiceBLL.XmlSerializers.dll">
+      <publishTime>08/08/2017 11:27:31</publishTime>
+    </File>
+    <File Include="bin/WebServiceDAL.dll">
+      <publishTime>08/04/2017 10:00:41</publishTime>
+    </File>
+    <File Include="bin/WebServiceDAL.pdb">
+      <publishTime>08/04/2017 10:00:41</publishTime>
+    </File>
+    <File Include="bin/WebServiceModel.dll">
+      <publishTime>08/04/2017 10:00:38</publishTime>
+    </File>
+    <File Include="bin/WebServiceModel.pdb">
+      <publishTime>08/04/2017 10:00:35</publishTime>
+    </File>
+    <File Include="Config/CarNewsType.config">
+      <publishTime>07/13/2017 16:08:10</publishTime>
+    </File>
+    <File Include="Config/Common.config">
+      <publishTime>07/12/2017 10:58:41</publishTime>
+    </File>
+    <File Include="Config/ConnectionString.config">
+      <publishTime>07/25/2017 15:38:05</publishTime>
+    </File>
+    <File Include="Config/log4net.config">
+      <publishTime>08/18/2016 09:55:55</publishTime>
+    </File>
+    <File Include="Config/MessageQueueConfig.config">
+      <publishTime>07/10/2015 09:15:56</publishTime>
+    </File>
+    <File Include="Config/NewsCategory.config">
+      <publishTime>07/13/2017 16:08:10</publishTime>
+    </File>
+    <File Include="Config/PhotoImage.config">
+      <publishTime>08/08/2017 09:44:24</publishTime>
+    </File>
+    <File Include="Config/VideoCategory.config">
+      <publishTime>07/10/2015 09:15:56</publishTime>
+    </File>
+    <File Include="DataSyncService.asmx">
+      <publishTime>07/10/2015 09:15:52</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>07/10/2015 09:15:52</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/19/2017 10:30:48</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,4560 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BitAuto.Services</name>
+    </assembly>
+    <members>
+        <member name="M:BitAuto.Services.Authorization.AuthorDataManagerFactory.GetAuthorDataManager(System.String)">
+            <summary>
+            返回相应的接口
+            </summary>
+            <param name="configName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.Authorization.AuthorizationException">
+            <summary>
+            权限管理的应用异常类,授权相关的错误提示信息通过此异常抛出。
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.AuthorizationFactory.GetAuthorization(System.String)">
+            <summary>
+            返回相应的接口
+            </summary>
+            <param name="configName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IAuthorization.HasResPermission(System.String,System.String)">
+            <summary>
+            判断用户对资源是否有权限
+            </summary>
+            <param name="userId">用户Id</param>
+            <param name="resourceCode">资源编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IAuthorization.HasResPermissionByUrl(System.String,System.String)">
+            <summary>
+            判断用户对url指定的资源是否有权限
+            </summary>
+            <param name="userId">用户Id</param>
+            <param name="url">
+                url只是一个字符串，是以http://开头的完整的Url，如：http://www.bitauto.com/price/index.aspx。
+                也可以在其后加上按钮的Id，如：http://www.bitauto.com/price/index.aspxbtnEditPrice btnEditPrice是按钮的Id。
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IAuthorization.GetResource(System.String,System.String,BitAuto.Services.Entities.AuthorResourceTypeList,System.Boolean)">
+            <summary>
+            取得指定父资源下、用户有权限的下级资源，不包括parentResourceCode本身
+            </summary>
+            <param name="userId">用户主键</param>
+            <param name="parentResourceCode">父资源编码</param>
+            <param name="resourceType">资源类型</param>
+            <param name="isIncludeChildren">是否包括嵌套下级资源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IAuthorization.GetResource(System.String,System.Int32,BitAuto.Services.Entities.AuthorResourceTypeList,System.Boolean)">
+            <summary>
+            取得指定父资源下、用户有权限的下级资源，不包括parentResourceId本身
+            </summary>
+            <param name="userId">用户主键</param>
+            <param name="parentResourceId">父资源主键</param>
+            <param name="resourceType">资源类型</param>
+            <param name="isIncludeChildren">是否包含嵌套下级资源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IAuthorization.GetResourceByRole(System.Int32,System.String,BitAuto.Services.Entities.AuthorResourceTypeList,System.Boolean)">
+            <summary>
+            取得指定父资源下、角色有权限的下级资源，不包括parentResourceCode本身
+            </summary>
+            <param name="roleId">角色主键</param>
+            <param name="parentResourceCode">父资源编码</param>
+            <param name="resourceType">资源类型</param>
+            <param name="isIncludeChildren">是否包括嵌套下级资源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IAuthorization.GetResourceByRole(System.Int32,System.Int32,BitAuto.Services.Entities.AuthorResourceTypeList,System.Boolean)">
+            <summary>
+            取得指定父资源下、角色有权限的下级资源，不包括parentResourceId本身
+            </summary>
+            <param name="roleId">角色主键</param>
+            <param name="parentResourceId">父资源主键</param>
+            <param name="resourceType">资源类型</param>
+            <param name="isIncludeChildren">是否包含嵌套下级资源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IAuthorization.HasDataPermission(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            判断用户对数据是否有权限
+            </summary>
+            <param name="userId">用户Id</param>
+            <param name="resourceCode">资源编码</param>
+            <param name="dataCategoryId">数据分类</param>
+            <param name="data">某个数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IAuthorization.HasDataPermissionByUrl(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            判断用户对指定url对应的数据是否有权限
+            </summary>
+            <param name="userId">用户Id</param>
+            <param name="url">
+                url只是一个字符串，是以http://开头的完整的Url，如：http://www.bitauto.com/price/index.aspx。
+                也可以在其后加上按钮的Id，如：http://www.bitauto.com/price/index.aspxbtnEditPrice btnEditPrice是按钮的Id。
+            </param>
+            <param name="dataCategoryId">数据分类</param>
+            <param name="data">某个数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IAuthorization.GetData(System.String,System.String,System.Int32)">
+            <summary>
+            取得指定资源下、用户有权限的数据
+            </summary>
+            <param name="userId">用户主键</param>
+            <param name="resourceCode">资源编码</param>
+            <param name="dataCategoryId">数据分类</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IAuthorization.GetDataByRole(System.Int32,System.String,System.Int32)">
+            <summary>
+            取得指定资源下、角色有权限的数据
+            </summary>
+            <param name="roleId">角色主键</param>
+            <param name="resourceCode">资源编码</param>
+            <param name="dataCategoryId">数据分类</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.AuthorizationDB.RemoveDisbledResource(BitAuto.Services.Entities.TList{BitAuto.Services.Entities.AuthorResource})">
+            <summary>
+            功能：从中减去Disabled的资源和所有的子集。
+            本规则暂且没有确认，没有放到接口规范上。
+            疑点：是否返回值中包含被Disabled的下级资源？
+            时间：2007－12－27
+            作者：巴图
+            </summary>
+            <param name="reses"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.AuthorizationDB.GetResourceByAcl(System.String,BitAuto.Services.Entities.AuthorResourceTypeList,System.Boolean,BitAuto.Services.Entities.TList{BitAuto.Services.Entities.AuthorResourceAcl})">
+            <summary>
+            根据resourceAcls取得所有有权限的资源
+            </summary>
+            <param name="parentResourceCode"></param>
+            <param name="resourceType"></param>
+            <param name="isIncludeChildren"></param>
+            <param name="resourceAcls"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.AuthorizationDB.AddOrRemoveRes(BitAuto.Services.Entities.TList{BitAuto.Services.Entities.AuthorResource},BitAuto.Services.Entities.AuthorResourceAcl,System.String,BitAuto.Services.Entities.AuthorResourceTypeList,System.Boolean)">
+            <summary>
+            本方法考虑资源的上下级关系，决定那些资源是用户有权限的，
+            注意resourceAcl分Deny和Allow。
+            </summary>
+            <param name="target"></param>
+            <param name="resourceAcl"></param>
+            <param name="parentResourceCode"></param>
+            <param name="resourceType"></param>
+            <param name="isIncludeChildren"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.AuthorizationDB.hasResPermissionByRole(System.Int32,System.String,System.Boolean)">
+            <summary>
+            判断角色是否有权限
+            </summary>
+            <param name="roleId">角色主键</param>
+            <param name="resourceCode">资源编码</param>
+            <param name="isSub">要判断的Url是resourceCode的下级</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.AuthorizationDB.GetNotBelowSortedAcl(System.Int32,System.String)">
+            <summary>
+            取得roleId有权限，且编码等于resourceCode或是resourceCode的上级Acl
+            </summary>
+            <param name="roleId">角色主键</param>
+            <param name="resourceCode">资源编码</param>
+            <returns>按资源编码排序的Acl</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceCodeUtils.IsDerectSub(System.String,System.String)">
+            <summary>
+            subCode是否是parentCode的直接下级编码
+            </summary>
+            <param name="parentCode"></param>
+            <param name="subCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceCodeUtils.IsSub(System.String,System.String)">
+            <summary>
+            subCode是否是parentCode的下级编码
+            </summary>
+            <param name="parentCode"></param>
+            <param name="subCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceCodeUtils.GetParentCode(System.String)">
+            <summary>
+            取得指定编码resourceCode的上级编码
+            </summary>
+            <param name="resourceCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceCodeUtils.GetCodePath(System.String)">
+            <summary>
+            取得指定编码到根级编码的所有节点
+            </summary>
+            <param name="resourceCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceCodeUtils.GetSysCode(System.String)">
+            <summary>
+            取得一个资源编码所属系统的编码
+            </summary>
+            <param name="resCode">资源编码</param>
+            <returns>返回系统编码</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.GetAllSubResource(System.String,System.Boolean)">
+            <summary>
+            获得指定父资源的所有下级资源（包括嵌套下级资源）
+            </summary>
+            <param name="parentResourceCode">父资源编码</param>
+            <param name="isIncludeChildren">是否包含嵌套下级资源</param>
+            <returns>资源集合</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.GetAllSubResource(System.Int32,System.Boolean)">
+            <summary>
+            获得指定父资源的所有下级资源（包括嵌套下级资源）
+            </summary>
+            <param name="parentResourceId">父资源主键</param>
+            <param name="isIncludeChildren">是否包含嵌套下级资源</param>
+            <returns>资源集合</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.QueryResource(System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询资源
+            </summary>
+            <param name="sysCode">系统Code</param>
+            <param name="resourceName">资源名称</param>
+            <param name="parentResource">上级资源</param>
+            <param name="resourceType">资源类型</param>
+            <param name="pageIndex">第几页</param>
+            <param name="pageSize">每页多少条记录</param>
+            <param name="pageCount">总共多少条记录</param>
+            <returns>资源集合</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.GetAllResourceType">
+            <summary>
+            获取所有资源类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.GetWebsiteUrls(BitAuto.Services.Entities.AuthorResource)">
+            <summary>
+            根据资源对象取得其所属系统的所有入口Url
+            </summary>
+            <param name="res">传入的资源对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.GetWebsiteUrlsByResId(System.Int32)">
+            <summary>
+            根据资源Id取得其所属系统的所有入口Url
+            </summary>
+            <param name="resId">资源Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.GetWebsiteUrlsBySysId(System.Int32)">
+            <summary>
+            取系统的所有入口Url
+            </summary>
+            <param name="sysId">系统Id，即类型为sys的资源的Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.GetWebsiteUrlById(System.Int32)">
+            <summary>
+            通过id获取站点url
+            </summary>
+            <param name="authorWebsiteUrlId">站点url的id</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.AddWebSiteUrlForSys(System.Int32,System.String)">
+            <summary>
+            为系统添加站点url
+            </summary>
+            <param name="sysId">系统资源id</param>
+            <param name="url">url</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.UpdateWebSiteUrlOfSys(BitAuto.Services.Entities.AuthorWebsiteUrl)">
+            <summary>
+            更新系统的站点url
+            </summary>
+            <param name="authorWebSiteUrl"></param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.DeleteWebSiteUrlOfSys(System.Int32)">
+            <summary>
+            删除系统资源的站点url
+            </summary>
+            <param name="authorWebSiteUrlId">站点url的id</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerDB.KeepConsistency(BitAuto.Services.Entities.AuthorResource)">
+            <summary>
+            使资源的Url保持一致：AuthorWebsiteUrl中的WebsiteUrl保存的是站点的完整url(如：“http://www.bitauto.com”),
+            AuthorResource的ResourceUrl是以"/"开头的不包含站点Url的部分(如：“/”代表网站根目录，"/d1/abc.aspx"代表一个页面)
+            </summary>
+            <param name="res">传入的资源对象</param>
+            <returns>返回传入资源对象，有此返回值表示本方法会改变传入的res参数</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.RoleManagerDB.GetRolesInSys(System.Int32,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            根据角色名称模糊查询一个系统的角色
+            </summary>
+            <param name="sysId"></param>
+            <param name="bluredName">模糊的角色名称</param>
+            <param name="pageIndex">第几个页面</param>
+            <param name="pageLength">一页多少条记录</param>
+            <param name="recordCount">总共多少条记录</param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.Authorization.IResourceManager">
+            <summary>
+            资源就是功能，资源编码是一个树型编码形如111222333，每三位代表一个层级，
+            如001、002、003代表一级编码，
+            001001、001002、001003代表二级编码的一个序列
+            编码的每一位的值域为：0..9、A..Z、a..z。
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.CreateSys(BitAuto.Services.Entities.AuthorResource)">
+            <summary>
+            本方法将把resource.ResourceType置为"sys",并给resource.ResourceCode赋一个值
+            如果resource.AuthorWebsiteUrlCollection为空，并且resource.ResourceUrl不为空
+            将生成一个AuthorWebsiteUrl对象放入resource.AuthorWebsiteUrlCollection中，
+            最后保存起来
+            </summary>
+            <param name="newSys">本参数对象中的ResourceName属性不能为空</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.CreateResource(System.String,BitAuto.Services.Entities.AuthorResource)">
+            <summary>
+            创建一个资源，自动根据parentResourceCode生成该资源的编码。
+            </summary>
+            <param name="parentResourceCode">父资源编码</param>
+            <param name="newSys">要创建的资源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.CreateResource(System.Int32,BitAuto.Services.Entities.AuthorResource)">
+            <summary>
+            功能同CreateResource(string parentResourceCode, AuthorResource newSys)
+            </summary>
+            <param name="parentResourceId">父资源Id</param>
+            <param name="newSys">要创建的资源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.UpdateSys(BitAuto.Services.Entities.AuthorResource)">
+            <summary>
+            保存对"系统"资源的修改
+            </summary>
+            <param name="newSys">"系统"资源对象</param>
+            <returns>修改后的资源</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.UpdateResource(BitAuto.Services.Entities.AuthorResource)">
+            <summary>
+            保存对资源的修改
+            </summary>
+            <param name="newSys">资源对象</param>
+            <returns>修改后的资源</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.DeleteResource(System.String)">
+            <summary>
+            根据编码删除资源
+            </summary>
+            <param name="resourceCode">资源编码</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.DeleteResource(System.Int32)">
+            <summary>
+            根据主键删除资源
+            </summary>
+            <param name="resourceId">资源主键</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.DeleteResourceWithAcl(System.String,System.Boolean)">
+            <summary>
+            根据编码删除资源及涉及到资源的Acl列表，注意系统资源不能通过本方法删除
+            </summary>
+            <param name="resourceCode">资源编码</param>
+            <param name="isIncludeChildren">是否包含下级,将连带删除下级资源及其Acl</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.DeleteResourceWithAcl(System.Int32,System.Boolean)">
+            <summary>
+            根据资源主键删除资源及涉及到资源的Acl列表，注意系统资源不能通过本方法删除
+            </summary>
+            <param name="resourceId">资源主键</param>
+            <param name="isIncludeChildren">是否包含下级,将连带删除下级资源及其Acl</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetAllSys">
+            <summary>
+            查询所有的Sys类型资源
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetResource(System.String,BitAuto.Services.Entities.AuthorResourceTypeList,System.Boolean)">
+            <summary>
+            取得一个父资源的下级资源,结果不包括parentResourceCode代表的资源。
+            </summary>
+            <param name="parentResourceCode">父资源编码</param>
+            <param name="resourceType">资源类型</param>
+            <param name="isIncludeChildren">是否包括嵌套下级资源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.QueryResource(System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            查询资源
+            </summary>
+            <param name="sysCode">系统Code</param>
+            <param name="resourceName">资源名称</param>
+            <param name="parentResource">上级资源</param>
+            <param name="resourceType">资源类型</param>
+            <param name="pageIndex">第几页</param>
+            <param name="pageSize">每页多少条记录</param>
+            <param name="pageCount">总共多少条记录</param>
+            <returns>资源集合</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetResource(System.Int32,BitAuto.Services.Entities.AuthorResourceTypeList,System.Boolean)">
+            <summary>
+            同GetResource(string parentResourceCode, AuthorResourceTypeList resourceType, bool isIncludeSub);
+            </summary>
+            <param name="parentResourceId">父资源主键</param>
+            <param name="resourceType">资源类型</param>
+            <param name="isIncludeChildren">是否包含嵌套下级资源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetAllSubResource(System.String,System.Boolean)">
+            <summary>
+            获得指定父资源的所有下级资源（包括嵌套下级资源）
+            </summary>
+            <param name="parentResourceCode">父资源编码</param>
+            <param name="isIncludeChildren">是否包含嵌套下级资源</param>
+            <returns>资源集合</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetAllSubResource(System.Int32,System.Boolean)">
+            <summary>
+            获得指定父资源的所有下级资源（包括嵌套下级资源）
+            </summary>
+            <param name="parentResourceCode">父资源主键</param>
+            <param name="isIncludeChildren">是否包含嵌套下级资源</param>
+            <returns>资源集合</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetResourceById(System.Int32)">
+            <summary>
+            根据资源主键取得资源对象
+            </summary>
+            <param name="resourceId">资源主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetResourceByCode(System.String)">
+            <summary>
+            根据资源编码取得资源对象
+            </summary>
+            <param name="resourceCode">资源编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetParentResourceById(System.Int32)">
+            <summary>
+            根据Id取得父资源
+            </summary>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetParentResourceByCode(System.String)">
+            <summary>
+            根据编码取得父资源
+            </summary>
+            <param name="resourceCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetResourcePathById(System.Int32)">
+            <summary>
+            根据Id取得资源树中该节点到根节点的路径上的所有资源节点
+            </summary>
+            <param name="resourceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetResourcePathByCode(System.String)">
+            <summary>
+            根据编码取得资源树中该节点到根节点的路径上的所有资源节点
+            </summary>
+            <param name="resourceCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.FindResourceByUrl(System.String)">
+            <summary>
+            根据url查找与该url最匹配的资源
+            </summary>
+            <param name="url">完整的Url链接，如：http://www.bitauto.com/abc.aspx</param>
+            <returns>与该url最匹配的资源对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetWebsiteUrls(BitAuto.Services.Entities.AuthorResource)">
+            <summary>
+            根据资源对象取得其所属系统的所有入口Url
+            </summary>
+            <param name="res">传入的资源对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetWebsiteUrlById(System.Int32)">
+            <summary>
+            通过id获取站点url
+            </summary>
+            <param name="authorWebsiteUrlId">站点url的id</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetWebsiteUrlsByResId(System.Int32)">
+            <summary>
+            根据资源对象取得其所属系统的所有入口Url
+            </summary>
+            <param name="resId">资源Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetWebsiteUrlsBySysId(System.Int32)">
+            <summary>
+            取系统的所有入口Url
+            </summary>
+            <param name="sysId">系统Id，即类型为sys的资源的Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.AddWebSiteUrlForSys(System.Int32,System.String)">
+            <summary>
+            为系统添加站点url
+            </summary>
+            <param name="sysId">系统资源id</param>
+            <param name="url">url</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.UpdateWebSiteUrlOfSys(BitAuto.Services.Entities.AuthorWebsiteUrl)">
+            <summary>
+            更新系统的站点url
+            </summary>
+            <param name="authorWebSiteUrl"></param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.DeleteWebSiteUrlOfSys(System.Int32)">
+            <summary>
+            删除系统资源的站点url
+            </summary>
+            <param name="authorWebSiteUrlId">站点url的id</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IResourceManager.GetAllResourceType">
+            <summary>
+            获取所有资源类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.Authorization.IRoleManager">
+            <summary>
+            角色管理接口，包括创建、修改、删除角色，
+            增加、去除角色的权限
+            增加、去除角色中的用户
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.CreateRole(System.Int32,BitAuto.Services.Entities.AuthorRole)">
+            <summary>
+            创建角色
+            </summary>
+            <param name="sysIdBelongTo">所属系统Id</param>
+            <param name="role">要创建的角色</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.UpdateRole(BitAuto.Services.Entities.AuthorRole)">
+            <summary>
+            更新角色
+            </summary>
+            <param name="role">要保存的角色</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.DeleteRole(System.Int32)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="roleId"></param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.GetRolesInSys(System.Int32)">
+            <summary>
+            取得一个系统所有的角色
+            </summary>
+            <param name="sysId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.GetRolesInSys(System.Int32,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            根据角色名称模糊查询一个系统的角色
+            </summary>
+            <param name="sysId"></param>
+            <param name="bluredName">模糊的角色名称</param>
+            <param name="pageIndex">第几个页面</param>
+            <param name="pageLength">一页多少条记录</param>
+            <param name="recordCount">总共多少条记录</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.GetRole(System.Int32)">
+            <summary>
+            获取角色
+            </summary>
+            <param name="roleId">角色主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.AddResPermission(System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            增加角色的功能权限
+            </summary>
+            <param name="resourceId">资源主键</param>
+            <param name="roleId">角色主键</param>
+            <param name="isDeny">true表示拒绝权限，false表示允许权限</param>
+            <param name="isIncludeChildren">是否包含下级，下级的定义是下级资源或下级Url</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.AddResPermission(System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            增加角色的功能权限
+            </summary>
+            <param name="resourceCode">资源编码</param>
+            <param name="roleId">角色主键</param>
+            <param name="isDeny">true表示拒绝权限，false表示允许权限</param>
+            <param name="isIncludeChildren">是否包含下级，下级的定义是下级资源或下级Url</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.AddResourcesToRole(System.Int32[],System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            增加角色的功能权限
+            </summary>
+            <param name="resourceIds">资源主键</param>
+            <param name="roleId">角色主键</param>
+            <param name="isDeny">true表示拒绝权限，false表示允许权限</param>
+            <param name="isIncludeChildren">是否包含下级，下级的定义是下级资源或下级Url</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.AddResourcesToRole(System.String[],System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            增加角色的功能权限
+            </summary>
+            <param name="resourceCodes">资源编码</param>
+            <param name="roleId">角色主键</param>
+            <param name="isDeny">true表示拒绝权限，false表示允许权限</param>
+            <param name="isIncludeChildren">是否包含下级，下级的定义是下级资源或下级Url</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.RemoveResPermission(System.Int32,System.Int32)">
+            <summary>
+            去除角色的功能权限
+            </summary>
+            <param name="resourceId">资源主键</param>
+            <param name="roleId">角色主键</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.RemoveResPermission(System.String,System.Int32)">
+            <summary>
+            去除角色的功能权限
+            </summary>
+            <param name="resourceCode">资源编码</param>
+            <param name="roleId">角色主键</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.RemoveResourceFromRole(System.Int32[],System.Int32)">
+            <summary>
+            去除一个角色的多个功能权限
+            </summary>
+            <param name="resourceIds">资源主键</param>
+            <param name="roleId">角色主键</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.RemoveResourceFromRole(System.String[],System.Int32)">
+            <summary>
+            去除一个角色的多个功能权限
+            </summary>
+            <param name="resourceCodes">资源编码</param>
+            <param name="roleId">角色主键</param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.GetResourceInRole(System.Int32,System.Boolean)">
+            <summary>
+            取得角色的功能权限
+            </summary>
+            <param name="roleId">角色主键</param>
+            <param name="isIncludeDeny">是否包含拒绝了的资源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.GetRolesWithResPermission(System.Int32)">
+            <summary>
+            取得具有某个功能权限的所有角色
+            </summary>
+            <param name="resourceId">资源主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.GetRolesWithResPermission(System.String)">
+            <summary>
+            取得具有某个资源权限的所有角色
+            </summary>
+            <param name="resourceCode">资源编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.AddUser(System.String,System.Int32)">
+            <summary>
+            添加一个用户到角色
+            </summary>
+            <param name="userId"></param>
+            <param name="roleId"></param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.AddUserToRoles(System.String,System.Int32[])">
+            <summary>
+            添加一个用户到多个角色
+            </summary>
+            <param name="userId"></param>
+            <param name="roleIds"></param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.AddUsersToRole(System.String[],System.Int32)">
+            <summary>
+            添加多个用户到角色
+            </summary>
+            <param name="userIds"></param>
+            <param name="roleId"></param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.RemoveUser(System.String,System.Int32)">
+            <summary>
+            去除角色中的用户
+            </summary>
+            <param name="userId"></param>
+            <param name="roleId"></param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.RemoveUsersFromRole(System.String[],System.Int32)">
+            <summary>
+            去除一个角色中的多个用户
+            </summary>
+            <param name="userIds"></param>
+            <param name="roleId"></param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.RemoveUserFromRoles(System.String,System.Int32[])">
+            <summary>
+            去除一个用户的多个角色
+            </summary>
+            <param name="userId"></param>
+            <param name="roleIds"></param>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.GetUserInRole(System.Int32)">
+            <summary>
+            取得具有某个角色的所有用户
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.IRoleManager.GetRolesByUser(System.String)">
+            <summary>
+            取得一个用户的所有角色
+            </summary>
+            <param name="userId">用户主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.ResourceManagerFactory.GetResourceManager(System.String)">
+            <summary>
+            返回相应的接口
+            </summary>
+            <param name="configName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.RoleManagerFactory.GetRoleManager(System.String)">
+            <summary>
+            返回相应的接口
+            </summary>
+            <param name="configName"></param>
+            <returns></returns>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.CommandArgument.List">
+            <summary>
+            返回到列表显示
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.CommandArgument.Tree">
+            <summary>
+            返回到树型显示
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.CommandName.GoBackAfterUpdate">
+            <summary>
+            更新返回
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.CommandName.GoBackAfterCreateSys">
+            <summary>
+            添加系统资源返回
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.CommandName.GoBackAfterCreateResource">
+            <summary>
+            添加一般资源返回
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.CommandName.GoBackAfterSetRole">
+            <summary>
+            为资源/用户设置角色后返回
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.UI.IAuthorUserDB.QueryUsers(System.Nullable{System.Int32},System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            根据系统id及可能用户名获取用户
+            </summary>
+            <param name="sysId">系统id</param>
+            <param name="userName">用户名</param>
+            <param name="pageIndex">第几页(首页为1)</param>
+            <param name="pageSize">每页多少条记录</param>
+            <param name="recordCount">当前总共多少条记录</param>
+            <returns>用户集合</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.UI.IAuthorUserDB.GetUsersByUserIds(System.Nullable{System.Int32},System.String[])">
+            <summary>
+            通过用户id们及系统id获取对应的用户们
+            </summary>
+            <param name="sysId">系统id</param>
+            <param name="userIds">用户id们</param>
+            <returns>用户集合</returns>
+        </member>
+        <member name="M:BitAuto.Services.Authorization.UI.IAuthorUserDB.GetUserByUserId(System.Nullable{System.Int32},System.String)">
+            <summary>
+            通过用户id获取对应的用户
+            </summary>
+            <param name="sysId">系统id</param>
+            <param name="userId">用户id</param>
+            <returns>用户</returns>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.EditState.CreateResource">
+            <summary>
+            新增资源
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.EditState.CreateSubResourceTree">
+            <summary>
+            在树型显示下创建子资源
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.EditState.UpdateResourceTree">
+            <summary>
+            在树型显示下更新资源
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.EditState.UpdateResourceList">
+            <summary>
+            在列表显示下更新资源
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.EditState.SetRoleTree">
+            <summary>
+            在树型显示下为资源设置角色
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Authorization.UI.EditState.SetRoleList">
+            <summary>
+            在列表显示下为资源设置角色
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.BusinessCode.BusinessCodeDB">
+            <summary>
+            业务编码的实现类，直接访问数据库
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.BusinessCode.BusinessCodeDB.GetNextBusiTransactionCode(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+                参看<see cref="T:BitAuto.Services.BusinessCode.IBusinessCode"/>
+                中的对应方法
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.BusinessCode.BusinessCodeDB.GetNextCode(System.String)">
+            <summary>
+                参看<see cref="T:BitAuto.Services.BusinessCode.IBusinessCode"/>
+                中的对应方法
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.BusinessCode.BusinessCodeDB.ReturnCode(System.String,System.String)">
+            <summary>
+                参看<see cref="T:BitAuto.Services.BusinessCode.IBusinessCode"/>
+                中的对应方法
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.BusinessCode.BusinessCodeFactory.GetBusinessCodeInstance(System.String)">
+            <summary>
+            根据配置取得业务编码接口的实例
+            </summary>
+            <returns>返回业务编码的实例，用此对象进行业务编码相关的操作</returns>
+        </member>
+        <member name="M:BitAuto.Services.BusinessCode.BusinessCodeFactory.GetBusinessCodeInstance">
+            <summary>
+            根据配置取得业务编码接口的实例
+            </summary>
+            <returns>返回业务编码的实例，用此对象进行业务编码相关的操作</returns>
+        </member>
+        <member name="M:BitAuto.Services.BusinessCode.IBusinessCode.GetNextBusiTransactionCode(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            取流水号，如果codeName、stringDate指定的流水号序列不存在，
+            则删除原来的流水号序列(与codeName同名的流水号序列)，
+            然后创建codeName、stringDate指定的流水号序列。
+            </summary>
+            <param name="codeName">
+            流水号序列名称，命名规则为：
+            业务对象类的全称，如："BitAuto.TranStar.Car",
+            如果流水号是根据车的类型变化的，流水号名可以加上类型，
+            如："BitAuto.TranStar.Car.Audi"。
+            就是必须保证你起的名字必须是唯一的、BusinessCode服务中不存在的，
+            否则会造成严重的后果，引起其他业务编号的混乱，甚至不可恢复。
+            </param>
+            <param name="beginCode">起始编码</param>
+            <param name="endCode">结束编码</param>
+            <param name="stringDate">流水号日期</param>
+            <param name="suffix">后缀</param>
+            <param name="description">描述</param>
+            <returns>返回当前流水号</returns>
+        </member>
+        <member name="M:BitAuto.Services.BusinessCode.IBusinessCode.CreateBusiCode(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            取流水号，如果codeName、stringDate指定的流水号序列不存在，
+            则删除原来的流水号序列(与codeName同名的流水号序列)，
+            然后创建codeName、stringDate指定的流水号序列。
+            </summary>
+            <param name="codeName">
+            业务编码名称，命名规则为：
+            业务对象类的全称，如："BitAuto.TranStar.Car",
+            如果同一个业务对象有多个编码，加上编码名，
+            如："BitAuto.TranStar.Car.Audi"。
+            就是必须保证你起的名字必须是唯一的、BusinessCode服务中不存在的，
+            否则会造成严重的后果，引起其他业务编号的混乱，甚至不可恢复。
+            </param>
+            <param name="beginCode">起始编码</param>
+            <param name="endCode">结束编码</param>
+            <param name="prefix">前缀</param>
+            <param name="suffix">后缀</param>
+            <param name="description">描述</param>
+        </member>
+        <member name="M:BitAuto.Services.BusinessCode.IBusinessCode.DeleteBusiCode(System.String)">
+            <summary>
+            删除业务编码，慎用本方法，有可能造成严重后果，
+            使用前一定要确认要删除的codeName是否是确实属于你的系统。
+            </summary>
+            <param name="codeName">要删除的业务编码的名称</param>
+        </member>
+        <member name="M:BitAuto.Services.BusinessCode.IBusinessCode.GetNextCode(System.String)">
+            <summary>
+            申请取得下一个业务编码
+            </summary>
+            <param name="codeName">数据库中已经配置了的业务编码名</param>
+            <returns>下一个编码</returns>
+            <exception cref="T:BitAuto.Services.BusinessCode.BusinessCodeApplicatinException">
+                当出现参数不对或并发问题时抛出异常
+            </exception>
+        </member>
+        <member name="M:BitAuto.Services.BusinessCode.IBusinessCode.ReturnCode(System.String,System.String)">
+            <summary>
+            归还业务编码，以便重新使用，当业务编码不允许断号时
+            需要把已申请但不用的业务编码归还，否则会造成业务编码丢失。
+            </summary>
+            <param name="codeName">数据库中配置的业务编码名</param>
+            <param name="codeToReturn">要归还的业务编码</param>
+            <exception cref="T:BitAuto.Services.BusinessCode.BusinessCodeApplicatinException">
+                当出现参数不对或并发问题时抛出异常
+            </exception>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.ConfigurationUtil.GetConfigValue(System.String,System.String)">
+            <summary>
+            Helper method to validate the given configuration value and assign the given default
+            if the configuration value is not valid.
+            </summary>
+            <param name="configValue">value to test.</param>
+            <param name="defaultValue">value to assign if <c>configValue</c> is not valid.</param>
+            <returns>A valid configuration value.</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCache.LoadProvider">
+            <summary>
+            This function loads providers from the App.Config or Web.config file
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCache.GetMultiValue(System.Collections.Generic.IList{System.String})">
+            <summary>
+            获取多个缓存了的值
+            </summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCache.GetMultiValueArray(System.Collections.Generic.IList{System.String})">
+            <summary>
+            以数组形式返回多个缓存了的值
+            </summary>
+            <param name="keys">多个缓存keys</param>
+            <returns>
+               返回值可能为null，数组元素个数与参数keys的元素个数相同，对应key不存在缓存值的元素为null。
+            </returns>
+        </member>
+        <member name="T:BitAuto.Services.Cache.Extend.DistCacheWrapper">
+            <summary>
+            本类是一个缓存封装器，对业务对象（持久化对象）的缓存进行封装，
+            即封装了Memcached，并提供了一些方便方法，
+            使之支持持久化对象的缓存，包括：
+            1、单个对象(主键索引，其他多个唯一属性索引,其他多个组合属性索引)；
+            2、对象数组； 
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.#ctor(System.Type,System.String)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="busiObjType">持久化对象的类型</param>
+            <param name="busiObjIdPropertyName">持久化对象的主键名</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.#ctor(System.Type,System.String,System.String[])">
+            <summary>
+            构造方法
+            </summary>
+            <param name="busiObjType">持久化对象的类型</param>
+            <param name="buisObjIdPropertyName">持久化对象的主键名</param>
+            <param name="singleUniqueIdxes">对持久化对象的多个属性建立单列唯一的索引</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.AddUniqueIdx(System.String[])">
+            <summary>
+            添加联合字段索引值
+            </summary>
+            <param name="uniqueIndexes">字段数组</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.InsertBusiObj(System.Object)">
+            <summary>
+            向缓存中增加一持久化对象
+            默认的过期时间为：5000000ms
+            </summary>
+            <param name="busiObj">持久化对象</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.InsertBusiObj(System.Object,System.Int64)">
+            <summary>
+            向缓存中增加一持久化对象
+            </summary>
+            <param name="busiObj">持久化对象</param>
+            <param name="numberOfMilliSeconds">缓存的时间长度(毫秒)</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.InsertFromQueryMethod(System.Object,System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            向缓存中增加一持久化对象，yourQueryMethod、methodParams参数用于生成不重复的Cache Key
+            </summary>
+            <param name="value">持久化对象</param>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。
+            </param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.InsertFromQueryMethod(System.Object,System.Int64,System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            向缓存中增加一持久化对象，yourQueryMethod、methodParams参数用于生成不重复的Cache Key
+            </summary>
+            <param name="value">持久化对象</param>
+            <param name="numberOfMilliSeconds">缓存的时间长度(毫秒)</param>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。
+            </param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.Insert(System.String,System.Object)">
+            <summary>
+            向缓存中增加一持久化对象
+            </summary>
+            <param name="cacheKey">缓存的Key，注意Key要保持全局唯一，否则会引起严重bug</param>
+            <param name="value">持久化对象</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.Insert(System.String,System.Object,System.Int64)">
+            <summary>
+            向缓存中增加一持久化对象
+            </summary>
+            <param name="cacheKey">缓存的Key，Key中不能带空格等特殊字符，注意Key要保持全局唯一，否则会引起严重bug</param>
+            <param name="value">持久化对象</param>
+            <param name="numberOfMilliSeconds">缓存的时间长度(毫秒)</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.InsertBusiObjs(System.Collections.IList,System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            向缓存中增加数组持久化对象，yourQueryMethod、methodParams参数用于生成不重复的Cache Key
+            </summary>
+            <param name="busiObjs">持久化对象</param>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。</param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.InsertBusiObjs(System.Collections.IList,System.Int64,System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            向缓存中增加一持久化对象，yourQueryMethod、methodParams参数用于生成不重复的Cache Key
+            </summary>
+            <param name="busiObjs">持久化对象</param>
+            <param name="numberOfMilliSeconds">缓存的时间长度(毫秒)</param>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。</param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.GetBusiObj(System.Object)">
+            <summary>
+            根据对象id取得持久对象
+            </summary>
+            <param name="objectId">对象id</param>
+            <returns>持久对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.GetBusiObjBySingleColUniqueIdx(System.String,System.Object)">
+            <summary>
+            根据对象单字段索引属性名和属性值获取持久对象
+            </summary>
+            <param name="singleUniqueIdx">单字段索引属性名</param>
+            <param name="singleUniqueIdxValue">单字段索引属性值</param>
+            <returns>持久对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.GetBusiObjByMultiColsUniqueIdx(System.String[],System.Object[])">
+            <summary>
+             根据对象组合索引属性和对应的值，获取持久对象
+            </summary>
+            <param name="indexColNames">组合索引属性</param>
+            <param name="colValues">组合索引属性值</param>
+            <returns>持久对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.GetBusiObjs(System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            获取数组对象
+            </summary>        
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。</param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+            <returns>持久数组对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.GetFromQueryMethod(System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            	取得缓存中的持久对象
+            </summary>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。
+            </param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+            <returns>持久化对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.Get(System.String)">
+            <summary>
+            	取得缓存中的持久对象
+            </summary>
+            <param name="cacheKey">缓存的Key，Key中不能带空格等特殊字符</param>
+            <returns>持久化对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.GetMultiValue(System.Collections.Generic.IList{System.String})">
+            <summary>
+            获取多个缓存了的值
+            </summary>
+            <param name="keys">多个缓存keys</param>
+            <returns>
+               返回值可能为null
+            </returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.GetMultiValueArray(System.Collections.Generic.IList{System.String})">
+            <summary>
+            以数组形式返回多个缓存了的值
+            </summary>
+            <param name="keys">多个缓存keys</param>
+            <returns>
+               返回值可能为null，数组元素个数与参数keys的元素个数相同，对应key不存在缓存值的元素为null。
+            </returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.RemoveBusiObjByObjectId(System.Object)">
+            <summary>
+            根据对象id移除持久化对象
+            </summary>
+            <param name="objectId">持久对象主键值</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.RemoveFromQueryMethod(System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            移除
+            InsertBusiObjs
+            或
+            public static void Insert(object value, MethodBase yourQueryMethod,params object[] methodParams)
+            或
+            public static void Insert(object value, long numberOfMilliSeconds, MethodBase yourQueryMethod,params object[] methodParams)
+            添加到缓存中的busiObj或busiObjs 
+            </summary>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。
+            </param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.Remove(System.String)">
+            <summary>
+            根据缓存Key移除持久化对象
+            </summary>
+            <param name="cacheKey">缓存的Key，Key中不能带空格等特殊字符</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.DistCacheWrapper.Shutdown">
+            <summary>
+            关闭与Memcached服务器之间的Tcp连接
+            应用关闭时应当调用本方法，否则会造成资源泄漏
+            在Global.asax中通过调用Application_End方法调用，如：
+                void Application_End(object sender, EventArgs e) 
+                {
+                     Code that runs on application shutdown
+                     BitAuto.Services.Cache.DistCacheWrapper.Shutdown();
+                }
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.Cache.Extend.EnyimProvider">
+            <summary>
+            采用Enyim的底层框架
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Cache.Extend.EnyimProvider.m_DefaultExpireTime">
+            <summary>
+            默认过期时间
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Cache.Extend.EnyimProvider.m_ServerList">
+            <summary>
+            服务器列表
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.EnyimProvider.Name">
+            <summary>
+            缓存名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.EnyimProvider.Description">
+            <summary>
+            缓存描述
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.EnyimProvider.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            初始化配置
+            </summary>
+            <param name="name"></param>
+            <param name="config"></param>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.EnyimProvider.Count">
+            <summary>
+            服务器数目
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.EnyimProvider.Servers">
+            <summary>
+            服务器列表
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.EnyimProvider.DefaultExpireTime">
+            <summary>
+            默认过期时间
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.EnyimProvider.KeyExists(System.String)">
+            <summary>
+            查看key是否存在
+            </summary>
+            <param name="cacheKey">缓存key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.EnyimProvider.Add(System.String,System.Object,System.Boolean)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <param name="cacheValue">缓存值</param>
+            <param name="useDefaultExpireTime">默认过期时间</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.Cache.Extend.EnyimProvider.Add(System.String,System.Object)" -->
+        <member name="M:BitAuto.Services.Cache.Extend.EnyimProvider.Add(System.String,System.Object,System.Int64)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <param name="cacheValue">缓存值</param>
+            <param name="numOfMilliSeconds">缓存时间长短，以毫秒为单位</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.EnyimProvider.Get(System.String)">
+            <summary>
+            获取缓存值
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.EnyimProvider.GetMultiValue(System.Collections.Generic.IList{System.String})">
+            <summary>
+            一次获取多个缓存值
+            </summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.EnyimProvider.RemoveAll">
+            <summary>
+            移除全部缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.EnyimProvider.Remove(System.String)">
+            <summary>
+            移除指定缓存,但是为什么要返回缓存对象呢?
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.EnyimProvider.Shutdown">
+            <summary>
+            关闭服务？
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.EnyimProvider.GetStats">
+            <summary>
+            获取统计信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.Cache.Extend.MemcachedCacheProvider">
+            <summary>
+            采用Memcached.ClientLibrary的底层框架
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            provider初始化
+            </summary>
+            <param name="name"></param>
+            <param name="config">配置节及其值</param>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Count">
+            <summary>
+            数量，谁的数量，providers的数量
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Servers">
+            <summary>
+            服务器列表
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.DefaultExpireTime">
+            <summary>
+            默认过期时间
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Add(System.String,System.Object,System.Boolean)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <param name="cacheValue">缓存值</param>
+            <param name="useDefaultExpireTime">默认过期时间</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Add(System.String,System.Object)" -->
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Add(System.String,System.Object,System.Int64)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <param name="cacheValue">缓存值</param>
+            <param name="numOfMilliSeconds">缓存时间长短，以毫秒为单位</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Get(System.String)">
+            <summary>
+            获取缓存值
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.GetMultiValue(System.Collections.Generic.IList{System.String})">
+            <summary>
+            获取多个缓存了的值
+            </summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.RemoveAll">
+            <summary>
+            移除全部缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Remove(System.String)">
+            <summary>
+            移除指定缓存,但是为什么要返回缓存对象呢?
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.Shutdown">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.KeyExists(System.String)">
+            <summary>
+            是否存储key
+            </summary>
+            <param name="cacheKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.GetStats">
+            <summary>
+            获取统计信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.InitializePool(System.String[])">
+            <summary>
+            初始化sockpool
+            </summary>
+            <param name="strServerList"></param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.ShutdownPool">
+            <summary>
+            关闭sockpool
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.GetClient">
+            <summary>
+            获取客户端
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.MemcachedCacheProvider.GetServerArray(System.String)">
+            <summary>
+            获取服务器组
+            </summary>
+            <param name="servers">以，分隔的服务器字符串</param>
+            <returns>服务器组</returns>
+        </member>
+        <member name="T:BitAuto.Services.Cache.Extend.WorkCacheProvider">
+            <summary>
+            采用Memcached.ClientLibrary的底层框架
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.WorkCacheProvider.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.WorkCacheProvider.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            provider初始化
+            </summary>
+            <param name="name"></param>
+            <param name="config">配置节及其值</param>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.WorkCacheProvider.Count">
+            <summary>
+            数量，谁的数量，providers的数量
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.WorkCacheProvider.Servers">
+            <summary>
+            服务器列表
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Extend.WorkCacheProvider.DefaultExpireTime">
+            <summary>
+            默认过期时间
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.Add(System.String,System.Object,System.Boolean)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <param name="cacheValue">缓存值</param>
+            <param name="useDefaultExpireTime">默认过期时间</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.Cache.Extend.WorkCacheProvider.Add(System.String,System.Object)" -->
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.Add(System.String,System.Object,System.Int64)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <param name="cacheValue">缓存值</param>
+            <param name="numOfMilliSeconds">缓存时间长短，以毫秒为单位</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.Get(System.String)">
+            <summary>
+            获取缓存值
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.GetMultiValue(System.Collections.Generic.IList{System.String})">
+            <summary>
+            获取多个缓存了的值
+            </summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.RemoveAll">
+            <summary>
+            移除全部缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.Remove(System.String)">
+            <summary>
+            移除指定缓存,但是为什么要返回缓存对象呢?
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.Shutdown">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.KeyExists(System.String)">
+            <summary>
+            是否存储key
+            </summary>
+            <param name="cacheKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.GetStats">
+            <summary>
+            获取统计信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.InitializePool(System.String[])">
+            <summary>
+            初始化sockpool
+            </summary>
+            <param name="strServerList"></param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.ShutdownPool">
+            <summary>
+            关闭sockpool
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.GetClient">
+            <summary>
+            获取客户端
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.Extend.WorkCacheProvider.GetServerArray(System.String)">
+            <summary>
+            获取服务器组
+            </summary>
+            <param name="servers">以，分隔的服务器字符串</param>
+            <returns>服务器组</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.ConfigurationUtil.GetConfigValue(System.String,System.String)">
+            <summary>
+            Helper method to validate the given configuration value and assign the given default
+            if the configuration value is not valid.
+            </summary>
+            <param name="configValue">value to test.</param>
+            <param name="defaultValue">value to assign if <c>configValue</c> is not valid.</param>
+            <returns>A valid configuration value.</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCache.LoadProvider">
+            <summary>
+            This function loads providers from the App.Config or Web.config file
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCache.GetMultiValue(System.Collections.Generic.IList{System.String})">
+            <summary>
+            获取多个缓存了的值
+            </summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCache.GetMultiValueArray(System.Collections.Generic.IList{System.String})">
+            <summary>
+            以数组形式返回多个缓存了的值
+            </summary>
+            <param name="keys">多个缓存keys</param>
+            <returns>
+               返回值可能为null，数组元素个数与参数keys的元素个数相同，对应key不存在缓存值的元素为null。
+            </returns>
+        </member>
+        <member name="T:BitAuto.Services.Cache.DistCacheWrapper">
+            <summary>
+            本类是一个缓存封装器，对业务对象（持久化对象）的缓存进行封装，
+            即封装了Memcached，并提供了一些方便方法，
+            使之支持持久化对象的缓存，包括：
+            1、单个对象(主键索引，其他多个唯一属性索引,其他多个组合属性索引)；
+            2、对象数组； 
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.#ctor(System.Type,System.String)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="busiObjType">持久化对象的类型</param>
+            <param name="busiObjIdPropertyName">持久化对象的主键名</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.#ctor(System.Type,System.String,System.String[])">
+            <summary>
+            构造方法
+            </summary>
+            <param name="busiObjType">持久化对象的类型</param>
+            <param name="buisObjIdPropertyName">持久化对象的主键名</param>
+            <param name="singleUniqueIdxes">对持久化对象的多个属性建立单列唯一的索引</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.AddUniqueIdx(System.String[])">
+            <summary>
+            添加联合字段索引值
+            </summary>
+            <param name="uniqueIndexes">字段数组</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.InsertBusiObj(System.Object)">
+            <summary>
+            向缓存中增加一持久化对象
+            默认的过期时间为：5000000ms
+            </summary>
+            <param name="busiObj">持久化对象</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.InsertBusiObj(System.Object,System.Int64)">
+            <summary>
+            向缓存中增加一持久化对象
+            </summary>
+            <param name="busiObj">持久化对象</param>
+            <param name="numberOfMilliSeconds">缓存的时间长度(毫秒)</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.InsertFromQueryMethod(System.Object,System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            向缓存中增加一持久化对象，yourQueryMethod、methodParams参数用于生成不重复的Cache Key
+            </summary>
+            <param name="value">持久化对象</param>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。
+            </param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.InsertFromQueryMethod(System.Object,System.Int64,System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            向缓存中增加一持久化对象，yourQueryMethod、methodParams参数用于生成不重复的Cache Key
+            </summary>
+            <param name="value">持久化对象</param>
+            <param name="numberOfMilliSeconds">缓存的时间长度(毫秒)</param>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。
+            </param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.Insert(System.String,System.Object)">
+            <summary>
+            向缓存中增加一持久化对象
+            </summary>
+            <param name="cacheKey">缓存的Key，注意Key要保持全局唯一，否则会引起严重bug</param>
+            <param name="value">持久化对象</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.Insert(System.String,System.Object,System.Int64)">
+            <summary>
+            向缓存中增加一持久化对象
+            </summary>
+            <param name="cacheKey">缓存的Key，Key中不能带空格等特殊字符，注意Key要保持全局唯一，否则会引起严重bug</param>
+            <param name="value">持久化对象</param>
+            <param name="numberOfMilliSeconds">缓存的时间长度(毫秒)</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.InsertBusiObjs(System.Collections.IList,System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            向缓存中增加数组持久化对象，yourQueryMethod、methodParams参数用于生成不重复的Cache Key
+            </summary>
+            <param name="busiObjs">持久化对象</param>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。</param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.InsertBusiObjs(System.Collections.IList,System.Int64,System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            向缓存中增加一持久化对象，yourQueryMethod、methodParams参数用于生成不重复的Cache Key
+            </summary>
+            <param name="busiObjs">持久化对象</param>
+            <param name="numberOfMilliSeconds">缓存的时间长度(毫秒)</param>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。</param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.GetBusiObj(System.Object)">
+            <summary>
+            根据对象id取得持久对象
+            </summary>
+            <param name="objectId">对象id</param>
+            <returns>持久对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.GetBusiObjBySingleColUniqueIdx(System.String,System.Object)">
+            <summary>
+            根据对象单字段索引属性名和属性值获取持久对象
+            </summary>
+            <param name="singleUniqueIdx">单字段索引属性名</param>
+            <param name="singleUniqueIdxValue">单字段索引属性值</param>
+            <returns>持久对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.GetBusiObjByMultiColsUniqueIdx(System.String[],System.Object[])">
+            <summary>
+             根据对象组合索引属性和对应的值，获取持久对象
+            </summary>
+            <param name="indexColNames">组合索引属性</param>
+            <param name="colValues">组合索引属性值</param>
+            <returns>持久对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.GetBusiObjs(System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            获取数组对象
+            </summary>        
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。</param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+            <returns>持久数组对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.GetFromQueryMethod(System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            	取得缓存中的持久对象
+            </summary>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。
+            </param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+            <returns>持久化对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.Get(System.String)">
+            <summary>
+            	取得缓存中的持久对象
+            </summary>
+            <param name="cacheKey">缓存的Key，Key中不能带空格等特殊字符</param>
+            <returns>持久化对象</returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.GetMultiValue(System.Collections.Generic.IList{System.String})">
+            <summary>
+            获取多个缓存了的值
+            </summary>
+            <param name="keys">多个缓存keys</param>
+            <returns>
+               返回值可能为null
+            </returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.GetMultiValueArray(System.Collections.Generic.IList{System.String})">
+            <summary>
+            以数组形式返回多个缓存了的值
+            </summary>
+            <param name="keys">多个缓存keys</param>
+            <returns>
+               返回值可能为null，数组元素个数与参数keys的元素个数相同，对应key不存在缓存值的元素为null。
+            </returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.RemoveBusiObjByObjectId(System.Object)">
+            <summary>
+            根据对象id移除持久化对象
+            </summary>
+            <param name="objectId">持久对象主键值</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.RemoveFromQueryMethod(System.Reflection.MethodBase,System.Object[])">
+            <summary>
+            移除
+            InsertBusiObjs
+            或
+            public static void Insert(object value, MethodBase yourQueryMethod,params object[] methodParams)
+            或
+            public static void Insert(object value, long numberOfMilliSeconds, MethodBase yourQueryMethod,params object[] methodParams)
+            添加到缓存中的busiObj或busiObjs 
+            </summary>
+            <param name="yourQueryMethod">
+            	调用本操作的方法，可以通过MethodBase.GetCurrentMethod()
+            	获得本参数的值。
+            </param>
+            <param name="methodParams">调用本操作的方法的参数</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.Remove(System.String)">
+            <summary>
+            根据缓存Key移除持久化对象
+            </summary>
+            <param name="cacheKey">缓存的Key，Key中不能带空格等特殊字符</param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.DistCacheWrapper.Shutdown">
+            <summary>
+            关闭与Memcached服务器之间的Tcp连接
+            应用关闭时应当调用本方法，否则会造成资源泄漏
+            在Global.asax中通过调用Application_End方法调用，如：
+                void Application_End(object sender, EventArgs e) 
+                {
+                     Code that runs on application shutdown
+                     BitAuto.Services.Cache.DistCacheWrapper.Shutdown();
+                }
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.Cache.EnyimProvider">
+            <summary>
+            采用Enyim的底层框架
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Cache.EnyimProvider.m_DefaultExpireTime">
+            <summary>
+            默认过期时间
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.Cache.EnyimProvider.m_ServerList">
+            <summary>
+            服务器列表
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.EnyimProvider.Name">
+            <summary>
+            缓存名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.EnyimProvider.Description">
+            <summary>
+            缓存描述
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.EnyimProvider.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            初始化配置
+            </summary>
+            <param name="name"></param>
+            <param name="config"></param>
+        </member>
+        <member name="P:BitAuto.Services.Cache.EnyimProvider.Count">
+            <summary>
+            服务器数目
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.EnyimProvider.Servers">
+            <summary>
+            服务器列表
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.EnyimProvider.DefaultExpireTime">
+            <summary>
+            默认过期时间
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.EnyimProvider.KeyExists(System.String)">
+            <summary>
+            查看key是否存在
+            </summary>
+            <param name="cacheKey">缓存key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.EnyimProvider.Add(System.String,System.Object,System.Boolean)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <param name="cacheValue">缓存值</param>
+            <param name="useDefaultExpireTime">默认过期时间</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.Cache.EnyimProvider.Add(System.String,System.Object)" -->
+        <member name="M:BitAuto.Services.Cache.EnyimProvider.Add(System.String,System.Object,System.Int64)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <param name="cacheValue">缓存值</param>
+            <param name="numOfMilliSeconds">缓存时间长短，以毫秒为单位</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.EnyimProvider.Get(System.String)">
+            <summary>
+            获取缓存值
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.EnyimProvider.GetMultiValue(System.Collections.Generic.IList{System.String})">
+            <summary>
+            一次获取多个缓存值
+            </summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.EnyimProvider.RemoveAll">
+            <summary>
+            移除全部缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.EnyimProvider.Remove(System.String)">
+            <summary>
+            移除指定缓存,但是为什么要返回缓存对象呢?
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.EnyimProvider.Shutdown">
+            <summary>
+            关闭服务？
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.EnyimProvider.GetStats">
+            <summary>
+            获取统计信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.Cache.MemcachedCacheProvider">
+            <summary>
+            采用Memcached.ClientLibrary的底层框架
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.MemcachedCacheProvider.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.MemcachedCacheProvider.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            provider初始化
+            </summary>
+            <param name="name"></param>
+            <param name="config">配置节及其值</param>
+        </member>
+        <member name="P:BitAuto.Services.Cache.MemcachedCacheProvider.Count">
+            <summary>
+            数量，谁的数量，providers的数量
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.MemcachedCacheProvider.Servers">
+            <summary>
+            服务器列表
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.MemcachedCacheProvider.DefaultExpireTime">
+            <summary>
+            默认过期时间
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.Add(System.String,System.Object,System.Boolean)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <param name="cacheValue">缓存值</param>
+            <param name="useDefaultExpireTime">默认过期时间</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.Cache.MemcachedCacheProvider.Add(System.String,System.Object)" -->
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.Add(System.String,System.Object,System.Int64)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <param name="cacheValue">缓存值</param>
+            <param name="numOfMilliSeconds">缓存时间长短，以毫秒为单位</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.Get(System.String)">
+            <summary>
+            获取缓存值
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.GetMultiValue(System.Collections.Generic.IList{System.String})">
+            <summary>
+            获取多个缓存了的值
+            </summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.RemoveAll">
+            <summary>
+            移除全部缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.Remove(System.String)">
+            <summary>
+            移除指定缓存,但是为什么要返回缓存对象呢?
+            </summary>
+            <param name="cacheKey">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.Shutdown">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.KeyExists(System.String)">
+            <summary>
+            是否存储key
+            </summary>
+            <param name="cacheKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.GetStats">
+            <summary>
+            获取统计信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.InitializePool(System.String[])">
+            <summary>
+            初始化sockpool
+            </summary>
+            <param name="strServerList"></param>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.ShutdownPool">
+            <summary>
+            关闭sockpool
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.GetClient">
+            <summary>
+            获取客户端
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.Cache.MemcachedCacheProvider.GetServerArray(System.String)">
+            <summary>
+            获取服务器组
+            </summary>
+            <param name="servers">以，分隔的服务器字符串</param>
+            <returns>服务器组</returns>
+        </member>
+        <member name="T:BitAuto.Services.Cache.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Resource.No_Cache_Server">
+            <summary>
+              Looks up a localized string similar to No cache server is specified.
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.Cache.Resource.Unable_to_add">
+            <summary>
+              Looks up a localized string similar to Unable to add element to cache.
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.DBAccessor.AsynThreadHolder">
+            <summary>
+            异步写入日志线程控制类
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.AsynThreadHolder.Start">
+            <summary>
+            启动日志对象写入线程
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.AsynThreadHolder.Stop">
+            <summary>
+            关闭日志对象写入线程
+            主线程必须等待该线程结束后才能结束
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.AsynThreadHolder.WorkCycle">
+            <summary>
+            日志写入线程工作循环
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.AsynThreadHolder.AddModelToQueue(System.String)">
+            <summary>
+            添加日志对象到写入队列
+            </summary>
+            <param name="description">操作描述</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.AsynThreadHolder.AddModelToQueue(System.String,BitAuto.Services.OpLog.ILogPara)">
+            <summary>
+            添加日志对象到写入队列
+            </summary>
+            <param name="description">操作描述</param>
+            <param name="para">操作参数</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.AsynThreadHolder.AddModelToQueue(System.String,System.Collections.Hashtable)">
+            <summary>
+            添加日志对象到写入队列
+            </summary>
+            <param name="description">操作描述</param>
+            <param name="htCustom">详细操作信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.AsynThreadHolder.AddModelToQueue(System.String,BitAuto.Services.OpLog.ILogPara,System.Collections.Hashtable)">
+            <summary>
+            添加日志对象到写入队列
+            </summary>
+            <param name="description">操作描述</param>
+            <param name="para">操作参数</param>
+            <param name="htCustom">详细操作信息</param>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel">
+            <summary>
+            由Windows服务提供的数据库处理类。
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.Write(System.String)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.Write(System.String,BitAuto.Services.OpLog.ILogPara)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="para">用户信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.Write(System.String,System.Collections.Hashtable)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="custom">自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.Write(System.String,BitAuto.Services.OpLog.ILogPara,System.Collections.Hashtable)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="para">用户信息</param>
+            <param name="custom">自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.Delete(System.Int32)">
+            <summary>
+            删除指定的日志记录。
+            </summary>
+            <param name="OptID">记录ID。OptID</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.GetAllLogs(BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取所有日志信息，不包括与这些记录对应的详细信息。
+            </summary>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.GetAllLogs(System.String[],BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取所有日志信息，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.GetLogList(System.String,BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取符合条件的日志信息，不包括与这些记录对应的详细信息。
+            </summary>
+            <param name="where">记录获取条件，不能在这里对详细信息中的字段进行过滤</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.GetLogList(System.String[],System.String,BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取符合条件的日志信息，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="where">记录获取条件</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.GetLogModel(System.String)">
+            <summary>
+            获取一条符合条件的日志记录，不包括与该记录对应的详细信息。
+            </summary>
+            <param name="where">记录获取条件，不能在这里对详细信息中的字段进行过滤</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.GetLogModel(System.String[],System.String)">
+            <summary>
+            获取一条符合条件的日志记录，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="where">记录获取条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogAccessorModel.GetLogDetail(System.Int32)">
+            <summary>
+            根据提供的日志记录ID，获得这条记录对应的详细信息。
+            </summary>
+            <param name="OptId">日志记录的 OptID</param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.DBAccessor.DBLogReader">
+            <summary>
+            以数据库特定表为目标的日志读取器
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogReader.GetAllLogs(BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取所有日志信息，不包括与这些记录对应的详细信息。
+            </summary>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogReader.GetAllLogs(System.String[],BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取所有日志信息，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogReader.GetLogList(System.String,BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取符合条件的日志信息，不包括与这些记录对应的详细信息。
+            </summary>
+            <param name="where">记录获取条件，不能在这里对详细信息中的字段进行过滤</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogReader.GetLogList(System.String[],System.String,BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取符合条件的日志信息，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="where">记录获取条件</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogReader.GetLogModel(System.String)">
+            <summary>
+            获取一条符合条件的日志记录，不包括与该记录对应的详细信息。
+            </summary>
+            <param name="where">记录获取条件，不能在这里对详细信息中的字段进行过滤</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogReader.GetLogModel(System.String[],System.String)">
+            <summary>
+            获取一条符合条件的日志记录，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="where">记录获取条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogReader.GetLogDetail(System.Int32)">
+            <summary>
+            根据提供的日志记录ID，获得这条记录对应的详细信息。
+            </summary>
+            <param name="OptId">日志记录的 OptID</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogReader.CoordinateDataSource(System.String[],System.String,BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            整理获取数据的条件。
+            </summary>
+            <param name="fields"></param>
+            <param name="where"></param>
+            <param name="pager"></param>
+            <param name="rowsCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogReader.GetData(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32@)">
+            <summary>
+            从数据库读取数据集的方法
+            </summary>
+            <param name="pageIndex">页索引</param>
+            <param name="pageSize">每页大小</param>
+            <param name="selectFields">查询字段名</param>
+            <param name="tableNames">查询表名</param>
+            <param name="strWhere">查询条件</param>
+            <param name="groupField">分组条件</param>
+            <param name="orderField">排序条件</param>
+            <param name="pkField">主键字段</param>
+            <param name="rows">总行数</param>
+            <returns>当前页的数据集</returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogReader.GetFlatData(System.Data.DataSet,System.String[])">
+            <summary>
+            拉平数据集中的数据
+            </summary>
+            <param name="ds">数据集</param>
+            <param name="fields">字段数组</param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.DBAccessor.DBLogWritter">
+            <summary>
+            以数据库特定表为目标的记录器
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogWritter.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogWritter.Write(System.String)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogWritter.Write(System.String,BitAuto.Services.OpLog.ILogPara)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="para">用户信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogWritter.Write(System.String,System.Collections.Hashtable)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="custom">自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogWritter.Write(System.String,BitAuto.Services.OpLog.ILogPara,System.Collections.Hashtable)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="para">用户信息</param>
+            <param name="custom">自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBLogWritter.Delete(System.Int32)">
+            <summary>
+            删除指定的日志记录。
+            </summary>
+            <param name="OptID">记录ID。OptID</param>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.DBAccessor.DBReaderWrapper">
+            <summary>
+            日志读取器包装器
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBReaderWrapper.GetAllLogs(BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取所有日志信息，不包括与这些记录对应的详细信息。
+            </summary>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBReaderWrapper.GetAllLogs(System.String[],BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取所有日志信息，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBReaderWrapper.GetLogList(System.String,BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取符合条件的日志信息，不包括与这些记录对应的详细信息。
+            </summary>
+            <param name="where">记录获取条件，不能在这里对详细信息中的字段进行过滤</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBReaderWrapper.GetLogList(System.String[],System.String,BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取符合条件的日志信息，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="where">记录获取条件</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBReaderWrapper.GetLogModel(System.String)">
+            <summary>
+            获取一条符合条件的日志记录，不包括与该记录对应的详细信息。
+            </summary>
+            <param name="where">记录获取条件，不能在这里对详细信息中的字段进行过滤</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBReaderWrapper.GetLogModel(System.String[],System.String)">
+            <summary>
+            获取一条符合条件的日志记录，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="where">记录获取条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBReaderWrapper.GetLogDetail(System.Int32)">
+            <summary>
+            根据提供的日志记录ID，获得这条记录对应的详细信息。
+            </summary>
+            <param name="OptId">日志记录的 OptID</param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.DBAccessor.DBWritterWrapper">
+            <summary>
+            日志记录器包装器
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBWritterWrapper.Write(System.String)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBWritterWrapper.Write(System.String,BitAuto.Services.OpLog.ILogPara)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="para">用户信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBWritterWrapper.Write(System.String,System.Collections.Hashtable)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="custom">自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBWritterWrapper.Write(System.String,BitAuto.Services.OpLog.ILogPara,System.Collections.Hashtable)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="para">用户信息</param>
+            <param name="custom">自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.DBAccessor.DBWritterWrapper.Delete(System.Int32)">
+            <summary>
+            删除指定的日志记录。
+            </summary>
+            <param name="OptID">记录ID。OptID</param>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.Interface.ILogModel">
+            <summary>
+            日志实体接口
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.Interface.ILogModel.WriteLog">
+            <summary>
+            日志实体写入方法
+            </summary>
+            <returns>写如是否成功</returns>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.ILogPara">
+            <summary>
+            日志参数接口，实现它的类必须标记为可序列化
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.ILogPara.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.ILogPara.ClientIP">
+            <summary>
+            用户IP
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.ILogPara.OccurredTime">
+            <summary>
+            操作时间
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.ILogPara.SystemName">
+            <summary>
+            系统名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.ILogPara.ModelName">
+            <summary>
+            功能块名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.ILogPara.OperationType">
+            <summary>
+            操作类型描述
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.ILogPara.SetDefaultOption">
+            <summary>
+            将所有属性设为默认值
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.IReader">
+            <summary>
+            操作日志读取器
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IReader.GetAllLogs(BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取所有日志信息，不包括与这些记录对应的详细信息。
+            </summary>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IReader.GetAllLogs(System.String[],BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取所有日志信息，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IReader.GetLogList(System.String,BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取符合条件的日志信息，不包括与这些记录对应的详细信息。
+            </summary>
+            <param name="where">记录获取条件，不能在这里对详细信息中的字段进行过滤</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IReader.GetLogList(System.String[],System.String,BitAuto.Services.OpLog.PagerHelper,System.Int32@)">
+            <summary>
+            获取符合条件的日志信息，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="where">记录获取条件</param>
+            <param name="pager">分页参数</param>
+            <param name="rowsCount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IReader.GetLogModel(System.String)">
+            <summary>
+            获取一条符合条件的日志记录，不包括与该记录对应的详细信息。
+            </summary>
+            <param name="where">记录获取条件，不能在这里对详细信息中的字段进行过滤</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IReader.GetLogModel(System.String[],System.String)">
+            <summary>
+            获取一条符合条件的日志记录，包括指定的所有字段。
+            </summary>
+            <param name="fields">字段名数组，写入日志时的详细信息的 Key</param>
+            <param name="where">记录获取条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IReader.GetLogDetail(System.Int32)">
+            <summary>
+            根据提供的日志记录ID，获得这条记录对应的详细信息。
+            </summary>
+            <param name="OptId">日志记录的 OptID</param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.IWritter">
+            <summary>
+            操作日志记录器
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IWritter.Write(System.String)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IWritter.Write(System.String,BitAuto.Services.OpLog.ILogPara)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="para">用户信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IWritter.Write(System.String,System.Collections.Hashtable)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="custom">自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IWritter.Write(System.String,BitAuto.Services.OpLog.ILogPara,System.Collections.Hashtable)">
+            <summary>
+            将操作信息写入数据库。
+            </summary>
+            <param name="description">操作描述。</param>
+            <param name="para">用户信息</param>
+            <param name="custom">自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.IWritter.Delete(System.Int32)">
+            <summary>
+            删除指定的日志记录。
+            </summary>
+            <param name="OptID">记录ID。OptID</param>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.LogParameter">
+            <summary>
+            日志参数类接口。
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.LogParameter.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.LogParameter.UserName">
+            <summary>
+            用户名，默认使用用户的 Identity 信息
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.LogParameter.ClientIP">
+            <summary>
+            用户IP
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.LogParameter.OccurredTime">
+            <summary>
+            操作时间
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.LogParameter.SystemName">
+            <summary>
+            系统名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.LogParameter.ModelName">
+            <summary>
+            功能模块名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.LogParameter.OperationType">
+            <summary>
+            操作类型描述
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.LogParameter.SetDefaultOption">
+            <summary>
+            将所有属性设为默认值
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.LogSet">
+            <summary>
+            日志管理器。
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.LogSet.#ctor">
+            <summary>
+            禁止创建该类型对象
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.LogSet.CreateWritter">
+            <summary>
+            创建一个日志记录器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.LogSet.CreateReader">
+            <summary>
+            创建一个日志读取器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.PagerHelper">
+            <summary>
+            分页参数
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.PagerHelper.PageSize">
+            <summary>
+            页面大小
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.PagerHelper.PageIndex">
+            <summary>
+            当前页码
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.PagerHelper.#ctor">
+            <summary>
+            默认构造函数，初始化为第1页，每页10条记录
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.PagerHelper.#ctor(System.Int32,System.Int32)">
+            <summary>
+            用参数初始化实例
+            </summary>
+            <param name="size">页面记录数</param>
+            <param name="index">页码</param>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.PagerHelper.CreateInstance(System.Int32,System.Int32)">
+            <summary>
+            获取分页参数实例
+            </summary>
+            <param name="size">页面记录数</param>
+            <param name="index">页码</param>
+            <returns></returns>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.Util.ConfigReader.SystemName">
+            <summary>
+            获取用户配置的默认系统名称
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.Util.ConfigReader.RemotingTcpUrl">
+            <summary>
+            远程服务地址
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.Util.ConfigReader.PagedProcedureName">
+            <summary>
+            分页存储过程名字
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.Util.ConfigReader.PrimaryFieldsName">
+            <summary>
+            主表键列表
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.Util.ConfigReader.AsynWaitTime">
+            <summary>
+            异步写入日志等待时间
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.Util.ConfigReader.MailFrom">
+            <summary>
+            错误邮件发送地址
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.Util.ConfigReader.MailPassWord">
+            <summary>
+            错误邮件发送密码
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.Util.ConfigReader.MailTo">
+            <summary>
+            错误邮件接收地址
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.OpLog.Util.ConfigReader.MailServerAddress">
+            <summary>
+            错误邮件接收地址
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.Util.MailSender.SendMail(System.String)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="description">邮件内容</param>
+        </member>
+        <member name="T:BitAuto.Services.OpLog.Util.Parser">
+            <summary>
+            提供用户自定义信息到数据库实体类的转换服务的帮助器类。
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.Util.Parser.#ctor">
+            <summary>
+            禁止生成该对象实例。
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.Util.Parser.ParseOperationLog(BitAuto.Services.OpLog.ILogPara,System.String)">
+            <summary>
+            将记录参数内容转换为 OperationLog 对象。
+            </summary>
+            <param name="para">日志参数</param>
+            <param name="description">操作描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.Util.Parser.ParseOperationDetail(System.Object,System.Object)">
+            <summary>
+            将键/值对转换为 OperationDetail 对象。
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.Util.Parser.ParseInt(System.Object)">
+            <summary>
+            转换类型--int
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.OpLog.Util.Parser.ParseString(System.Object)">
+            <summary>
+            转换类型--string
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.SingleSignOn.AuthenHttpHandler">
+            <summary>
+            本类是一个aspx页面handler类，
+            截获对单点登录相关页面的访问并进行处理，
+            域名的根应用的Web.Config中应当做如下配置：
+            <![CDATA[
+            <location path="SingleSignOn">
+                <system.web>
+                    <httpHandlers>
+                        <remove verb="*" path="*.aspx"/>
+                        <add verb="GET,HEAD" path="*.aspx" type="BitAuto.Services.SingleSignOn.AuthenHttpHandler" validate="false"/>
+                    </httpHandlers>
+                    <authorization>
+                        <allow users="*"/>
+                    </authorization>
+                </system.web>
+            </location>
+            ]]>
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.SingleSignOn.AuthenHttpHandler.IsReusable">
+            <summary>
+            指明本HttpHandler是否线程安全
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenHttpHandler.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            IHttpHandler 的核心处理方法
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:BitAuto.Services.SingleSignOn.AuthenHttpModule">
+            <summary>
+            本Module的功能是用户登录后，当访问任何一个aspx页面时
+            透明的附加客户端处理机制(如iframe或重定向)，
+            把其他应用（或网站）的认证凭据Cookie写到浏览器中
+            必须在Web.Config文件中注册本Module，配置例子如下：
+            <![CDATA[    
+                <system.web>
+                    <httpModules>
+                        <add name="SingleSignOnHttpModule" type="BitAuto.Services.SingleSignOn.AuthenHttpModule"/>
+                   </httpModules>
+                </system.web>
+            ]]>
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenHttpModule.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenHttpModule.Init(System.Web.HttpApplication)">
+            <summary>
+            HttpModule初始化方法，在本法中注册要处理的事件
+            </summary>
+            <param name="application"></param>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenHttpModule.IsNeedClientProcessing(System.Web.HttpContext)">
+            <summary>
+            是否需要嵌入浏览器端处理
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.SingleSignOn.AuthenUtils">
+            <summary>
+            单点登录工具类
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.SingleSignOn.AuthenUtils.HttpUrlHeader">
+            <summary>
+            http Url协议头
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.SingleSignOn.AuthenUtils.HttpsUrlHeader">
+            <summary>
+            https Url协议头
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenUtils.CreateWholePageUrls(System.String[],System.String)">
+            <summary>
+            把pageUrl参数拼接到webSites中的每个字符串的后面
+            </summary>
+            <param name="webSites">进行单点登录的网站或应用的Url</param>
+            <param name="pageUrl">不包含路径的页面及参数的Url</param>
+            <returns>拼接后的Url</returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenUtils.CreateHideImgs(System.String[])">
+            <summary>
+            根据字符串数组destUrls创建隐藏多个img元素
+            </summary>
+            <param name="destUrls">多个img元素的Url地址</param>
+            <returns>包含多个img元素的Html文档片断</returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenUtils.CreateAutoRedirectUrl(System.String,System.String)">
+            <summary>
+            创建登入或登出过度页（网关页）的完整Url
+            </summary>
+            <param name="middlePage">过度页（不包含path）</param>
+            <param name="returnUrl">过度页执行完后应该重定向到的目标页</param>
+            <returns>
+            登入或登出过度页（网关页）的完整Url，
+            包括过度页执行完后应该重定向到的目标页，
+            这个目标页也是含有path的完整Url
+            </returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenUtils.CreateWholePageUrl(System.String,System.String)">
+            <summary>
+            把pageUrl参数拼接到pathUrl的后面
+            </summary>
+            <param name="pathUrl">进行单点登录的网站或应用的Url</param>
+            <param name="pageUrl">不包含路径的页面及参数的Url</param>
+            <returns>拼接后的Url</returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenUtils.CreateHideImg(System.String)">
+            <summary>
+            创建隐藏单个img元素
+            </summary>
+            <param name="destUrl">img元素的src属性的值</param>
+            <returns>单个img元素</returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenUtils.GetApplicationUrl(System.Boolean)">
+            <summary>
+            取得当前应用带有域名的完整Url
+            </summary>
+            <param name="isUseSsl">是否取带https头的Url</param>
+            <returns>当前应用带有域名的Url</returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenUtils.GetHttpDomain(System.Boolean)">
+            <summary>
+            取当前应用所在域名的Url
+            </summary>
+            <param name="isUseSsl">是否取头为https的Url</param>
+            <returns>当前应用所在域名的Url</returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.AuthenUtils.FormatReturnUrl(System.String)">
+            <summary>
+            对登录完成后重定向到的目标页Url进行补全，使之成为完整的Url，
+            目的是使之可以从https跳转到http。
+            </summary>
+            <param name="returnUrl">登录完成后应该重定向到的目标页Url</param>
+            <returns>登录完成后应该重定向到的目标页的完整Url</returns>
+            <remarks>如果returnUrl参数是相对路径，则返回不带https头(即带http头)的Url</remarks>
+        </member>
+        <member name="T:BitAuto.Services.SingleSignOn.SingleSignOnConfiguration">
+            <summary>
+            单点登录的配置获取类
+            Web.Config中应当做如下配置,除authentication Tag外，
+            配置在所有单点登录涉及到网站中的配置都应当保持一致，
+            如果单点登录只涉及到某个网站的某个虚拟目录，
+            如:http://www.bitauto.com/Forum 
+            则authentication Tag中的forms的path属性应当配置为：/Forum，
+            并且与虚拟目录的大小写保持一致。
+            <![CDATA[
+                <configSections>
+                    <section name="SingleSignOn" type="BitAuto.Services.SingleSignOn.SingleSignOnConfigurationSectionHandler, BitAuto.Services.SingleSignOn"/>
+                </configSections>
+                <SingleSignOn>
+                    <WebSites>
+                        <add WebSite="http://www.bitauto.com/"/>
+                        <add WebSite="http://www.ucar.com/"/>
+                        <add WebSite="http://www.baa.com.cn/"/>
+                    </WebSites>
+                </SingleSignOn>    
+                <system.web>
+                   <httpModules>
+                        <add name="SingleSignOnHttpModule" type="BitAuto.Services.SingleSignOn.AuthenHttpModule"/>
+                   </httpModules>
+                   <authentication mode="Forms">
+                        <forms loginUrl="Login.aspx" protection="Encryption" timeout="1440" path="/"/>
+                   </authentication>
+                   <machineKey
+                         validationKey="C50B3C89CB21F4F1422FF158A5B42D0E8DB8CB5CDA1742572A487D9401E3400267682B202B746511891C1BAF47F8D25C07F6C39A104696DB51F17C529AD3CABE"
+                         decryptionKey="8A9BE8FD67AF6979E7D20198CFEA50DD3D3799C77AF2B72F"
+                         validation="SHA1" />
+                </system.web>
+                <location path="SingleSignOn">
+                    <system.web>
+                        <httpHandlers>
+                            <remove verb="*" path="*.aspx"/>
+                            <add verb="GET,HEAD" path="*.aspx" type="BitAuto.Services.SingleSignOn.AuthenHttpHandler" validate="false"/>
+                        </httpHandlers>
+                        <authorization>
+                            <allow users="*"/>
+                        </authorization>
+                    </system.web>
+                </location>
+            ]]>
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.SingleSignOnConfiguration.GetSigleSignOnWebSites">
+            <summary>
+            获得当前配置文件中的单点登录网站网址
+            是从Web.Config中的如下配置取得的
+            <![CDATA[
+                <configSections>
+                    <section name="SingleSignOn" type="BitAuto.Services.SingleSignOn.SingleSignOnConfigurationSectionHandler, BitAuto.Services.SingleSignOn"/>
+                </configSections>
+                <SingleSignOn>
+                    <WebSites>
+                        <add WebSite="http://www.bitauto.com/"/>
+                        <add WebSite="http://www.ucar.com/"/>
+                        <add WebSite="http://www.baa.com.cn/"/>
+                    </WebSites>
+                </SingleSignOn>    
+            ]]>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.SingleSignOnConfiguration.IsUseLoginGatewayPage">
+            <summary>
+            是否使用登入"网关页"
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.SingleSignOnConfiguration.GetLoginGatewayPageTimeout">
+            <summary>
+            登入"网关页"的超时时间
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.SingleSignOnConfiguration.GetLogoutPageTimeout">
+            <summary>
+            登出"网关页"的超时时间
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.SingleSignOnConfiguration.IsUseSsl">
+            <summary>
+            是否使用Https登录
+            </summary>
+            <returns>true——是，false——否</returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.SingleSignOnConfiguration.GetCookieDomains">
+            <summary>
+            取得多主机头应用登录Cookie可以写入的域名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.CookieManager.WriteAuthenCookie(System.Web.HttpContext,System.String,System.Boolean,System.Nullable{System.DateTime})">
+            <summary>
+            生成验证凭据并把验证凭据的Cookie写到浏览器
+            </summary>
+            <param name="context"><see cref="T:System.Web.HttpContext"/></param>
+            <param name="userName">用户名</param>
+            <param name="isPersistent">是否把保存验证凭据的Cookie持久化到客户端</param>
+            <param name="expiresTime">
+            验证凭据的过期时间，
+            当isPersistent为true时，也是保存验证凭据的Cookie的过期时间
+            </param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.SingleSignOn.CookieManager.CreateLoginHideImgs(System.Web.HttpContext)" -->
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.SingleSignOn.CookieManager.CreateLoginHideImgs(System.Web.HttpContext,System.String[])" -->
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.SingleSignOn.CookieManager.CreateLogoutHideImgs" -->
+        <member name="T:BitAuto.Services.SingleSignOn.ICustomSsoProcess">
+            <summary>
+            单点登录客户化接口，需要执行应用相关代码的实现此接口，
+            并在SingleSignOn配置节的CustomSsoProcess属性中指定类名
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.ICustomSsoProcess.InitAfterLogin(System.String)">
+            <summary>
+            登录成功后初始化
+            </summary>
+            <param name="userName">当前登录的用户名</param>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.ICustomSsoProcess.CleanBeforeLogout">
+            <summary>
+            登出前清除处理
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.SingleSignOn.LoginProcessor">
+            <summary>
+            单点登录的入口类，需要纳入单点登录的应用的登录页面
+            都需要调用本类的两个入口方法之一: Login、ProcessPassedValidation;
+            Login方法的实现是：先使用UserManager服务认证用户，然后调用ProcessPassedValidation方法;
+            当不使用UserManager服务认证用户时，程序员自己处理用户认证，认证通过后调用ProcessPassedValidation方法;
+            Web.Config 中需要添加一些配置，参见单点登录Demo。
+            当Web.Config中配置IsUseLoginGatewayPage="true"时，用户认证通过后必须调用RedirectAfterLogin方法
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.LoginProcessor.Login(System.String,System.String)">
+            <summary>
+            进行用户登录处理，先验证用户名/密码是否正确，
+            如正确生成验证凭据和保存验证凭据的Cookie
+            </summary>
+            <param name="userName">用户名</param>
+            <param name="password">密码</param>
+            <returns>
+                返回验证结果<see cref="T:BitAuto.Services.UserManager.ValidationResult"/>
+            </returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.LoginProcessor.Login(System.String,System.String,System.Boolean,System.Nullable{System.DateTime})">
+            <summary>
+            进行用户登录处理，先验证用户名/密码是否正确，
+            如正确生成验证凭据和保存验证凭据的Cookie
+            </summary>
+            <param name="userName">用户名</param>
+            <param name="password">密码</param>
+            <param name="isPersistent">
+                是否把保存验证凭据的Cookie持久化到客户端
+            </param>
+            <param name="expiresTime">
+                验证凭据的过期时间，
+                当isPersistent为true时，也是保存验证凭据的Cookie的过期时间
+            </param>
+            <remarks>
+                当isPersistent为true时，必须指定expiresTime(不为null)才把认证Cookie写到客户端硬盘上。
+                当Web.Config中配置IsUseLoginGatewayPage="true"时，用户认证通过后必须调用RedirectAfterLogin方法
+            </remarks>
+            <returns>
+                返回验证结果<see cref="T:BitAuto.Services.UserManager.ValidationResult"/>
+            </returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.LoginProcessor.ProcessPassedValidation(System.String,System.Boolean,System.Nullable{System.DateTime})">
+            <summary>
+            验证用户名/密码正确后调用本方法，
+            生成验证凭据和保存验证凭据的Cookie
+            </summary>
+            <param name="userName">用户名</param>
+            <param name="isPersistent">是否把保存验证凭据的Cookie持久化到客户端</param>
+            <param name="expiresTime">
+            验证凭据的过期时间，
+            当isPersistent为true时，也是保存验证凭据的Cookie的过期时间
+            </param>
+            <remarks>
+                当isPersistent为true时，必须指定expiresTime(不为null)才把认证Cookie写到客户端硬盘上
+            </remarks>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.LoginProcessor.RedirectAfterLogin(System.String)">
+            <summary>
+            登录完成后调用本方法重定向请求到原始请求页面或网站的默认页面
+            <see cref="M:System.Web.Security.FormsAuthentication.RedirectFromLoginPage(System.String,System.Boolean)"/>
+            </summary>
+            <param name="userName">目的地址</param>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.LoginProcessor.RedirectAfterLogin(System.String,System.String)">
+            <summary>
+            登录完成后调用本方法重定向请求到原始请求页面或网站的默认页面
+            </summary>
+            <param name="userName">当前登录的用户名</param>
+            <param name="returnUrl">目的地址</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.SingleSignOn.LoginProcessor.LoginAsync(System.String,System.String,System.String@)" -->
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.SingleSignOn.LoginProcessor.LoginAsync(System.String,System.String,System.Boolean,System.Nullable{System.DateTime},System.String@)" -->
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.SingleSignOn.LoginProcessor.ProcessPassedValidationAsync(System.String,System.Boolean,System.Nullable{System.DateTime})" -->
+        <member name="T:BitAuto.Services.SingleSignOn.LogoutProcessor">
+            <summary>
+            登出相关处理
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.LogoutProcessor.GetLogoutUrl">
+            <summary>
+            取得登出Url：~/SingleSignOn/Logout.aspx
+            如果当前不需要登录就能访问，登出后浏览器显示的页面是当前页面，
+            否则显示登录页面
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.LogoutProcessor.GetLogoutUrl(System.String)">
+            <summary>
+            取得登出Url,型如:~/SingleSignOn/Logout.aspx?ReturnUrl=XXXX
+            </summary>
+            <param name="returnUrl">登出后浏览器显示的页面</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BitAuto.Services.SingleSignOn.LogoutProcessor.LogoutAsync" -->
+        <member name="T:BitAuto.Services.SingleSignOn.NeedLoginWebSitesManager">
+            <summary>
+            本类管理单点登录所涉及到的网站的域名
+            本类用到了Session
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SingleSignOn.NeedLoginWebSitesManager.StoreWebSitesToSession">
+            <summary>
+            从配置文件生成单点登录的网站域名，并把他们保存的Session中
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.SingleSignOn.SingleSignOnResource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.SingleSignOn.SingleSignOnResource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.SingleSignOn.SingleSignOnResource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:BitAuto.Services.SingleSignOn.SingleSignOnResource.HelperPageTemplet">
+             <summary>
+               Looks up a localized string similar to &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+            &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+            &lt;head&gt;
+                &lt;title&gt;易车登出页面 &lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;
+                        window.setTimeout(&quot;processAfterLogout()&quot;, --waitTimeInMillSecond--);
+                        function processAfterLogout(){
+                            document.getElementById(&quot;lblLogoutMsg&quot;).innerText = &quot;处理成功&quot;;
+                            var returnUrl = documen [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.IISHelper.GetIISServerType">
+            <summary>
+            获取服务器IIS版本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.SysLog.WebServerTypes">
+            <summary>
+            服务器IIS版本
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.SysLog.WebServerTypes.Unknown">
+            <summary>
+            未知版本
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.SysLog.WebServerTypes.IIS4">
+            <summary>
+            IIS 4.0
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.SysLog.WebServerTypes.IIS5">
+            <summary>
+            IIS 5.0,5.1
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.SysLog.WebServerTypes.IIS6">
+            <summary>
+            IIS 6.0
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.SysLog.WebServerTypes.IIS7">
+            <summary>
+            IIS 7.0
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogBase.Write(BitAuto.Services.SysLog.SysLogParameter)">
+            <summary>
+            记录日志到异常统计系统中
+            </summary>
+            <param name="sysLogParameter">系统日志参数类</param>
+        </member>
+        <member name="P:BitAuto.Services.SysLog.SyncLoopSendMail.SysLogRemotingServiceShortName">
+            <summary>
+            系统日志Remoting服务-模块名称
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SyncLoopSendMail.ThreadStart">
+            <summary>
+            开始线程
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SyncLoopSendMail.ThreadReStart">
+            <summary>
+            中断线程
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SyncLoopSendMail.GetMinTimeInterval">
+            <summary>
+            获取项目最小时间间隔（单位为分钟）
+            </summary>
+            <returns>若找不到数据，则返回10分钟</returns>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SyncLoopSendMail.TimeSendMail">
+            <summary>
+            定时循环发送邮件
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SyncLoopSendMail.UpdateProjectAndExceptionSendTime(System.Int32,System.Collections.ArrayList,System.String)">
+            <summary>
+            发送邮件之后，更新表SysLogProject和SysLogExceptionInfo中的状态
+            </summary>
+            <param name="projectid">项目ID</param>
+            <param name="alExceptionIDs">发送邮件中异常的ID</param>
+            <param name="currentSystemTime">发送邮件是的系统时间</param>
+            <returns>若更新成功，则返回True；否则返回False</returns>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SyncQueue.Enqueue(BitAuto.Services.SysLog.SysLogParameter)">
+            <summary>
+            add this method for thread safety
+            </summary>
+            <param name="newMessage"></param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SyncQueue.Dequeue">
+            <summary>
+            add this method for thread safety
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BitAuto.Services.SysLog.SysLogClientImpl.IsUseLog4net">
+            <summary>
+            判断客户端配置文件中是否使用Log4net来记录异常信息，使用了返回True；否则返回False。
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogClientImpl.Write(BitAuto.Services.SysLog.SysLogParameter)">
+            <summary>
+            记录日志到异常统计系统中
+            </summary>
+            <param name="sysLogParameter">系统日志参数类</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogClientImpl.IsNeedLog(BitAuto.Utils.Config.Services.SysLog.SysLogLevelEnum)">
+            <summary>
+            比较配置的日志级别和当前要记录的日志级别
+            控制记录的日志级别，小于该级别的日志将不被记录，有效的值如下，
+            级别依次降低：Fatal=1、Error=2、Warn=3、Info=4、Debug=5。
+            </summary>
+            <param name="logLevel">当前要记录的日志级别</param>
+            <returns></returns>
+        </member>
+        <member name="P:BitAuto.Services.SysLog.SysLogEmailManager.SysLogRemotingServiceShortName">
+            <summary>
+            系统日志Remoting服务-模块名称
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogEmailManager.MyEmailMessageSend(System.String,System.String[],System.String[])">
+            <summary>
+            发送消息队列
+            </summary>
+            <param name="label">邮件主题</param>
+            <param name="email">发送邮件的Email地址</param>
+            <param name="emailContent">邮件的内容</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogEmailManager.SendEmailByProjectID(System.Int32,System.String)">
+            <summary>
+            发送多个异常的邮件给用户
+            </summary>
+            <param name="projectID">异常ID</param>
+            <param name="emailTitle">邮件主题</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogEmailManager.SendEmailBySysLogExceptionInfoModel(BitAuto.Services.Entities.SysLogExceptionInfo,System.String)">
+            <summary>
+            发送一个异常的邮件给用户
+            </summary>
+            <param name="sleiModel">SysLogExceptionInfo实体</param>
+            <param name="emailTitle">邮件主题</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogFactory.GetSysLogInstance(System.String)">
+            <summary>
+            根据配置取得系统日志接口的实例
+            </summary>
+            <returns>返回系统日志的实例，用此对象进行系统日志相关的操作</returns>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogFactory.GetSysLogInstance">
+            <summary>
+            根据配置取得系统日志接口的实例
+            </summary>
+            <returns>返回系统日志的实例，用此对象进行系统日志相关的操作</returns>
+        </member>
+        <member name="T:BitAuto.Services.SysLog.ISysLogClient">
+            <summary>
+            
+            </summary>
+            <remarks> 
+            在所有的接口操作中，如果是Web应用，可以通过页面的Url能够计算出项目的porjectShortName，这样就省得传了。
+            参数projectShortName用于非Web应用项目，不能自动取到Url的情况。
+            </remarks>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Fatal(System.String)">
+            <summary>
+            记录致命错误信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Fatal(System.String,System.Exception)">
+            <summary>
+            记录致命错误信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="exception">异常类</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Fatal(System.String,System.String)">
+            <summary>
+            记录致命错误信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="projectShortName">项目名称</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Fatal(System.String,System.Exception,System.String)">
+            <summary>
+            记录致命错误信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="exception">异常类</param>
+            <param name="projectShortName">项目名称</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Error(System.String)">
+            <summary>
+            记录一般错误信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Error(System.String,System.Exception)">
+            <summary>
+            记录一般错误信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="exception">异常类</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Error(System.String,System.String)">
+            <summary>
+            记录一般错误信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="projectShortName">项目名称</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Error(System.String,System.Exception,System.String)">
+            <summary>
+            记录一般错误信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="exception">异常类</param>
+            <param name="projectShortName">项目名称</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Warn(System.String)">
+            <summary>
+            记录警告信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Warn(System.String,System.Exception)">
+            <summary>
+            记录警告信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="exception">异常类</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Warn(System.String,System.String)">
+            <summary>
+            记录警告信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="projectShortName">项目名称</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Warn(System.String,System.Exception,System.String)">
+            <summary>
+            记录警告信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="exception">异常类</param>
+            <param name="projectShortName">项目名称</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Info(System.String)">
+            <summary>
+            记录一般信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Info(System.String,System.Exception)">
+            <summary>
+            记录一般信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="exception">异常类</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Info(System.String,System.String)">
+            <summary>
+            记录一般信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="projectShortName">项目名称</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Info(System.String,System.Exception,System.String)">
+            <summary>
+            记录一般信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="exception">异常类</param>
+            <param name="projectShortName">项目名称</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Debug(System.String)">
+            <summary>
+            记录调试信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Debug(System.String,System.Exception)">
+            <summary>
+            记录调试信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="exception">异常类</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Debug(System.String,System.String)">
+            <summary>
+            记录调试信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="projectShortName">项目名称</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.ISysLogClient.Debug(System.String,System.Exception,System.String)">
+            <summary>
+            记录调试信息
+            </summary>
+            <param name="message">用户自定义信息</param>
+            <param name="exception">异常类</param>
+            <param name="projectShortName">项目名称</param>
+        </member>
+        <member name="P:BitAuto.Services.SysLog.SysLogParameter.IsLogWebContext">
+            <summary>
+            当用于Web应用中时，是否记录发生异常时的ClientMessage、ServerMessage、SessionMessage，由于这些信息比较大，正常情况下应该设为false
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogParameter.InitExceptionInfoFromHttpRuntime(System.Exception,System.Boolean)">
+            <summary>
+            初始化异常信息
+            </summary>
+            <param name="exception">异常类型</param>
+            <param name="flag">是否初始化异常URL信息</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogParameter.GetServerMessage">
+            <summary>
+            获取服务器端信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogParameter.GetClientMessage">
+            <summary>
+            获取客户机端信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogParameter.GetSessionMessage">
+            <summary>
+            获取Session信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogServerImpl.Write(BitAuto.Services.SysLog.SysLogParameter)">
+            <summary>
+            记录日志到异常统计系统中
+            </summary>
+            <param name="sysLogParameter">系统日志参数类</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogWriteManager.UpdateProjectAndExceptionBySysLogExceptionInfo(BitAuto.Services.Entities.SysLogExceptionInfo,BitAuto.Services.Entities.SysLogExceptionTime,System.String)">
+            <summary>
+            发送邮件之后，更新表SysLogExceptionInfo和SysLogProject中的数据
+            </summary>
+            <param name="sleiModel">SysLogExceptionInfo实体</param>
+            <param name="sletModel">SysLogExceptionTime实体</param>
+            <param name="currentSystemTime">当前发送邮件时的系统时间</param>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogWriteManager.GetProjectIDByExceptionURL(System.String)">
+            <summary>
+            根据异常URL，获得项目ID
+            </summary>
+            <param name="exceptionURl">异常URL</param>
+            <returns>若找到，返回项目ID；否则返回-1</returns>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogWriteManager.AddSysLogExceptionInfoByProjectID(BitAuto.Services.SysLog.SysLogParameter,System.Int32)">
+            <summary>
+            插入表SysLogExceptionInfo一条记录
+            </summary>
+            <param name="sysLogParameter">系统日志参数类</param>
+            <param name="projectID">项目ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogWriteManager.AddSysLogExceptionTimeByExceptionInfoId(BitAuto.Services.SysLog.SysLogParameter,System.Int32)">
+            <summary>
+            插入表SysLogExceptionTime一条记录
+            </summary>
+            <param name="sysLogParameter">系统日志参数类</param>
+            <param name="exceptionInfoId">ExceptionInfoId</param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.SysLog.SysLogWriteManager.ComputeHash(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            通过不带域名的URL或项目名称，异常类型和异常堆栈信息的组合，来计算哈希值
+            </summary>
+            <param name="url">不带域名的URL或项目名称</param>
+            <param name="exceptionType">异常类型</param>
+            <param name="exceptionStack">异常堆栈信息</param>
+            <returns>返回哈希值</returns>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.IUserManager">
+            <summary>
+            Summary description for IUserManager.
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.ChangePassword(System.String,System.String)">
+            <summary>
+               修改用户密码，是否能修改由调用方判断，
+               可以先调用本接口的ValidateUser方法判断用户是否能修改密码。
+            </summary>
+            <returns>
+            	如果修改成功返回true; 用户不存在返回false.
+            </returns>
+            <param name="username">用户名</param>
+            <param name="newPassword">新密码</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.GetPassword(System.String)">
+            <summary>无条件找回密码</summary>
+            <returns>
+             返回指定用户的密码，用户不存在返回null
+            </returns>
+            <param name="username">用户名</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.ChangePasswordQuestionAndAnswer(System.String,System.String,System.String)">
+            <summary>
+            	修改用户的密码问题及答案，是否能修改由调用方判断，
+                可以先调用本接口的ValidateUser方法判断用户是否能修改。
+            </summary>
+            <returns>
+            	修改成功返回true，用户名不存在返回false
+            </returns>
+            <param name="newPasswordQuestion">新的密码问题</param>
+            <param name="newPasswordAnswer">新的密码问题答案</param>
+            <param name="username">用户名</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.CreateUser(System.String,System.String,System.String,System.String,System.String,BitAuto.Services.Entities.UserStatusValueList)">
+            <summary>
+            	创建一个基本的用户帐户。
+            	如果要创建的用户的信息比较多，即多于本方法的参数信息，
+            	则可以使用本接口的Update方法来创建新用户。
+            </summary>
+            <returns>
+            	返回类 <see cref="T:BitAuto.Services.UserManager.Model.UserCreateReault">UserCreateReault</see> 
+            	的对象，表明用户创建的结果。
+            </returns>
+            <param name="passwordAnswer">密码问题答案</param>
+            <param name="username">用户名</param>
+            <param name="password">密码</param>
+            <param name="passwordQuestion">密码问题</param>
+            <param name="email">
+                电子邮件,可以为null,但非null的电子邮件不能重复
+            </param>
+            <param name="status">
+            本参数的类型是UserStatusValueList，值可以是：Normal、Invalid、Locked之一；
+            Normal——正常，创建后即可登录；
+            Invalid——无效，适用于需要验证Email或手机的情况，验证后修改UserAccount.Status的值为Normal；
+            Locked——锁定，适用于管理员锁定用户。
+            </param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.DeleteUser(System.String)">
+            <summary>删除一个用户</summary>
+            <returns>删除成功返回true，用户不存在返回false</returns>
+            <param name="username">用户名</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.FindUserById(System.Int32)">
+            <summary>
+            	根据用户主键（Id）查找到用户信息
+            </summary>
+            <returns>
+            	返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            	的一个对象。
+            </returns>
+            <param name="userId">用户主键（Id）</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.FindUserByName(System.String)">
+            <summary>
+            	根据用户名查找用户信息
+            </summary>
+            <returns>
+            	返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            	的一个对象。
+            </returns>
+            <param name="username">用户名</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.FindUserByEmail(System.String)">
+            <summary>
+            	根据电子邮件查找用户信息
+            </summary>
+            <returns>
+            返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            的一个对象。
+            </returns>
+            <param name="email">The e-mail address to search for.</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.FindUserByMobilePhone(System.String)">
+            <summary>
+                根据手机查找用户信息
+            </summary>
+            <param name="mobilePhone">手机号</param>
+            <returns>
+            返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            的一个对象。
+            </returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.FindUserByWhere(System.String,BitAuto.Services.UserManager.Model.QueryParameter[])">
+            <summary>
+            	根据条件和sql参数查找用户信息
+            </summary>
+            <returns>
+            	返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>  
+            	的一个对象，如果符合条件的有多个，则返回第一个，
+            	如果要返回多个对象请使用QueryUsersByWhere方法。
+            </returns>
+            <param name="wherePart">
+            	条件字符串，即sql语句中的wehre子句（不包含关键字“where”）
+            	 如："TrueName=@paramTrueName"，
+            	注意"TrueName"的对应的是
+            	类<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>的
+            	"TrueName"属性，而且大小写尽量保持一致，参数名"@paramTrueName"尽量以@param开头。
+            </param>
+            <param name="parameters">
+            	sql参数数组，如：new QueryParameter[]{new QueryParameter("@paramTrueName","张三")}
+            </param>
+            <remarks>
+            	wherePart中的列名可以是<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>
+            	的任意一个属性，但列名必须带上类名，如"TrueName"，
+            	而且大小写最好与类名属性名保持一致;wherePart支持sql的所有操作如：大于、小于、like等
+            	wherePart中的条件值必须以sql参数的形式传入，
+            	如果采用字符串拼接或String.Format方法生成wherePart会有可能造成sql注入攻击。
+            </remarks>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.QueryUsersByWhere(System.String,System.String,System.Int32,System.Int32,BitAuto.Services.UserManager.Model.QueryParameter[])">
+            <summary>
+            	根据条件和sql参数查找用户信息
+            </summary>
+            <returns>
+            	返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            	的对象数组。
+            </returns>
+            <param name="wherePart">
+            	条件字符串，即sql语句中的wehre子句（不包含关键字“where”）
+            	 如："TrueName=@paramTrueName"，
+            	注意"TrueName"的对应的是
+            	类<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>的
+            	"TrueName"属性，而且大小写尽量保持一致，参数名"@paramTrueName"尽量以@param开头。
+            </param>
+            <param name="orderPart">
+            	sql语句中的order by子句（不包含关键字“oder by”），如："TrueName"
+            </param>
+            <param name="startRecord">符合条件记录的开始序号(以0开始，即0是第一条)</param>
+            <param name="maxRecords">一次查询的记录数，不能大于50</param>
+            <param name="parameters">
+            	sql参数数组，如：new QueryParameter[]{new QueryParameter("@paramTrueName","张三")}
+            </param>
+            <remarks>
+            	wherePart、orderPart中的列名可以是
+            	<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>
+            	的任意一个属性，但列名必须带上类名，如"TrueName"，
+            	而且大小写最好与类名属性名保持一致;wherePart支持sql的所有操作如：大于、小于、like等
+            	wherePart中的条件值必须以sql参数的形式传入，
+            	如果采用字符串拼接或String.Format方法生成wherePart会有可能造成sql注入攻击。
+            </remarks>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.QueryUserCountByWhere(System.String,BitAuto.Services.UserManager.Model.QueryParameter[])">
+            <summary>
+                查询符合条件的用户的个数
+            </summary>
+            <param name="wherePart">
+            	条件字符串，即sql语句中的wehre子句（不包含关键字“where”）
+            	 如："TrueName=@paramTrueName"，
+            	注意"TrueName"的对应的是
+            	类<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>的
+            	"TrueName"属性，而且大小写尽量保持一致，参数名"@paramTrueName"尽量以@param开头。
+            </param>
+            <param name="parameters">
+            	sql参数数组，如：new QueryParameter[]{new QueryParameter("@paramTrueName","张三")}
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.ValidateUser(System.String,System.String)">
+            <summary>
+            	根据用户名验证用户
+             </summary>
+            <returns>
+            	如果验证通过，返回枚举<see cref="T:BitAuto.Services.UserManager.ValidationResult">ValidationResult</see> 
+            	的一个值。
+            </returns>
+            <param name="username">用户名</param>
+            <param name="password">密码</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.ValidateUserByEmail(System.String,System.String)">
+            <summary>
+            	根据email验证用户
+             </summary>
+            <returns>
+            	如果验证通过，返回枚举<see cref="T:BitAuto.Services.UserManager.ValidationResult">ValidationResult</see> 
+            	的一个值。
+            </returns>
+            <param name="email">电子邮件</param>
+            <param name="password">密码</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.ValidateUserByMobilePhone(System.String,System.String)">
+            <summary>
+            根据用户名验证用户
+             </summary>
+            <returns>
+            	如果验证通过，返回枚举<see cref="T:BitAuto.Services.UserManager.ValidationResult">ValidationResult</see> 
+            	的一个值。
+            </returns>
+            <param name="mobilePhone">移动电话</param>
+            <param name="password">密码</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManager.Update(BitAuto.Services.Entities.UserAccount)">
+            <summary>
+            	更新用户信息；
+            	当参数userAccount封装的对象UserAccount的UserId小于1时，则新增用户
+            </summary>
+            <param name="userAccount">
+            	<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            	如果本参数包含的对象的UserId小于1，则新增相应的对象（记录）。
+            </param>
+            <returns>返回更新后的用户信息</returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.ChangePassword(System.String,System.String)">
+            <summary>
+               修改用户密码，是否能修改由调用方判断，
+               可以先调用本接口的ValidateUser方法判断用户是否能修改密码。
+            </summary>
+            <returns>
+            	如果修改成功返回true; 用户不存在返回false.
+            </returns>
+            <param name="username">用户名</param>
+            <param name="newPassword">新密码</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.GetPassword(System.String)">
+            <summary>无条件找回密码</summary>
+            <returns>
+             返回指定用户的密码，用户不存在返回null
+            </returns>
+            <param name="username">用户名</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.ChangePasswordQuestionAndAnswer(System.String,System.String,System.String)">
+            <summary>
+            	修改用户的密码问题及答案，是否能修改由调用方判断，
+                可以先调用本接口的ValidateUser方法判断用户是否能修改。
+            </summary>
+            <returns>
+            	修改成功返回true，用户名不存在返回false
+            </returns>
+            <param name="newPasswordQuestion">新的密码问题</param>
+            <param name="newPasswordAnswer">新的密码问题答案</param>
+            <param name="username">用户名</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.CreateUser(System.String,System.String,System.String,System.String,System.String,BitAuto.Services.Entities.UserStatusValueList)">
+            <summary>
+            	创建一个基本的用户帐户。
+            	如果要创建的用户的信息比较多，即多于本方法的参数信息，
+            	则可以使用本接口的Update方法来创建新用户。
+            </summary>
+            <returns>
+            	返回类 <see cref="T:BitAuto.Services.UserManager.Model.UserCreateReault">UserCreateReault</see> 
+            	的对象，表明用户创建的结果。
+            </returns>
+            <param name="passwordAnswer">密码问题答案</param>
+            <param name="username">用户名</param>
+            <param name="password">密码</param>
+            <param name="passwordQuestion">密码问题</param>
+            <param name="email">电子邮件</param>
+            <param name="status">
+            本参数的类型是UserStatusValueList，值可以是：Normal、Invalid、Locked之一；
+            Normal——正常，创建后即可登录；
+            Invalid——无效，适用于需要验证Email或手机的情况，验证后修改UserAccount.Status的值为Normal；
+            Locked——锁定，适用于管理员锁定用户。
+            </param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.DeleteUser(System.String)">
+            <summary>删除一个用户</summary>
+            <returns>删除成功返回true，用户不存在返回false</returns>
+            <param name="username">用户名</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.FindUserById(System.Int32)">
+            <summary>
+            	根据用户主键（Id）查找到用户信息
+            </summary>
+            <returns>
+            	返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            	的一个对象。
+            </returns>
+            <param name="userId">用户主键（Id）</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.FindUserByName(System.String)">
+            <summary>
+            	根据用户名查找用户信息
+            </summary>
+            <returns>
+            	返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            	的一个对象。
+            </returns>
+            <param name="username">用户名</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.FindUserByEmail(System.String)">
+            <summary>
+            	根据电子邮件查找用户信息
+            </summary>
+            <returns>
+            返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            的一个对象。
+            </returns>
+            <param name="email">The e-mail address to search for.</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.FindUserByMobilePhone(System.String)">
+            <summary>
+                根据手机查找用户信息
+            </summary>
+            <param name="mobilePhone">手机号</param>
+            <returns>
+            返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            的一个对象。
+            </returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.FindUserByWhere(System.String,BitAuto.Services.UserManager.Model.QueryParameter[])">
+            <summary>
+            	根据条件和sql参数查找用户信息
+            </summary>
+            <returns>
+            	返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>  
+            	的一个对象，如果符合条件的有多个，则返回第一个，
+            	如果要返回多个对象请使用QueryUsersByWhere方法。
+            </returns>
+            <param name="wherePart">
+            	条件字符串，即sql语句中的wehre子句（不包含关键字“where”）
+            	 如："TrueName=@paramTrueName"，
+            	注意"TrueName"的对应的是
+            	类<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>的
+            	"TrueName"属性，而且大小写尽量保持一致，参数名"@paramTrueName"尽量以@param开头。
+            </param>
+            <param name="parameters">
+            	sql参数数组，如：new QueryParameter[]{new QueryParameter("@paramTrueName","张三")}
+            </param>
+            <remarks>
+            	wherePart中的列名可以是<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>
+            	的任意一个属性，但列名必须带上类名，如"TrueName"，
+            	而且大小写最好与类名属性名保持一致;wherePart支持sql的所有操作如：大于、小于、like等
+            	wherePart中的条件值必须以sql参数的形式传入，
+            	如果采用字符串拼接或String.Format方法生成wherePart会有可能造成sql注入攻击。
+            </remarks>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.QueryUsersByWhere(System.String,System.String,System.Int32,System.Int32,BitAuto.Services.UserManager.Model.QueryParameter[])">
+            <summary>
+            	根据条件和sql参数查找用户信息
+            </summary>
+            <returns>
+            	返回类 <see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            	的对象数组。
+            </returns>
+            <param name="wherePart">
+            	条件字符串，即sql语句中的wehre子句（不包含关键字“where”）
+            	 如："TrueName=@paramTrueName"，
+            	注意"TrueName"的对应的是
+            	类<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>的
+            	"TrueName"属性，而且大小写尽量保持一致，参数名"@paramTrueName"尽量以@param开头。
+            </param>
+            <param name="orderPart">
+            	sql语句中的order by子句（不包含关键字“oder by”），如："TrueName"
+            </param>
+            <param name="startRecord">符合条件记录的开始序号(以0开始，即0是第一条)</param>
+            <param name="maxRecords">一次查询的记录数，不能大于50</param>
+            <param name="parameters">
+            	sql参数数组，如：new QueryParameter[]{new QueryParameter("@paramTrueName","张三")}
+            </param>
+            <remarks>
+            	wherePart、orderPart中的列名可以是
+            	<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>
+            	的任意一个属性，但列名必须带上类名，如"TrueName"，
+            	而且大小写最好与类名属性名保持一致;wherePart支持sql的所有操作如：大于、小于、like等
+            	wherePart中的条件值必须以sql参数的形式传入，
+            	如果采用字符串拼接或String.Format方法生成wherePart会有可能造成sql注入攻击。
+            </remarks>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.QueryUserCountByWhere(System.String,BitAuto.Services.UserManager.Model.QueryParameter[])">
+            <summary>
+                查询符合条件的用户的个数
+            </summary>
+            <param name="wherePart">
+            	条件字符串，即sql语句中的wehre子句（不包含关键字“where”）
+            	 如："TrueName=@paramTrueName"，
+            	注意"TrueName"的对应的是
+            	类<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see>的
+            	"TrueName"属性，而且大小写尽量保持一致，参数名"@paramTrueName"尽量以@param开头。
+            </param>
+            <param name="parameters">
+            	sql参数数组，如：new QueryParameter[]{new QueryParameter("@paramTrueName","张三")}
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.ValidateUser(System.String,System.String)">
+            <summary>
+            	根据用户名验证用户
+             </summary>
+            <returns>
+            	如果验证通过，返回枚举<see cref="T:BitAuto.Services.UserManager.ValidationResult">ValidationResult</see> 
+            	的一个值。
+            </returns>
+            <param name="username">用户名</param>
+            <param name="password">密码</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.ValidateUserByEmail(System.String,System.String)">
+            <summary>
+            	根据email验证用户
+             </summary>
+            <returns>
+            	如果验证通过，返回枚举<see cref="T:BitAuto.Services.UserManager.ValidationResult">ValidationResult</see> 
+            	的一个值。
+            </returns>
+            <param name="email">电子邮件</param>
+            <param name="password">密码</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.ValidateUserByMobilePhone(System.String,System.String)">
+            <summary>
+            根据用户名验证用户
+             </summary>
+            <returns>
+            	如果验证通过，返回枚举<see cref="T:BitAuto.Services.UserManager.ValidationResult">ValidationResult</see> 
+            	的一个值。
+            </returns>
+            <param name="mobilePhone">移动电话</param>
+            <param name="password">密码</param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.IUserManagerRemoting.Update(BitAuto.Services.Entities.UserAccount)">
+            <summary>
+            	更新用户信息；
+            	当参数userAccount封装的对象UserAccount的UserId小于1时，则新增用户
+            </summary>
+            <param name="userAccount">
+            	<see cref="T:BitAuto.Services.Entities.UserAccount">UserAccount</see> 
+            	如果本参数包含的对象的UserId小于1，则新增相应的对象（记录）。
+            </param>
+            <returns>返回更新后的用户信息</returns>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.Model.QueryParameter">
+            <summary>
+            本类用于解决SqlParameter不能序列化的问题，
+            目的与SqlParameter相同
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.Model.UserCreateResult">
+            <summary>
+            	本类是用户接口CreateUser方法的返回值类型，其中封装了两个对象，
+            	一个是<see cref="T:BitAuto.Services.UserManagers.NetTiers.Entities.UserAccount">UserAccount</see>
+            	一个是<see cref="T:BitAuto.Services.UserManagers.Model.UserCreateStatus">UserCreateStatus</see>
+            	当UserCreateStatus为Success时UserAccount不为空，
+            	当UserCreateStatus为非Success时UserAccount为空。
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.Model.UserCreateStatus">
+            <summary>
+            	本枚举类型表示方法
+            	<see cref="M:BitAuto.Services.UserManager.IUserManager.CreateUser()">CreateUser</see>
+            	的返回状态
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.Model.UserCreateStatus.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.Model.UserCreateStatus.InvalidUserName">
+            <summary>
+            用户名无效
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.Model.UserCreateStatus.InvalidPassword">
+            <summary>
+            密码无效
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.Model.UserCreateStatus.InvalidQuestion">
+            <summary>
+            密码问题无效
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.Model.UserCreateStatus.InvalidAnswer">
+            <summary>
+            密码问题答案无效
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.Model.UserCreateStatus.InvalidEmail">
+            <summary>
+            电子邮件无效
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.Model.UserCreateStatus.DuplicateUserName">
+            <summary>
+            用户名已存在
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.Model.UserCreateStatus.DuplicateEmail">
+            <summary>
+            Email已存在
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.Model.UserCreateStatus.Failed">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.UserManagerBaaDB">
+            <summary>
+            Summary description for IUserManage.
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="applicationName"></param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.ChangePassword(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <param name="newPassword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.ChangePasswordQuestionAndAnswer(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <param name="newPasswordQuestion"></param>
+            <param name="newPasswordAnswer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.GetPassword(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.CreateUser(System.String,System.String,System.String,System.String,System.String,BitAuto.Services.Entities.UserStatusValueList)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="email"></param>
+            <param name="passwordQuestion"></param>
+            <param name="passwordAnswer"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.FindUserById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.FindUserByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.FindUserByEmail(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.FindUserByMobilePhone(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="mobilePhone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.FindFirstUserAccount(BitAuto.Services.Entities.TList{BitAuto.Services.Entities.UserInfoCore})">
+            <summary>
+            
+            </summary>
+            <param name="userInfoCores"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.FindUserByWhere(System.String,BitAuto.Services.UserManager.Model.QueryParameter[])">
+            <summary>
+            
+            </summary>
+            <param name="wherePart"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.QueryUsersByWhere(System.String,System.String,System.Int32,System.Int32,BitAuto.Services.UserManager.Model.QueryParameter[])">
+            <summary>
+            
+            </summary>
+            <param name="wherePart"></param>
+            <param name="orderPart"></param>
+            <param name="startRecord"></param>
+            <param name="maxRecords"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.ValidateUser(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.ValidateUserByEmail(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.ValidateUserByMobilePhone(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="mobilePhone"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.DeleteUser(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.Update(BitAuto.Services.Entities.UserAccount)">
+            <summary>
+            
+            </summary>
+            <param name="userAccount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.GetUserAccountByCommunityUser(BitAuto.Services.Entities.CommunityUser,BitAuto.Services.Entities.PersonalBaaInfo)">
+            <summary>
+            将BAA的用户数据格式转化为公共用户库的用户数据格式。
+            </summary>
+            <param name="i_CommunityUser"></param>
+            <param name="i_PersonalBaaInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.GetCommunityUserByUserAccount(BitAuto.Services.Entities.UserAccount)">
+            <summary>
+            通过公共用户库的用户数据格式得到BAA的用户数据CommunityUser的实例。
+            </summary>
+            <param name="i_UserAccount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.GetCommunityUserByUserAccount(BitAuto.Services.Entities.UserAccount,BitAuto.Services.Entities.CommunityUser)">
+            <summary>
+            通过公共用户库的用户数据格式得到BAA的用户数据CommunityUser的实例。
+            </summary>
+            <param name="i_UserAccount"></param>
+            <param name="i_CommunityUser"></param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.GetPersonalBaaInfoByUserAccount(BitAuto.Services.Entities.UserAccount)">
+            <summary>
+            通过公共用户库的用户数据格式得到BAA的用户数据PersonalBaaInfo的实例。
+            </summary>
+            <param name="i_UserAccount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.GetPersonalBaaInfoByUserAccount(BitAuto.Services.Entities.UserAccount,BitAuto.Services.Entities.PersonalBaaInfo)">
+            <summary>
+            通过公共用户库的用户数据格式得到BAA的用户数据PersonalBaaInfo的实例。
+            </summary>
+            <param name="i_UserAccount"></param>
+            <param name="i_PersonalBaaInfo"></param>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.ValidateUserByUserAccount(BitAuto.Services.Entities.UserAccount,System.String)">
+            <summary>
+            用户登陆验证。
+            </summary>
+            <param name="userAccount"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.UserManagerBaaDB.QueryUserIdList(System.String,System.String,System.Int32,System.Int32,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            组合条件查询用户信息。
+            </summary>
+            <param name="wherePart"></param>
+            <param name="orderPart"></param>
+            <param name="startRecord"></param>
+            <param name="maxRecords"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.UserManagerCommonDB">
+            <summary>
+            Summary description for IUserManage.
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.UserManagerFactory">
+            <summary>
+            Summary description for UserManagerFactory.
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.UserManagerIntegratedDB">
+            <summary>
+            Summary description for IUserManage.
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.Utils.PropertyMappingToBaa">
+            <summary>
+            PropertyConvert 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:BitAuto.Services.UserManager.Utils.PropertyMappingToBaa.ConvertString(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="fieldList"></param>
+            <param name="i_IsUseUpper"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.Utils.UserAccountBaseQuery">
+            <summary>
+            用户帐户基本查询类
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.Utils.UserInfoCommonBaseQuery">
+            <summary>
+            用户帐户基本查询类
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.UserManager.ValidationResult">
+            <summary>
+            	本枚举类型表示方法
+            	<see cref="M:BitAuto.Services.UserManager.IUserManager.ValidateUser()">ValidateUser</see>
+            	的返回状态
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.ValidationResult.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.ValidationResult.InvalidUserNameOrPassword">
+            <summary>
+            用户名或密码不正确
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.ValidationResult.LockedOut">
+            <summary>
+            用户已锁定
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.ValidationResult.Invalid">
+            <summary>
+            用户未启用或用户未审核
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.ValidationResult.Forbidding">
+            <summary>
+            禁止
+            </summary>
+        </member>
+        <member name="F:BitAuto.Services.UserManager.ValidationResult.Incomplete">
+            <summary>
+            信息不完整
+            </summary>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.UserManagerWebService">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.#ctor">
+            <remarks/>
+        </member>
+        <member name="E:BitAuto.Services.cn.com.baa.api.UserManagerWebService.CreateUserCompleted">
+            <remarks/>
+        </member>
+        <member name="E:BitAuto.Services.cn.com.baa.api.UserManagerWebService.RemoveUserStatusCacheCompleted">
+            <remarks/>
+        </member>
+        <member name="E:BitAuto.Services.cn.com.baa.api.UserManagerWebService.UpdateUserStatusCacheCompleted">
+            <remarks/>
+        </member>
+        <member name="E:BitAuto.Services.cn.com.baa.api.UserManagerWebService.GetUserInfoByIdCompleted">
+            <remarks/>
+        </member>
+        <member name="E:BitAuto.Services.cn.com.baa.api.UserManagerWebService.GetUserInfoByUsernameCompleted">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.CreateUser(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.String,System.Int32,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.CreateUserAsync(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.String,System.Int32,System.Int32,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.CreateUserAsync(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.String,System.Int32,System.Int32,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.RemoveUserStatusCache(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.RemoveUserStatusCacheAsync(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.RemoveUserStatusCacheAsync(System.Int32,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.UpdateUserStatusCache(System.Int32,System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.UpdateUserStatusCacheAsync(System.Int32,System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.UpdateUserStatusCacheAsync(System.Int32,System.Int32,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.GetUserInfoById(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.GetUserInfoByIdAsync(System.Int32)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.GetUserInfoByIdAsync(System.Int32,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.GetUserInfoByUsername(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.GetUserInfoByUsernameAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.GetUserInfoByUsernameAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:BitAuto.Services.cn.com.baa.api.UserManagerWebService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.UserInfoDto">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Id">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Username">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.UserApp">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Nickname">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Truename">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Gender">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Birthday">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Credits">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Level">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.FriendCount">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.TraceCount">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.ProvinceId">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.ProvinceName">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.CityId">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.CityName">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.SerialId">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.SerialName">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.IsMobileBound">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Mobile">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.IsEmailBound">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Email">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.QQ">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.MSN">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Telephone">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.DefaultAddress">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.UserInfoDto.Addresses">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.gender">
+            <remarks/>
+        </member>
+        <member name="F:BitAuto.Services.cn.com.baa.api.gender.Female">
+            <remarks/>
+        </member>
+        <member name="F:BitAuto.Services.cn.com.baa.api.gender.Male">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.AddressZip">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.AddressZip.Id">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.AddressZip.Uid">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.AddressZip.Address">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.AddressZip.Zip">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.AddressZip.Status">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.enumAddressZipStatus">
+            <remarks/>
+        </member>
+        <member name="F:BitAuto.Services.cn.com.baa.api.enumAddressZipStatus.Deleted">
+            <remarks/>
+        </member>
+        <member name="F:BitAuto.Services.cn.com.baa.api.enumAddressZipStatus.Normal">
+            <remarks/>
+        </member>
+        <member name="F:BitAuto.Services.cn.com.baa.api.enumAddressZipStatus.Default">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.CreateUserCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.RemoveUserStatusCacheCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.UpdateUserStatusCacheCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.GetUserInfoByIdCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.GetUserInfoByIdCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.GetUserInfoByIdCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.GetUserInfoByUsernameCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:BitAuto.Services.cn.com.baa.api.GetUserInfoByUsernameCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:BitAuto.Services.cn.com.baa.api.GetUserInfoByUsernameCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+    </members>
+</doc>

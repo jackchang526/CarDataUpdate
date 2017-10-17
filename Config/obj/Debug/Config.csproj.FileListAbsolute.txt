@@ -1,0 +1,8 @@
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\Config\bin\Debug\Config.dll
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\Config\bin\Debug\Config.pdb
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\Config\bin\Debug\BitAuto.Utils.dll
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\Config\bin\Debug\BitAuto.Utils.pdb
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\Config\bin\Debug\BitAuto.Utils.xml
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\Config\obj\Debug\Config.dll
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\Config\obj\Debug\Config.pdb
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\Config\obj\Debug\Config.csprojResolveAssemblyReference.cache

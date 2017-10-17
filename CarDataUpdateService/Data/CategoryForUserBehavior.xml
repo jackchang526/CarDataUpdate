@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+    <URLCate>
+        <Item Cate="SerialSummary" value="car.bitauto.com/([\w-]+)"/>
+        <Item Cate="SerialCompare" value="car.bitauto.com/([\w-]+)/peizhi"/>
+        <Item Cate="SerialPhoto" value="car.bitauto.com/([\w-]+)/tupian"/>
+        <Item Cate="SerialYearSummary" value="car.bitauto.com/([\w-]+)/(\d+)"/>
+        <Item Cate="SerialYearCompare" value="car.bitauto.com/([\w-]+)/(\d+)/peizhi"/>
+        <Item Cate="SerialYearPhoto" value="car.bitauto.com/([\w-]+)/(\d+)/tupian"/>
+        <Item Cate="CarSummary" value="car.bitauto.com/([\w-]+)/m(\d+)"/>
+        <Item Cate="CarCompare" value="car.bitauto.com/([\w-]+)/m(\d+)/peizhi"/>
+        <Item Cate="CarPhoto" value="car.bitauto.com/([\w-]+)/m(\d+)/tupian"/>
+        <Item Cate="MasterSummary" value="car.bitauto.com/([\w-]+)"/>
+        <Item Cate="BrandSummary" value="car.bitauto.com/([\w-]+)"/>
+        <Item Cate="LevelSummary" value="car.bitauto.com/(weixingche|xiaoxingche|jincouxingche|zhongxingche|zhongdaxingche|haohuaxingche|mpv|suv|paoche|mianbaoche|pika|qita)"/>
+        <Item Cate="LevelNews" value="car.bitauto.com/(weixingche|xiaoxingche|jincouxingche|zhongxingche|zhongdaxingche|haohuaxingche|mpv|suv|paoche|mianbaoche|pika|qita)/(xinwen|hangqing|daogou|pingce|yongce)"/>
+        <Item Cate="LevelPhoto" value="car.bitauto.com/(weixingche|xiaoxingche|jincouxingche|zhongxingche|zhongdaxingche|haohuaxingche|mpv|suv|paoche|mianbaoche|pika|qita)/tupian"/>
+        <Item Cate="LevelKouBei" value="car.bitauto.com/(weixingche|xiaoxingche|jincouxingche|zhongxingche|zhongdaxingche|haohuaxingche|mpv|suv|paoche|mianbaoche|pika|qita)/koubei"/>
+        <Item Cate="LevelShiPin" value="car.bitauto.com/(weixingche|xiaoxingche|jincouxingche|zhongxingche|zhongdaxingche|haohuaxingche|mpv|suv|paoche|mianbaoche|pika|qita)/shipin"/>
+        <Item Cate="LevelPaiHang" value="car.bitauto.com/(weixingche|xiaoxingche|jincouxingche|zhongxingche|zhongdaxingche|haohuaxingche|mpv|suv|paoche|mianbaoche|pika|qita)/paihang"/>
+    </URLCate>
+</Root>

@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://news.bitauto.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://news.bitauto.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://news.bitauto.com/">
+      <s:element name="GetComentDataForNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="words" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetComentDataForNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetComentDataForNewsResult" type="tns:ArrayOfArticle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArticle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Article" nillable="true" type="tns:Article" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Article">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ArticleBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArticleBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OriginalId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CommentCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PartitionId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PosterCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="CarSerial" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastCommentTime" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastCommentId" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ArticleType" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OriginalArticleType" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ParticipationCount" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBaseCore" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityBaseCore" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SyncNewsTitle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="newsId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seckey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncNewsTitleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SyncNewsTitleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncNewsTitleAndUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="newsId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seckey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncNewsTitleAndUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SyncNewsTitleAndUrlResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyTopNewsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="day" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyTopNewsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyTopNewsListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWeeklyTopNewsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstDayOfWeek" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWeeklyTopNewsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWeeklyTopNewsListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyTopNewsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstDayOfMonth" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonthlyTopNewsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMonthlyTopNewsListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodTimeTopNewsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="toDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPeriodTimeTopNewsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPeriodTimeTopNewsListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SortNewsByComments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newsIDs" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SortNewsByCommentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SortNewsByCommentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SortTopNewsByComments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="newsIDs" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SortTopNewsByCommentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SortTopNewsByCommentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="news" type="tns:ArticleInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="seckey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="aliasNewsID" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sharedNewsIDs" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArticleInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Article" type="tns:Article" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArticleExpand" type="tns:ArticleExpand" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommentGroups" type="tns:ArrayOfGroupRelation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArticleExpand">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ArticleExpandBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArticleExpandBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ArticleType" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OriginalArticleType" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ArticleId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OriginalArticleId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CategoryId" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CategoryTitle" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CategoryTypeId" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CategoryTypeName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="StartDateTime" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="EndDateTime" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExtendInfo" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfGroupRelation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GroupRelation" nillable="true" type="tns:GroupRelation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GroupRelation">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:GroupRelationBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="GroupRelationBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CommentableId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OriginalCommentableId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="GroupId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CommentableType" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OriginalCommentableType" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CreateNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateNewsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="news" type="tns:ArticleInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="seckey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateNewsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCommentGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="commentGroup" type="tns:GroupRelation" />
+            <s:element minOccurs="0" maxOccurs="1" name="seckey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCommentGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateCommentGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommentGroupsByCommentableID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="commentableID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="commentableType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommentGroupsByCommentableIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommentGroupsByCommentableIDResult" type="tns:ArrayOfGroupRelation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCommentGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="commentGroup" type="tns:GroupRelation" />
+            <s:element minOccurs="0" maxOccurs="1" name="seckey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCommentGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCommentGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopNewsByOpinionWeekly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="opinion" type="tns:OpinionType" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="categoryIDs" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="OpinionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Ding" />
+          <s:enumeration value="HaoWen" />
+          <s:enumeration value="QiangShou" />
+          <s:enumeration value="LeiRen" />
+          <s:enumeration value="Jiong" />
+          <s:enumeration value="BiaoTiDang" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetTopNewsByOpinionWeeklyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopNewsByOpinionWeeklyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="totalRecords" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopNewsByAgreeCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopNewsByAgreeCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopNewsByAgreeCountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopNewsByOpposeCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopNewsByOpposeCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopNewsByOpposeCountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetComentDataForNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetComentDataForNews" />
+  </wsdl:message>
+  <wsdl:message name="GetComentDataForNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetComentDataForNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncNewsTitleSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncNewsTitle" />
+  </wsdl:message>
+  <wsdl:message name="SyncNewsTitleSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncNewsTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncNewsTitleAndUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncNewsTitleAndUrl" />
+  </wsdl:message>
+  <wsdl:message name="SyncNewsTitleAndUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncNewsTitleAndUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyTopNewsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyTopNewsList" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyTopNewsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyTopNewsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWeeklyTopNewsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWeeklyTopNewsList" />
+  </wsdl:message>
+  <wsdl:message name="GetWeeklyTopNewsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWeeklyTopNewsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyTopNewsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonthlyTopNewsList" />
+  </wsdl:message>
+  <wsdl:message name="GetMonthlyTopNewsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonthlyTopNewsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodTimeTopNewsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPeriodTimeTopNewsList" />
+  </wsdl:message>
+  <wsdl:message name="GetPeriodTimeTopNewsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPeriodTimeTopNewsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SortNewsByCommentsSoapIn">
+    <wsdl:part name="parameters" element="tns:SortNewsByComments" />
+  </wsdl:message>
+  <wsdl:message name="SortNewsByCommentsSoapOut">
+    <wsdl:part name="parameters" element="tns:SortNewsByCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SortTopNewsByCommentsSoapIn">
+    <wsdl:part name="parameters" element="tns:SortTopNewsByComments" />
+  </wsdl:message>
+  <wsdl:message name="SortTopNewsByCommentsSoapOut">
+    <wsdl:part name="parameters" element="tns:SortTopNewsByCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateNews" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateNews" />
+  </wsdl:message>
+  <wsdl:message name="UpdateNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateCommentGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCommentGroup" />
+  </wsdl:message>
+  <wsdl:message name="CreateCommentGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCommentGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentGroupsByCommentableIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommentGroupsByCommentableID" />
+  </wsdl:message>
+  <wsdl:message name="GetCommentGroupsByCommentableIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommentGroupsByCommentableIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCommentGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCommentGroup" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCommentGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCommentGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopNewsByOpinionWeeklySoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopNewsByOpinionWeekly" />
+  </wsdl:message>
+  <wsdl:message name="GetTopNewsByOpinionWeeklySoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopNewsByOpinionWeeklyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopNewsByAgreeCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopNewsByAgreeCount" />
+  </wsdl:message>
+  <wsdl:message name="GetTopNewsByAgreeCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopNewsByAgreeCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopNewsByOpposeCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopNewsByOpposeCount" />
+  </wsdl:message>
+  <wsdl:message name="GetTopNewsByOpposeCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopNewsByOpposeCountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NewsServiceSoap">
+    <wsdl:operation name="GetComentDataForNews">
+      <wsdl:input message="tns:GetComentDataForNewsSoapIn" />
+      <wsdl:output message="tns:GetComentDataForNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncNewsTitle">
+      <wsdl:input message="tns:SyncNewsTitleSoapIn" />
+      <wsdl:output message="tns:SyncNewsTitleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncNewsTitleAndUrl">
+      <wsdl:input message="tns:SyncNewsTitleAndUrlSoapIn" />
+      <wsdl:output message="tns:SyncNewsTitleAndUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyTopNewsList">
+      <wsdl:input message="tns:GetDailyTopNewsListSoapIn" />
+      <wsdl:output message="tns:GetDailyTopNewsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeeklyTopNewsList">
+      <wsdl:input message="tns:GetWeeklyTopNewsListSoapIn" />
+      <wsdl:output message="tns:GetWeeklyTopNewsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyTopNewsList">
+      <wsdl:input message="tns:GetMonthlyTopNewsListSoapIn" />
+      <wsdl:output message="tns:GetMonthlyTopNewsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodTimeTopNewsList">
+      <wsdl:input message="tns:GetPeriodTimeTopNewsListSoapIn" />
+      <wsdl:output message="tns:GetPeriodTimeTopNewsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SortNewsByComments">
+      <wsdl:input message="tns:SortNewsByCommentsSoapIn" />
+      <wsdl:output message="tns:SortNewsByCommentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SortTopNewsByComments">
+      <wsdl:input message="tns:SortTopNewsByCommentsSoapIn" />
+      <wsdl:output message="tns:SortTopNewsByCommentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNews">
+      <wsdl:input message="tns:CreateNewsSoapIn" />
+      <wsdl:output message="tns:CreateNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNews">
+      <wsdl:input message="tns:UpdateNewsSoapIn" />
+      <wsdl:output message="tns:UpdateNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCommentGroup">
+      <wsdl:input message="tns:CreateCommentGroupSoapIn" />
+      <wsdl:output message="tns:CreateCommentGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentGroupsByCommentableID">
+      <wsdl:input message="tns:GetCommentGroupsByCommentableIDSoapIn" />
+      <wsdl:output message="tns:GetCommentGroupsByCommentableIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCommentGroup">
+      <wsdl:input message="tns:DeleteCommentGroupSoapIn" />
+      <wsdl:output message="tns:DeleteCommentGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopNewsByOpinionWeekly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取一周内获得某新闻观点最多的新闻的前N条</wsdl:documentation>
+      <wsdl:input message="tns:GetTopNewsByOpinionWeeklySoapIn" />
+      <wsdl:output message="tns:GetTopNewsByOpinionWeeklySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopNewsByAgreeCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取一周内获得鲜花最多的新闻前N条</wsdl:documentation>
+      <wsdl:input message="tns:GetTopNewsByAgreeCountSoapIn" />
+      <wsdl:output message="tns:GetTopNewsByAgreeCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopNewsByOpposeCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取一周内获得鸡蛋最多的新闻前N条</wsdl:documentation>
+      <wsdl:input message="tns:GetTopNewsByOpposeCountSoapIn" />
+      <wsdl:output message="tns:GetTopNewsByOpposeCountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NewsServiceSoap" type="tns:NewsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetComentDataForNews">
+      <soap:operation soapAction="http://news.bitauto.com/GetComentDataForNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncNewsTitle">
+      <soap:operation soapAction="http://news.bitauto.com/SyncNewsTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncNewsTitleAndUrl">
+      <soap:operation soapAction="http://news.bitauto.com/SyncNewsTitleAndUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyTopNewsList">
+      <soap:operation soapAction="http://news.bitauto.com/GetDailyTopNewsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeeklyTopNewsList">
+      <soap:operation soapAction="http://news.bitauto.com/GetWeeklyTopNewsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyTopNewsList">
+      <soap:operation soapAction="http://news.bitauto.com/GetMonthlyTopNewsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodTimeTopNewsList">
+      <soap:operation soapAction="http://news.bitauto.com/GetPeriodTimeTopNewsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SortNewsByComments">
+      <soap:operation soapAction="http://news.bitauto.com/SortNewsByComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SortTopNewsByComments">
+      <soap:operation soapAction="http://news.bitauto.com/SortTopNewsByComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNews">
+      <soap:operation soapAction="http://news.bitauto.com/CreateNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNews">
+      <soap:operation soapAction="http://news.bitauto.com/UpdateNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCommentGroup">
+      <soap:operation soapAction="http://news.bitauto.com/CreateCommentGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentGroupsByCommentableID">
+      <soap:operation soapAction="http://news.bitauto.com/GetCommentGroupsByCommentableID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCommentGroup">
+      <soap:operation soapAction="http://news.bitauto.com/DeleteCommentGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopNewsByOpinionWeekly">
+      <soap:operation soapAction="http://news.bitauto.com/GetTopNewsByOpinionWeekly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopNewsByAgreeCount">
+      <soap:operation soapAction="http://news.bitauto.com/GetTopNewsByAgreeCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopNewsByOpposeCount">
+      <soap:operation soapAction="http://news.bitauto.com/GetTopNewsByOpposeCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NewsServiceSoap12" type="tns:NewsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetComentDataForNews">
+      <soap12:operation soapAction="http://news.bitauto.com/GetComentDataForNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncNewsTitle">
+      <soap12:operation soapAction="http://news.bitauto.com/SyncNewsTitle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncNewsTitleAndUrl">
+      <soap12:operation soapAction="http://news.bitauto.com/SyncNewsTitleAndUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyTopNewsList">
+      <soap12:operation soapAction="http://news.bitauto.com/GetDailyTopNewsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeeklyTopNewsList">
+      <soap12:operation soapAction="http://news.bitauto.com/GetWeeklyTopNewsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyTopNewsList">
+      <soap12:operation soapAction="http://news.bitauto.com/GetMonthlyTopNewsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodTimeTopNewsList">
+      <soap12:operation soapAction="http://news.bitauto.com/GetPeriodTimeTopNewsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SortNewsByComments">
+      <soap12:operation soapAction="http://news.bitauto.com/SortNewsByComments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SortTopNewsByComments">
+      <soap12:operation soapAction="http://news.bitauto.com/SortTopNewsByComments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNews">
+      <soap12:operation soapAction="http://news.bitauto.com/CreateNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNews">
+      <soap12:operation soapAction="http://news.bitauto.com/UpdateNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCommentGroup">
+      <soap12:operation soapAction="http://news.bitauto.com/CreateCommentGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommentGroupsByCommentableID">
+      <soap12:operation soapAction="http://news.bitauto.com/GetCommentGroupsByCommentableID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCommentGroup">
+      <soap12:operation soapAction="http://news.bitauto.com/DeleteCommentGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopNewsByOpinionWeekly">
+      <soap12:operation soapAction="http://news.bitauto.com/GetTopNewsByOpinionWeekly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopNewsByAgreeCount">
+      <soap12:operation soapAction="http://news.bitauto.com/GetTopNewsByAgreeCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopNewsByOpposeCount">
+      <soap12:operation soapAction="http://news.bitauto.com/GetTopNewsByOpposeCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NewsService">
+    <wsdl:port name="NewsServiceSoap" binding="tns:NewsServiceSoap">
+      <soap:address location="http://news.bitauto.com/comment/newsservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NewsServiceSoap12" binding="tns:NewsServiceSoap12">
+      <soap12:address location="http://news.bitauto.com/comment/newsservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

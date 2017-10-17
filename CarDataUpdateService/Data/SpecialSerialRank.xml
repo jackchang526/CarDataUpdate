@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 特殊子品牌的排名制定，各城市按此排名随机上下浮动5以内 -->
+<Root>
+    <Item ID="2723" Name="MG 6" Rank="101"/>
+    <Item ID="3372" Name="MG 5" Rank="85"/>
+    <Item ID="2932" Name="CC" Rank="72"/>
+    <Item ID="2371" Name="550" Rank="54"/>
+    <Item ID="2886" Name="350" Rank="49"/>
+    <Item ID="3323" Name="K5" Rank="44"/>
+    <!-- add by chengl Jun.8.2012 -->
+    <Item ID="3092" Name="MG 3" Rank="40"/>
+</Root>

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{248AC5CD-C06E-449C-97A0-B5249D5B8401}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.CarDataUpdate.Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.Services">
+      <HintPath>..\..\..\..\..\P公用平台\Release\BitAuto.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils">
+      <HintPath>..\..\..\..\..\P公用平台\Release\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Enyim.Caching">
+      <HintPath>..\..\..\..\..\P公用平台\Release\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\P公用平台\Release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NVelocity">
+      <HintPath>..\..\Release\NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\..\..\Dll\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\..\..\Dll\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\..\..\Dll\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\Dll\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CityInitData.cs" />
+    <Compile Include="CommonData.cs" />
+    <Compile Include="CommonFunction.cs" />
+    <Compile Include="Enum\CommonEnum.cs" />
+    <Compile Include="Enum\CommonHtmlEnum.cs" />
+    <Compile Include="Enum\Define.cs" />
+    <Compile Include="Enum\VideoEnum.cs" />
+    <Compile Include="Interface\BaseBuilder.cs" />
+    <Compile Include="Interface\BaseProcesser.cs" />
+    <Compile Include="Interface\DescriptionAttribute.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="MessageService.cs" />
+    <Compile Include="Model\Award.cs" />
+    <Compile Include="Model\BrandDataService.cs" />
+    <Compile Include="Model\BrandInfo.cs" />
+    <Compile Include="Model\CarBaseInfoEntity.cs" />
+    <Compile Include="Model\CarBootInfo.cs" />
+    <Compile Include="Model\CarEntity.cs" />
+    <Compile Include="Model\CarInfoEntity.cs" />
+    <Compile Include="Model\CarInfoForSerialSummaryEntity.cs" />
+    <Compile Include="Model\CarInnerSpaceInfo.cs" />
+    <Compile Include="Model\CarModelInfo.cs" />
+    <Compile Include="Model\CarNewsType.cs" />
+    <Compile Include="Model\City.cs" />
+    <Compile Include="Model\CommonHtmlEntity.cs" />
+    <Compile Include="Model\ContentMessage.cs" />
+    <Compile Include="Model\CrumbInfo.cs" />
+    <Compile Include="Model\JiangJiaNews\JiangJiaNewsCarContent.cs" />
+    <Compile Include="Model\JiangJiaNews\JiangJiaNewsContent.cs" />
+    <Compile Include="Model\JiangJiaNews\JiangJiaNewsRelatedData.cs" />
+    <Compile Include="Model\NewsCategory.cs" />
+    <Compile Include="Model\NewsContent.cs" />
+    <Compile Include="Model\NewsEntity.cs" />
+    <Compile Include="Model\NewsEntityV2.cs" />
+    <Compile Include="Model\NewsPageInfo.cs" />
+    <Compile Include="Model\PingCeTag.cs" />
+    <Compile Include="Model\PingCeTagEntity.cs" />
+    <Compile Include="Model\QuestionInfo.cs" />
+    <Compile Include="Model\SerialColorEntity.cs" />
+    <Compile Include="Model\SerialInfo.cs" />
+    <Compile Include="Model\SerialToAttention.cs" />
+    <Compile Include="Model\TagInfo.cs" />
+    <Compile Include="Model\UsedCarInfo.cs" />
+    <Compile Include="Model\VideoCategoryEntity.cs" />
+    <Compile Include="Model\VideoEntity.cs" />
+    <Compile Include="Model\VideoForSerialSummaryEntity.cs" />
+    <Compile Include="NewsNumXml\NewsNumMessage.cs" />
+    <Compile Include="NewsNumXml\NewsNumQueue.cs" />
+    <Compile Include="NewsNumXml\NewsNumMsgTypes.cs" />
+    <Compile Include="NewsNumXml\NewsNumXmlDocument.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedisManager.cs" />
+    <Compile Include="Repository\AwardRepository.cs" />
+    <Compile Include="Repository\BrandRepository.cs" />
+    <Compile Include="Repository\CarPingceInfoRepository.cs" />
+    <Compile Include="Repository\CarRepository.cs" />
+    <Compile Include="Repository\CommonHtmlRepository.cs" />
+    <Compile Include="Repository\FocusNewsRespository.cs" />
+    <Compile Include="Repository\MasterBrandRepository.cs" />
+    <Compile Include="Repository\SerialRespository.cs" />
+    <Compile Include="Repository\VideoRepository.cs" />
+    <Compile Include="Services\AwardService.cs" />
+    <Compile Include="Services\BrandService.cs" />
+    <Compile Include="Services\CarPingceInfoService.cs" />
+    <Compile Include="Services\CarService.cs" />
+    <Compile Include="Services\CommonHtmlService.cs" />
+    <Compile Include="Services\FocusNewsService.cs" />
+    <Compile Include="Services\MasterBrandService.cs" />
+    <Compile Include="Services\SerialService.cs" />
+    <Compile Include="Services\VideoService.cs" />
+    <Compile Include="StaticCompare.cs" />
+    <Compile Include="TemplateParse\TemplateParser.cs" />
+    <Compile Include="Utils\HttpUtils.cs" />
+    <Compile Include="Utils\IOUtils.cs" />
+    <Compile Include="Utils\StringUtils.cs" />
+    <Compile Include="Utils\XmlUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Config\Config.csproj">
+      <Project>{1B43C3B6-1FBF-4F10-98EF-59B7F587C283}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TemplateFiles\二手车数据块.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TemplateFiles\答疑数据块.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TemplateFiles\车型频道导航条.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TemplateFiles\车型频道首页搜索定制.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

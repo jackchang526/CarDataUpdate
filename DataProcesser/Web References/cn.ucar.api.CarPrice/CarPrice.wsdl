@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetPriceRangeByCarId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="carId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPriceRangeByCarIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPriceRangeByCarIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPriceRangeByCsId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="csId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPriceRangeByCsIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPriceRangeByCsIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllPriceRange">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllPriceRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllPriceRangeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarTypePriceRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="carYearType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarTypePriceRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarTypePriceRangeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPriceRangeByCarIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPriceRangeByCarId" />
+  </wsdl:message>
+  <wsdl:message name="GetPriceRangeByCarIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPriceRangeByCarIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPriceRangeByCsIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPriceRangeByCsId" />
+  </wsdl:message>
+  <wsdl:message name="GetPriceRangeByCsIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPriceRangeByCsIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPriceRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllPriceRange" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPriceRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllPriceRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarTypePriceRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarTypePriceRange" />
+  </wsdl:message>
+  <wsdl:message name="GetCarTypePriceRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarTypePriceRangeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CarPriceSoap">
+    <wsdl:operation name="GetPriceRangeByCarId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据车型ID返回价格区间</wsdl:documentation>
+      <wsdl:input message="tns:GetPriceRangeByCarIdSoapIn" />
+      <wsdl:output message="tns:GetPriceRangeByCarIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceRangeByCsId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据车系ID返回价格区间</wsdl:documentation>
+      <wsdl:input message="tns:GetPriceRangeByCsIdSoapIn" />
+      <wsdl:output message="tns:GetPriceRangeByCsIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPriceRange">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">返回所有的车型价格区间数据</wsdl:documentation>
+      <wsdl:input message="tns:GetAllPriceRangeSoapIn" />
+      <wsdl:output message="tns:GetAllPriceRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarTypePriceRange">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据车系id,年款（如：2011）返回车型价格区间数据</wsdl:documentation>
+      <wsdl:input message="tns:GetCarTypePriceRangeSoapIn" />
+      <wsdl:output message="tns:GetCarTypePriceRangeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CarPriceSoap" type="tns:CarPriceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPriceRangeByCarId">
+      <soap:operation soapAction="http://tempuri.org/GetPriceRangeByCarId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceRangeByCsId">
+      <soap:operation soapAction="http://tempuri.org/GetPriceRangeByCsId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPriceRange">
+      <soap:operation soapAction="http://tempuri.org/GetAllPriceRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarTypePriceRange">
+      <soap:operation soapAction="http://tempuri.org/GetCarTypePriceRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CarPriceSoap12" type="tns:CarPriceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPriceRangeByCarId">
+      <soap12:operation soapAction="http://tempuri.org/GetPriceRangeByCarId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceRangeByCsId">
+      <soap12:operation soapAction="http://tempuri.org/GetPriceRangeByCsId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPriceRange">
+      <soap12:operation soapAction="http://tempuri.org/GetAllPriceRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarTypePriceRange">
+      <soap12:operation soapAction="http://tempuri.org/GetCarTypePriceRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CarPrice">
+    <wsdl:port name="CarPriceSoap" binding="tns:CarPriceSoap">
+      <soap:address location="http://yicheapi.taoche.cn/CarBasicIno/ForXml/CarPrice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CarPriceSoap12" binding="tns:CarPriceSoap12">
+      <soap12:address location="http://yicheapi.taoche.cn/CarBasicIno/ForXml/CarPrice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

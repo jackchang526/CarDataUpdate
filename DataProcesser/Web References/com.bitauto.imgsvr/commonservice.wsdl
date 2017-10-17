@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetPropertyItemList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPropertyItemListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPropertyItemListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPropertyGroupList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPropertyGroupListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPropertyGroupListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChildrenByParentId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="parentId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="recurseAll" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChildrenByParentIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChildrenByParentIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumListByClassId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="classId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumListByClassIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlbumListByClassIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumListByClassIdPaged">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="classId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumListByClassIdPagedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlbumListByClassIdPagedResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="rowCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="imageCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListByAlbumId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="albumId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListByAlbumIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImageListByAlbumIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListByAlbumIdPaged">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="albumId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListByAlbumIdPagedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImageListByAlbumIdPagedResult" type="tns:PagedImageList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagedImageList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ClassId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="1" maxOccurs="1" name="RowCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGroupListBySerialId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupListBySerialIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupListBySerialIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListBySerialId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serial" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListBySerialIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImageListBySerialIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListBySerialIdPaged">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListBySerialIdPagedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImageListBySerialIdPagedResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="RowCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListBySerialIdAndGroupId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="groupId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListBySerialIdAndGroupIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImageListBySerialIdAndGroupIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListBySerialIdAndGroupIdPaged">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="groupId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageListBySerialIdAndGroupIdPagedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImageListBySerialIdAndGroupIdPagedResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="rowCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPropertyItemListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPropertyItemList" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyItemListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPropertyItemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyGroupListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPropertyGroupList" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyGroupListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPropertyGroupListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChildrenByParentIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChildrenByParentId" />
+  </wsdl:message>
+  <wsdl:message name="GetChildrenByParentIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChildrenByParentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumListByClassIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlbumListByClassId" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumListByClassIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlbumListByClassIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumListByClassIdPagedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlbumListByClassIdPaged" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumListByClassIdPagedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlbumListByClassIdPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListByAlbumIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImageListByAlbumId" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListByAlbumIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImageListByAlbumIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListByAlbumIdPagedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImageListByAlbumIdPaged" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListByAlbumIdPagedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImageListByAlbumIdPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupListBySerialIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupListBySerialId" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupListBySerialIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupListBySerialIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListBySerialIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImageListBySerialId" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListBySerialIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImageListBySerialIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListBySerialIdPagedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImageListBySerialIdPaged" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListBySerialIdPagedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImageListBySerialIdPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListBySerialIdAndGroupIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImageListBySerialIdAndGroupId" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListBySerialIdAndGroupIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImageListBySerialIdAndGroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListBySerialIdAndGroupIdPagedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImageListBySerialIdAndGroupIdPaged" />
+  </wsdl:message>
+  <wsdl:message name="GetImageListBySerialIdAndGroupIdPagedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImageListBySerialIdAndGroupIdPagedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CommonServiceSoap">
+    <wsdl:operation name="GetPropertyItemList">
+      <wsdl:input message="tns:GetPropertyItemListSoapIn" />
+      <wsdl:output message="tns:GetPropertyItemListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyGroupList">
+      <wsdl:input message="tns:GetPropertyGroupListSoapIn" />
+      <wsdl:output message="tns:GetPropertyGroupListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChildrenByParentId">
+      <wsdl:input message="tns:GetChildrenByParentIdSoapIn" />
+      <wsdl:output message="tns:GetChildrenByParentIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumListByClassId">
+      <wsdl:input message="tns:GetAlbumListByClassIdSoapIn" />
+      <wsdl:output message="tns:GetAlbumListByClassIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumListByClassIdPaged">
+      <wsdl:input message="tns:GetAlbumListByClassIdPagedSoapIn" />
+      <wsdl:output message="tns:GetAlbumListByClassIdPagedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListByAlbumId">
+      <wsdl:input message="tns:GetImageListByAlbumIdSoapIn" />
+      <wsdl:output message="tns:GetImageListByAlbumIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListByAlbumIdPaged">
+      <wsdl:input message="tns:GetImageListByAlbumIdPagedSoapIn" />
+      <wsdl:output message="tns:GetImageListByAlbumIdPagedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupListBySerialId">
+      <wsdl:input message="tns:GetGroupListBySerialIdSoapIn" />
+      <wsdl:output message="tns:GetGroupListBySerialIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialId">
+      <wsdl:input message="tns:GetImageListBySerialIdSoapIn" />
+      <wsdl:output message="tns:GetImageListBySerialIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialIdPaged">
+      <wsdl:input message="tns:GetImageListBySerialIdPagedSoapIn" />
+      <wsdl:output message="tns:GetImageListBySerialIdPagedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialIdAndGroupId">
+      <wsdl:input message="tns:GetImageListBySerialIdAndGroupIdSoapIn" />
+      <wsdl:output message="tns:GetImageListBySerialIdAndGroupIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialIdAndGroupIdPaged">
+      <wsdl:input message="tns:GetImageListBySerialIdAndGroupIdPagedSoapIn" />
+      <wsdl:output message="tns:GetImageListBySerialIdAndGroupIdPagedSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CommonServiceSoap" type="tns:CommonServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPropertyItemList">
+      <soap:operation soapAction="http://tempuri.org/GetPropertyItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyGroupList">
+      <soap:operation soapAction="http://tempuri.org/GetPropertyGroupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildrenByParentId">
+      <soap:operation soapAction="http://tempuri.org/GetChildrenByParentId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumListByClassId">
+      <soap:operation soapAction="http://tempuri.org/GetAlbumListByClassId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumListByClassIdPaged">
+      <soap:operation soapAction="http://tempuri.org/GetAlbumListByClassIdPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListByAlbumId">
+      <soap:operation soapAction="http://tempuri.org/GetImageListByAlbumId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListByAlbumIdPaged">
+      <soap:operation soapAction="http://tempuri.org/GetImageListByAlbumIdPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupListBySerialId">
+      <soap:operation soapAction="http://tempuri.org/GetGroupListBySerialId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialId">
+      <soap:operation soapAction="http://tempuri.org/GetImageListBySerialId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialIdPaged">
+      <soap:operation soapAction="http://tempuri.org/GetImageListBySerialIdPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialIdAndGroupId">
+      <soap:operation soapAction="http://tempuri.org/GetImageListBySerialIdAndGroupId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialIdAndGroupIdPaged">
+      <soap:operation soapAction="http://tempuri.org/GetImageListBySerialIdAndGroupIdPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CommonServiceSoap12" type="tns:CommonServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPropertyItemList">
+      <soap12:operation soapAction="http://tempuri.org/GetPropertyItemList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyGroupList">
+      <soap12:operation soapAction="http://tempuri.org/GetPropertyGroupList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildrenByParentId">
+      <soap12:operation soapAction="http://tempuri.org/GetChildrenByParentId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumListByClassId">
+      <soap12:operation soapAction="http://tempuri.org/GetAlbumListByClassId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumListByClassIdPaged">
+      <soap12:operation soapAction="http://tempuri.org/GetAlbumListByClassIdPaged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListByAlbumId">
+      <soap12:operation soapAction="http://tempuri.org/GetImageListByAlbumId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListByAlbumIdPaged">
+      <soap12:operation soapAction="http://tempuri.org/GetImageListByAlbumIdPaged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupListBySerialId">
+      <soap12:operation soapAction="http://tempuri.org/GetGroupListBySerialId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialId">
+      <soap12:operation soapAction="http://tempuri.org/GetImageListBySerialId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialIdPaged">
+      <soap12:operation soapAction="http://tempuri.org/GetImageListBySerialIdPaged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialIdAndGroupId">
+      <soap12:operation soapAction="http://tempuri.org/GetImageListBySerialIdAndGroupId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageListBySerialIdAndGroupIdPaged">
+      <soap12:operation soapAction="http://tempuri.org/GetImageListBySerialIdAndGroupIdPaged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommonService">
+    <wsdl:port name="CommonServiceSoap" binding="tns:CommonServiceSoap">
+      <soap:address location="http://imgsvr.bitauto.com/common/commonservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CommonServiceSoap12" binding="tns:CommonServiceSoap12">
+      <soap12:address location="http://imgsvr.bitauto.com/common/commonservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BitAuto.CarDataUpdate.HtmlBuilder.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="HtmlBuilder_com_bitauto_baa_api_topicService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.baa.bitauto.com/koubei/topic/topicservice.asmx</Value>
+    </Setting>
+    <Setting Name="HtmlBuilder_com_bitauto_baa_api1_carService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.baa.bitauto.com/koubei/car/carservice.asmx</Value>
+    </Setting>
+    <Setting Name="HtmlBuilder_com_bitauto_baa_api2_impressionService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.baa.bitauto.com/koubei/impression/impressionservice.asmx</Value>
+    </Setting>
+    <Setting Name="HtmlBuilder_com_bitauto_baa_api5_reportService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.baa.bitauto.com/koubei/report/reportservice.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

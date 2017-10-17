@@ -1,0 +1,104 @@
+﻿<!-- #GenerateDateTime# -->
+<script type="text/javascript" charset="utf-8" src="http://ip.bitauto.com/iplocation/setcookie.ashx"></script>
+<script type="text/javascript" language="javascript">
+	if (typeof (bitLoadScript) == "undefined")
+		bitLoadScript = function (url, callback, charset) {
+			var s = document.createElement("script"); s.type = "text/javascript"; if (charset) s.charset = charset;
+			if (s.readyState) { s.onreadystatechange = function () { if (s.readyState == "loaded" || s.readyState == "complete") { s.onreadystatechange = null; if (callback) callback(); } }; }
+			else { s.onload = function () { if (callback) callback(); }; }
+			s.src = url; document.getElementsByTagName("head")[0].appendChild(s);
+		};
+</script>
+<script language="javascript" type="text/javascript">
+	bitLoadScript("http://image.bitautoimg.com/mergejs,s=carchannel/jscommon/juqery/jquery-1.9.1.min.js,carchannel/jsnew/ued_common.js,carchannel/jsStat/CarStatv2.js,carchannel/jsnew/CommonHeadFunction.js,carchannel/jsnew/CityGroupJsonUTF820121122.js?v=20150825", function () {
+		try {
+		#JsForIsRegion#
+			var carChannelZoneSpell = "beijing";
+			var carChannelCsAllSpell = "#CsAllSpell#";
+			var carChannelZoneName = "北京";
+			var carChannelZoneID = 201;
+			var carChannelZoneSpellForHangqing = "quanguo";
+			if(bit_IpRegion){var arrBit_IpRegion = bit_IpRegion.split(";");
+				if(arrBit_IpRegion.length>1){var arrZoneInfo = arrBit_IpRegion[1].split(",");
+					if(arrZoneInfo.length>=3){carChannelZoneSpell = arrZoneInfo[2];carChannelZoneName = arrZoneInfo[1];carChannelZoneID = arrZoneInfo[0];carChannelZoneSpellForHangqing = arrZoneInfo[2];}}}
+			var is49City=false;
+			for(var i=0;i<city49Array.length;i++){
+				if(city49Array[i].ID==carChannelZoneID){
+					is49City=true;
+					carChannelZoneSpell = city49Array[i].Spell;
+					carChannelZoneName = city49Array[i].Name;
+					carChannelZoneID = city49Array[i].ID;
+					break;}}
+			if(!is49City){
+				for(var i =0;i<city348To49Array.length;i++){
+					if(carChannelZoneID==city348To49Array[i].ID){
+						var toCityID = city348To49Array[i].TO;
+						for(var j=0;j<city49Array.length;j++){
+							if(city49Array[j].ID==toCityID){
+								carChannelZoneSpell = city49Array[j].Spell;
+								carChannelZoneName = city49Array[j].Name;
+								carChannelZoneID = city49Array[j].ID;
+								break;}}
+						break;}}}
+			switch(carChannelZoneName)
+			{
+				case"呼和浩特":carChannelZoneName="呼市";break;
+				case"乌鲁木齐":carChannelZoneName="乌市";break;
+				default:break;
+			}
+			//if(document.getElementById("CN_ShowLiLinkUCar"))
+			//{document.getElementById("CN_ShowLiLinkUCar").href="http://yiche.taoche.com/similarcar/serial/"+carChannelCsAllSpell+"/paesf"+carChannelZoneID+"bxc/?from=bitauto";}
+			var tagIframe = null;
+			var currentTagId = #currentTagForStat#;		//当前页的标签ID
+			try{
+				CarStatForAllTag.CsID = #CsID#;
+				CarStatForAllTag.TagID = #TagID#;
+				window._onload.exec();
+			}
+			catch(err){}
+
+			try
+			{
+				var tempIsFloatTopNavigation = false;
+				$(document).ready(function(){
+					// 参数配置页不浮动
+					if(currentTagId==42||currentTagId==57)
+					{return false;}
+					if (!document.getElementById("car_tag")) return false;
+					//// 页面flash
+					//$("embed").each(function () {
+					//	if($(this).parent().html().indexOf('<embed')>=0)
+					//	{
+					//		$(this).parent().html($(this).parent().html().replace(/<embed\s/i, "<embed wmode='opaque' "));
+					//	}
+					//});
+					var carTagBar = document.getElementById("car_tag");
+					var topHeight = 0;
+					var tempBar = carTagBar;
+					while(tempBar){
+						topHeight += tempBar.offsetTop;
+						tempBar = tempBar.offsetParent;
+					}
+					iE6 = !!window.ActiveXObject && !window.XMLHttpRequest;
+					$(window).bind("scroll", function(){
+						var scrollHeight = document.body.scrollTop || document.documentElement.scrollTop;
+						if(scrollHeight > topHeight){
+							tempIsFloatTopNavigation = true;
+							//carTagBar.className = "car_tag car_tag_fixed";
+							if(iE6){
+								carTagBar.className = "publicTabNew publicTab_fixed";
+								carTagBar.style.top = (scrollHeight - topHeight) + "px";
+							} else {
+								carTagBar.className = "publicTabNew publicTab_fixed";
+							}
+						} else {
+							carTagBar.className = "publicTabNew";
+							tempIsFloatTopNavigation = false;
+						}
+					});
+				});
+			}catch(err){}
+		} catch (err)
+		{ }
+	}, "utf-8");
+</script>

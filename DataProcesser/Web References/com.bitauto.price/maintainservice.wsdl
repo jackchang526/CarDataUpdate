@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://bitauto.maintain/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://bitauto.maintain/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://bitauto.maintain/">
+      <s:element name="GetMaintainCycByCsId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="csId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainCycByCsIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaintainCycByCsIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainCycByCsIdAndCsYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="csId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="csYear" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainCycByCsIdAndCsYearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaintainCycByCsIdAndCsYearResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainCycByCsIdAndDealerId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="csId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="csYear" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainCycByCsIdAndDealerIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaintainCycByCsIdAndDealerIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainCycByCarIdAndDealerId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="carId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dealerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainCycByCarIdAndDealerIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaintainCycByCarIdAndDealerIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainPriceScopeByCsIdAndCsYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="csId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="csYear" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainPriceScopeByCsIdAndCsYearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaintainPriceScopeByCsIdAndCsYearResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainPriceScopeByCsId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="csId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainPriceScopeByCsIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaintainPriceScopeByCsIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCSMaintainListByCsId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="csId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="csYear" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCSMaintainListByCsIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCSMaintainListByCsIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainCycByCsIdAndCSMIID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="csId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="csYear" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="csMIIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMaintainCycByCsIdAndCSMIIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaintainCycByCsIdAndCSMIIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainItemListByCsIDS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="csIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMaintainItemListByCsIDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaintainItemListByCsIDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContrastMaintainCycByCsIdsAndMIIDs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="csIds" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="miIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContrastMaintainCycByCsIdsAndMIIDsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContrastMaintainCycByCsIdsAndMIIDsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainInfoByCarId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="carId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintainInfoByCarIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaintainInfoByCarIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMaintainCycByCsIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaintainCycByCsId" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainCycByCsIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaintainCycByCsIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainCycByCsIdAndCsYearSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaintainCycByCsIdAndCsYear" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainCycByCsIdAndCsYearSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaintainCycByCsIdAndCsYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainCycByCsIdAndDealerIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaintainCycByCsIdAndDealerId" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainCycByCsIdAndDealerIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaintainCycByCsIdAndDealerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainCycByCarIdAndDealerIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaintainCycByCarIdAndDealerId" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainCycByCarIdAndDealerIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaintainCycByCarIdAndDealerIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainPriceScopeByCsIdAndCsYearSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaintainPriceScopeByCsIdAndCsYear" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainPriceScopeByCsIdAndCsYearSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaintainPriceScopeByCsIdAndCsYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainPriceScopeByCsIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaintainPriceScopeByCsId" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainPriceScopeByCsIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaintainPriceScopeByCsIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCSMaintainListByCsIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCSMaintainListByCsId" />
+  </wsdl:message>
+  <wsdl:message name="GetCSMaintainListByCsIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCSMaintainListByCsIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainCycByCsIdAndCSMIIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaintainCycByCsIdAndCSMIID" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainCycByCsIdAndCSMIIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaintainCycByCsIdAndCSMIIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainItemListByCsIDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaintainItemListByCsIDS" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainItemListByCsIDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaintainItemListByCsIDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContrastMaintainCycByCsIdsAndMIIDsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContrastMaintainCycByCsIdsAndMIIDs" />
+  </wsdl:message>
+  <wsdl:message name="GetContrastMaintainCycByCsIdsAndMIIDsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContrastMaintainCycByCsIdsAndMIIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainInfoByCarIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaintainInfoByCarId" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintainInfoByCarIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaintainInfoByCarIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MaintainServiceSoap">
+    <wsdl:operation name="GetMaintainCycByCsId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定子品牌保养周期表，返回指定格式的html文本</wsdl:documentation>
+      <wsdl:input message="tns:GetMaintainCycByCsIdSoapIn" />
+      <wsdl:output message="tns:GetMaintainCycByCsIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCsIdAndCsYear">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定子品牌指定年款保养周期表，返回指定格式的html文本</wsdl:documentation>
+      <wsdl:input message="tns:GetMaintainCycByCsIdAndCsYearSoapIn" />
+      <wsdl:output message="tns:GetMaintainCycByCsIdAndCsYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCsIdAndDealerId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定经销商子品牌保养周期表，返回指定格式的html文本</wsdl:documentation>
+      <wsdl:input message="tns:GetMaintainCycByCsIdAndDealerIdSoapIn" />
+      <wsdl:output message="tns:GetMaintainCycByCsIdAndDealerIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCarIdAndDealerId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定经销商车型保养周期表，返回指定格式的html文本</wsdl:documentation>
+      <wsdl:input message="tns:GetMaintainCycByCarIdAndDealerIdSoapIn" />
+      <wsdl:output message="tns:GetMaintainCycByCarIdAndDealerIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainPriceScopeByCsIdAndCsYear">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定子品牌年款保养项目价格区间表，返回指定格式的html文本</wsdl:documentation>
+      <wsdl:input message="tns:GetMaintainPriceScopeByCsIdAndCsYearSoapIn" />
+      <wsdl:output message="tns:GetMaintainPriceScopeByCsIdAndCsYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainPriceScopeByCsId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定子品牌保养项目价格区间表，返回指定格式的html文本</wsdl:documentation>
+      <wsdl:input message="tns:GetMaintainPriceScopeByCsIdSoapIn" />
+      <wsdl:output message="tns:GetMaintainPriceScopeByCsIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCSMaintainListByCsId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定子品牌年款保养项目的列表,csId:子品牌id</wsdl:documentation>
+      <wsdl:input message="tns:GetCSMaintainListByCsIdSoapIn" />
+      <wsdl:output message="tns:GetCSMaintainListByCsIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCsIdAndCSMIID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取子品牌的保养周期表格(指定保养项目),csId:子品牌id csYear:年款 csMIIds:子品牌保养项目id数组</wsdl:documentation>
+      <wsdl:input message="tns:GetMaintainCycByCsIdAndCSMIIDSoapIn" />
+      <wsdl:output message="tns:GetMaintainCycByCsIdAndCSMIIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainItemListByCsIDS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定子品牌（最多5个）的公有保养项目列表,csIds:子品牌id_年款 数组</wsdl:documentation>
+      <wsdl:input message="tns:GetMaintainItemListByCsIDSSoapIn" />
+      <wsdl:output message="tns:GetMaintainItemListByCsIDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContrastMaintainCycByCsIdsAndMIIDs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取多个子品牌相同保养项目的对比表格HTML,csIds:子品牌id_年款 数组 miIds:保养项目id数组</wsdl:documentation>
+      <wsdl:input message="tns:GetContrastMaintainCycByCsIdsAndMIIDsSoapIn" />
+      <wsdl:output message="tns:GetContrastMaintainCycByCsIdsAndMIIDsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainInfoByCarId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据车款ID，获得相关的保养数据。返回DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:GetMaintainInfoByCarIdSoapIn" />
+      <wsdl:output message="tns:GetMaintainInfoByCarIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MaintainServiceSoap" type="tns:MaintainServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMaintainCycByCsId">
+      <soap:operation soapAction="http://bitauto.maintain/GetMaintainCycByCsId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCsIdAndCsYear">
+      <soap:operation soapAction="http://bitauto.maintain/GetMaintainCycByCsIdAndCsYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCsIdAndDealerId">
+      <soap:operation soapAction="http://bitauto.maintain/GetMaintainCycByCsIdAndDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCarIdAndDealerId">
+      <soap:operation soapAction="http://bitauto.maintain/GetMaintainCycByCarIdAndDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainPriceScopeByCsIdAndCsYear">
+      <soap:operation soapAction="http://bitauto.maintain/GetMaintainPriceScopeByCsIdAndCsYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainPriceScopeByCsId">
+      <soap:operation soapAction="http://bitauto.maintain/GetMaintainPriceScopeByCsId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCSMaintainListByCsId">
+      <soap:operation soapAction="http://bitauto.maintain/GetCSMaintainListByCsId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCsIdAndCSMIID">
+      <soap:operation soapAction="http://bitauto.maintain/GetMaintainCycByCsIdAndCSMIID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainItemListByCsIDS">
+      <soap:operation soapAction="http://bitauto.maintain/GetMaintainItemListByCsIDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContrastMaintainCycByCsIdsAndMIIDs">
+      <soap:operation soapAction="http://bitauto.maintain/GetContrastMaintainCycByCsIdsAndMIIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainInfoByCarId">
+      <soap:operation soapAction="http://bitauto.maintain/GetMaintainInfoByCarId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MaintainServiceSoap12" type="tns:MaintainServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMaintainCycByCsId">
+      <soap12:operation soapAction="http://bitauto.maintain/GetMaintainCycByCsId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCsIdAndCsYear">
+      <soap12:operation soapAction="http://bitauto.maintain/GetMaintainCycByCsIdAndCsYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCsIdAndDealerId">
+      <soap12:operation soapAction="http://bitauto.maintain/GetMaintainCycByCsIdAndDealerId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCarIdAndDealerId">
+      <soap12:operation soapAction="http://bitauto.maintain/GetMaintainCycByCarIdAndDealerId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainPriceScopeByCsIdAndCsYear">
+      <soap12:operation soapAction="http://bitauto.maintain/GetMaintainPriceScopeByCsIdAndCsYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainPriceScopeByCsId">
+      <soap12:operation soapAction="http://bitauto.maintain/GetMaintainPriceScopeByCsId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCSMaintainListByCsId">
+      <soap12:operation soapAction="http://bitauto.maintain/GetCSMaintainListByCsId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainCycByCsIdAndCSMIID">
+      <soap12:operation soapAction="http://bitauto.maintain/GetMaintainCycByCsIdAndCSMIID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainItemListByCsIDS">
+      <soap12:operation soapAction="http://bitauto.maintain/GetMaintainItemListByCsIDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContrastMaintainCycByCsIdsAndMIIDs">
+      <soap12:operation soapAction="http://bitauto.maintain/GetContrastMaintainCycByCsIdsAndMIIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainInfoByCarId">
+      <soap12:operation soapAction="http://bitauto.maintain/GetMaintainInfoByCarId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MaintainService">
+    <wsdl:port name="MaintainServiceSoap" binding="tns:MaintainServiceSoap">
+      <soap:address location="http://price.bitauto.com/interface/common/maintainservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MaintainServiceSoap12" binding="tns:MaintainServiceSoap12">
+      <soap12:address location="http://price.bitauto.com/interface/common/maintainservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

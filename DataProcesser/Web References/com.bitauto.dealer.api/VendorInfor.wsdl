@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetVendorNewsListBySerialId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SeriesID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProvinceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RowCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorNewsListBySerialIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorNewsListBySerialIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorNewsListByBrandId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BrandID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProvinceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorNewsListByBrandIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorNewsListByBrandIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorInfoByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorInfoByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorInfoByIDResult" type="tns:VendorInfoEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VendorInfoEntity">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="VendorID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VendorBizMode" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProvinceID" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VendorStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsShowMap" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="VendorMapID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorMapPic" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorFullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorBizModeOld" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorSaleAddr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorWebSite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vendor2DomainName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Weighing" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BrandGroupID" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorShopPic" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainBrand" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MainSeries" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AutoSiteDomain" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CallCenterNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CallCenterOtherNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TelShowType" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProvinceName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IconProportion" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="GoogleMapLat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GoogleMapLng" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetVendorListBySerialId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SerialID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProvinceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorListBySerialIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorListBySerialIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorListByBrandId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BrandID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProvinceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorListByBrandIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorListByBrandIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorListBySerialIdWithMap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SerialID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProvinceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorListBySerialIdWithMapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorListBySerialIdWithMapResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerListByCityId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TopNum" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerListByCityIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealerListByCityIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorCountByCityId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorCountByCityIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorCountByCityIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorListMapInfor">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetVendorListMapInforResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorListMapInforResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarIDSalePriceBySerialIDDealerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SerialID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DealerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarIDSalePriceBySerialIDDealerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarIDSalePriceBySerialIDDealerIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetVendorNewsListBySerialIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorNewsListBySerialId" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorNewsListBySerialIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorNewsListBySerialIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorNewsListByBrandIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorNewsListByBrandId" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorNewsListByBrandIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorNewsListByBrandIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorInfoByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorInfoByID" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorInfoByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorInfoByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorListBySerialIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorListBySerialId" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorListBySerialIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorListBySerialIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorListByBrandIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorListByBrandId" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorListByBrandIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorListByBrandIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorListBySerialIdWithMapSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorListBySerialIdWithMap" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorListBySerialIdWithMapSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorListBySerialIdWithMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerListByCityIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDealerListByCityId" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerListByCityIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDealerListByCityIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorCountByCityIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorCountByCityId" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorCountByCityIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorCountByCityIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorListMapInforSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorListMapInfor" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorListMapInforSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorListMapInforResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarIDSalePriceBySerialIDDealerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarIDSalePriceBySerialIDDealerID" />
+  </wsdl:message>
+  <wsdl:message name="GetCarIDSalePriceBySerialIDDealerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarIDSalePriceBySerialIDDealerIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VendorInforSoap">
+    <wsdl:operation name="GetVendorNewsListBySerialId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据子品牌取得推荐的前10条经销商</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorNewsListBySerialIdSoapIn" />
+      <wsdl:output message="tns:GetVendorNewsListBySerialIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorNewsListByBrandId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据品牌ID取得推荐的前十条经销商</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorNewsListByBrandIdSoapIn" />
+      <wsdl:output message="tns:GetVendorNewsListByBrandIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorInfoByID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取经销商的详细信息</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorInfoByIDSoapIn" />
+      <wsdl:output message="tns:GetVendorInfoByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListBySerialId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据子品牌取得推荐的全部经销商</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorListBySerialIdSoapIn" />
+      <wsdl:output message="tns:GetVendorListBySerialIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListByBrandId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据品牌取得推荐的全部经销商</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorListByBrandIdSoapIn" />
+      <wsdl:output message="tns:GetVendorListByBrandIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListBySerialIdWithMap">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据子品牌取得推荐的全部经销商,带地图标点</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorListBySerialIdWithMapSoapIn" />
+      <wsdl:output message="tns:GetVendorListBySerialIdWithMapSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerListByCityId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区id，获得固定条数的经销商的信息</wsdl:documentation>
+      <wsdl:input message="tns:GetDealerListByCityIdSoapIn" />
+      <wsdl:output message="tns:GetDealerListByCityIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorCountByCityId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据二级城市id，获取三级城市的经销商统计</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorCountByCityIdSoapIn" />
+      <wsdl:output message="tns:GetVendorCountByCityIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListMapInfor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取全部经销商的地图标点</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorListMapInforSoapIn" />
+      <wsdl:output message="tns:GetVendorListMapInforSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarIDSalePriceBySerialIDDealerID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据子品牌ID、经销商ID，获取车型列表。返回车型ID及其报价。</wsdl:documentation>
+      <wsdl:input message="tns:GetCarIDSalePriceBySerialIDDealerIDSoapIn" />
+      <wsdl:output message="tns:GetCarIDSalePriceBySerialIDDealerIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VendorInforSoap" type="tns:VendorInforSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVendorNewsListBySerialId">
+      <soap:operation soapAction="http://tempuri.org/GetVendorNewsListBySerialId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorNewsListByBrandId">
+      <soap:operation soapAction="http://tempuri.org/GetVendorNewsListByBrandId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorInfoByID">
+      <soap:operation soapAction="http://tempuri.org/GetVendorInfoByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListBySerialId">
+      <soap:operation soapAction="http://tempuri.org/GetVendorListBySerialId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListByBrandId">
+      <soap:operation soapAction="http://tempuri.org/GetVendorListByBrandId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListBySerialIdWithMap">
+      <soap:operation soapAction="http://tempuri.org/GetVendorListBySerialIdWithMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerListByCityId">
+      <soap:operation soapAction="http://tempuri.org/GetDealerListByCityId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorCountByCityId">
+      <soap:operation soapAction="http://tempuri.org/GetVendorCountByCityId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListMapInfor">
+      <soap:operation soapAction="http://tempuri.org/GetVendorListMapInfor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarIDSalePriceBySerialIDDealerID">
+      <soap:operation soapAction="http://tempuri.org/GetCarIDSalePriceBySerialIDDealerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VendorInforSoap12" type="tns:VendorInforSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVendorNewsListBySerialId">
+      <soap12:operation soapAction="http://tempuri.org/GetVendorNewsListBySerialId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorNewsListByBrandId">
+      <soap12:operation soapAction="http://tempuri.org/GetVendorNewsListByBrandId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorInfoByID">
+      <soap12:operation soapAction="http://tempuri.org/GetVendorInfoByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListBySerialId">
+      <soap12:operation soapAction="http://tempuri.org/GetVendorListBySerialId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListByBrandId">
+      <soap12:operation soapAction="http://tempuri.org/GetVendorListByBrandId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListBySerialIdWithMap">
+      <soap12:operation soapAction="http://tempuri.org/GetVendorListBySerialIdWithMap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerListByCityId">
+      <soap12:operation soapAction="http://tempuri.org/GetDealerListByCityId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorCountByCityId">
+      <soap12:operation soapAction="http://tempuri.org/GetVendorCountByCityId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorListMapInfor">
+      <soap12:operation soapAction="http://tempuri.org/GetVendorListMapInfor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarIDSalePriceBySerialIDDealerID">
+      <soap12:operation soapAction="http://tempuri.org/GetCarIDSalePriceBySerialIDDealerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VendorInfor">
+    <wsdl:port name="VendorInforSoap" binding="tns:VendorInforSoap">
+      <soap:address location="http://api.dealer.bitauto.com/api/Service/VendorInfor.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VendorInforSoap12" binding="tns:VendorInforSoap12">
+      <soap12:address location="http://api.dealer.bitauto.com/api/Service/VendorInfor.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

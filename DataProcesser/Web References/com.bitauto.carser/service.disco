@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://carser.bitauto.com/ForPicMasterToSerial/service.asmx?wsdl" docRef="http://carser.bitauto.com/ForPicMasterToSerial/service.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://carser.bitauto.com/ForPicMasterToSerial/service.asmx" xmlns:q1="WebServiceForPicMasterToSerial" binding="q1:ServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://carser.bitauto.com/ForPicMasterToSerial/service.asmx" xmlns:q2="WebServiceForPicMasterToSerial" binding="q2:ServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

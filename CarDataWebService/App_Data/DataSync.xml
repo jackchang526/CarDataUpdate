@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <!--易车惠-商品信息 start-->
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>11_Goods_Add</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.BMaiGoods</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Add</sourceFunction>
+  </item>
+  <item>
+    <key>11_Goods_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.BMaiGoods</sourceClass>
+    <sourceFunction>Update</sourceFunction>
+  </item>
+  <item>
+    <key>11_Goods_StartSale</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.BMaiGoods</sourceClass>
+    <sourceFunction>StartSale</sourceFunction>
+  </item>
+  <item>
+    <key>11_Goods_StopSale</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.BMaiGoods</sourceClass>
+    <sourceFunction>StopSale</sourceFunction>
+  </item>
+  <!--易车惠-商品信息 end-->
+  <!--易湃 易车惠-商品信息 start-->
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1111_Goods_Add</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.BMaiGoods</sourceClass>
+    <!--方法名-->
+    <sourceFunction>AddYiPai</sourceFunction>
+  </item>
+  <item>
+    <key>1111_Goods_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.BMaiGoods</sourceClass>
+    <sourceFunction>UpdateYiPai</sourceFunction>
+  </item>
+  <item>
+    <key>1111_Goods_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.BMaiGoods</sourceClass>
+    <sourceFunction>DeleteYiPai</sourceFunction>
+  </item>
+  <item>
+    <key>1111_Goods_StartSale</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.BMaiGoods</sourceClass>
+    <sourceFunction>StartSaleYiPai</sourceFunction>
+  </item>
+  <item>
+    <key>1111_Goods_StopSale</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.BMaiGoods</sourceClass>
+    <sourceFunction>StopSaleYiPai</sourceFunction>
+  </item>
+  <!--易湃 易车惠-商品信息 end-->
+  <!--视频 start-->
+  <item>
+    <key>201_Video_Publish</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.VideoSyncService</sourceClass>
+    <sourceFunction>Update</sourceFunction>
+  </item>
+  <!--去掉 Update 操作 李东 by 2015.09.01 未发布状态-->
+  <!--<item>
+		<key>201_Video_Update</key>
+		<sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.VideoSyncService</sourceClass>
+		<sourceFunction>Update</sourceFunction>
+	</item>-->
+  <item>
+    <key>201_Video_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.VideoSyncService</sourceClass>
+    <sourceFunction>Delete</sourceFunction>
+  </item>
+  <item>
+    <!--社区视频-->
+    <key>203_VideoForum_Publish</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.VideoSyncService</sourceClass>
+    <sourceFunction>UpdateBaa</sourceFunction>
+  </item>
+  <!--视频 end-->
+  <!-- 2014-3- -2014-4 购车返现 -->
+  <!--<item>
+    <key>1114_CashBack_Add</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CashBackBLL</sourceClass>
+    <sourceFunction>AddCashBack</sourceFunction>
+  </item>
+  <item>
+    <key>1114_CashBack_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CashBackBLL</sourceClass>
+    <sourceFunction>UpdateCashBack</sourceFunction>
+  </item>
+  <item>
+    <key>1114_CashBack_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CashBackBLL</sourceClass>
+    <sourceFunction>DeleteCashBack</sourceFunction>
+  </item>-->
+  <!-- 2014-3- -2014-4 购车返现 end -->
+  <!-- 2014-6 易集客 -->
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1115_Demand_Up</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.DemandBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>UpDemand</sourceFunction>
+  </item>
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1115_Demand_Down</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.DemandBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>DownDemand</sourceFunction>
+  </item>
+  <!-- 2014-6 易集客 end-->
+  <!-- 2014-7 直销 商城事业部 -->
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1117_DirectSell_Add</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.DirectSellBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>AddDirectSell</sourceFunction>
+  </item>
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1117_DirectSell_Update</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.DirectSellBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>UpdateDirectSell</sourceFunction>
+  </item>
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1117_DirectSell_Delete</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.DirectSellBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>DeleteDirectSell</sourceFunction>
+  </item>
+  <!-- 2014-7 直销 商城事业部 end -->
+  <!--惠买车 start-->
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1118_HuiMaiChe_Add</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.HuimaicheBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Add</sourceFunction>
+  </item>
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1118_HuiMaiChe_Update</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.HuimaicheBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Update</sourceFunction>
+  </item>
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1118_HuiMaiChe_Delete</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.HuimaicheBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Delete</sourceFunction>
+  </item>
+  <!--惠买车 end-->
+  <!--商城 包销 平行接口 start by sk 2015-05-28-->
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1120_MallCar_Add</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.MallPartCarBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Add</sourceFunction>
+  </item>
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1120_MallCar_Update</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.MallPartCarBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Update</sourceFunction>
+  </item>
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1120_MallCar_Delete</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.MallPartCarBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Delete</sourceFunction>
+  </item>
+  <!--商城 包销 平行接口 end-->
+  <!-- 易车惠 黄超强 张涛 -->
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1121_YiCheHui_Add</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.YiCheHuiBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Add</sourceFunction>
+  </item>
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1121_YiCheHui_Update</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.YiCheHuiBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Update</sourceFunction>
+  </item>
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>1121_YiCheHui_Delete</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.YiCheHuiBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Delete</sourceFunction>
+  </item>
+  <!-- 易车惠 黄超强 张涛 end -->
+  <!--车型频道新闻-->
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>20001_Article_Publish</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.NewsBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Update</sourceFunction>
+  </item>
+  <item>
+    <!-- appId_EntityType_OperateType -->
+    <key>20001_Article_Delete</key>
+    <!-- 具体的类 -->
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.NewsBLL</sourceClass>
+    <!--方法名-->
+    <sourceFunction>Delete</sourceFunction>
+  </item>
+  <!--车型频道新闻 发送到老的消息队列 add by sk 2016-08-29 -->
+  <!--<item>
+    <key>200011_Article_Publish</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.NewsBLL</sourceClass>
+    <sourceFunction>UpdateQueue</sourceFunction>
+  </item>
+ <item>
+    <key>200011_Article_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.NewsBLL</sourceClass>
+    <sourceFunction>DeleteQueue</sourceFunction>
+  </item>-->
+
+  <!-- 图库数据消息 add by songcl 2017-04-12 -->
+  <!-- 车款焦点图消息 -->
+  <item>    
+    <key>100_CarModelFocusImage_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.PhotoBLL</sourceClass>
+    <sourceFunction>CarModelFocusImage_Update</sourceFunction>
+  </item>
+  <item>
+    <key>100_CarModelFocusImage_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.PhotoBLL</sourceClass>
+    <sourceFunction>CarModelFocusImage_Update</sourceFunction>
+  </item>
+
+  <!-- 车系封面图消息 -->
+  <item>    
+    <key>100_CoverImage_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.PhotoBLL</sourceClass>
+    <sourceFunction>CoverImage_Update</sourceFunction>
+  </item>
+    
+  <!-- 车系焦点图消息 -->
+  <item>    
+    <key>100_SerialBrandFocusImage_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.PhotoBLL</sourceClass>
+    <sourceFunction>SerialBrandFocusImage_Update</sourceFunction>
+  </item>
+  <item>
+    <key>100_SerialBrandFocusImage_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.PhotoBLL</sourceClass>
+    <sourceFunction>SerialBrandFocusImage_Update</sourceFunction>
+  </item>
+  
+  <!-- 车系年度焦点图消息 -->
+  <item>    
+    <key>100_SerialYearFocusImage_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.PhotoBLL</sourceClass>
+    <sourceFunction>SerialYearFocusImage_Update</sourceFunction>
+  </item>
+  <item>
+    <key>100_SerialYearFocusImage_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.PhotoBLL</sourceClass>
+    <sourceFunction>SerialYearFocusImage_Update</sourceFunction>
+  </item>
+  
+  <!-- 单个车型图片消息 -->
+  <item>    
+    <key>100_CarImage_Add</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.PhotoBLL</sourceClass>
+    <sourceFunction>CarImage_Add</sourceFunction>
+  </item>
+  
+  <!-- 单个车型图片消息 -->
+  <item>    
+    <key>100_CarImage_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.PhotoBLL</sourceClass>
+    <sourceFunction>CarImage_Add</sourceFunction>
+  </item>
+  <!-- 新版车型图片更新消息 -->
+  <item>
+    <key>10010_CarImages_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.PhotoBLL</sourceClass>
+    <sourceFunction>CarImagesV2_Update</sourceFunction>
+  </item>
+  <!--图库数据消息 add by songcl 2017-04-12 end-->
+  <!--车型数据消息 add by lisf 2017-06-19 -->
+  <item>
+    <key>102_MasterBrand_Add</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>MasterBrandAdd</sourceFunction>
+  </item>
+  <item>
+    <key>102_MasterBrand_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>MasterBrandUpdate</sourceFunction>
+  </item>
+  <item>
+    <key>102_MasterBrand_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>MasterBrandDelete</sourceFunction>
+  </item>
+  <item>
+    <key>102_Make_Add</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>BrandAdd</sourceFunction>
+  </item>
+  <item>
+    <key>102_Make_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>BrandUpdate</sourceFunction>
+  </item>
+  <item>
+    <key>102_Make_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>BrandDelete</sourceFunction>
+  </item>
+  <item>
+    <key>102_Model_Add</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>SerialAdd</sourceFunction>
+  </item>
+  <item>
+    <key>102_Model_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>SerialUpdate</sourceFunction>
+  </item>
+  <item>
+    <key>102_Model_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>SerialDelete</sourceFunction>
+  </item>
+  <item>
+    <key>102_Style_Add</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>CarAdd</sourceFunction>
+  </item>
+  <item>
+    <key>102_Style_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>CarUpdate</sourceFunction>
+  </item>
+  <item>
+    <key>102_Style_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>CarDelete</sourceFunction>
+  </item>
+  <item>
+    <key>102_StyleProperty_Add</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>CarParamAdd</sourceFunction>
+  </item>
+  <item>
+    <key>102_StyleProperty_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>CarParamUpdate</sourceFunction>
+  </item>
+  <item>
+    <key>102_StyleProperty_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>CarParamDelete</sourceFunction>
+  </item>
+  <item>
+    <key>102_StylePropertyValueAndOptional_Add</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>CarParamAdd</sourceFunction>
+  </item>
+  <item>
+    <key>102_StylePropertyValueAndOptional_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>CarParamUpdate</sourceFunction>
+  </item>
+  <item>
+    <key>102_StylePropertyValueAndOptional_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>CarParamDelete</sourceFunction>
+  </item>
+  <item>
+    <key>102_Manufacturer_Add</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>ProducerAdd</sourceFunction>
+  </item>
+  <item>
+    <key>102_Manufacturer_Update</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>ProducerUpdate</sourceFunction>
+  </item>
+  <item>
+    <key>102_Manufacturer_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.CarBLL</sourceClass>
+    <sourceFunction>ProducerDelete</sourceFunction>
+  </item>
+  <!--车型数据消息 end-->
+</items>

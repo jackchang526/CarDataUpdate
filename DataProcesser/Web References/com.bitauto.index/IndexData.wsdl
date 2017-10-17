@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://index.bitauto.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://index.bitauto.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://index.bitauto.com/">
+      <s:element name="GetLastDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateType" type="tns:DateType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="IndexType">
+        <s:restriction base="s:string">
+          <s:enumeration value="UV" />
+          <s:enumeration value="Dealer" />
+          <s:enumeration value="Sale" />
+          <s:enumeration value="Media" />
+          <s:enumeration value="Compare" />
+          <s:enumeration value="Replace" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="DateType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Season" />
+          <s:enumeration value="Month" />
+          <s:enumeration value="Week" />
+          <s:enumeration value="Near30day" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetLastDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastDateResult" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DateObj">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateNum" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateType" type="tns:DateType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFirstDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateType" type="tns:DateType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirstDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirstDateResult" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShangPaiLastDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateType" type="tns:DateType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShangPaiLastDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShangPaiLastDateResult" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexTopListByLastDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexTopListByLastDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndexTopListByLastDateResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexTopList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexTopListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndexTopListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexTopListPro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="regionType" type="tns:RegionType" />
+            <s:element minOccurs="1" maxOccurs="1" name="regionId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="RegionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Province" />
+          <s:enumeration value="City" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetIndexTopListProResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndexTopListProResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompareNear30DayTopList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCompareNear30DayTopListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompareNear30DayTopListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexGrowthTopList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="regionType" type="tns:RegionType" />
+            <s:element minOccurs="1" maxOccurs="1" name="regionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandType" type="tns:BrandType" />
+            <s:element minOccurs="0" maxOccurs="1" name="levelSpell" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="BrandType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Producer" />
+          <s:enumeration value="MasterBrand" />
+          <s:enumeration value="Brand" />
+          <s:enumeration value="Serial" />
+          <s:enumeration value="Level" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetIndexGrowthTopListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndexGrowthTopListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexDataListByLastDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandType" type="tns:BrandType" />
+            <s:element minOccurs="0" maxOccurs="1" name="levelSpell" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexDataListByLastDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndexDataListByLastDateResult" type="tns:ArrayOfIndexItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfIndexItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IndexItem" nillable="true" type="tns:IndexItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IndexItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItmeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrowthRate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RankGrowth" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetIndexDataList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandType" type="tns:BrandType" />
+            <s:element minOccurs="0" maxOccurs="1" name="levelSpell" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexDataListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndexDataListResult" type="tns:ArrayOfIndexItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegionalIndexDataList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandType" type="tns:BrandType" />
+            <s:element minOccurs="0" maxOccurs="1" name="levelSpell" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="regionType" type="tns:RegionType" />
+            <s:element minOccurs="1" maxOccurs="1" name="regionId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegionalIndexDataListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegionalIndexDataListResult" type="tns:ArrayOfIndexItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompareNear30DaysIndexData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompareNear30DaysIndexDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompareNear30DaysIndexDataResult" type="tns:ArrayOfIndexItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompareIndexDataByLastDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompareIndexDataByLastDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompareIndexDataByLastDateResult" type="tns:ArrayOfIndexItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompareIndexData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompareIndexDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompareIndexDataResult" type="tns:ArrayOfIndexItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexTrendData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandType" type="tns:BrandType" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexTrendDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndexTrendDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegionalIndexTrendData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandType" type="tns:BrandType" />
+            <s:element minOccurs="1" maxOccurs="1" name="regionType" type="tns:RegionType" />
+            <s:element minOccurs="1" maxOccurs="1" name="regionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateType" type="tns:DateType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegionalIndexTrendDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegionalIndexTrendDataResult" type="tns:ArrayOfIndexTrendItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfIndexTrendItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IndexTrendItem" nillable="true" type="tns:IndexTrendItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IndexTrendItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IndexDate" type="tns:DateObj" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndexNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="isVirtual" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCitySortListByLastDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandType" type="tns:BrandType" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCitySortListByLastDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCitySortListByLastDateResult" type="tns:ArrayOfCitySortItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCitySortItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CitySortItem" nillable="true" type="tns:CitySortItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CitySortItem">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IndexRegionSortItem">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CityId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="cityName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IndexRegionSortItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RegionId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegionName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sort" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndexNum" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCitySortList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandType" type="tns:BrandType" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCitySortListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCitySortListResult" type="tns:ArrayOfCitySortItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCsidListByLastSixMonth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCsidListByLastSixMonthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCsidListByLastSixMonthResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEffectiveMonthList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="regionId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="levelSpell" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEffectiveMonthListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEffectiveMonthListResult" type="tns:ArrayOfDateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDateObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DateObj" nillable="true" type="tns:DateObj" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRegionSortList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="regionType" type="tns:RegionType" />
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandType" type="tns:BrandType" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegionSortListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegionSortListResult" type="tns:ArrayOfIndexRegionSortItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfIndexRegionSortItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IndexRegionSortItem" nillable="true" type="tns:IndexRegionSortItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetIndexDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="csId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="indexType" type="tns:IndexType" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="tns:DateObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndexDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndexDetailResult" type="tns:ArrayOfIndexItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLastDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastDate" />
+  </wsdl:message>
+  <wsdl:message name="GetLastDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirstDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirstDate" />
+  </wsdl:message>
+  <wsdl:message name="GetFirstDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirstDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShangPaiLastDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShangPaiLastDate" />
+  </wsdl:message>
+  <wsdl:message name="GetShangPaiLastDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShangPaiLastDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexTopListByLastDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIndexTopListByLastDate" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexTopListByLastDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIndexTopListByLastDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexTopListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIndexTopList" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexTopListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIndexTopListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexTopListProSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIndexTopListPro" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexTopListProSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIndexTopListProResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompareNear30DayTopListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompareNear30DayTopList" />
+  </wsdl:message>
+  <wsdl:message name="GetCompareNear30DayTopListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompareNear30DayTopListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexGrowthTopListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIndexGrowthTopList" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexGrowthTopListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIndexGrowthTopListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexDataListByLastDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIndexDataListByLastDate" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexDataListByLastDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIndexDataListByLastDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexDataListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIndexDataList" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexDataListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIndexDataListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegionalIndexDataListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegionalIndexDataList" />
+  </wsdl:message>
+  <wsdl:message name="GetRegionalIndexDataListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegionalIndexDataListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompareNear30DaysIndexDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompareNear30DaysIndexData" />
+  </wsdl:message>
+  <wsdl:message name="GetCompareNear30DaysIndexDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompareNear30DaysIndexDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompareIndexDataByLastDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompareIndexDataByLastDate" />
+  </wsdl:message>
+  <wsdl:message name="GetCompareIndexDataByLastDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompareIndexDataByLastDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompareIndexDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompareIndexData" />
+  </wsdl:message>
+  <wsdl:message name="GetCompareIndexDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompareIndexDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexTrendDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIndexTrendData" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexTrendDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIndexTrendDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegionalIndexTrendDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegionalIndexTrendData" />
+  </wsdl:message>
+  <wsdl:message name="GetRegionalIndexTrendDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegionalIndexTrendDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCitySortListByLastDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCitySortListByLastDate" />
+  </wsdl:message>
+  <wsdl:message name="GetCitySortListByLastDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCitySortListByLastDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCitySortListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCitySortList" />
+  </wsdl:message>
+  <wsdl:message name="GetCitySortListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCitySortListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCsidListByLastSixMonthSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCsidListByLastSixMonth" />
+  </wsdl:message>
+  <wsdl:message name="GetCsidListByLastSixMonthSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCsidListByLastSixMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEffectiveMonthListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEffectiveMonthList" />
+  </wsdl:message>
+  <wsdl:message name="GetEffectiveMonthListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEffectiveMonthListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegionSortListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegionSortList" />
+  </wsdl:message>
+  <wsdl:message name="GetRegionSortListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegionSortListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIndexDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetIndexDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIndexDetailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IndexDataSoap">
+    <wsdl:operation name="GetLastDate">
+      <wsdl:input message="tns:GetLastDateSoapIn" />
+      <wsdl:output message="tns:GetLastDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirstDate">
+      <wsdl:input message="tns:GetFirstDateSoapIn" />
+      <wsdl:output message="tns:GetFirstDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShangPaiLastDate">
+      <wsdl:input message="tns:GetShangPaiLastDateSoapIn" />
+      <wsdl:output message="tns:GetShangPaiLastDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTopListByLastDate">
+      <wsdl:input message="tns:GetIndexTopListByLastDateSoapIn" />
+      <wsdl:output message="tns:GetIndexTopListByLastDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTopList">
+      <wsdl:input message="tns:GetIndexTopListSoapIn" />
+      <wsdl:output message="tns:GetIndexTopListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTopListPro">
+      <wsdl:input message="tns:GetIndexTopListProSoapIn" />
+      <wsdl:output message="tns:GetIndexTopListProSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareNear30DayTopList">
+      <wsdl:input message="tns:GetCompareNear30DayTopListSoapIn" />
+      <wsdl:output message="tns:GetCompareNear30DayTopListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexGrowthTopList">
+      <wsdl:input message="tns:GetIndexGrowthTopListSoapIn" />
+      <wsdl:output message="tns:GetIndexGrowthTopListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexDataListByLastDate">
+      <wsdl:input message="tns:GetIndexDataListByLastDateSoapIn" />
+      <wsdl:output message="tns:GetIndexDataListByLastDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexDataList">
+      <wsdl:input message="tns:GetIndexDataListSoapIn" />
+      <wsdl:output message="tns:GetIndexDataListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalIndexDataList">
+      <wsdl:input message="tns:GetRegionalIndexDataListSoapIn" />
+      <wsdl:output message="tns:GetRegionalIndexDataListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareNear30DaysIndexData">
+      <wsdl:input message="tns:GetCompareNear30DaysIndexDataSoapIn" />
+      <wsdl:output message="tns:GetCompareNear30DaysIndexDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareIndexDataByLastDate">
+      <wsdl:input message="tns:GetCompareIndexDataByLastDateSoapIn" />
+      <wsdl:output message="tns:GetCompareIndexDataByLastDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareIndexData">
+      <wsdl:input message="tns:GetCompareIndexDataSoapIn" />
+      <wsdl:output message="tns:GetCompareIndexDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTrendData">
+      <wsdl:input message="tns:GetIndexTrendDataSoapIn" />
+      <wsdl:output message="tns:GetIndexTrendDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalIndexTrendData">
+      <wsdl:input message="tns:GetRegionalIndexTrendDataSoapIn" />
+      <wsdl:output message="tns:GetRegionalIndexTrendDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCitySortListByLastDate">
+      <wsdl:input message="tns:GetCitySortListByLastDateSoapIn" />
+      <wsdl:output message="tns:GetCitySortListByLastDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCitySortList">
+      <wsdl:input message="tns:GetCitySortListSoapIn" />
+      <wsdl:output message="tns:GetCitySortListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCsidListByLastSixMonth">
+      <wsdl:input message="tns:GetCsidListByLastSixMonthSoapIn" />
+      <wsdl:output message="tns:GetCsidListByLastSixMonthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEffectiveMonthList">
+      <wsdl:input message="tns:GetEffectiveMonthListSoapIn" />
+      <wsdl:output message="tns:GetEffectiveMonthListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionSortList">
+      <wsdl:input message="tns:GetRegionSortListSoapIn" />
+      <wsdl:output message="tns:GetRegionSortListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexDetail">
+      <wsdl:input message="tns:GetIndexDetailSoapIn" />
+      <wsdl:output message="tns:GetIndexDetailSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IndexDataSoap" type="tns:IndexDataSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLastDate">
+      <soap:operation soapAction="http://index.bitauto.com/GetLastDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirstDate">
+      <soap:operation soapAction="http://index.bitauto.com/GetFirstDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShangPaiLastDate">
+      <soap:operation soapAction="http://index.bitauto.com/GetShangPaiLastDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTopListByLastDate">
+      <soap:operation soapAction="http://index.bitauto.com/GetIndexTopListByLastDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTopList">
+      <soap:operation soapAction="http://index.bitauto.com/GetIndexTopList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTopListPro">
+      <soap:operation soapAction="http://index.bitauto.com/GetIndexTopListPro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareNear30DayTopList">
+      <soap:operation soapAction="http://index.bitauto.com/GetCompareNear30DayTopList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexGrowthTopList">
+      <soap:operation soapAction="http://index.bitauto.com/GetIndexGrowthTopList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexDataListByLastDate">
+      <soap:operation soapAction="http://index.bitauto.com/GetIndexDataListByLastDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexDataList">
+      <soap:operation soapAction="http://index.bitauto.com/GetIndexDataList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalIndexDataList">
+      <soap:operation soapAction="http://index.bitauto.com/GetRegionalIndexDataList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareNear30DaysIndexData">
+      <soap:operation soapAction="http://index.bitauto.com/GetCompareNear30DaysIndexData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareIndexDataByLastDate">
+      <soap:operation soapAction="http://index.bitauto.com/GetCompareIndexDataByLastDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareIndexData">
+      <soap:operation soapAction="http://index.bitauto.com/GetCompareIndexData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTrendData">
+      <soap:operation soapAction="http://index.bitauto.com/GetIndexTrendData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalIndexTrendData">
+      <soap:operation soapAction="http://index.bitauto.com/GetRegionalIndexTrendData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitySortListByLastDate">
+      <soap:operation soapAction="http://index.bitauto.com/GetCitySortListByLastDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitySortList">
+      <soap:operation soapAction="http://index.bitauto.com/GetCitySortList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCsidListByLastSixMonth">
+      <soap:operation soapAction="http://index.bitauto.com/GetCsidListByLastSixMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEffectiveMonthList">
+      <soap:operation soapAction="http://index.bitauto.com/GetEffectiveMonthList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionSortList">
+      <soap:operation soapAction="http://index.bitauto.com/GetRegionSortList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexDetail">
+      <soap:operation soapAction="http://index.bitauto.com/GetIndexDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IndexDataSoap12" type="tns:IndexDataSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLastDate">
+      <soap12:operation soapAction="http://index.bitauto.com/GetLastDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirstDate">
+      <soap12:operation soapAction="http://index.bitauto.com/GetFirstDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShangPaiLastDate">
+      <soap12:operation soapAction="http://index.bitauto.com/GetShangPaiLastDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTopListByLastDate">
+      <soap12:operation soapAction="http://index.bitauto.com/GetIndexTopListByLastDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTopList">
+      <soap12:operation soapAction="http://index.bitauto.com/GetIndexTopList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTopListPro">
+      <soap12:operation soapAction="http://index.bitauto.com/GetIndexTopListPro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareNear30DayTopList">
+      <soap12:operation soapAction="http://index.bitauto.com/GetCompareNear30DayTopList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexGrowthTopList">
+      <soap12:operation soapAction="http://index.bitauto.com/GetIndexGrowthTopList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexDataListByLastDate">
+      <soap12:operation soapAction="http://index.bitauto.com/GetIndexDataListByLastDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexDataList">
+      <soap12:operation soapAction="http://index.bitauto.com/GetIndexDataList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalIndexDataList">
+      <soap12:operation soapAction="http://index.bitauto.com/GetRegionalIndexDataList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareNear30DaysIndexData">
+      <soap12:operation soapAction="http://index.bitauto.com/GetCompareNear30DaysIndexData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareIndexDataByLastDate">
+      <soap12:operation soapAction="http://index.bitauto.com/GetCompareIndexDataByLastDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompareIndexData">
+      <soap12:operation soapAction="http://index.bitauto.com/GetCompareIndexData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexTrendData">
+      <soap12:operation soapAction="http://index.bitauto.com/GetIndexTrendData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalIndexTrendData">
+      <soap12:operation soapAction="http://index.bitauto.com/GetRegionalIndexTrendData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitySortListByLastDate">
+      <soap12:operation soapAction="http://index.bitauto.com/GetCitySortListByLastDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitySortList">
+      <soap12:operation soapAction="http://index.bitauto.com/GetCitySortList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCsidListByLastSixMonth">
+      <soap12:operation soapAction="http://index.bitauto.com/GetCsidListByLastSixMonth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEffectiveMonthList">
+      <soap12:operation soapAction="http://index.bitauto.com/GetEffectiveMonthList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionSortList">
+      <soap12:operation soapAction="http://index.bitauto.com/GetRegionSortList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndexDetail">
+      <soap12:operation soapAction="http://index.bitauto.com/GetIndexDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IndexData">
+    <wsdl:port name="IndexDataSoap" binding="tns:IndexDataSoap">
+      <soap:address location="http://api2.easypass.cn/indexapi/Service/IndexData.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IndexDataSoap12" binding="tns:IndexDataSoap12">
+      <soap12:address location="http://api2.easypass.cn/indexapi/Service/IndexData.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

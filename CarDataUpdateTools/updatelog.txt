@@ -1,0 +1,18 @@
+﻿
+2014-01-17
+    方法迁移至 DataProcesser/InsuranceAndLoan
+    配置节迁移至 ConfigurationFiles/CarLoanPackageXmlUrl
+    modified by chengl 
+
+2014-01-06
+	增加车贷套餐数据下载更新
+	Controller.UpdateCarLoanPackageXml()方法
+	App.config中增加配置节：
+	ToolsSettings>FunctionCollection下
+		<!-- add by liurongwei 2014/1/6 -->
+		<add FuncName="UpdateCarLoanPackageXml" Description="更新车贷套餐数据"></add>
+	Configuration>appSettings下
+		<!--下载车贷套餐数据的Url-->
+		<add key="CarLoanPackageXmlUrl" value="http://mai.bitauto.com/InsuranceAndLoan/Api/Loan/CalculateAllSerialBrands"/>
+		<!--存储车贷套餐数据的路径,上线时请放在CarDataBaseNASPath　appSettings的配置目录下-->
+		<add key="CarLoanPackageXmlPath" value="\\192.168.0.40\nas\InsuranceAndLoan\CalculateAllSerialBrands.xml" />

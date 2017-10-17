@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetReportBySerialId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportBySerialIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportBySerialIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApiSoapHeader" type="tns:ApiSoapHeader" />
+      <s:complexType name="ApiSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AppKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppPwd" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetReportBySerialIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportBySerialId" />
+  </wsdl:message>
+  <wsdl:message name="GetReportBySerialIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportBySerialIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportBySerialIdApiSoapHeader">
+    <wsdl:part name="ApiSoapHeader" element="tns:ApiSoapHeader" />
+  </wsdl:message>
+  <wsdl:portType name="reportServiceSoap">
+    <wsdl:operation name="GetReportBySerialId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据子品牌获取口碑报告</wsdl:documentation>
+      <wsdl:input message="tns:GetReportBySerialIdSoapIn" />
+      <wsdl:output message="tns:GetReportBySerialIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="reportServiceSoap" type="tns:reportServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetReportBySerialId">
+      <soap:operation soapAction="http://tempuri.org/GetReportBySerialId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetReportBySerialIdApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="reportServiceSoap12" type="tns:reportServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetReportBySerialId">
+      <soap12:operation soapAction="http://tempuri.org/GetReportBySerialId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetReportBySerialIdApiSoapHeader" part="ApiSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="reportService">
+    <wsdl:port name="reportServiceSoap" binding="tns:reportServiceSoap">
+      <soap:address location="http://api.baa.bitauto.com/koubei/report/reportservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="reportServiceSoap12" binding="tns:reportServiceSoap12">
+      <soap12:address location="http://api.baa.bitauto.com/koubei/report/reportservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

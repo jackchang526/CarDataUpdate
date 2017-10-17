@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://news.bitauto.com/comment/newsservice.asmx?wsdl" docRef="http://news.bitauto.com/comment/newsservice.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://news.bitauto.com/comment/newsservice.asmx" xmlns:q1="http://news.bitauto.com/" binding="q1:NewsServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://news.bitauto.com/comment/newsservice.asmx" xmlns:q2="http://news.bitauto.com/" binding="q2:NewsServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

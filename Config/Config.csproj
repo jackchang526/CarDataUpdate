@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1B43C3B6-1FBF-4F10-98EF-59B7F587C283}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.CarDataUpdate.Config</RootNamespace>
+    <AssemblyName>Config</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.Utils">
+      <HintPath>..\..\..\..\..\P公用平台\Release\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessMessageQueue\BusinessMessageQueueHandler.cs" />
+    <Compile Include="BusinessMessageQueue\MessageQueueConfig.cs" />
+    <Compile Include="CarNewsTypeSettings\CarNewsTypeBuilder.cs" />
+    <Compile Include="CarNewsTypeSettings\CarNewsTypeItem.cs" />
+    <Compile Include="CarNewsTypeSettings\CarNewsTypes.cs" />
+    <Compile Include="CarNewsTypeSettings\CarTypes.cs" />
+    <Compile Include="CarNewsTypeSettings\CarNewsTypeSettings.cs" />
+    <Compile Include="CarNewsTypeSettings\CarNewsTypeSettingsHandler.cs" />
+    <Compile Include="CommonSettings.cs" />
+    <Compile Include="ConnStringSettings.cs" />
+    <Compile Include="NewsCategoryConfig\NewsCategoryConfig.cs" />
+    <Compile Include="NewsCategoryConfig\NewsCategoryConfigHandler.cs" />
+    <Compile Include="NewsCategoryConfig\NewsCategoryShowName.cs" />
+    <Compile Include="NewsBlockOrderTypes.cs" />
+    <Compile Include="PhotoImageConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\ToolsSettings.cs" />
+    <Compile Include="Tools\FunctionCollection.cs" />
+    <Compile Include="Tools\FunctionItem.cs" />
+    <Compile Include="VideoCategoryConfig\VideoCategoryConfig.cs" />
+    <Compile Include="VideoCategoryConfig\VideoCategoryConfigHandler.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

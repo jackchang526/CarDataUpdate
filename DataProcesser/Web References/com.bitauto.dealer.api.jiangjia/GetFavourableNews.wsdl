@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetNewsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serialID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewsListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsInfoByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="newsID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsInfoByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewsInfoByIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNewsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewsList" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsInfoByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewsInfoByID" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsInfoByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewsInfoByIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GetFavourableNewsSoap">
+    <wsdl:operation name="GetNewsList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据子品牌和城市ID获取新闻内容</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsListSoapIn" />
+      <wsdl:output message="tns:GetNewsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsInfoByID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取单条新闻详情</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsInfoByIDSoapIn" />
+      <wsdl:output message="tns:GetNewsInfoByIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetFavourableNewsSoap" type="tns:GetFavourableNewsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewsList">
+      <soap:operation soapAction="http://tempuri.org/GetNewsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsInfoByID">
+      <soap:operation soapAction="http://tempuri.org/GetNewsInfoByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetFavourableNewsSoap12" type="tns:GetFavourableNewsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewsList">
+      <soap12:operation soapAction="http://tempuri.org/GetNewsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsInfoByID">
+      <soap12:operation soapAction="http://tempuri.org/GetNewsInfoByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetFavourableNews">
+    <wsdl:port name="GetFavourableNewsSoap" binding="tns:GetFavourableNewsSoap">
+      <soap:address location="http://api.dealer.bitauto.com/api/Service/GetFavourableNews.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetFavourableNewsSoap12" binding="tns:GetFavourableNewsSoap12">
+      <soap12:address location="http://api.dealer.bitauto.com/api/Service/GetFavourableNews.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

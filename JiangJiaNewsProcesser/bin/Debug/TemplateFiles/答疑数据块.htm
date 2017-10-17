@@ -1,0 +1,133 @@
+﻿<!--
+#set($brandId = "$brand.Id")
+#if($brand.Type.ToString() == "Brand")
+    #set($brandId = "$brand.ParentNode.Id")
+#end
+
+#set($displayName = "${brand.Name}")
+#set($masterName = "${brand.Name}")
+#if($brand.Type.ToString() == "Serial")
+    #set($displayName = "${brand.SEOName}")
+    #set($masterName = "${brand.ParentNode.ParentNode.Name}")
+#end
+--> 
+#if($isold == "0")
+<div class="line-box sum-ask">
+ 	<div class="title-box">
+		<h3>
+			<a href="$askbrandurl" target="_blank">${displayName.Replace("·", "&bull;")}问答</a></h3>
+		<span>百位汽车专家为您在线答疑&gt;&gt;</span>
+		 <div class="more">
+			 <a href="$askbrandurl" target="_blank">进入问答&gt;&gt;</a>
+		 </div>
+ 	</div>
+    <div class="sum-ask-search">
+        <div class="w">
+            <span class="ssbox">
+                <input type="text" class="txtinput" id="txtkey" value="有啥问题，您就直说～～" onfocus="if(this.value!=''&amp;&amp;this.value=='有啥问题，您就直说～～'){this.value='';}" onblur="if(this.value==''){this.value='有啥问题，您就直说～～';}">
+                <div class="button_orange button_97_25">
+                <a  href="javascript:void(0);" target="_blank" onclick="if(document.getElementById('txtkey').value=='有啥问题，您就直说～～'||document.getElementById('txtkey').value=='') {window.open('http://www.cheyisou.com/ask/');return false;}window.open('http://www.cheyisou.com/ask/'+encodeURI(document.getElementById('txtkey').value)+'/'); return false;">搜索答案</a></div>
+                <div class="button_gray button_67_25">
+                    <a href="javascript:void(0);" target="_blank" onclick="if(document.getElementById('txtkey').value=='有啥问题，您就直说～～')document.getElementById('txtkey').value='';window.open('http://ask.bitauto.com/tiwen/'+encodeURI(document.getElementById('txtkey').value)+''); return false;">提问</a></div>
+            </span>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="sum-ask-tro">
+        <div class="sum-ask-tro-list">
+            <ul class="sum-ask-tro-list-tt" id="data_tab1">
+                <li class="current"><a href="$askbrandsolvedurl" target="_blank">已解决</a>&nbsp;<span>|</span>&nbsp;</li>
+                <li><a href="$askbrandunsolvedurl" target="_blank">待解决</a></li>
+            </ul>
+            <ul class="sum-ask-tro-list-con" id="data_box1_0">
+                #if($solveds.Length<1)
+                <li><span>暂无内容</span></li>
+                #else
+                #foreach($question in $solveds)
+	            #each
+                <li><span><a href="${question.RowTagUrl}" target="_blank">$question.RowTagName</a>&nbsp;|&nbsp;</span><a href="$question.Url" target="_blank">$question.RowTitle</a></li>
+                #end
+                #end
+            </ul>
+            <ul class="sum-ask-tro-list-con" id="data_box1_1" style="display: none;">
+                #if($unsolveds.Length<1)
+                <li><span>暂无内容</span></li>
+                #else
+        	    #foreach($question in $unsolveds)
+	            #each
+                <li><span><a href="${question.RowTagUrl}" target="_blank">$question.RowTagName</a>&nbsp;|&nbsp;</span><a href="$question.Url" target="_blank">$question.RowTitle</a></li>
+                #end
+                #end
+            </ul>
+        </div>
+    </div>
+    <div class="sum-ask-brick">
+        <ul>
+        #foreach($expert in $experts)
+        #each
+            <li>
+                <a href="$expert.Url" target="_blank">
+                    <img src="$expert.ImageUrl" /></a>
+                <dl>
+                    <dt><a href="$expert.Url" target="_blank">$expert.UserName</a></dt>
+                    <dd>擅长领域：$expert.Categorys</dd>
+                    <dd>擅长车型：$masterName</dd>
+                </dl>
+				<div class="clear">
+				</div>
+                <em>专</em>
+            </li>
+        #end
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+#else
+<div class="line_box">
+	<div class="QA-q-area">
+		<div class="q-input-area">
+			<strong>${displayName.Replace("·", "&bull;")}-问答</strong>
+			<input type="text" class="q-text" value="请输入关键字" id="txtkey" onfocus="if(this.value!=''&amp;&amp;this.value=='请输入关键字'){this.value='';}"
+				onblur="if(this.value==''){this.value='请输入关键字';}">
+			<span class="q-btn-search">
+				<input type="submit" onclick="if(document.getElementById('txtkey').value=='请输入关键字'||document.getElementById('txtkey').value=='') {window.open('http://www.cheyisou.com/ask/');return false;}window.open('http://www.cheyisou.com/ask/'+encodeURI(document.getElementById('txtkey').value)+'/'); return false;"
+					value="搜索答案"></span> <span class="q-btn-tiwen"><a href="#" target="_blank" onclick="if(document.getElementById('txtkey').value=='请输入关键字')document.getElementById('txtkey').value='';window.open('http://ask.bitauto.com/tiwen/'+encodeURI(document.getElementById('txtkey').value)+''); return false;">
+						我要提问</a></span>
+		</div>
+		<div class="clear">
+		</div>
+		<ul id="data_tab0">
+			<li class="current"><a href="javascript:void(0);">全部问题</a></li>
+			<li class=""><a href="javascript:void(0);">已解决</a></li>
+			<li class=""><a href="javascript:void(0);">待解决</a></li>
+		</ul>
+		<div class="clear">
+		</div>
+	</div>
+	<div class="text_list qa-text-list">
+		<!--全部问答-->
+	<ul style="display: block;" id="data_box0_0">
+	#foreach($question in $alls)
+	#each
+			<li><a target="_blank" href="$question.Url">$question.Title</a></li>
+	#end
+	</ul>
+		<!--已解决-->
+	<ul style="display: none;" id="data_box0_1">
+	#foreach($question in $solveds)
+	#each
+			<li><a target="_blank" href="$question.Url">$question.Title</a></li>
+	#end
+	</ul>
+		<!--待解决-->
+	<ul style="display: none;" id="data_box0_2">
+	#foreach($question in $unsolveds)
+	#each
+			<li><a target="_blank" href="$question.Url">$question.Title</a></li>
+	#end
+	</ul>
+	</div>
+	<div class="clear">
+	</div>
+</div>
+#end

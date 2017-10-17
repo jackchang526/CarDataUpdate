@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <TopCar Title="2015年度十佳车" Link="http://www.bitauto.com/top10cars/">
+    <Serial id="1879" name="一汽丰田 卡罗拉" />
+    <Serial id="4066" name="东风标致 2008" />
+    <Serial id="4190" name="广汽丰田 雷凌" />
+    <Serial id="2583" name="东风日产 新奇骏" />
+    <Serial id="2364" name="北京奔驰 长轴距C级" />
+    <Serial id="4065" name="一汽马自达 阿特兹" />
+    <Serial id="4123" name="长安马自达 昂克赛拉" />
+    <Serial id="2608" name="新科鲁兹" />
+    <Serial id="3882" name="长安PSA DS 6" />
+    <Serial id="2750" name="全新奥德赛" />
+  </TopCar>
+  <TopCar Title="2015年度五佳进口车" Link=" http://www.bitauto.com/top10cars/">
+    <Serial id="3874" name="玛莎拉蒂 Ghibli" />
+    <Serial id="3876" name=" Jeep 自由光" />
+    <Serial id="2032" name="全新宝马 X5" />
+    <Serial id="2070" name="全新奥迪 A8L" />
+    <Serial id="3864" name="英菲尼迪 Q50" />
+  </TopCar>
+  <TopCar Title="2015年度自主车特别奖" Link=" http://www.bitauto.com/top10cars/">
+    <Serial id="4281" name="传祺GA3S 视界" />
+    <Serial id="3661" name="比亚迪 秦" />
+    <Serial id="3793" name="陆风X5 8AT" />
+  </TopCar>
+  <TopCar Title="2015年度新能源车特别奖" Link=" http://www.bitauto.com/top10cars/">
+    <Serial id=" 3580" name="宝马 i3" />
+    <Serial id=" 4058 " name="启辰 晨风" />
+    <Serial id=" 3843 " name="特斯拉 MODEL S" />
+  </TopCar>
+  
+	<TopCar Title="2014年度十佳车" Link="http://www.bitauto.com/zhuanti/huodong/top10models/gd_2014/">
+		<Serial id="1610" name="新蒙迪欧" />
+		<Serial id="3524" name="艾瑞泽7" />
+		<Serial id="2406" name="雅阁" />
+		<Serial id="3805" name="标致3008" />
+		<Serial id="3453" name="奔腾X80" />
+		<Serial id="2409" name="天籁" />
+		<Serial id="3773" name="雪铁龙C4 L" />
+		<Serial id="3031" name="凯迪拉克XTS" />
+		<Serial id="2701" name="一汽丰田RAV4" />
+		<Serial id="1905" name="捷达" />
+	</TopCar>
+	<TopCar Title="2013年度十佳车" Link="http://www.bitauto.com/top10cars/gd_2013/">
+		<Serial id="3372" name="MG 5" />
+		<Serial id="3510" name="起亚K3" />
+		<Serial id="3655" name="朗动" />
+		<Serial id="1699" name="轩逸" />
+		<Serial id="2273" name="福克斯两厢" />
+		<Serial id="1765" name="速腾" />
+		<Serial id="3381" name="迈锐宝" />
+		<Serial id="1660" name="本田CR-V" />
+		<Serial id="1729" name="宝马3系" />
+		<Serial id="2573" name="奥迪A6L" />
+	</TopCar>
+	<TopCar Title="2012年度十佳车" Link="http://www.bitauto.com/top10cars/gd_2012/">
+		<Serial id="3374" name="奇瑞E5" />
+		<Serial id="3301" name="宝骏630" />
+		<Serial id="3398" name="东风悦达起亚 K2" />
+		<Serial id="1698" name="骐达" />
+		<Serial id="2964" name="爱唯欧两厢" />
+		<Serial id="1796" name="帕萨特" />
+		<Serial id="3503" name="Mazda3星骋" />
+		<Serial id="1568" name="索纳塔八" />
+		<Serial id="3152" name="哈弗H6" />
+		<Serial id="2938" name="Mazda8" />
+	</TopCar>
+	<TopCar Title="2011年度十佳车" Link="http://www.bitauto.com/top10cars/gd_2011/">
+		<Serial id="3086" name="起亚智跑" />
+		<Serial id="2906" name="长安奔奔MINI" />
+		<Serial id="2944" name="睿翼轿跑车" />
+		<Serial id="1833" name="雪佛兰新赛欧" />
+		<Serial id="2886" name="上汽荣威350" />
+		<Serial id="3023" name="长城腾翼C30" />
+		<Serial id="2871" name="上海大众途观" />
+		<Serial id="3243" name="东风日产玛驰" />
+		<Serial id="2932" name="一汽大众CC" />
+		<Serial id="3167" name="北京现代瑞纳" />
+	</TopCar>
+	<TopCar Title="2014年度五佳进口车" Link="http://www.bitauto.com/zhuanti/huodong/top10models/gd_2014/">
+		<Serial id="3512" name="英菲尼迪JX35(QX60)" />
+		<Serial id="3786" name="捷豹F-Type" />
+		<Serial id="3628" name="沃尔沃V40" />
+		<Serial id="2007" name="大切诺基" />
+		<Serial id="2259" name="奔驰S级" />
+	</TopCar>
+</Root>

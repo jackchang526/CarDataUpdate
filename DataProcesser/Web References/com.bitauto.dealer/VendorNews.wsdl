@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetTodayNewsInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTodayNewsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTodayNewsInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsListBySerialID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SerialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RowCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsListBySerialIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewsListBySerialIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsPageListAndCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SeriesID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProvinceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VendorId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ncId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="vendorBizMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsCharge" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsPageListAndCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewsPageListAndCountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="TotalCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsPageList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SeriesID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProvinceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VendorId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ncId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="vendorBizMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsCharge" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsPageListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewsPageListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsPageListByNCIdList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SeriesID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProvinceID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VendorId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ncId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="vendorBizMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsCharge" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ncIdList" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsPageListByNCIdListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewsPageListByNCIdListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetThirdClassCityNewsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RowCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetThirdClassCityNewsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetThirdClassCityNewsListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorBrandNewsByCarSerialID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SerialID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorBrandNewsByCarSerialIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorBrandNewsByCarSerialIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorAfterSaleNewsByCarSerialID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SerialID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorAfterSaleNewsByCarSerialIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorAfterSaleNewsByCarSerialIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCityRecommendNews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VendorBizMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsImport" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RowCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCityRecommendNewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCityRecommendNewsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewsID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewsContentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDateVendorNewsBasicTemplate_CMS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDateVendorNewsBasicTemplate_CMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDateVendorNewsBasicTemplate_CMSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDateVendorPrice_CMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDateVendorPrice_CMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDateVendorPrice_CMSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTodayNewsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTodayNewsInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetTodayNewsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTodayNewsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListBySerialIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewsListBySerialID" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListBySerialIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewsListBySerialIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListAndCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewsPageListAndCount" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListAndCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewsPageListAndCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewsPageList" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewsPageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListByNCIdListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewsPageListByNCIdList" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListByNCIdListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewsPageListByNCIdListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetThirdClassCityNewsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetThirdClassCityNewsList" />
+  </wsdl:message>
+  <wsdl:message name="GetThirdClassCityNewsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetThirdClassCityNewsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorBrandNewsByCarSerialIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorBrandNewsByCarSerialID" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorBrandNewsByCarSerialIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorBrandNewsByCarSerialIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorAfterSaleNewsByCarSerialIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorAfterSaleNewsByCarSerialID" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorAfterSaleNewsByCarSerialIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorAfterSaleNewsByCarSerialIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCityRecommendNewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCityRecommendNews" />
+  </wsdl:message>
+  <wsdl:message name="GetCityRecommendNewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCityRecommendNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewsContent" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewsContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDateVendorNewsBasicTemplate_CMSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDateVendorNewsBasicTemplate_CMS" />
+  </wsdl:message>
+  <wsdl:message name="GetDateVendorNewsBasicTemplate_CMSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDateVendorNewsBasicTemplate_CMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDateVendorPrice_CMSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDateVendorPrice_CMS" />
+  </wsdl:message>
+  <wsdl:message name="GetDateVendorPrice_CMSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDateVendorPrice_CMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTodayNewsInfoHttpGetIn" />
+  <wsdl:message name="GetTodayNewsInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListBySerialIDHttpGetIn">
+    <wsdl:part name="SerialId" type="s:string" />
+    <wsdl:part name="RowCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListBySerialIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListHttpGetIn">
+    <wsdl:part name="SeriesID" type="s:string" />
+    <wsdl:part name="ProvinceID" type="s:string" />
+    <wsdl:part name="CityID" type="s:string" />
+    <wsdl:part name="VendorId" type="s:string" />
+    <wsdl:part name="ncId" type="s:string" />
+    <wsdl:part name="vendorBizMode" type="s:string" />
+    <wsdl:part name="IsCharge" type="s:string" />
+    <wsdl:part name="PageCount" type="s:string" />
+    <wsdl:part name="PageIndex" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListByNCIdListHttpGetIn">
+    <wsdl:part name="SeriesID" type="s:string" />
+    <wsdl:part name="ProvinceID" type="s:string" />
+    <wsdl:part name="CityID" type="s:string" />
+    <wsdl:part name="VendorId" type="s:string" />
+    <wsdl:part name="ncId" type="s:string" />
+    <wsdl:part name="vendorBizMode" type="s:string" />
+    <wsdl:part name="IsCharge" type="s:string" />
+    <wsdl:part name="ncIdList" type="s:string" />
+    <wsdl:part name="PageCount" type="s:string" />
+    <wsdl:part name="PageIndex" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListByNCIdListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetThirdClassCityNewsListHttpGetIn">
+    <wsdl:part name="CityID" type="s:string" />
+    <wsdl:part name="RowCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetThirdClassCityNewsListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorBrandNewsByCarSerialIDHttpGetIn">
+    <wsdl:part name="SerialID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorBrandNewsByCarSerialIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorAfterSaleNewsByCarSerialIDHttpGetIn">
+    <wsdl:part name="SerialID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorAfterSaleNewsByCarSerialIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetCityRecommendNewsHttpGetIn">
+    <wsdl:part name="CityID" type="s:string" />
+    <wsdl:part name="VendorBizMode" type="s:string" />
+    <wsdl:part name="IsImport" type="s:string" />
+    <wsdl:part name="RowCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCityRecommendNewsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsContentHttpGetIn">
+    <wsdl:part name="NewsID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsContentHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDateVendorNewsBasicTemplate_CMSHttpGetIn" />
+  <wsdl:message name="GetDateVendorNewsBasicTemplate_CMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDateVendorPrice_CMSHttpGetIn">
+    <wsdl:part name="pageIndex" type="s:string" />
+    <wsdl:part name="pageCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDateVendorPrice_CMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetTodayNewsInfoHttpPostIn" />
+  <wsdl:message name="GetTodayNewsInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListBySerialIDHttpPostIn">
+    <wsdl:part name="SerialId" type="s:string" />
+    <wsdl:part name="RowCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListBySerialIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListHttpPostIn">
+    <wsdl:part name="SeriesID" type="s:string" />
+    <wsdl:part name="ProvinceID" type="s:string" />
+    <wsdl:part name="CityID" type="s:string" />
+    <wsdl:part name="VendorId" type="s:string" />
+    <wsdl:part name="ncId" type="s:string" />
+    <wsdl:part name="vendorBizMode" type="s:string" />
+    <wsdl:part name="IsCharge" type="s:string" />
+    <wsdl:part name="PageCount" type="s:string" />
+    <wsdl:part name="PageIndex" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListByNCIdListHttpPostIn">
+    <wsdl:part name="SeriesID" type="s:string" />
+    <wsdl:part name="ProvinceID" type="s:string" />
+    <wsdl:part name="CityID" type="s:string" />
+    <wsdl:part name="VendorId" type="s:string" />
+    <wsdl:part name="ncId" type="s:string" />
+    <wsdl:part name="vendorBizMode" type="s:string" />
+    <wsdl:part name="IsCharge" type="s:string" />
+    <wsdl:part name="ncIdList" type="s:string" />
+    <wsdl:part name="PageCount" type="s:string" />
+    <wsdl:part name="PageIndex" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsPageListByNCIdListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetThirdClassCityNewsListHttpPostIn">
+    <wsdl:part name="CityID" type="s:string" />
+    <wsdl:part name="RowCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetThirdClassCityNewsListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorBrandNewsByCarSerialIDHttpPostIn">
+    <wsdl:part name="SerialID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorBrandNewsByCarSerialIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorAfterSaleNewsByCarSerialIDHttpPostIn">
+    <wsdl:part name="SerialID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorAfterSaleNewsByCarSerialIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetCityRecommendNewsHttpPostIn">
+    <wsdl:part name="CityID" type="s:string" />
+    <wsdl:part name="VendorBizMode" type="s:string" />
+    <wsdl:part name="IsImport" type="s:string" />
+    <wsdl:part name="RowCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCityRecommendNewsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsContentHttpPostIn">
+    <wsdl:part name="NewsID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsContentHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDateVendorNewsBasicTemplate_CMSHttpPostIn" />
+  <wsdl:message name="GetDateVendorNewsBasicTemplate_CMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDateVendorPrice_CMSHttpPostIn">
+    <wsdl:part name="pageIndex" type="s:string" />
+    <wsdl:part name="pageCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDateVendorPrice_CMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="VendorNewsSoap">
+    <wsdl:operation name="GetTodayNewsInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据系统当前时间获取新闻信息</wsdl:documentation>
+      <wsdl:input message="tns:GetTodayNewsInfoSoapIn" />
+      <wsdl:output message="tns:GetTodayNewsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListBySerialID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">使用新车库数据库车型系列ID获取新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsListBySerialIDSoapIn" />
+      <wsdl:output message="tns:GetNewsListBySerialIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageListAndCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">经销商商情频道新闻查询，返回结果集和统计数量</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsPageListAndCountSoapIn" />
+      <wsdl:output message="tns:GetNewsPageListAndCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">经销商商情频道新闻查询</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsPageListSoapIn" />
+      <wsdl:output message="tns:GetNewsPageListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageListByNCIdList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">经销商商情频道新闻查询,分类组合数组</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsPageListByNCIdListSoapIn" />
+      <wsdl:output message="tns:GetNewsPageListByNCIdListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThirdClassCityNewsList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">三级城市新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetThirdClassCityNewsListSoapIn" />
+      <wsdl:output message="tns:GetThirdClassCityNewsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorBrandNewsByCarSerialID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定子品牌下全部经销商的最新新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorBrandNewsByCarSerialIDSoapIn" />
+      <wsdl:output message="tns:GetVendorBrandNewsByCarSerialIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorAfterSaleNewsByCarSerialID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定子品牌下全部经销商的售后新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorAfterSaleNewsByCarSerialIDSoapIn" />
+      <wsdl:output message="tns:GetVendorAfterSaleNewsByCarSerialIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCityRecommendNews">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定城市的推荐新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetCityRecommendNewsSoapIn" />
+      <wsdl:output message="tns:GetCityRecommendNewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定新闻的内容</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsContentSoapIn" />
+      <wsdl:output message="tns:GetNewsContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorNewsBasicTemplate_CMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取所有有效促销新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetDateVendorNewsBasicTemplate_CMSSoapIn" />
+      <wsdl:output message="tns:GetDateVendorNewsBasicTemplate_CMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorPrice_CMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取报价相关信息</wsdl:documentation>
+      <wsdl:input message="tns:GetDateVendorPrice_CMSSoapIn" />
+      <wsdl:output message="tns:GetDateVendorPrice_CMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="VendorNewsHttpGet">
+    <wsdl:operation name="GetTodayNewsInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据系统当前时间获取新闻信息</wsdl:documentation>
+      <wsdl:input message="tns:GetTodayNewsInfoHttpGetIn" />
+      <wsdl:output message="tns:GetTodayNewsInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListBySerialID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">使用新车库数据库车型系列ID获取新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsListBySerialIDHttpGetIn" />
+      <wsdl:output message="tns:GetNewsListBySerialIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">经销商商情频道新闻查询</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsPageListHttpGetIn" />
+      <wsdl:output message="tns:GetNewsPageListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageListByNCIdList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">经销商商情频道新闻查询,分类组合数组</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsPageListByNCIdListHttpGetIn" />
+      <wsdl:output message="tns:GetNewsPageListByNCIdListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThirdClassCityNewsList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">三级城市新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetThirdClassCityNewsListHttpGetIn" />
+      <wsdl:output message="tns:GetThirdClassCityNewsListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorBrandNewsByCarSerialID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定子品牌下全部经销商的最新新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorBrandNewsByCarSerialIDHttpGetIn" />
+      <wsdl:output message="tns:GetVendorBrandNewsByCarSerialIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorAfterSaleNewsByCarSerialID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定子品牌下全部经销商的售后新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorAfterSaleNewsByCarSerialIDHttpGetIn" />
+      <wsdl:output message="tns:GetVendorAfterSaleNewsByCarSerialIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCityRecommendNews">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定城市的推荐新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetCityRecommendNewsHttpGetIn" />
+      <wsdl:output message="tns:GetCityRecommendNewsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定新闻的内容</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsContentHttpGetIn" />
+      <wsdl:output message="tns:GetNewsContentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorNewsBasicTemplate_CMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取所有有效促销新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetDateVendorNewsBasicTemplate_CMSHttpGetIn" />
+      <wsdl:output message="tns:GetDateVendorNewsBasicTemplate_CMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorPrice_CMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取报价相关信息</wsdl:documentation>
+      <wsdl:input message="tns:GetDateVendorPrice_CMSHttpGetIn" />
+      <wsdl:output message="tns:GetDateVendorPrice_CMSHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="VendorNewsHttpPost">
+    <wsdl:operation name="GetTodayNewsInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据系统当前时间获取新闻信息</wsdl:documentation>
+      <wsdl:input message="tns:GetTodayNewsInfoHttpPostIn" />
+      <wsdl:output message="tns:GetTodayNewsInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListBySerialID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">使用新车库数据库车型系列ID获取新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsListBySerialIDHttpPostIn" />
+      <wsdl:output message="tns:GetNewsListBySerialIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">经销商商情频道新闻查询</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsPageListHttpPostIn" />
+      <wsdl:output message="tns:GetNewsPageListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageListByNCIdList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">经销商商情频道新闻查询,分类组合数组</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsPageListByNCIdListHttpPostIn" />
+      <wsdl:output message="tns:GetNewsPageListByNCIdListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThirdClassCityNewsList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">三级城市新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetThirdClassCityNewsListHttpPostIn" />
+      <wsdl:output message="tns:GetThirdClassCityNewsListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorBrandNewsByCarSerialID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定子品牌下全部经销商的最新新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorBrandNewsByCarSerialIDHttpPostIn" />
+      <wsdl:output message="tns:GetVendorBrandNewsByCarSerialIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorAfterSaleNewsByCarSerialID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定子品牌下全部经销商的售后新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorAfterSaleNewsByCarSerialIDHttpPostIn" />
+      <wsdl:output message="tns:GetVendorAfterSaleNewsByCarSerialIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCityRecommendNews">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定城市的推荐新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetCityRecommendNewsHttpPostIn" />
+      <wsdl:output message="tns:GetCityRecommendNewsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取指定新闻的内容</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsContentHttpPostIn" />
+      <wsdl:output message="tns:GetNewsContentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorNewsBasicTemplate_CMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取所有有效促销新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetDateVendorNewsBasicTemplate_CMSHttpPostIn" />
+      <wsdl:output message="tns:GetDateVendorNewsBasicTemplate_CMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorPrice_CMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">读取报价相关信息</wsdl:documentation>
+      <wsdl:input message="tns:GetDateVendorPrice_CMSHttpPostIn" />
+      <wsdl:output message="tns:GetDateVendorPrice_CMSHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VendorNewsSoap" type="tns:VendorNewsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTodayNewsInfo">
+      <soap:operation soapAction="http://tempuri.org/GetTodayNewsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListBySerialID">
+      <soap:operation soapAction="http://tempuri.org/GetNewsListBySerialID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageListAndCount">
+      <soap:operation soapAction="http://tempuri.org/GetNewsPageListAndCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageList">
+      <soap:operation soapAction="http://tempuri.org/GetNewsPageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageListByNCIdList">
+      <soap:operation soapAction="http://tempuri.org/GetNewsPageListByNCIdList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThirdClassCityNewsList">
+      <soap:operation soapAction="http://tempuri.org/GetThirdClassCityNewsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorBrandNewsByCarSerialID">
+      <soap:operation soapAction="http://tempuri.org/GetVendorBrandNewsByCarSerialID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorAfterSaleNewsByCarSerialID">
+      <soap:operation soapAction="http://tempuri.org/GetVendorAfterSaleNewsByCarSerialID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityRecommendNews">
+      <soap:operation soapAction="http://tempuri.org/GetCityRecommendNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsContent">
+      <soap:operation soapAction="http://tempuri.org/GetNewsContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorNewsBasicTemplate_CMS">
+      <soap:operation soapAction="http://tempuri.org/GetDateVendorNewsBasicTemplate_CMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorPrice_CMS">
+      <soap:operation soapAction="http://tempuri.org/GetDateVendorPrice_CMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VendorNewsSoap12" type="tns:VendorNewsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTodayNewsInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetTodayNewsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListBySerialID">
+      <soap12:operation soapAction="http://tempuri.org/GetNewsListBySerialID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageListAndCount">
+      <soap12:operation soapAction="http://tempuri.org/GetNewsPageListAndCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageList">
+      <soap12:operation soapAction="http://tempuri.org/GetNewsPageList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageListByNCIdList">
+      <soap12:operation soapAction="http://tempuri.org/GetNewsPageListByNCIdList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThirdClassCityNewsList">
+      <soap12:operation soapAction="http://tempuri.org/GetThirdClassCityNewsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorBrandNewsByCarSerialID">
+      <soap12:operation soapAction="http://tempuri.org/GetVendorBrandNewsByCarSerialID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorAfterSaleNewsByCarSerialID">
+      <soap12:operation soapAction="http://tempuri.org/GetVendorAfterSaleNewsByCarSerialID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityRecommendNews">
+      <soap12:operation soapAction="http://tempuri.org/GetCityRecommendNews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsContent">
+      <soap12:operation soapAction="http://tempuri.org/GetNewsContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorNewsBasicTemplate_CMS">
+      <soap12:operation soapAction="http://tempuri.org/GetDateVendorNewsBasicTemplate_CMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorPrice_CMS">
+      <soap12:operation soapAction="http://tempuri.org/GetDateVendorPrice_CMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VendorNewsHttpGet" type="tns:VendorNewsHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetTodayNewsInfo">
+      <http:operation location="/GetTodayNewsInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListBySerialID">
+      <http:operation location="/GetNewsListBySerialID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageList">
+      <http:operation location="/GetNewsPageList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageListByNCIdList">
+      <http:operation location="/GetNewsPageListByNCIdList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThirdClassCityNewsList">
+      <http:operation location="/GetThirdClassCityNewsList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorBrandNewsByCarSerialID">
+      <http:operation location="/GetVendorBrandNewsByCarSerialID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorAfterSaleNewsByCarSerialID">
+      <http:operation location="/GetVendorAfterSaleNewsByCarSerialID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityRecommendNews">
+      <http:operation location="/GetCityRecommendNews" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsContent">
+      <http:operation location="/GetNewsContent" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorNewsBasicTemplate_CMS">
+      <http:operation location="/GetDateVendorNewsBasicTemplate_CMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorPrice_CMS">
+      <http:operation location="/GetDateVendorPrice_CMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VendorNewsHttpPost" type="tns:VendorNewsHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetTodayNewsInfo">
+      <http:operation location="/GetTodayNewsInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsListBySerialID">
+      <http:operation location="/GetNewsListBySerialID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageList">
+      <http:operation location="/GetNewsPageList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsPageListByNCIdList">
+      <http:operation location="/GetNewsPageListByNCIdList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThirdClassCityNewsList">
+      <http:operation location="/GetThirdClassCityNewsList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorBrandNewsByCarSerialID">
+      <http:operation location="/GetVendorBrandNewsByCarSerialID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorAfterSaleNewsByCarSerialID">
+      <http:operation location="/GetVendorAfterSaleNewsByCarSerialID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityRecommendNews">
+      <http:operation location="/GetCityRecommendNews" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewsContent">
+      <http:operation location="/GetNewsContent" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorNewsBasicTemplate_CMS">
+      <http:operation location="/GetDateVendorNewsBasicTemplate_CMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateVendorPrice_CMS">
+      <http:operation location="/GetDateVendorPrice_CMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VendorNews">
+    <wsdl:port name="VendorNewsSoap" binding="tns:VendorNewsSoap">
+      <soap:address location="http://api.dealer.bitauto.com/api/Service/VendorNews.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VendorNewsSoap12" binding="tns:VendorNewsSoap12">
+      <soap12:address location="http://api.dealer.bitauto.com/api/Service/VendorNews.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VendorNewsHttpGet" binding="tns:VendorNewsHttpGet">
+      <http:address location="http://api.dealer.bitauto.com/api/Service/VendorNews.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VendorNewsHttpPost" binding="tns:VendorNewsHttpPost">
+      <http:address location="http://api.dealer.bitauto.com/api/Service/VendorNews.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

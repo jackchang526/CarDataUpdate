@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BB988BFC-0EE9-46DB-93D7-86A90BD93451}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitAuto.CarDataUpdate.CarMessageProcesser</RootNamespace>
+    <AssemblyName>CarMessageProcesser</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitAuto.Services">
+      <HintPath>..\..\..\..\..\P公用平台\Release\BitAuto.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils, Version=2.0.7.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\P公用平台\Release\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Enyim.Caching">
+      <HintPath>..\..\..\..\..\P公用平台\Release\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CarInfo\Brand.cs" />
+    <Compile Include="CarInfo\Car.cs" />
+    <Compile Include="CarInfo\MasterBrand.cs" />
+    <Compile Include="CarInfo\Producer.cs" />
+    <Compile Include="CarInfo\Serial.cs" />
+    <Compile Include="CMS\Video.cs" />
+    <Compile Include="Common\CommonProcesser.cs" />
+    <Compile Include="Photo\Car.cs" />
+    <Compile Include="Photo\Serial.cs" />
+    <Compile Include="Photo\SerialCoverImage.cs" />
+    <Compile Include="Photo\SerialFocusImage.cs" />
+    <Compile Include="Photo\CarFocusImage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerialPingceBlock.cs" />
+    <Compile Include="SerialPingjiaBlock.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{248AC5CD-C06E-449C-97A0-B5249D5B8401}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Config\Config.csproj">
+      <Project>{1B43C3B6-1FBF-4F10-98EF-59B7F587C283}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataProcesser\DataProcesser.csproj">
+      <Project>{FE715CF4-B0AA-42A6-99B1-F0CFD0AF37AD}</Project>
+      <Name>DataProcesser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HtmlBuilder\HtmlBuilder.csproj">
+      <Project>{80C277F7-FAF7-43B8-B029-437DF48554CF}</Project>
+      <Name>HtmlBuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Photo\SerialYearFocusImage.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified">
+      <s:element name="GetCarSourceListByCity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cityid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarSourceListByCityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarSourceListByCityResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarSourceList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarSourceListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarSourceListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarSourceListByByMoreRegulations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDirection" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarSourceListByByMoreRegulationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarSourceListByByMoreRegulationsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerCarSourceList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="productIds" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDealerCarSourceListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDealerCarSourceListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarSourceListForBitAuto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MainBrandId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Branid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SerialId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarSourceListForBitAutoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarSourceListForBitAutoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCarSourceListByCitySoapIn">
+    <wsdl:part name="parameters" element="GetCarSourceListByCity" />
+  </wsdl:message>
+  <wsdl:message name="GetCarSourceListByCitySoapOut">
+    <wsdl:part name="parameters" element="GetCarSourceListByCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarSourceListSoapIn">
+    <wsdl:part name="parameters" element="GetCarSourceList" />
+  </wsdl:message>
+  <wsdl:message name="GetCarSourceListSoapOut">
+    <wsdl:part name="parameters" element="GetCarSourceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarSourceListByByMoreRegulationsSoapIn">
+    <wsdl:part name="parameters" element="GetCarSourceListByByMoreRegulations" />
+  </wsdl:message>
+  <wsdl:message name="GetCarSourceListByByMoreRegulationsSoapOut">
+    <wsdl:part name="parameters" element="GetCarSourceListByByMoreRegulationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerCarSourceListSoapIn">
+    <wsdl:part name="parameters" element="GetDealerCarSourceList" />
+  </wsdl:message>
+  <wsdl:message name="GetDealerCarSourceListSoapOut">
+    <wsdl:part name="parameters" element="GetDealerCarSourceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarSourceListForBitAutoSoapIn">
+    <wsdl:part name="parameters" element="GetCarSourceListForBitAuto" />
+  </wsdl:message>
+  <wsdl:message name="GetCarSourceListForBitAutoSoapOut">
+    <wsdl:part name="parameters" element="GetCarSourceListForBitAutoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CarSourceForBitAutoSoap">
+    <wsdl:operation name="GetCarSourceListByCity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据城市ID获取最新本地二手车源数据（城市ID，获取的条数</wsdl:documentation>
+      <wsdl:input message="GetCarSourceListByCitySoapIn" />
+      <wsdl:output message="GetCarSourceListByCitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarSourceList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">综述页右侧二手车源数据（车系ID，城市ID，获取的条数）</wsdl:documentation>
+      <wsdl:input message="GetCarSourceListSoapIn" />
+      <wsdl:output message="GetCarSourceListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarSourceListByByMoreRegulations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">综述页右侧二手车源数据（车系ID,车型ID,城市ID，获取的条数,排序字段标志，1:价格，2:发布日期，3:上牌年份 4:行驶里程,排序顺序标志1:升序，2降序） </wsdl:documentation>
+      <wsdl:input message="GetCarSourceListByByMoreRegulationsSoapIn" />
+      <wsdl:output message="GetCarSourceListByByMoreRegulationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerCarSourceList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">经销商二手车源数据(主品牌ID，城市ID，获取的条数，品牌IDS)</wsdl:documentation>
+      <wsdl:input message="GetDealerCarSourceListSoapIn" />
+      <wsdl:output message="GetDealerCarSourceListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarSourceListForBitAuto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">车型频道文章列表页1.	车源信息块 （主品牌ID，品牌ID，子品牌ID，城市ID，获取的条数） </wsdl:documentation>
+      <wsdl:input message="GetCarSourceListForBitAutoSoapIn" />
+      <wsdl:output message="GetCarSourceListForBitAutoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CarSourceForBitAutoSoap" type="CarSourceForBitAutoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCarSourceListByCity">
+      <soap:operation soapAction="/GetCarSourceListByCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarSourceList">
+      <soap:operation soapAction="/GetCarSourceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarSourceListByByMoreRegulations">
+      <soap:operation soapAction="/GetCarSourceListByByMoreRegulations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerCarSourceList">
+      <soap:operation soapAction="/GetDealerCarSourceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarSourceListForBitAuto">
+      <soap:operation soapAction="/GetCarSourceListForBitAuto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CarSourceForBitAutoSoap12" type="CarSourceForBitAutoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCarSourceListByCity">
+      <soap12:operation soapAction="/GetCarSourceListByCity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarSourceList">
+      <soap12:operation soapAction="/GetCarSourceList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarSourceListByByMoreRegulations">
+      <soap12:operation soapAction="/GetCarSourceListByByMoreRegulations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerCarSourceList">
+      <soap12:operation soapAction="/GetDealerCarSourceList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarSourceListForBitAuto">
+      <soap12:operation soapAction="/GetCarSourceListForBitAuto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CarSourceForBitAuto">
+    <wsdl:port name="CarSourceForBitAutoSoap" binding="CarSourceForBitAutoSoap">
+      <soap:address location="http://api.taoche.cn/CarSourceInterface/CarSourceForBitAuto.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CarSourceForBitAutoSoap12" binding="CarSourceForBitAutoSoap12">
+      <soap12:address location="http://api.taoche.cn/CarSourceInterface/CarSourceForBitAuto.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

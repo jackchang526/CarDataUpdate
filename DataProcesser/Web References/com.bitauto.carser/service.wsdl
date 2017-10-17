@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="WebServiceForPicMasterToSerial" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="WebServiceForPicMasterToSerial" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="WebServiceForPicMasterToSerial">
+      <s:element name="DescriptionThisWebService">
+        <s:complexType />
+      </s:element>
+      <s:element name="DescriptionThisWebServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DescriptionThisWebServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllSpellForMasterToCar">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllSpellForMasterToCarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllSpellForMasterToCarResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMasterToBrandToSerialUpdateTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMasterToBrandToSerialUpdateTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMasterToBrandToSerialUpdateTimeResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMasterToBrandToSerialAllSaleUpdateTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMasterToBrandToSerialAllSaleUpdateTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMasterToBrandToSerialAllSaleUpdateTimeResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMasterToBrandToSerialAllSaleAndLevelUpdateTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMasterToBrandToSerialAllSaleAndLevelUpdateTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMasterToBrandToSerialAllSaleAndLevelUpdateTimeResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMasterToBrandToSerialHasBlankBrandUpdateTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMasterToBrandToSerialHasBlankBrandUpdateTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMasterToBrandToSerialHasBlankBrandUpdateTimeResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarParameterConfiguration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="carID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarParameterConfigurationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarParameterConfigurationResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarParameterConfigurationXMLContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="carID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarParameterConfigurationXMLContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarParameterConfigurationXMLContentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllSerialYesterdayAndLastWeekSort">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllSerialYesterdayAndLastWeekSortResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllSerialYesterdayAndLastWeekSortResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastUpdateTimeForCarList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastUpdateTimeForCarListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastUpdateTimeForCarListResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarBySerialXMLContent">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCarBySerialXMLContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarBySerialXMLContentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXMLContent">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetXMLContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetXMLContentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBrandToSerialForForeign">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBrandToSerialForForeignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBrandToSerialForForeignResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastUpdateTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastUpdateTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastUpdateTimeResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUVByType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idList" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUVByTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUVByTypeResult" type="tns:ArrayOfXmlElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfXmlElement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="XmlElement" nillable="true">
+            <s:complexType>
+              <s:sequence>
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DescriptionThisWebServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:DescriptionThisWebService" />
+  </wsdl:message>
+  <wsdl:message name="DescriptionThisWebServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:DescriptionThisWebServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSpellForMasterToCarSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllSpellForMasterToCar" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSpellForMasterToCarSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllSpellForMasterToCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMasterToBrandToSerialUpdateTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMasterToBrandToSerialUpdateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetMasterToBrandToSerialUpdateTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMasterToBrandToSerialUpdateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMasterToBrandToSerialAllSaleUpdateTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMasterToBrandToSerialAllSaleUpdateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetMasterToBrandToSerialAllSaleUpdateTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMasterToBrandToSerialAllSaleUpdateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMasterToBrandToSerialAllSaleAndLevelUpdateTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMasterToBrandToSerialAllSaleAndLevelUpdateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetMasterToBrandToSerialAllSaleAndLevelUpdateTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMasterToBrandToSerialAllSaleAndLevelUpdateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMasterToBrandToSerialHasBlankBrandUpdateTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMasterToBrandToSerialHasBlankBrandUpdateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetMasterToBrandToSerialHasBlankBrandUpdateTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMasterToBrandToSerialHasBlankBrandUpdateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarParameterConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarParameterConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="GetCarParameterConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarParameterConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarParameterConfigurationXMLContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarParameterConfigurationXMLContent" />
+  </wsdl:message>
+  <wsdl:message name="GetCarParameterConfigurationXMLContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarParameterConfigurationXMLContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSerialYesterdayAndLastWeekSortSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllSerialYesterdayAndLastWeekSort" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSerialYesterdayAndLastWeekSortSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllSerialYesterdayAndLastWeekSortResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLastUpdateTimeForCarListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastUpdateTimeForCarList" />
+  </wsdl:message>
+  <wsdl:message name="GetLastUpdateTimeForCarListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastUpdateTimeForCarListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarBySerialXMLContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarBySerialXMLContent" />
+  </wsdl:message>
+  <wsdl:message name="GetCarBySerialXMLContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarBySerialXMLContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXMLContent" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXMLContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBrandToSerialForForeignSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBrandToSerialForForeign" />
+  </wsdl:message>
+  <wsdl:message name="GetBrandToSerialForForeignSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBrandToSerialForForeignResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLastUpdateTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastUpdateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetLastUpdateTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastUpdateTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUVByTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUVByType" />
+  </wsdl:message>
+  <wsdl:message name="GetUVByTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUVByTypeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="DescriptionThisWebService">
+      <wsdl:input message="tns:DescriptionThisWebServiceSoapIn" />
+      <wsdl:output message="tns:DescriptionThisWebServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSpellForMasterToCar">
+      <wsdl:input message="tns:GetAllSpellForMasterToCarSoapIn" />
+      <wsdl:output message="tns:GetAllSpellForMasterToCarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialUpdateTime">
+      <wsdl:input message="tns:GetMasterToBrandToSerialUpdateTimeSoapIn" />
+      <wsdl:output message="tns:GetMasterToBrandToSerialUpdateTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialAllSaleUpdateTime">
+      <wsdl:input message="tns:GetMasterToBrandToSerialAllSaleUpdateTimeSoapIn" />
+      <wsdl:output message="tns:GetMasterToBrandToSerialAllSaleUpdateTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialAllSaleAndLevelUpdateTime">
+      <wsdl:input message="tns:GetMasterToBrandToSerialAllSaleAndLevelUpdateTimeSoapIn" />
+      <wsdl:output message="tns:GetMasterToBrandToSerialAllSaleAndLevelUpdateTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialHasBlankBrandUpdateTime">
+      <wsdl:input message="tns:GetMasterToBrandToSerialHasBlankBrandUpdateTimeSoapIn" />
+      <wsdl:output message="tns:GetMasterToBrandToSerialHasBlankBrandUpdateTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarParameterConfiguration">
+      <wsdl:input message="tns:GetCarParameterConfigurationSoapIn" />
+      <wsdl:output message="tns:GetCarParameterConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarParameterConfigurationXMLContent">
+      <wsdl:input message="tns:GetCarParameterConfigurationXMLContentSoapIn" />
+      <wsdl:output message="tns:GetCarParameterConfigurationXMLContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSerialYesterdayAndLastWeekSort">
+      <wsdl:input message="tns:GetAllSerialYesterdayAndLastWeekSortSoapIn" />
+      <wsdl:output message="tns:GetAllSerialYesterdayAndLastWeekSortSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdateTimeForCarList">
+      <wsdl:input message="tns:GetLastUpdateTimeForCarListSoapIn" />
+      <wsdl:output message="tns:GetLastUpdateTimeForCarListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarBySerialXMLContent">
+      <wsdl:input message="tns:GetCarBySerialXMLContentSoapIn" />
+      <wsdl:output message="tns:GetCarBySerialXMLContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLContent">
+      <wsdl:input message="tns:GetXMLContentSoapIn" />
+      <wsdl:output message="tns:GetXMLContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBrandToSerialForForeign">
+      <wsdl:input message="tns:GetBrandToSerialForForeignSoapIn" />
+      <wsdl:output message="tns:GetBrandToSerialForForeignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdateTime">
+      <wsdl:input message="tns:GetLastUpdateTimeSoapIn" />
+      <wsdl:output message="tns:GetLastUpdateTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUVByType">
+      <wsdl:input message="tns:GetUVByTypeSoapIn" />
+      <wsdl:output message="tns:GetUVByTypeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DescriptionThisWebService">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/DescriptionThisWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSpellForMasterToCar">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetAllSpellForMasterToCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialUpdateTime">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetMasterToBrandToSerialUpdateTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialAllSaleUpdateTime">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetMasterToBrandToSerialAllSaleUpdateTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialAllSaleAndLevelUpdateTime">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetMasterToBrandToSerialAllSaleAndLevelUpdateTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialHasBlankBrandUpdateTime">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetMasterToBrandToSerialHasBlankBrandUpdateTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarParameterConfiguration">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetCarParameterConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarParameterConfigurationXMLContent">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetCarParameterConfigurationXMLContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSerialYesterdayAndLastWeekSort">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetAllSerialYesterdayAndLastWeekSort" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdateTimeForCarList">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetLastUpdateTimeForCarList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarBySerialXMLContent">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetCarBySerialXMLContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLContent">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetXMLContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBrandToSerialForForeign">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetBrandToSerialForForeign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdateTime">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetLastUpdateTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUVByType">
+      <soap:operation soapAction="WebServiceForPicMasterToSerial/GetUVByType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DescriptionThisWebService">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/DescriptionThisWebService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSpellForMasterToCar">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetAllSpellForMasterToCar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialUpdateTime">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetMasterToBrandToSerialUpdateTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialAllSaleUpdateTime">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetMasterToBrandToSerialAllSaleUpdateTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialAllSaleAndLevelUpdateTime">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetMasterToBrandToSerialAllSaleAndLevelUpdateTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterToBrandToSerialHasBlankBrandUpdateTime">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetMasterToBrandToSerialHasBlankBrandUpdateTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarParameterConfiguration">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetCarParameterConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarParameterConfigurationXMLContent">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetCarParameterConfigurationXMLContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSerialYesterdayAndLastWeekSort">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetAllSerialYesterdayAndLastWeekSort" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdateTimeForCarList">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetLastUpdateTimeForCarList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarBySerialXMLContent">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetCarBySerialXMLContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLContent">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetXMLContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBrandToSerialForForeign">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetBrandToSerialForForeign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastUpdateTime">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetLastUpdateTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUVByType">
+      <soap12:operation soapAction="WebServiceForPicMasterToSerial/GetUVByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://carser.bitauto.com/ForPicMasterToSerial/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://carser.bitauto.com/ForPicMasterToSerial/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

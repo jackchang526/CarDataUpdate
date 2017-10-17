@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.bitauto.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.bitauto.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.bitauto.com/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetNewsListBySerialID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BrandId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewsListBySerialIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewsListBySerialIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DasSoapHeader" type="tns:DasSoapHeader" />
+      <s:complexType name="DasSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TokenKey" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizeCode" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNewsListBySerialIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewsListBySerialID" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListBySerialIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewsListBySerialIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewsListBySerialIDDasSoapHeader">
+    <wsdl:part name="DasSoapHeader" element="tns:DasSoapHeader" />
+  </wsdl:message>
+  <wsdl:portType name="ReplaceNewsSoap">
+    <wsdl:operation name="GetNewsListBySerialID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">使用数据库品牌ID获取新闻</wsdl:documentation>
+      <wsdl:input message="tns:GetNewsListBySerialIDSoapIn" />
+      <wsdl:output message="tns:GetNewsListBySerialIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReplaceNewsSoap" type="tns:ReplaceNewsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewsListBySerialID">
+      <soap:operation soapAction="http://www.bitauto.com/GetNewsListBySerialID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetNewsListBySerialIDDasSoapHeader" part="DasSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReplaceNewsSoap12" type="tns:ReplaceNewsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewsListBySerialID">
+      <soap12:operation soapAction="http://www.bitauto.com/GetNewsListBySerialID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetNewsListBySerialIDDasSoapHeader" part="DasSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReplaceNews">
+    <wsdl:port name="ReplaceNewsSoap" binding="tns:ReplaceNewsSoap">
+      <soap:address location="http://api.dealer.bitauto.com/api/Service/ReplaceNews.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReplaceNewsSoap12" binding="tns:ReplaceNewsSoap12">
+      <soap12:address location="http://api.dealer.bitauto.com/api/Service/ReplaceNews.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

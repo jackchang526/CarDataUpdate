@@ -1,0 +1,5 @@
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\WebServiceBusiness\WebServiceModel\bin\Release\WebServiceModel.dll
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\WebServiceBusiness\WebServiceModel\bin\Release\WebServiceModel.pdb
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\WebServiceBusiness\WebServiceModel\obj\Release\WebServiceModel.csprojResolveAssemblyReference.cache
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\WebServiceBusiness\WebServiceModel\obj\Release\WebServiceModel.dll
+E:\Code\A3车型产品研发\新版车型库\Carchannelv2.1\CarDataUpdate\WebServiceBusiness\WebServiceModel\obj\Release\WebServiceModel.pdb

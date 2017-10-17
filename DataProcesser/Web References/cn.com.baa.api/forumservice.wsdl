@@ -1,0 +1,3170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetUserTraceForumList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="topCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserTraceForumListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserTraceForumListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFavoriteForumListByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFavoriteForumListByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFavoriteForumListByUserIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFavoriteTopicListByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFavoriteTopicListByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFavoriteTopicListByUserIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="topicCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateForumsFavorite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fgId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateForumsFavoriteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateForumsFavoriteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTopicFavorite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTopicFavoriteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTopicFavoriteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteForumsFavorite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fgId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteForumsFavoriteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteTopicFavorite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTopicFavoriteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetHaiLiangWeiGuiPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postGuids" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetHaiLiangWeiGuiPostResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateUserInfoToForum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateUserInfoToForumResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserForumUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserForumUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserForumUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumTodayPostCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fgidList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumTodayPostCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumTodayPostCountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSignAndNicknameByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSignAndNicknameByUserIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetForumYesterdayPostCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fgidList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumYesterdayPostCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumYesterdayPostCountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumByCityId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumByCityIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumByCityIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumByProvinceId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumByProvinceIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumByProvinceIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumBySerialId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumBySerialIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumBySerialIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserFourmInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="users">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserFourmInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserFourmInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumGroupTopicListSummaryForXMLString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="digestId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="topicType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isOnlyPic" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalRecords" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isOrderLastPostTime" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="summaryLength" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="picMaxWidth" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumGroupTopicListSummaryForXMLStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumGroupTopicListSummaryForXMLStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumManager">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumManagerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumManagerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTopicSpamFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="icoId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="displayOrder" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="digestId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userIp" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sourceType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTopicSpamFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTopicSpamFilterResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReplySpamFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userIp" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sourceType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReplySpamFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateReplySpamFilterResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateQuoteReplySpamFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userIp" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sourceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateQuoteReplySpamFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateQuoteReplySpamFilterResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumAlbumCategory">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetForumAlbumCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumAlbumCategoryResult" type="tns:ArrayOfDictionaryEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDictionaryEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DictionaryEntry" type="tns:DictionaryEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DictionaryEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetForumAlbum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="categoryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="picMaxWidth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumAlbumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumAlbumResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhotoListByAlbumId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="albumId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="picMaxWidth" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhotoListByAlbumIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPhotoListByAlbumIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumsByFgid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumsByFgidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumsByFgidResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostListForXMLString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="avatarSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostListForXMLStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostListForXMLStringResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalRecords" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumGroupTopicListForXMLString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isOnlyDigest" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumGroupTopicListForXMLStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumGroupTopicListForXMLStringResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalTopics" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListByFgid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fgId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="digestType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isAttachment" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListByFgidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicListByFgidResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListAndImgListByFgid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fgId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="digestType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isAttachment" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TopicImgsInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Tid" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImgList" type="tns:ArrayOfAttachmentSimple" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImgCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAttachmentSimple">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AttachmentSimple" nillable="true" type="tns:AttachmentSimple" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AttachmentSimple">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Tid" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aid" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SmallUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShowUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceUrl" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTopicImgsInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TopicImgsInfo" nillable="true" type="tns:TopicImgsInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTopicListAndImgListByFgidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicListAndImgListByFgidResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImgList" type="tns:ArrayOfTopicImgsInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumGroupInfoList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetForumGroupInfoListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumGroupInfoListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostListCustomWidthForXMLString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="avatarSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="photoMaxWidth" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostListCustomWidthForXMLStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostListCustomWidthForXMLStringResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalRecords" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostListCustomWidthByPosterIdForXMLString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="avatarSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="photoMaxWidth" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="posterId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostListCustomWidthByPosterIdForXMLStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostListCustomWidthByPosterIdForXMLStringResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalRecords" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListByGuid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guids" type="tns:ArrayOfGuid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGuid">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="guid" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTopicListByGuidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicListByGuidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHavePicDigestTopics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maxLength" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="imgMaxWidth" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHavePicDigestTopicsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHavePicDigestTopicsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePostById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="postId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePostByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletePostByIdResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebServiceSoapHeader" type="tns:WebServiceSoapHeader" />
+      <s:complexType name="WebServiceSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WebServiceKey" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="DeleteTopicById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="topicId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTopicByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteTopicByIdResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicsByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicsByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicsByUserIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostTopicsByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostTopicsByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostTopicsByUserIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumDigestAndAlbumCountByCsID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="csId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="digestIds" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumDigestAndAlbumCountByCsIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumDigestAndAlbumCountByCsIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestTopicListByBrand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="forumApp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestTopicListByBrandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestTopicListByBrandResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="forumApp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestTopicListByBrandAndImgListByFgid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="forumApp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestTopicListByBrandAndImgListByFgidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestTopicListByBrandAndImgListByFgidResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="forumApp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImgList" type="tns:ArrayOfTopicImgsInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCampLinkBy_cb_Id">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cb_Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCampLinkBy_cb_IdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCampLinkBy_cb_IdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCampLinkBy_bs_Id">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bs_Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCampLinkBy_bs_IdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCampLinkBy_bs_IdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDegestTopicListBy_BsId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="master_brand_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="forumList">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDegestTopicListBy_BsIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDegestTopicListBy_BsIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="forumList">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDegestTopicListBy_CbId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="csid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="forumList">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDegestTopicListBy_CbIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDegestTopicListBy_CbIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="forumList">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumsOrderByPlayCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TopCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumsOrderByPlayCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumsOrderByPlayCountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersOrderByPlayCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TopCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersOrderByPlayCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersOrderByPlayCountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCityPlayCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCityPlayCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCityPlayCountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumPlayTopic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumPlayTopicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumPlayTopicResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestPlayTopics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestPlayTopicsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestPlayTopicsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumPlayTopicBySerch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumPlayTopicBySerchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumPlayTopicBySerchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicInfoByTidForCheYiSou">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tidListString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicInfoByTidForCheYiSouResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicInfoByTidForCheYiSouResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListForPageForZJY">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicListForPageForZJYResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicListForPageForZJYResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="totalRecords" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicByTidForZJY">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopicByTidForZJYResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopicByTidForZJYResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostByTidForZJY">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostByTidForZJYResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostByTidForZJYResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateRedirectTopic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="forumParms" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userIp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateRedirectTopicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateRedirectTopicResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumDigestTopics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumDigestTopicsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumDigestTopicsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecommendTopicsByDigestAndSerialId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="digestsStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serialIdsStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecommendTopicsByDigestAndSerialIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRecommendTopicsByDigestAndSerialIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumGroupStatisticsByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetForumGroupStatisticsByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetForumGroupStatisticsByDateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGlobalDigestTopicForPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGlobalDigestTopicForPageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGlobalDigestTopicForPageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="recordCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserTraceForumListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserTraceForumList" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTraceForumListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserTraceForumListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFavoriteForumListByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFavoriteForumListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetFavoriteForumListByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFavoriteForumListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFavoriteTopicListByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFavoriteTopicListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetFavoriteTopicListByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFavoriteTopicListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateForumsFavoriteSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateForumsFavorite" />
+  </wsdl:message>
+  <wsdl:message name="CreateForumsFavoriteSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateForumsFavoriteResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTopicFavoriteSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTopicFavorite" />
+  </wsdl:message>
+  <wsdl:message name="CreateTopicFavoriteSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTopicFavoriteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteForumsFavoriteSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteForumsFavorite" />
+  </wsdl:message>
+  <wsdl:message name="DeleteForumsFavoriteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteForumsFavoriteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTopicFavoriteSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTopicFavorite" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTopicFavoriteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTopicFavoriteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetHaiLiangWeiGuiPostSoapIn">
+    <wsdl:part name="parameters" element="tns:SetHaiLiangWeiGuiPost" />
+  </wsdl:message>
+  <wsdl:message name="SetHaiLiangWeiGuiPostSoapOut">
+    <wsdl:part name="parameters" element="tns:SetHaiLiangWeiGuiPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserInfoToForumSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateUserInfoToForum" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserInfoToForumSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateUserInfoToForumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserForumUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserForumUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetUserForumUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserForumUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumTodayPostCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumTodayPostCount" />
+  </wsdl:message>
+  <wsdl:message name="GetForumTodayPostCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumTodayPostCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSignAndNicknameByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSignAndNicknameByUserId" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSignAndNicknameByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSignAndNicknameByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumYesterdayPostCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumYesterdayPostCount" />
+  </wsdl:message>
+  <wsdl:message name="GetForumYesterdayPostCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumYesterdayPostCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumByCityIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumByCityId" />
+  </wsdl:message>
+  <wsdl:message name="GetForumByCityIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumByCityIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumByProvinceIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumByProvinceId" />
+  </wsdl:message>
+  <wsdl:message name="GetForumByProvinceIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumByProvinceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumBySerialIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumBySerialId" />
+  </wsdl:message>
+  <wsdl:message name="GetForumBySerialIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumBySerialIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserFourmInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserFourmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetUserFourmInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserFourmInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumGroupTopicListSummaryForXMLStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumGroupTopicListSummaryForXMLString" />
+  </wsdl:message>
+  <wsdl:message name="GetForumGroupTopicListSummaryForXMLStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumGroupTopicListSummaryForXMLStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumManagerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumManager" />
+  </wsdl:message>
+  <wsdl:message name="GetForumManagerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTopicSpamFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTopicSpamFilter" />
+  </wsdl:message>
+  <wsdl:message name="CreateTopicSpamFilterSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTopicSpamFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateReplySpamFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateReplySpamFilter" />
+  </wsdl:message>
+  <wsdl:message name="CreateReplySpamFilterSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateReplySpamFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateQuoteReplySpamFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateQuoteReplySpamFilter" />
+  </wsdl:message>
+  <wsdl:message name="CreateQuoteReplySpamFilterSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateQuoteReplySpamFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumAlbumCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumAlbumCategory" />
+  </wsdl:message>
+  <wsdl:message name="GetForumAlbumCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumAlbumCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumAlbumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumAlbum" />
+  </wsdl:message>
+  <wsdl:message name="GetForumAlbumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumAlbumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotoListByAlbumIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPhotoListByAlbumId" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotoListByAlbumIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPhotoListByAlbumIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumsByFgidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumsByFgid" />
+  </wsdl:message>
+  <wsdl:message name="GetForumsByFgidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumsByFgidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostListForXMLStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostListForXMLString" />
+  </wsdl:message>
+  <wsdl:message name="GetPostListForXMLStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostListForXMLStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumGroupTopicListForXMLStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumGroupTopicListForXMLString" />
+  </wsdl:message>
+  <wsdl:message name="GetForumGroupTopicListForXMLStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumGroupTopicListForXMLStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListByFgidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicListByFgid" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListByFgidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicListByFgidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListAndImgListByFgidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicListAndImgListByFgid" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListAndImgListByFgidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicListAndImgListByFgidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumGroupInfoListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumGroupInfoList" />
+  </wsdl:message>
+  <wsdl:message name="GetForumGroupInfoListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumGroupInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostListCustomWidthForXMLStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostListCustomWidthForXMLString" />
+  </wsdl:message>
+  <wsdl:message name="GetPostListCustomWidthForXMLStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostListCustomWidthForXMLStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostListCustomWidthByPosterIdForXMLStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostListCustomWidthByPosterIdForXMLString" />
+  </wsdl:message>
+  <wsdl:message name="GetPostListCustomWidthByPosterIdForXMLStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostListCustomWidthByPosterIdForXMLStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListByGuidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicListByGuid" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListByGuidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicListByGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHavePicDigestTopicsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHavePicDigestTopics" />
+  </wsdl:message>
+  <wsdl:message name="GetHavePicDigestTopicsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHavePicDigestTopicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePostByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePostById" />
+  </wsdl:message>
+  <wsdl:message name="DeletePostByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePostByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePostByIdWebServiceSoapHeader">
+    <wsdl:part name="WebServiceSoapHeader" element="tns:WebServiceSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTopicByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTopicById" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTopicByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTopicByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTopicByIdWebServiceSoapHeader">
+    <wsdl:part name="WebServiceSoapHeader" element="tns:WebServiceSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicsByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicsByUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicsByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicsByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostTopicsByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostTopicsByUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetPostTopicsByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostTopicsByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumDigestAndAlbumCountByCsIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumDigestAndAlbumCountByCsID" />
+  </wsdl:message>
+  <wsdl:message name="GetForumDigestAndAlbumCountByCsIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumDigestAndAlbumCountByCsIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestTopicListByBrandSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestTopicListByBrand" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestTopicListByBrandSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestTopicListByBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestTopicListByBrandAndImgListByFgidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestTopicListByBrandAndImgListByFgid" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestTopicListByBrandAndImgListByFgidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestTopicListByBrandAndImgListByFgidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCampLinkBy_cb_IdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCampLinkBy_cb_Id" />
+  </wsdl:message>
+  <wsdl:message name="GetCampLinkBy_cb_IdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCampLinkBy_cb_IdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCampLinkBy_bs_IdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCampLinkBy_bs_Id" />
+  </wsdl:message>
+  <wsdl:message name="GetCampLinkBy_bs_IdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCampLinkBy_bs_IdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDegestTopicListBy_BsIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDegestTopicListBy_BsId" />
+  </wsdl:message>
+  <wsdl:message name="GetDegestTopicListBy_BsIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDegestTopicListBy_BsIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDegestTopicListBy_CbIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDegestTopicListBy_CbId" />
+  </wsdl:message>
+  <wsdl:message name="GetDegestTopicListBy_CbIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDegestTopicListBy_CbIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumsOrderByPlayCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumsOrderByPlayCount" />
+  </wsdl:message>
+  <wsdl:message name="GetForumsOrderByPlayCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumsOrderByPlayCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersOrderByPlayCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersOrderByPlayCount" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersOrderByPlayCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersOrderByPlayCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCityPlayCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCityPlayCount" />
+  </wsdl:message>
+  <wsdl:message name="GetCityPlayCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCityPlayCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumPlayTopicSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumPlayTopic" />
+  </wsdl:message>
+  <wsdl:message name="GetForumPlayTopicSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumPlayTopicResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestPlayTopicsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestPlayTopics" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestPlayTopicsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestPlayTopicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumPlayTopicBySerchSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumPlayTopicBySerch" />
+  </wsdl:message>
+  <wsdl:message name="GetForumPlayTopicBySerchSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumPlayTopicBySerchResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicInfoByTidForCheYiSouSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicInfoByTidForCheYiSou" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicInfoByTidForCheYiSouSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicInfoByTidForCheYiSouResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListForPageForZJYSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicListForPageForZJY" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicListForPageForZJYSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicListForPageForZJYResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicByTidForZJYSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTopicByTidForZJY" />
+  </wsdl:message>
+  <wsdl:message name="GetTopicByTidForZJYSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTopicByTidForZJYResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostByTidForZJYSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostByTidForZJY" />
+  </wsdl:message>
+  <wsdl:message name="GetPostByTidForZJYSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostByTidForZJYResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateRedirectTopicSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateRedirectTopic" />
+  </wsdl:message>
+  <wsdl:message name="CreateRedirectTopicSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateRedirectTopicResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumDigestTopicsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumDigestTopics" />
+  </wsdl:message>
+  <wsdl:message name="GetForumDigestTopicsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumDigestTopicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRecommendTopicsByDigestAndSerialIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRecommendTopicsByDigestAndSerialId" />
+  </wsdl:message>
+  <wsdl:message name="GetRecommendTopicsByDigestAndSerialIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRecommendTopicsByDigestAndSerialIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetForumGroupStatisticsByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetForumGroupStatisticsByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetForumGroupStatisticsByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetForumGroupStatisticsByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGlobalDigestTopicForPageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGlobalDigestTopicForPage" />
+  </wsdl:message>
+  <wsdl:message name="GetGlobalDigestTopicForPageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGlobalDigestTopicForPageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ForumServiceSoap">
+    <wsdl:operation name="GetUserTraceForumList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定数量的用户去过的论坛</wsdl:documentation>
+      <wsdl:input message="tns:GetUserTraceForumListSoapIn" />
+      <wsdl:output message="tns:GetUserTraceForumListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteForumListByUserId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取用户收藏论坛列表</wsdl:documentation>
+      <wsdl:input message="tns:GetFavoriteForumListByUserIdSoapIn" />
+      <wsdl:output message="tns:GetFavoriteForumListByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteTopicListByUserId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取用户收藏的帖子列表</wsdl:documentation>
+      <wsdl:input message="tns:GetFavoriteTopicListByUserIdSoapIn" />
+      <wsdl:output message="tns:GetFavoriteTopicListByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateForumsFavorite">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">收藏论坛</wsdl:documentation>
+      <wsdl:input message="tns:CreateForumsFavoriteSoapIn" />
+      <wsdl:output message="tns:CreateForumsFavoriteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTopicFavorite">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">收藏帖子</wsdl:documentation>
+      <wsdl:input message="tns:CreateTopicFavoriteSoapIn" />
+      <wsdl:output message="tns:CreateTopicFavoriteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteForumsFavorite">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取消论坛收藏</wsdl:documentation>
+      <wsdl:input message="tns:DeleteForumsFavoriteSoapIn" />
+      <wsdl:output message="tns:DeleteForumsFavoriteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTopicFavorite">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取消帖子收藏</wsdl:documentation>
+      <wsdl:input message="tns:DeleteTopicFavoriteSoapIn" />
+      <wsdl:output message="tns:DeleteTopicFavoriteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetHaiLiangWeiGuiPost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">设置论坛海量违规帖子 传单个或者多个postGuid</wsdl:documentation>
+      <wsdl:input message="tns:SetHaiLiangWeiGuiPostSoapIn" />
+      <wsdl:output message="tns:SetHaiLiangWeiGuiPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserInfoToForum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">同步用户到论坛</wsdl:documentation>
+      <wsdl:input message="tns:CreateUserInfoToForumSoapIn" />
+      <wsdl:output message="tns:CreateUserInfoToForumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForumUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取用户的地区论坛以及车型论坛</wsdl:documentation>
+      <wsdl:input message="tns:GetUserForumUrlSoapIn" />
+      <wsdl:output message="tns:GetUserForumUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumTodayPostCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">批量获取论坛的今日发帖数</wsdl:documentation>
+      <wsdl:input message="tns:GetForumTodayPostCountSoapIn" />
+      <wsdl:output message="tns:GetForumTodayPostCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSignAndNicknameByUserId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">清空用户签名、昵称</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSignAndNicknameByUserIdSoapIn" />
+      <wsdl:output message="tns:DeleteSignAndNicknameByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumYesterdayPostCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">批量获取某些论坛昨日发帖数、回帖数</wsdl:documentation>
+      <wsdl:input message="tns:GetForumYesterdayPostCountSoapIn" />
+      <wsdl:output message="tns:GetForumYesterdayPostCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumByCityId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">数据中心调用,根据cityId 获取论坛信息</wsdl:documentation>
+      <wsdl:input message="tns:GetForumByCityIdSoapIn" />
+      <wsdl:output message="tns:GetForumByCityIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumByProvinceId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">数据中心调用,根据provinceID获取论坛信息</wsdl:documentation>
+      <wsdl:input message="tns:GetForumByProvinceIdSoapIn" />
+      <wsdl:output message="tns:GetForumByProvinceIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumBySerialId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">数据中心调用,根据serialId 获取论坛信息</wsdl:documentation>
+      <wsdl:input message="tns:GetForumBySerialIdSoapIn" />
+      <wsdl:output message="tns:GetForumBySerialIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFourmInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">数据中心调用,获取用户论坛信息</wsdl:documentation>
+      <wsdl:input message="tns:GetUserFourmInfoSoapIn" />
+      <wsdl:output message="tns:GetUserFourmInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupTopicListSummaryForXMLString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口调用,获取某个论坛的帖子摘要</wsdl:documentation>
+      <wsdl:input message="tns:GetForumGroupTopicListSummaryForXMLStringSoapIn" />
+      <wsdl:output message="tns:GetForumGroupTopicListSummaryForXMLStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumManager">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口调用,获取某个论坛的会长</wsdl:documentation>
+      <wsdl:input message="tns:GetForumManagerSoapIn" />
+      <wsdl:output message="tns:GetForumManagerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTopicSpamFilter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口发帖 过滤系统</wsdl:documentation>
+      <wsdl:input message="tns:CreateTopicSpamFilterSoapIn" />
+      <wsdl:output message="tns:CreateTopicSpamFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReplySpamFilter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口回帖 过滤系统</wsdl:documentation>
+      <wsdl:input message="tns:CreateReplySpamFilterSoapIn" />
+      <wsdl:output message="tns:CreateReplySpamFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateQuoteReplySpamFilter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口引用回复 过滤系统</wsdl:documentation>
+      <wsdl:input message="tns:CreateQuoteReplySpamFilterSoapIn" />
+      <wsdl:output message="tns:CreateQuoteReplySpamFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumAlbumCategory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口:论坛像册类别</wsdl:documentation>
+      <wsdl:input message="tns:GetForumAlbumCategorySoapIn" />
+      <wsdl:output message="tns:GetForumAlbumCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumAlbum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口:获取某个论坛的图库</wsdl:documentation>
+      <wsdl:input message="tns:GetForumAlbumSoapIn" />
+      <wsdl:output message="tns:GetForumAlbumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoListByAlbumId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口:某个图库的图片列表</wsdl:documentation>
+      <wsdl:input message="tns:GetPhotoListByAlbumIdSoapIn" />
+      <wsdl:output message="tns:GetPhotoListByAlbumIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumsByFgid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口:获取某个论坛的板块列表</wsdl:documentation>
+      <wsdl:input message="tns:GetForumsByFgidSoapIn" />
+      <wsdl:output message="tns:GetForumsByFgidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListForXMLString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取帖子返回xml的string形式</wsdl:documentation>
+      <wsdl:input message="tns:GetPostListForXMLStringSoapIn" />
+      <wsdl:output message="tns:GetPostListForXMLStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupTopicListForXMLString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取论坛帖子列表</wsdl:documentation>
+      <wsdl:input message="tns:GetForumGroupTopicListForXMLStringSoapIn" />
+      <wsdl:output message="tns:GetForumGroupTopicListForXMLStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListByFgid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取帖子列表</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicListByFgidSoapIn" />
+      <wsdl:output message="tns:GetTopicListByFgidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListAndImgListByFgid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取帖子列表</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicListAndImgListByFgidSoapIn" />
+      <wsdl:output message="tns:GetTopicListAndImgListByFgidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupInfoList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取论坛返回xml的string形式</wsdl:documentation>
+      <wsdl:input message="tns:GetForumGroupInfoListSoapIn" />
+      <wsdl:output message="tns:GetForumGroupInfoListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListCustomWidthForXMLString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取帖子返回xml的string形式</wsdl:documentation>
+      <wsdl:input message="tns:GetPostListCustomWidthForXMLStringSoapIn" />
+      <wsdl:output message="tns:GetPostListCustomWidthForXMLStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListCustomWidthByPosterIdForXMLString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据posterId获取帖子返回xml的string形式</wsdl:documentation>
+      <wsdl:input message="tns:GetPostListCustomWidthByPosterIdForXMLStringSoapIn" />
+      <wsdl:output message="tns:GetPostListCustomWidthByPosterIdForXMLStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListByGuid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据多个guid，获取topic信息</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicListByGuidSoapIn" />
+      <wsdl:output message="tns:GetTopicListByGuidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHavePicDigestTopics">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取所有包含图片的普通精华贴</wsdl:documentation>
+      <wsdl:input message="tns:GetHavePicDigestTopicsSoapIn" />
+      <wsdl:output message="tns:GetHavePicDigestTopicsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePostById">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口：删除帖子 此方法暂时废弃,若需要请联系接口提供者</wsdl:documentation>
+      <wsdl:input message="tns:DeletePostByIdSoapIn" />
+      <wsdl:output message="tns:DeletePostByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTopicById">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">无线接口：删除主题 此方法暂时废弃,若需要请联系接口提供者</wsdl:documentation>
+      <wsdl:input message="tns:DeleteTopicByIdSoapIn" />
+      <wsdl:output message="tns:DeleteTopicByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicsByUserId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据用户Id 分页获取发帖列表</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicsByUserIdSoapIn" />
+      <wsdl:output message="tns:GetTopicsByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostTopicsByUserId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据用户Id 分页获取回帖列表</wsdl:documentation>
+      <wsdl:input message="tns:GetPostTopicsByUserIdSoapIn" />
+      <wsdl:output message="tns:GetPostTopicsByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumDigestAndAlbumCountByCsID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取某个论坛某种精华数和图片数</wsdl:documentation>
+      <wsdl:input message="tns:GetForumDigestAndAlbumCountByCsIDSoapIn" />
+      <wsdl:output message="tns:GetForumDigestAndAlbumCountByCsIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestTopicListByBrand">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取品牌易车会最新帖子列表</wsdl:documentation>
+      <wsdl:input message="tns:GetLatestTopicListByBrandSoapIn" />
+      <wsdl:output message="tns:GetLatestTopicListByBrandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestTopicListByBrandAndImgListByFgid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取品牌易车会最新帖子列表</wsdl:documentation>
+      <wsdl:input message="tns:GetLatestTopicListByBrandAndImgListByFgidSoapIn" />
+      <wsdl:output message="tns:GetLatestTopicListByBrandAndImgListByFgidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampLinkBy_cb_Id">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据品牌ID(cb_Id)获取对应的大本营链接</wsdl:documentation>
+      <wsdl:input message="tns:GetCampLinkBy_cb_IdSoapIn" />
+      <wsdl:output message="tns:GetCampLinkBy_cb_IdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampLinkBy_bs_Id">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据主品牌ID(bs_Id)获取对应的大本营链接</wsdl:documentation>
+      <wsdl:input message="tns:GetCampLinkBy_bs_IdSoapIn" />
+      <wsdl:output message="tns:GetCampLinkBy_bs_IdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDegestTopicListBy_BsId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据主品牌id获取其下所有子品牌对应的易车会的最新精华贴</wsdl:documentation>
+      <wsdl:input message="tns:GetDegestTopicListBy_BsIdSoapIn" />
+      <wsdl:output message="tns:GetDegestTopicListBy_BsIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDegestTopicListBy_CbId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据品牌id获取其下所有子品牌对应的易车会的最新精华贴</wsdl:documentation>
+      <wsdl:input message="tns:GetDegestTopicListBy_CbIdSoapIn" />
+      <wsdl:output message="tns:GetDegestTopicListBy_CbIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumsOrderByPlayCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获得举办活动最多的易车会</wsdl:documentation>
+      <wsdl:input message="tns:GetForumsOrderByPlayCountSoapIn" />
+      <wsdl:output message="tns:GetForumsOrderByPlayCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOrderByPlayCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">参加活动最多的车友</wsdl:documentation>
+      <wsdl:input message="tns:GetUsersOrderByPlayCountSoapIn" />
+      <wsdl:output message="tns:GetUsersOrderByPlayCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCityPlayCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取每个城市的活动数</wsdl:documentation>
+      <wsdl:input message="tns:GetCityPlayCountSoapIn" />
+      <wsdl:output message="tns:GetCityPlayCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumPlayTopic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获得热门车友活动帖子内容</wsdl:documentation>
+      <wsdl:input message="tns:GetForumPlayTopicSoapIn" />
+      <wsdl:output message="tns:GetForumPlayTopicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPlayTopics">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">最新的车友活动帖</wsdl:documentation>
+      <wsdl:input message="tns:GetLatestPlayTopicsSoapIn" />
+      <wsdl:output message="tns:GetLatestPlayTopicsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumPlayTopicBySerch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">搜索车友活动</wsdl:documentation>
+      <wsdl:input message="tns:GetForumPlayTopicBySerchSoapIn" />
+      <wsdl:output message="tns:GetForumPlayTopicBySerchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicInfoByTidForCheYiSou">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取主贴的详细信息</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicInfoByTidForCheYiSouSoapIn" />
+      <wsdl:output message="tns:GetTopicInfoByTidForCheYiSouSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListForPageForZJY">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取所有自驾游记的帖子按发帖时间排序</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicListForPageForZJYSoapIn" />
+      <wsdl:output message="tns:GetTopicListForPageForZJYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicByTidForZJY">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取帖子信息</wsdl:documentation>
+      <wsdl:input message="tns:GetTopicByTidForZJYSoapIn" />
+      <wsdl:output message="tns:GetTopicByTidForZJYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostByTidForZJY">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定tid的作者的所有楼层帖子</wsdl:documentation>
+      <wsdl:input message="tns:GetPostByTidForZJYSoapIn" />
+      <wsdl:output message="tns:GetPostByTidForZJYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRedirectTopic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">其它业务线在论坛发帖{此方法已废弃，如需要请联系接口提供方}</wsdl:documentation>
+      <wsdl:input message="tns:CreateRedirectTopicSoapIn" />
+      <wsdl:output message="tns:CreateRedirectTopicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumDigestTopics">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">所有精华帖主题列表</wsdl:documentation>
+      <wsdl:input message="tns:GetForumDigestTopicsSoapIn" />
+      <wsdl:output message="tns:GetForumDigestTopicsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendTopicsByDigestAndSerialId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据车型id，帖子类型筛选推荐贴。digestsStr（帖子类型字符串）1：提车作业，0：其他;serialIdsStr（车型ID字符串，以逗号隔开）</wsdl:documentation>
+      <wsdl:input message="tns:GetRecommendTopicsByDigestAndSerialIdSoapIn" />
+      <wsdl:output message="tns:GetRecommendTopicsByDigestAndSerialIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupStatisticsByDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取论坛当天发帖数回帖数总数;参数type(EveryDay:每日新增,Total:总数)</wsdl:documentation>
+      <wsdl:input message="tns:GetForumGroupStatisticsByDateSoapIn" />
+      <wsdl:output message="tns:GetForumGroupStatisticsByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalDigestTopicForPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取论坛全站的精华帖并分页</wsdl:documentation>
+      <wsdl:input message="tns:GetGlobalDigestTopicForPageSoapIn" />
+      <wsdl:output message="tns:GetGlobalDigestTopicForPageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ForumServiceSoap" type="tns:ForumServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserTraceForumList">
+      <soap:operation soapAction="http://tempuri.org/GetUserTraceForumList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteForumListByUserId">
+      <soap:operation soapAction="http://tempuri.org/GetFavoriteForumListByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteTopicListByUserId">
+      <soap:operation soapAction="http://tempuri.org/GetFavoriteTopicListByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateForumsFavorite">
+      <soap:operation soapAction="http://tempuri.org/CreateForumsFavorite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTopicFavorite">
+      <soap:operation soapAction="http://tempuri.org/CreateTopicFavorite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteForumsFavorite">
+      <soap:operation soapAction="http://tempuri.org/DeleteForumsFavorite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTopicFavorite">
+      <soap:operation soapAction="http://tempuri.org/DeleteTopicFavorite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetHaiLiangWeiGuiPost">
+      <soap:operation soapAction="http://tempuri.org/SetHaiLiangWeiGuiPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserInfoToForum">
+      <soap:operation soapAction="http://tempuri.org/CreateUserInfoToForum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForumUrl">
+      <soap:operation soapAction="http://tempuri.org/GetUserForumUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumTodayPostCount">
+      <soap:operation soapAction="http://tempuri.org/GetForumTodayPostCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSignAndNicknameByUserId">
+      <soap:operation soapAction="http://tempuri.org/DeleteSignAndNicknameByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumYesterdayPostCount">
+      <soap:operation soapAction="http://tempuri.org/GetForumYesterdayPostCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumByCityId">
+      <soap:operation soapAction="http://tempuri.org/GetForumByCityId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumByProvinceId">
+      <soap:operation soapAction="http://tempuri.org/GetForumByProvinceId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumBySerialId">
+      <soap:operation soapAction="http://tempuri.org/GetForumBySerialId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFourmInfo">
+      <soap:operation soapAction="http://tempuri.org/GetUserFourmInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupTopicListSummaryForXMLString">
+      <soap:operation soapAction="http://tempuri.org/GetForumGroupTopicListSummaryForXMLString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumManager">
+      <soap:operation soapAction="http://tempuri.org/GetForumManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTopicSpamFilter">
+      <soap:operation soapAction="http://tempuri.org/CreateTopicSpamFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReplySpamFilter">
+      <soap:operation soapAction="http://tempuri.org/CreateReplySpamFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateQuoteReplySpamFilter">
+      <soap:operation soapAction="http://tempuri.org/CreateQuoteReplySpamFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumAlbumCategory">
+      <soap:operation soapAction="http://tempuri.org/GetForumAlbumCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumAlbum">
+      <soap:operation soapAction="http://tempuri.org/GetForumAlbum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoListByAlbumId">
+      <soap:operation soapAction="http://tempuri.org/GetPhotoListByAlbumId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumsByFgid">
+      <soap:operation soapAction="http://tempuri.org/GetForumsByFgid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListForXMLString">
+      <soap:operation soapAction="http://tempuri.org/GetPostListForXMLString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupTopicListForXMLString">
+      <soap:operation soapAction="http://tempuri.org/GetForumGroupTopicListForXMLString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListByFgid">
+      <soap:operation soapAction="http://tempuri.org/GetTopicListByFgid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListAndImgListByFgid">
+      <soap:operation soapAction="http://tempuri.org/GetTopicListAndImgListByFgid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupInfoList">
+      <soap:operation soapAction="http://tempuri.org/GetForumGroupInfoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListCustomWidthForXMLString">
+      <soap:operation soapAction="http://tempuri.org/GetPostListCustomWidthForXMLString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListCustomWidthByPosterIdForXMLString">
+      <soap:operation soapAction="http://tempuri.org/GetPostListCustomWidthByPosterIdForXMLString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListByGuid">
+      <soap:operation soapAction="http://tempuri.org/GetTopicListByGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHavePicDigestTopics">
+      <soap:operation soapAction="http://tempuri.org/GetHavePicDigestTopics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePostById">
+      <soap:operation soapAction="http://tempuri.org/DeletePostById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeletePostByIdWebServiceSoapHeader" part="WebServiceSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTopicById">
+      <soap:operation soapAction="http://tempuri.org/DeleteTopicById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteTopicByIdWebServiceSoapHeader" part="WebServiceSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicsByUserId">
+      <soap:operation soapAction="http://tempuri.org/GetTopicsByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostTopicsByUserId">
+      <soap:operation soapAction="http://tempuri.org/GetPostTopicsByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumDigestAndAlbumCountByCsID">
+      <soap:operation soapAction="http://tempuri.org/GetForumDigestAndAlbumCountByCsID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestTopicListByBrand">
+      <soap:operation soapAction="http://tempuri.org/GetLatestTopicListByBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestTopicListByBrandAndImgListByFgid">
+      <soap:operation soapAction="http://tempuri.org/GetLatestTopicListByBrandAndImgListByFgid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampLinkBy_cb_Id">
+      <soap:operation soapAction="http://tempuri.org/GetCampLinkBy_cb_Id" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampLinkBy_bs_Id">
+      <soap:operation soapAction="http://tempuri.org/GetCampLinkBy_bs_Id" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDegestTopicListBy_BsId">
+      <soap:operation soapAction="http://tempuri.org/GetDegestTopicListBy_BsId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDegestTopicListBy_CbId">
+      <soap:operation soapAction="http://tempuri.org/GetDegestTopicListBy_CbId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumsOrderByPlayCount">
+      <soap:operation soapAction="http://tempuri.org/GetForumsOrderByPlayCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOrderByPlayCount">
+      <soap:operation soapAction="http://tempuri.org/GetUsersOrderByPlayCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityPlayCount">
+      <soap:operation soapAction="http://tempuri.org/GetCityPlayCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumPlayTopic">
+      <soap:operation soapAction="http://tempuri.org/GetForumPlayTopic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPlayTopics">
+      <soap:operation soapAction="http://tempuri.org/GetLatestPlayTopics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumPlayTopicBySerch">
+      <soap:operation soapAction="http://tempuri.org/GetForumPlayTopicBySerch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicInfoByTidForCheYiSou">
+      <soap:operation soapAction="http://tempuri.org/GetTopicInfoByTidForCheYiSou" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListForPageForZJY">
+      <soap:operation soapAction="http://tempuri.org/GetTopicListForPageForZJY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicByTidForZJY">
+      <soap:operation soapAction="http://tempuri.org/GetTopicByTidForZJY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostByTidForZJY">
+      <soap:operation soapAction="http://tempuri.org/GetPostByTidForZJY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRedirectTopic">
+      <soap:operation soapAction="http://tempuri.org/CreateRedirectTopic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumDigestTopics">
+      <soap:operation soapAction="http://tempuri.org/GetForumDigestTopics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendTopicsByDigestAndSerialId">
+      <soap:operation soapAction="http://tempuri.org/GetRecommendTopicsByDigestAndSerialId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupStatisticsByDate">
+      <soap:operation soapAction="http://tempuri.org/GetForumGroupStatisticsByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalDigestTopicForPage">
+      <soap:operation soapAction="http://tempuri.org/GetGlobalDigestTopicForPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ForumServiceSoap12" type="tns:ForumServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserTraceForumList">
+      <soap12:operation soapAction="http://tempuri.org/GetUserTraceForumList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteForumListByUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetFavoriteForumListByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoriteTopicListByUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetFavoriteTopicListByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateForumsFavorite">
+      <soap12:operation soapAction="http://tempuri.org/CreateForumsFavorite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTopicFavorite">
+      <soap12:operation soapAction="http://tempuri.org/CreateTopicFavorite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteForumsFavorite">
+      <soap12:operation soapAction="http://tempuri.org/DeleteForumsFavorite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTopicFavorite">
+      <soap12:operation soapAction="http://tempuri.org/DeleteTopicFavorite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetHaiLiangWeiGuiPost">
+      <soap12:operation soapAction="http://tempuri.org/SetHaiLiangWeiGuiPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserInfoToForum">
+      <soap12:operation soapAction="http://tempuri.org/CreateUserInfoToForum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForumUrl">
+      <soap12:operation soapAction="http://tempuri.org/GetUserForumUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumTodayPostCount">
+      <soap12:operation soapAction="http://tempuri.org/GetForumTodayPostCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSignAndNicknameByUserId">
+      <soap12:operation soapAction="http://tempuri.org/DeleteSignAndNicknameByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumYesterdayPostCount">
+      <soap12:operation soapAction="http://tempuri.org/GetForumYesterdayPostCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumByCityId">
+      <soap12:operation soapAction="http://tempuri.org/GetForumByCityId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumByProvinceId">
+      <soap12:operation soapAction="http://tempuri.org/GetForumByProvinceId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumBySerialId">
+      <soap12:operation soapAction="http://tempuri.org/GetForumBySerialId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFourmInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetUserFourmInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupTopicListSummaryForXMLString">
+      <soap12:operation soapAction="http://tempuri.org/GetForumGroupTopicListSummaryForXMLString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumManager">
+      <soap12:operation soapAction="http://tempuri.org/GetForumManager" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTopicSpamFilter">
+      <soap12:operation soapAction="http://tempuri.org/CreateTopicSpamFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReplySpamFilter">
+      <soap12:operation soapAction="http://tempuri.org/CreateReplySpamFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateQuoteReplySpamFilter">
+      <soap12:operation soapAction="http://tempuri.org/CreateQuoteReplySpamFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumAlbumCategory">
+      <soap12:operation soapAction="http://tempuri.org/GetForumAlbumCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumAlbum">
+      <soap12:operation soapAction="http://tempuri.org/GetForumAlbum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoListByAlbumId">
+      <soap12:operation soapAction="http://tempuri.org/GetPhotoListByAlbumId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumsByFgid">
+      <soap12:operation soapAction="http://tempuri.org/GetForumsByFgid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListForXMLString">
+      <soap12:operation soapAction="http://tempuri.org/GetPostListForXMLString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupTopicListForXMLString">
+      <soap12:operation soapAction="http://tempuri.org/GetForumGroupTopicListForXMLString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListByFgid">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicListByFgid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListAndImgListByFgid">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicListAndImgListByFgid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupInfoList">
+      <soap12:operation soapAction="http://tempuri.org/GetForumGroupInfoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListCustomWidthForXMLString">
+      <soap12:operation soapAction="http://tempuri.org/GetPostListCustomWidthForXMLString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListCustomWidthByPosterIdForXMLString">
+      <soap12:operation soapAction="http://tempuri.org/GetPostListCustomWidthByPosterIdForXMLString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListByGuid">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicListByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHavePicDigestTopics">
+      <soap12:operation soapAction="http://tempuri.org/GetHavePicDigestTopics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePostById">
+      <soap12:operation soapAction="http://tempuri.org/DeletePostById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeletePostByIdWebServiceSoapHeader" part="WebServiceSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTopicById">
+      <soap12:operation soapAction="http://tempuri.org/DeleteTopicById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeleteTopicByIdWebServiceSoapHeader" part="WebServiceSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicsByUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicsByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostTopicsByUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetPostTopicsByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumDigestAndAlbumCountByCsID">
+      <soap12:operation soapAction="http://tempuri.org/GetForumDigestAndAlbumCountByCsID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestTopicListByBrand">
+      <soap12:operation soapAction="http://tempuri.org/GetLatestTopicListByBrand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestTopicListByBrandAndImgListByFgid">
+      <soap12:operation soapAction="http://tempuri.org/GetLatestTopicListByBrandAndImgListByFgid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampLinkBy_cb_Id">
+      <soap12:operation soapAction="http://tempuri.org/GetCampLinkBy_cb_Id" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampLinkBy_bs_Id">
+      <soap12:operation soapAction="http://tempuri.org/GetCampLinkBy_bs_Id" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDegestTopicListBy_BsId">
+      <soap12:operation soapAction="http://tempuri.org/GetDegestTopicListBy_BsId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDegestTopicListBy_CbId">
+      <soap12:operation soapAction="http://tempuri.org/GetDegestTopicListBy_CbId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumsOrderByPlayCount">
+      <soap12:operation soapAction="http://tempuri.org/GetForumsOrderByPlayCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOrderByPlayCount">
+      <soap12:operation soapAction="http://tempuri.org/GetUsersOrderByPlayCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityPlayCount">
+      <soap12:operation soapAction="http://tempuri.org/GetCityPlayCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumPlayTopic">
+      <soap12:operation soapAction="http://tempuri.org/GetForumPlayTopic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPlayTopics">
+      <soap12:operation soapAction="http://tempuri.org/GetLatestPlayTopics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumPlayTopicBySerch">
+      <soap12:operation soapAction="http://tempuri.org/GetForumPlayTopicBySerch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicInfoByTidForCheYiSou">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicInfoByTidForCheYiSou" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicListForPageForZJY">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicListForPageForZJY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopicByTidForZJY">
+      <soap12:operation soapAction="http://tempuri.org/GetTopicByTidForZJY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostByTidForZJY">
+      <soap12:operation soapAction="http://tempuri.org/GetPostByTidForZJY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRedirectTopic">
+      <soap12:operation soapAction="http://tempuri.org/CreateRedirectTopic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumDigestTopics">
+      <soap12:operation soapAction="http://tempuri.org/GetForumDigestTopics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendTopicsByDigestAndSerialId">
+      <soap12:operation soapAction="http://tempuri.org/GetRecommendTopicsByDigestAndSerialId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForumGroupStatisticsByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetForumGroupStatisticsByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalDigestTopicForPage">
+      <soap12:operation soapAction="http://tempuri.org/GetGlobalDigestTopicForPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ForumService">
+    <wsdl:port name="ForumServiceSoap" binding="tns:ForumServiceSoap">
+      <soap:address location="http://api.baa.bitauto.com/forumservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ForumServiceSoap12" binding="tns:ForumServiceSoap12">
+      <soap12:address location="http://api.baa.bitauto.com/forumservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

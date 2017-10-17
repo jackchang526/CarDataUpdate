@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 导航条上搜索框 -->
+<Root>
+	<SoBar TagIDs="-1" Dec="默认" Src="http://admin.bitauto.com/include/pd/2014/common/00001/201408_com_ss_gb2312_Manual.shtml">
+		<![CDATA[
+          <link rel="stylesheet" type="text/css" href="http://image.bitautoimg.com/uimg/css/00040/yiche_2014_cube_search_sug_style-20160114154126-816.css" media="all" />
+<form id="sug_form" name="sug_form" method="get" target="_blank" action="http://www.cheyisou.com/search">
+<div class="bor">
+	<em></em>
+	<input id="sug_txtkeyword" type="text" class="select_t" name="wd" value="" placeholder="输入“@”试一试" autocomplete="off"
+		maxlength="20" />
+	<div class="brand_bg" id="master-index" style="display: none;">
+	</div>
+	<div class="brand_bg  models_bg " id="serial-index" style="display: none;">
+	</div>
+	<div id="sug_container" style="display: none;">
+	</div>
+	<input type="hidden" name="t" value="qiche" />
+  <input type="hidden" name="h" value="0" id="sug_handler" />
+	<input type="hidden" id="sugcsurl" name="sugcsurl" value="" />
+</div>
+<input type="button" id="sug_submit" value="搜索" class="input_orange button_76_27" />
+</form>
+<!--app1g流量广告-->
+<ul id="adv-app-1g" style="display:none;">
+                <li data-index="{adItemIndex}" data-hyperlink="http://news.bitauto.com/others/20170816/1606875754.html">
+                    <a class="adv-app-1g">
+                        <img class="s" width="195" height="26" src="http://image.bitautoimg.com/2016/pc1200/img/app1g.png" alt="">
+                        <img class="t" width="90" height="90" src="http://image.bitautoimg.com/2016/pc1200/img/qr-170914.png" alt="">
+                    </a>
+                </li>
+</ul>
+<script src="http://image.bitautoimg.com/carchannel/jsnew/yicheSug.min.js?v=20170914"
+	type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	BitautoAutoComplete();
+ </script>
+    ]]>
+	</SoBar>
+</Root>

@@ -1,0 +1,195 @@
+﻿<!-- #GenerateDateTime# -->
+<div class="header_style">
+		<div class="car_navigate">
+			<div><span>您当前的位置：</span><a href="http://www.bitauto.com/" target="_blank">易车</a> &gt; <a href="#DomainName#" target="_blank">车型</a> &gt; #MasterOrBrand# &gt; #SummaryMianBao#</div>
+		</div>
+		<div class="bt_searchNew">
+			#SoBar#
+		</div>
+		#SerialMianBaoAD# #SerachHotBlock# 
+</div>
+<!--smenu end-->
+<style type="text/css">
+	.bt_car_publicv1 .car_info .double11{ float:left; margin:5px 0 0 15px;width:148px; height:19px;}
+</style>
+<div class="bt_car_publicv1  bt_car_public_top">
+	<div class="car_info">
+		<div class="car_info_bg" id="thelogoID"><a href="#DomainName##MasterUrlSpell#/" target="_blank"><img alt="#MasterName#" src="http://image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/30/m_#MasterID#_30.png" /></a> <h1><a href="#DomainName##CsAllSpell#/">#CsSpecialSEOName# {0}款</a> #TagName#</h1>
+			<div class="class forecast">#SerialMarketTime##IsNoSale# #CarYearList#</div>
+			<div class="double11"><ins id="div_a52c7670-bf2a-4ce8-90dc-6e84d910c5af" type="ad_play" adplay_IP="" adplay_AreaName=""  adplay_CityName=""    adplay_BrandID="#CsID#"  adplay_BrandName=""  adplay_BrandType=""  adplay_BlockCode="a52c7670-bf2a-4ce8-90dc-6e84d910c5af"> </ins></div>
+		</div>
+	</div>
+</div>
+<!-- -->
+<div class="bt_car_publicv1 bt_car_public_bottom">
+		<div class="publicTabNew" id="car_tag">
+			<ul class="tab">
+				<li class="#ClassTag0#"><a href="#DomainName##CsAllSpell#/{0}/">综述</a></li>
+				<li class="#ClassTag1#"><a href="#DomainName##CsAllSpell#/peizhi/{0}/">参数配置</a></li>
+				<li class="#ClassTag2#"><a href="#DomainName##CsAllSpell#/tupian/{0}/">图片</a></li>
+				<li class="#ClassTag3#">#ShiPin#</li>
+				#DaoGouURL#
+				#WenZhangURL#
+				<li class="#ClassTag12#"><a href="#DomainName##CsAllSpell#/baojia/">报价</a></li>
+				<li class="#ClassTag38#"><a href="#DomainName##CsAllSpell#/jiangjia/">降价</a></li>
+				#CheDaiStart#
+				<li class="#ClassTag40#"><a href="http://www.daikuan.com/www/#CsAllSpell#/?from=yc" target="_blank">车贷</a></li>
+				#CheDaiEnd#
+				<li class="#ClassTag5#"><a href="#DomainName##CsAllSpell#/koubei/">口碑</a></li>
+                <li class=""><a href="http://car.bitauto.com/#CsAllSpell#/ask/">问答</a></li>
+				#BaoYangStart#
+				<li class="#ClassTag32#">#WeiHuBaoYangNew#</li>
+				#BaoYangEnd#
+				<li class="#ClassTag26#"><a id="CN_ShowLiLinkUCar" href="http://www.taoche.com/#CsAllSpell#/?ref=pc_yc_sy_dh_esc"
+   target="_blank">二手车</a></li>
+				<li class="#ClassTag7#"><a id="CN_ShowLastLink" target="_blank" href="#BBSURL#">论坛</a></li>
+				
+			</ul>
+		</div>
+</div>
+<script type="text/javascript" charset="utf-8" src="http://ip.bitauto.com/iplocation/setcookie.ashx"></script>
+<script type="text/javascript" charset="utf-8" src="http://image.bitautoimg.com/carchannel/jscommon/juqery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" language="javascript">
+	if (typeof (bitLoadScript) == "undefined")
+		bitLoadScript = function (url, callback, charset) {
+			var s = document.createElement("script"); s.type = "text/javascript"; if (charset) s.charset = charset;
+			if (s.readyState) { s.onreadystatechange = function () { if (s.readyState == "loaded" || s.readyState == "complete") { s.onreadystatechange = null; if (callback) callback(); } }; }
+			else { s.onload = function () { if (callback) callback(); }; }
+			s.src = url; document.getElementsByTagName("head")[0].appendChild(s);
+		};
+</script>
+<script type="text/javascript" charset="utf-8" src="http://image.bitautoimg.com/mergejs,s=carchannel/jsnew/ued_common.js,carchannel/jsStat/CarStatv2.js,carchannel/jsnew/CommonHeadFunction.js,carchannel/jsnew/CityGroupJsonUTF820121122.js?v=20150825"></script>
+<script language="javascript" type="text/javascript" >
+		#JsForIsRegion#
+var carChannelZoneSpell = "beijing";
+var carChannelCsAllSpell = "#CsAllSpell#";
+var carChannelZoneName = "北京";
+var carChannelZoneID = 201;
+if(bit_IpRegion)
+{
+    var arrBit_IpRegion = bit_IpRegion.split(";");
+    if(arrBit_IpRegion.length>1)
+    {
+       var arrZoneInfo = arrBit_IpRegion[1].split(",");
+       if(arrZoneInfo.length>=3)
+       {
+           carChannelZoneSpell = arrZoneInfo[2];
+           carChannelZoneName = arrZoneInfo[1];
+           carChannelZoneID = arrZoneInfo[0];
+       }
+    }
+}
+var is49City=false;
+for(var i=0;i<city49Array.length;i++){
+    if(city49Array[i].ID==carChannelZoneID){
+       is49City=true;
+       carChannelZoneSpell = city49Array[i].Spell;
+       carChannelZoneName = city49Array[i].Name;
+       carChannelZoneID = city49Array[i].ID;
+       break;
+       }
+}
+if(!is49City)
+{
+    for(var i =0;i<city348To49Array.length;i++){
+       if(carChannelZoneID==city348To49Array[i].ID)
+       {
+           var toCityID = city348To49Array[i].TO;
+           for(var j=0;j<city49Array.length;j++){
+              if(city49Array[j].ID==toCityID){
+                 carChannelZoneSpell = city49Array[j].Spell;
+                 carChannelZoneName = city49Array[j].Name;
+                 carChannelZoneID = city49Array[j].ID;
+                 break;
+              }
+           }
+           break;
+       }
+    }
+}
+switch(carChannelZoneName)
+{
+	case"呼和浩特":carChannelZoneName="呼市";break;
+	case"乌鲁木齐":carChannelZoneName="乌市";break;
+	default:break;
+}
+//if(document.getElementById("CN_ShowLiLinkUCar"))
+//{document.getElementById("CN_ShowLiLinkUCar").href="http://yiche.taoche.com/similarcar/serial/"+carChannelCsAllSpell+"/paesf"+carChannelZoneID+"bxc/?from=bitauto";}
+// 年款新闻
+var serialYearNewNum = #SerialYearNewObj#;
+function changeSerialYearTag(csid,year,currentTag)
+{
+    var liDaoGou = document.getElementById("liDaoGou");
+    if(liDaoGou&&serialYearNewNum&&serialYearNewNum.length>0)
+    {
+        for(var i=0;i<serialYearNewNum.length;i++)
+        {
+            if(serialYearNewNum[i].Year==year)
+            {
+                if (serialYearNewNum[i].PC!="0")
+                {liDaoGou.innerHTML = "<a href=\"#DomainName##CsAllSpell#/"+year+"/pingce/\">车型详解</a>";}
+                else if(serialYearNewNum[i].SJ!="0")
+                {liDaoGou.innerHTML = "<a href=\"#DomainName##CsAllSpell#/"+year+"/shijia/\">车型详解</a>";}
+                // 导购
+                else if(serialYearNewNum[i].DG!="0")
+                {liDaoGou.innerHTML = "<a href=\"#DomainName##CsAllSpell#/"+year+"/daogou/\">车型详解</a>";}
+                 // 用车
+                else if(serialYearNewNum[i].YC!="0")
+                {liDaoGou.innerHTML = "<a href=\"#DomainName##CsAllSpell#/"+year+"/yongche/\">车型详解</a>";}
+                else
+                {liDaoGou.innerHTML = "";}
+            }
+        }
+    }
+}
+var tagIframe = null;
+var currentTagId = #currentTagForStat#;		//当前页的标签ID
+try{
+CarStatForAllTag.CsID = #CsID#;
+CarStatForAllTag.TagID = #TagID#;
+window._onload.exec();
+}
+catch(err){}  
+
+	try
+{
+var tempIsFloatTopNavigation = false;
+	$(document).ready(function(){
+	// 参数配置页不浮动
+	if(currentTagId==42||currentTagId==57)
+	{return false;}
+	  if (!document.getElementById("car_tag")) return false;
+	  // 页面flash
+	  $("embed").each(function () {
+		if($(this).parent().html().indexOf('<embed')>=0)
+		{
+			// $(this).parent().html($(this).parent().html().replace(/<embed\s/i, "<embed wmode='opaque' "));
+		}
+	});
+	  var carTagBar = document.getElementById("car_tag");
+	  var topHeight = 0;
+	  var tempBar = carTagBar;
+	  while(tempBar){
+	  	  topHeight += tempBar.offsetTop;
+		  tempBar = tempBar.offsetParent;
+	  }
+	  iE6 = !!window.ActiveXObject && !window.XMLHttpRequest;
+	  	  $(window).bind("scroll", function(){
+             var scrollHeight = document.body.scrollTop || document.documentElement.scrollTop;
+			  if(scrollHeight > topHeight){
+				tempIsFloatTopNavigation = true;
+				  //carTagBar.className = "car_tag car_tag_fixed";
+				  if(iE6){
+					  carTagBar.className = "publicTabNew publicTab_fixed";
+					  carTagBar.style.top = (scrollHeight - topHeight) + "px";
+				  } else {
+				  	 carTagBar.className = "publicTabNew publicTab_fixed";
+				  }
+			  } else {
+				  carTagBar.className = "publicTabNew";
+				  tempIsFloatTopNavigation = false;
+			  }
+        });
+  });
+  }catch(err){}  
+</script>

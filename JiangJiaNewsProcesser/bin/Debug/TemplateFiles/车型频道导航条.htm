@@ -1,0 +1,89 @@
+﻿#if($isTree)
+<div class="bt_smenuNew">
+<div class="bt_navigateNew"> <a class="bt_logo" target="_blank" href="http://www.bitauto.com/">易车网</a> 
+#if($urlType != "Home")
+<span id="treeCrumbs" class="treeCrumbs">
+    #set($counter = 0)
+    #foreach($crumb in $crumbs)
+    #each
+    #if($counter == $crumbs.Count - 1)
+         $crumb.DisplayName
+    #else
+         <a href="$crumb.Url">$crumb.DisplayName</a>
+    #end
+    #set($counter = $counter + 1)
+    #between
+         >
+    #end
+</span>
+    #end
+</div>
+   <div class="bt_searchNew">
+       $tagConfig.SerachFrameContent
+   </div>
+   #if(${tagConfig.Type}=="daogou" ||${tagConfig.Type}=="chexing" || ${tagConfig.Type}=="wenda")
+   <div id="divSerialSummaryMianBaoAD" class="top_ad02">
+        <ins id="div_ba10f730-0c13-4dcf-aa81-8b5ccafc9e21" type="ad_play" adplay_IP="" adplay_AreaName=""  
+                    adplay_CityName="" adplay_BrandID="" adplay_BrandName="" adplay_BrandType="" adplay_BlockCode="ba10f730-0c13-4dcf-aa81-8b5ccafc9e21"></ins>
+   </div>
+    #elseif(${tagConfig.Type}=="baojia"||${tagConfig.Type}=="jingxiaoshang")
+   <div style="float:right; margin:8px 10px 0 0; display:inline; overflow:hidden">
+			<ins id="div_81ccd038-8611-48a7-8382-3398d6c5da5b" type="ad_play" adplay_IP="" adplay_AreaName=""  
+			adplay_CityName=""    adplay_BrandID=""  adplay_BrandName=""  adplay_BrandType=""  adplay_BlockCode="81ccd038-8611-48a7-8382-3398d6c5da5b"></ins>
+	</div>
+   #elseif(${tagConfig.Type}=="yanghu")
+   <div id="div_bea13ca9-b327-443f-a49d-848d2196c029" class="top_ad02">
+       <ins id="div_bea13ca9-b327-443f-a49d-848d2196c029" type="ad_play" adplay_IP="" adplay_AreaName="" 
+					adplay_CityName=""  adplay_BrandID=""  adplay_BrandName=""  adplay_BrandType=""  adplay_BlockCode="bea13ca9-b327-443f-a49d-848d2196c029"> </ins>
+   </div>
+   #else
+	$hotSearchContent
+   #end
+</div>
+#end
+#if($isTree)
+<div class="tree_wrap_box"> 
+<div id="treeFixedNav" class="treeNavv1-org">
+#end
+	<style type="text/css">
+/*导航变高*/
+.treeNavv1-org{height:39px; margin-bottom:6px; _margin-bottom:0;}
+.treeSubNavv1{margin-top:92px;}
+
+/*0428*/
+.publicTabNew3{width:990px; height:45px; overflow:hidden;}
+.publicTabNew3 .tab {padding:0; height:45px;  border-right:1px #083e6e solid; background:#0a4e8a; overflow:hidden;}
+.publicTabNew3 .tab li {float:left; font-size:15px; font-family:STHeiti, microsoft yahei,SimHei; _font-family:SimSon; height:40px;background:#0a4e8a; border-left:1px #083e6e solid;border-top:5px #083e6e solid;}
+.publicTabNew3 .tab li a{padding:0 16px; float:left; line-height:38px; text-align:center; height:40px; color:#fff; }
+.publicTabNew3 .tab li a:hover { background:#083e6e; text-decoration:none;  }
+.publicTabNew3 .tab li.current{ background:#fff; border-top:5px #c00 solid;border-left:1px #083e6e solid; height:40px; overflow:hidden; }
+.publicTabNew3 .tab li.current a:link, .publicTabNew3 .tab li.current a:visited{color:#333;}
+.publicTabNew3 .tab li.current a:hover{ color:#c00; background:#fff;}
+/*pad*/
+.publicTabNew3{width:960px;}
+.publicTabNew3 .tab{width:960px;}
+.publicTabNew3 .tab li a{padding:0 15px;}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  { 
+.publicTabNew3 .tab li{font-size:14px;}
+.publicTabNew3 .tab li a{padding:0 16px;}
+.publicTabNew3 .tab li.last a{padding:0 17px;}
+}
+</style>
+	<div class="publicTabNew3">
+    <ul class="tab" id="ulForTempClickStat">
+        #set($counter = 0)
+        #foreach($tag in $tags)
+            #if($counter < $tags.Count - 1)
+                <li#if(${tag.Type} == ${tagConfig.Type}) class="current" #end><a id="treeNav_${tag.Type}" #if(${tag.Target}!="") target="${tag.Target}" #end href="${tag.Url}">${tag.Title}</a></li>
+            #else
+                <li#if(${tag.Type} == ${tagConfig.Type}) class="current last"#else class="last" #end><a id="A1" #if(${tag.Target}!="") target="${tag.Target}" #end href="${tag.Url}">${tag.Title}</a></li>
+            #end
+            #set($counter = $counter + 1)
+        #end
+    </ul>
+</div>
+#if($isTree)
+</div>
+</div>
+#end
