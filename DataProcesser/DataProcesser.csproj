@@ -36,14 +36,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BitAuto.Services">
-      <HintPath>..\..\..\..\..\P公用平台\Release\BitAuto.Services.dll</HintPath>
+    <Reference Include="BitAuto.Services, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\BitAuto.Services.dll</HintPath>
     </Reference>
-    <Reference Include="BitAuto.Services.FileServer.Client">
-      <HintPath>..\..\..\Dll\BitAuto.Services.FileServer.Client.dll</HintPath>
+    <Reference Include="BitAuto.Services.FileServer.Client, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\BitAuto.Services.FileServer.Client.dll</HintPath>
     </Reference>
-    <Reference Include="BitAuto.Utils">
-      <HintPath>..\..\..\..\..\P公用平台\Release\BitAuto.Utils.dll</HintPath>
+    <Reference Include="BitAuto.Utils, Version=2.0.7.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\packages\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MongoDB.Bson">
