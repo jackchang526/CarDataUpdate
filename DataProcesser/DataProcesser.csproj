@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BitAuto.Beyond.Caching.FileCache">
+      <HintPath>..\..\..\packages\BitAuto.Beyond.Caching.FileCache.dll</HintPath>
+    </Reference>
     <Reference Include="BitAuto.Services, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\BitAuto.Services.dll</HintPath>
@@ -53,30 +56,29 @@
     </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MongoDB.Bson">
-      <HintPath>..\..\..\Dll\MongoDB.Bson.dll</HintPath>
+      <HintPath>..\..\..\packages\MongoDB.Bson.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Driver">
-      <HintPath>..\..\..\Dll\MongoDB.Driver.dll</HintPath>
+      <HintPath>..\..\..\packages\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Dll\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="RazorEngine, Version=3.7.7.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Dll\RazorEngine.3.8.1\lib\net40\RazorEngine.dll</HintPath>
+    <Reference Include="RazorEngine">
+      <HintPath>..\..\..\packages\RazorEngine.3.8.1\lib\net40\RazorEngine.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\..\Dll\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\..\..\packages\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\Dll\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\..\..\packages\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Redis">
-      <HintPath>..\..\..\Dll\ServiceStack.Redis.dll</HintPath>
+      <HintPath>..\..\..\packages\ServiceStack.Redis.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\..\Dll\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\..\packages\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -92,7 +94,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="ThoughtWorks.QRCode">
-      <HintPath>..\..\..\Dll\ThoughtWorks.QRCode.dll</HintPath>
+      <HintPath>..\..\..\packages\ThoughtWorks.QRCode.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
