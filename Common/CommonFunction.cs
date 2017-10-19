@@ -16,6 +16,7 @@ using System.Messaging;
 using BitAuto.Services.Cache;
 using System.Xml.Linq;
 using Newtonsoft.Json;
+using ServiceStack.Text;
 
 namespace BitAuto.CarDataUpdate.Common
 {

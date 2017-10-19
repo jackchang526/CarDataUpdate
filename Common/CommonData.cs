@@ -34,6 +34,7 @@ namespace BitAuto.CarDataUpdate.Common
 
         private static Dictionary<int, int> m_brandMasterBrandDic;
         private static Dictionary<int, int> m_brandProducerDic;
+        private static Dictionary<int, string> m_csPriceRangeDic;
 
         public static DataSet CNCAPData;
         // add by chengl May.14.2012
@@ -182,6 +183,15 @@ namespace BitAuto.CarDataUpdate.Common
             get { return m_brandProducerDic; }
             set { m_brandProducerDic = value; }
         }
+
+        /// <summary>
+        /// 车系报价区间
+        /// </summary>
+        public static Dictionary<int, string> CsPriceRangeDic
+        {
+            get { return m_csPriceRangeDic; }
+            set { m_csPriceRangeDic = value; }
+        }
         /// <summary>
         /// 公用配置
         /// </summary>
@@ -255,6 +265,8 @@ namespace BitAuto.CarDataUpdate.Common
         public static Dictionary<int, Dictionary<string, string>> dictSerialColor;
         //口碑评分明细
         public static Dictionary<int, Dictionary<string, string>> _koubeiRatingDic = null;
+
+
         /// <summary>
         /// 口碑评分Url
         /// </summary>
@@ -318,6 +330,8 @@ namespace BitAuto.CarDataUpdate.Common
             dictSerialColor = Common.Services.SerialService.GetAllSerialColorNameRGB();
 
             InitKoubeiRatingDic();
+            // 子品牌报价区间
+            GetSerialPriceRange();
         }
 
         #region  车型基础信息
@@ -1584,6 +1598,71 @@ namespace BitAuto.CarDataUpdate.Common
             {
                 Log.WriteLog("口碑评分明细文档错误," + ex.ToString());
             }
+        }
+
+        /// <summary>
+        /// 取子品牌报价区间(不分地区)
+        /// </summary>
+        /// <returns></returns>
+        private static Dictionary<int, string> GetSerialPriceRange()
+        {
+            DataSet ds = GetAllSerialPriceRange();
+            m_csPriceRangeDic = new Dictionary<int, string>();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    try
+                    {
+                        string result = "";
+                        int csid = int.Parse(dr["Id"].ToString());
+                        decimal min = Math.Round(decimal.Parse(dr["MinPrice"].ToString()), 2);
+                        decimal max = Math.Round(decimal.Parse(dr["MaxPrice"].ToString()), 2);
+                        if (max > 1000)
+                        {
+                            result = min.ToString() + "万-" + Convert.ToInt16(max) + "万";
+                        }
+                        else
+                        {
+                            result = min.ToString() + "万-" + max.ToString() + "万";
+                        }
+                        if (csid > 0 && result != "")
+                        {
+                            if (!m_csPriceRangeDic.ContainsKey(csid))
+                            { m_csPriceRangeDic.Add(csid, result); }
+                        }
+                    }
+                    catch
+                    { }
+                }
+            }
+            return m_csPriceRangeDic;
+        }
+
+        /// <summary>
+        /// 取子品牌报价区间
+        /// </summary>
+        /// <returns></returns>
+        private static DataSet GetAllSerialPriceRange()
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                ds.ReadXml(CommonData.CommonSettings.PriceRangeInterface);
+            }
+            catch (Exception ex)
+            {
+                Log.WriteErrorLog(ex.Message + ex.StackTrace);
+                try
+                {
+                    ds.ReadXml(Path.Combine(CommonData.CommonSettings.SavePath, @"EP\cspricescope.xml"));
+                }
+                catch (Exception ex2)
+                {
+                    Log.WriteErrorLog(ex2.Message + ex2.StackTrace);
+                }
+            }
+            return ds;
         }
     }
 }

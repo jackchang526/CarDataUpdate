@@ -267,7 +267,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
             // 子品牌最高降幅
             dicCsJiangJiaPrice = CommonNavigationService.GetAllSerialJiangJia();
             // 子品牌报价区间
-            dicCsPriceRange = CommonNavigationService.GetSerialPriceRange();
+            dicCsPriceRange = CommonData.CsPriceRangeDic; //CommonNavigationService.GetSerialPriceRange();
             // 搜索条配置
             dicSoBar = CommonNavigationService.GetSoBarByTag();
             dicSoBarV2 = CommonNavigationService.GetSoBarByTagV2();

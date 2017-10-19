@@ -3180,5 +3180,15 @@ namespace BitAuto.CarDataUpdate.Tools
 			request.RequestCarSer(carIdList);
 			Common.Log.WriteLog("请求carser接口结束：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 		}
+
+        /// <summary>
+		/// 车系销售排行
+		/// </summary>
+		[Description("GetSerialSaleRank 说明：车系销售排行")]
+        public void GetSerialSaleRank()
+        {
+            SerialSaleRank serialSaleRank = new SerialSaleRank();
+            serialSaleRank.GetSaleRank();
+        }
     }
 }
