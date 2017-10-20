@@ -154,6 +154,7 @@
     <Compile Include="SerialOutSet.cs" />
     <Compile Include="SerialPingCeData.cs" />
     <Compile Include="SerialQrImageGenerator.cs" />
+    <Compile Include="SerialSaleRank.cs" />
     <Compile Include="SerialTuanService.cs" />
     <Compile Include="Service References\DataCenter.WCF\Reference.cs">
       <AutoGen>True</AutoGen>

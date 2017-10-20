@@ -35,9 +35,9 @@ namespace BitAuto.CarDataUpdate.CarMessageProcesser.CarInfo
 				if (car != null && car.CsId > 0)
 				{
 					Log.WriteLog(string.Format("更新所属子品牌互联互通导航，子品牌ID:{0}", car.CsId));
-					 nav.GenerateSerialNavigation(car.CsId);
+					//nav.GenerateSerialNavigation(car.CsId);
 					nav.GenerateSerialNavigationV2(car.CsId);
-					nav.GenerateSerialBarInfo(car.CsId);
+					//nav.GenerateSerialBarInfo(car.CsId);
 					nav.GenerateSerialNavigationM(car.CsId);
 				}
 				nav.GenerateCarNavigationV2(carId);
