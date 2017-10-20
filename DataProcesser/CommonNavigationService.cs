@@ -668,6 +668,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
             }
             return dic;
         }
+        /*移到CommonData里
         /// <summary>
         /// 取子品牌报价区间(不分地区)
         /// </summary>
@@ -705,7 +706,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 }
             }
             return dic;
-        }
+        }*/
         /// <summary>
         /// 取所有子品牌全国最高降幅
         /// </summary>
@@ -772,7 +773,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
             }
             return list;
         }
-
+        /* 移到CommonData里
         /// <summary>
         /// 取子品牌报价区间
         /// </summary>
@@ -790,6 +791,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
             }
             return ds;
         }
+        */
         /// <summary>
         /// 取子品牌论坛地址
         /// </summary>

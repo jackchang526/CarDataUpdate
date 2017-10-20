@@ -678,5 +678,15 @@ namespace BitAuto.CarDataUpdate.Config
 		{
 			get { return (string)base["YiCheLogoLocalPath"]; }
 		}
-	}
+
+        /// <summary>
+        /// 车系销量排行
+        /// </summary>
+        [ConfigurationProperty("SerialSaleRankUrl", DefaultValue = "")]
+        public string SerialSaleRankUrl
+        {
+            get { return (string)base["SerialSaleRankUrl"]; }
+        }
+
+    }
 }
