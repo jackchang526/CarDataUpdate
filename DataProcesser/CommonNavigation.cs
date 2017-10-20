@@ -3290,7 +3290,16 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                         int count = 0;
                         foreach (var item in newCarList)
                         {
-                            XmlDocument xmlDoc = CommonFunction.GetLocalXmlDocument(Path.Combine(CommonData.CommonSettings.SavePath, string.Format(@"PhotoImage\SerialCarReallyPic\{0}.xml", item.CarId)));
+                            XmlDocument xmlDoc = null;
+                            if (carReallyPicDic.ContainsKey(item.CarId))
+                            {
+                                xmlDoc = carReallyPicDic[item.CarId];
+                            }
+                            else
+                            {
+                                xmlDoc = CommonFunction.GetLocalXmlDocument(Path.Combine(CommonData.CommonSettings.SavePath, string.Format(@"PhotoImage\SerialCarReallyPic\{0}.xml", item.CarId)));
+                                carReallyPicDic.Add(item.CarId, xmlDoc);
+                            }
                             if (xmlDoc != null && xmlDoc.HasChildNodes)
                             {
                                 XmlNode node = xmlDoc.SelectSingleNode("//Data//Total");
