@@ -21,14 +21,14 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                                   MasterBrandName, MakeId, MakeName,
                                   MakeCountry, ModelId, ModelName, CreateTime,
                                   UpdateTime, MasterBrandSpell, MakeSpell,
-                                  ModelSpell )
+                                  ModelSpell,ModelDisplayName )
                          SELECT  car.Car_Id, car.Car_YearType, car.Car_Name, car.car_ReferPrice,
                                         CASE WHEN CHARINDEX('.', cdb.Pvalue) > 0
                                              THEN cdb.Pvalue + N'L'
                                              ELSE cdb.Pvalue + N'.0L'
                                         END, mb.bs_Id, mb.bs_Name, cb.cb_Id, cb.cb_Name, cb.cb_country,
                                         cs.cs_Id, cs.csName, car.CreateTime, car.UpdateTime, mb.spell,
-                                        cb.spell, cs.spell
+                                        cb.spell, cs.spell,cs.csShowName
                                 FROM    AutoStorageNew.dbo.Car_relation car
                                         LEFT JOIN AutoStorageNew.dbo.Car_Serial cs ON cs.cs_Id = car.Cs_Id
                                         LEFT JOIN AutoStorageNew.dbo.Car_Brand cb ON cb.cb_Id = cs.cb_Id

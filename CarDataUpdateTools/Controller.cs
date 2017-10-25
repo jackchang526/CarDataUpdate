@@ -220,6 +220,8 @@ namespace BitAuto.CarDataUpdate.Tools
                         photo.SerialDefaultCarImage(car.CsId, car.CarId);
                         //photo.CarPhotoHtml(car.CarId);
                         photo.CarPhotoHtmlNew(car.CarId);
+                        //保存车款实拍图
+                        photo.SerialCarReallyImage(car.CsId, car.CarId);
                     }
                 }
                 return;
@@ -289,6 +291,8 @@ namespace BitAuto.CarDataUpdate.Tools
                 photo.CarPhotoHtmlNew(car.CarId);
                 photo.CarPhotoCompare(car.CarId);
                 photo.CarImagesListInfo(car.CsId, car.CarId);
+                //保存车款实拍图
+                photo.SerialCarReallyImage(car.CsId, car.CarId);
             }
             OnLog("已经生成子品牌车型：" + dictCar.Count, true);
             OnLog("结束时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), true);
@@ -3221,5 +3225,17 @@ namespace BitAuto.CarDataUpdate.Tools
 			request.RequestCarSer(carIdList);
 			Common.Log.WriteLog("请求carser接口结束：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 		}
+
+        /// <summary>
+		/// 车系销售排行
+		/// </summary>
+		[Description("GetSerialSaleRank 说明：车系销售排行")]
+        public void GetSerialSaleRank()
+        {
+            Common.Log.WriteLog("请求车系销售排行开始");
+            SerialSaleRank serialSaleRank = new SerialSaleRank();
+            serialSaleRank.GetSaleRank();
+            Common.Log.WriteLog("请求车系销售排行结束");
+        }
     }
 }
