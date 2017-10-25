@@ -1056,6 +1056,10 @@ namespace BitAuto.CarDataUpdate.DataProcesser
             string fileName = Path.Combine(photoConfig.SavePath, string.Format(@"SerialSlidePageImage\{0}.xml", serialId));
             try
             {
+                string path = Path.GetDirectoryName(fileName);
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
                 string json = CommonFunction.GetResponseFromUrl(string.Format(photoConfig.SerialSlidePageImagePath, serialId));
                 JObject jobject = (JObject)JsonConvert.DeserializeObject(json);
 
