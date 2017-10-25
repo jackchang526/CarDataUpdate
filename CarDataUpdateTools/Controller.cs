@@ -197,6 +197,7 @@ namespace BitAuto.CarDataUpdate.Tools
                     //photo.SerialThreeStandardImage(serialId);
                     //photo.SerialYearColorUrl(serialId);
                     photo.SerialYearFocusImage(serialId, 0);
+                    photo.SerialSlidePageImage(serialId);//子品牌幻灯页图片
                 }
                 if (funcArgs.Length <= 1) return;
                 int carId = 0;
@@ -264,7 +265,10 @@ namespace BitAuto.CarDataUpdate.Tools
                 //photo.SerialThreeStandardImage(serial.Id);
                 //photo.SerialYearColorUrl(serial.Id);
                 photo.SerialYearFocusImage(serial.Id, 0);
+                photo.SerialSlidePageImage(serial.Id);//子品牌幻灯页图片
             }
+
+
             OnLog("已经生成子品牌：" + dict.Count, true);
             OnLog("开始子品牌车型年款：", true);
             Dictionary<int, CarEntity> dictCar = CommonData.GetAllCarData();
@@ -789,7 +793,44 @@ namespace BitAuto.CarDataUpdate.Tools
                 Common.Log.WriteErrorLog("保存图片数据异常：" + ex.ToString());
             }
         }
+        /// <summary>
+        /// 仅供上线使用生成综述页焦点区图片
+        /// </summary>
+        public void SaveSerialFocusAndSlideImage()
+        {
+            try
+            {
+                PhotoImageService photo = new PhotoImageService();
+                Dictionary<int, SerialInfo> dict = CommonData.SerialDic;
+                OnLog("开始生成图片数据", true);
 
+                int sId = 0;
+                if (funcArgs != null && funcArgs.Length > 0)
+                {
+                    if (Int32.TryParse(funcArgs[0], out sId))
+                    {
+                    }
+                }
+                foreach (SerialInfo serial in dict.Values)
+                {
+                    // 如果传了子品牌ID，则不是此子品牌的不生成
+                    if (sId > 0 && serial.Id != sId)
+                    {
+                        continue;
+                    }
+                    int serialId = serial.Id;
+
+                    OnLog("开始生成焦点区图片,子品牌：" + serialId, true);
+                    photo.SerialFocusImage(serialId);
+                    photo.SerialSlidePageImage(serialId);//子品牌幻灯页图片;
+                }
+                OnLog("保存图片数据结束", true);
+            }
+            catch (Exception ex)
+            {
+                Common.Log.WriteErrorLog("保存图片数据异常：" + ex.ToString());
+            }
+        }
 
         /// <summary>
         /// 生成1200版 互联互通导航

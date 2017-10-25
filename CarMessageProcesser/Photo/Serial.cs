@@ -46,6 +46,7 @@ namespace BitAuto.CarDataUpdate.CarMessageProcesser.Photo
                     //photo.SerialThreeStandardImage(serialId);
                     //photo.SerialYearColorUrl(serialId);
                     photo.SerialYearFocusImage(serialId, 0);
+                    photo.SerialSlidePageImage(serialId);
                     Dictionary<int, CarEntity> dictCar = CommonData.GetCarDataBySerialId(serialId);
 					foreach (CarEntity car in dictCar.Values)
 					{
