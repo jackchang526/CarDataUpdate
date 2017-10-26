@@ -21,14 +21,8 @@
     </div>
 </form>
 <!--app1g流量广告-->
-<ul id="adv-app-1g" style="display:none;">
-                <li data-index="{adItemIndex}" data-hyperlink="http://news.bitauto.com/others/20170816/1606875754.html">
-                    <a class="adv-app-1g">
-                        <img class="s" width="195" height="26" src="http://image.bitautoimg.com/2016/pc1200/img/app1g.png" alt="">
-                        <img class="t" width="90" height="90" src="http://image.bitautoimg.com/2016/pc1200/img/qr-170914.png" alt="">
-                    </a>
-                </li>
-</ul>
+<ul id="adv-app-1g" style="display:none;" data-channelid="51.10.2183">                <li data-index="{adItemIndex}" data-hyperlink="http://news.bitauto.com/zonghexinwen/20171017/1206929651.html">                    <a class="adv-app-1g">                        <img class="s" src="http://image.bitautoimg.com/bitauto/2017/10/19/0946b036-c32e-42f3-bd0b-ae3c2e7bdaf9.png" alt="" height="26" width="195" />                        <img class="t" src="http://img2.bitautoimg.com/bitauto/2017/10/18/3e9290db-eeaa-4865-9c25-5111d0add615.png" alt="" height="90" width="90" />                    </a>                </li></ul>
+
 <script src="http://image.bitautoimg.com/carchannel/jsnew/yicheSug.min.js?v=20170914" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 BitautoAutoComplete();
