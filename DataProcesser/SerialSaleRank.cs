@@ -64,6 +64,11 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                     { serialPrice = "未上市"; }
                     else
                     { serialPrice = csPriceRange.ContainsKey(ssc.CsId) ? csPriceRange[ssc.CsId] : "暂无报价"; }
+                    if (serialPrice.IndexOf("万-") > -0)
+                    {
+                        serialPrice = serialPrice.Replace("万-", "-");
+                    }
+
                     ssc.PriceRange = serialPrice;
 
                     ssc.Level = serialLevelDic.ContainsKey(ssc.CsId) ? serialLevelDic[ssc.CsId] : string.Empty;

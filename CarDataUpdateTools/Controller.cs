@@ -3208,13 +3208,17 @@ namespace BitAuto.CarDataUpdate.Tools
 		{
 			Common.Log.WriteLog("请求carser接口开始：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 			List<int> carIdList = new List<int>();
-			if (funcArgs != null && funcArgs.Length > 0)
-			{
-				int carid = ConvertHelper.GetInteger(funcArgs[0]);
-				if (carid > 0)
-				{
-					carIdList.Add(carid);
-				}
+            if (funcArgs != null && funcArgs.Length > 0)
+            {
+                string[] carIdArr = funcArgs[0].Split(',');
+                foreach (string id in carIdArr)
+                {
+                    int carid = ConvertHelper.GetInteger(id);
+                    if (carid > 0)
+                    {
+                        carIdList.Add(carid);
+                    }
+                }
 			}
 			if (carIdList.Count == 0)
 			{
@@ -3236,6 +3240,18 @@ namespace BitAuto.CarDataUpdate.Tools
             SerialSaleRank serialSaleRank = new SerialSaleRank();
             serialSaleRank.GetSaleRank();
             Common.Log.WriteLog("请求车系销售排行结束");
+        }
+
+        /// <summary>
+		/// 新车上市文本提示
+		/// </summary>
+		[Description("GetSerialSaleRank 说明：生成新车上市文本XML")]
+        public void GetNewCarIntoMarket()
+        {
+            Common.Log.WriteLog("请求新车上市文本开始：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            NewCarIntoMarket newCarIntoMarket = new NewCarIntoMarket();
+            newCarIntoMarket.GetNewCarIntoMarket();
+            Common.Log.WriteLog("请求新车上市文本结束" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         }
     }
 }

@@ -228,6 +228,11 @@ namespace BitAuto.CarDataUpdate.DataProcesser
 						#endregion
 					}
 				}
+                else
+                {
+                    DistCacheWrapper.Remove(string.Format(memCacheKeyTemp, carId));
+                    DistCacheWrapper.Remove(string.Format(memCacheKeyWithOptionalTemp, carId));
+                }
 
 				#region 清理数据
 				dsAllCarBaseInfo.Clear();
