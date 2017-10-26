@@ -19,13 +19,13 @@ namespace BitAuto.CarDataUpdate.DataProcesser
 		{
 			try
 			{
-				messageAddress = string.Format(messageAddress, type, id, opearting);
+				string messageAddressTemp = string.Format(messageAddress, type, id, opearting);
 
-				var result = CommonFunction.GetResponseFromUrl(messageAddress);// Utility.GetHttpRequestData(messageAddress, 20 * 1000);
+				var result = CommonFunction.GetResponseFromUrl(messageAddressTemp);// Utility.GetHttpRequestData(messageAddress, 20 * 1000);
 
 				if (result.Trim() != "True")
 				{
-					Common.Log.WriteErrorLog(string.Format("同步接口返回消息不是true，返回的信息:{0},URL地址{1}", result, messageAddress));
+					Common.Log.WriteErrorLog(string.Format("同步接口返回消息不是true，返回的信息:{0},URL地址{1}", result, messageAddressTemp));
 				}
 				Common.Log.WriteLog(string.Format("调用易车接口成功\r\n 实体类型:{0}\r\n 操作类型:{1}\r\n 类型编号:{2}\r\n", type, opearting, id));
 			}
