@@ -47,7 +47,8 @@ namespace BitAuto.CarDataUpdate.DataProcesser
             Dictionary<int, string> dicSerialNewPhoto = CommonData.dicSerialNewPhoto;//车系白底图
             if (serialSaleList.Count > 0)
             {
-                serialSaleList.Sort((x,y)=>y.SellNum - x.SellNum);
+                //serialSaleList.Sort((x,y)=>y.SellNum - x.SellNum);
+                serialSaleList = serialSaleList.OrderByDescending(x => x.SellNum).ThenBy(x => x.CsId).ToList();
                 foreach (SerialSaleCount ssc in serialSaleList)
                 {
                     if (!SerialDic.ContainsKey(ssc.CsId))
