@@ -18,8 +18,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
 
         public SerialSaleRank()
         {
-            DateTime saleMonth = DateTime.Now.AddMonths(-2);
-            SerialSaleRankUrl = CommonData.CommonSettings.SerialSaleRankUrl.Replace("{year}", saleMonth.Year.ToString()).Replace("{month}", saleMonth.Month.ToString());
+            SerialSaleRankUrl = CommonData.CommonSettings.SerialSaleRankUrl;
 
             FileName = string.Concat(CommonData.CommonSettings.SavePath, "\\SerialSet\\SerialSaleRank.xml");
         }
@@ -34,13 +33,23 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 Log.WriteErrorLog("车系销量排行接口为空；");
                 return;
             }
-            string jsonArray = CommonFunction.GetContentByUrl(SerialSaleRankUrl, "utf-8");
-            if (string.IsNullOrEmpty(jsonArray))
-            {
-                Log.WriteErrorLog("车系销量数据为空；");
-                return;
-            }
+            DateTime saleMonth = DateTime.Now.AddMonths(-1);
+            string  tempSerialSaleRankUrl = SerialSaleRankUrl.Replace("{year}", saleMonth.Year.ToString()).Replace("{month}", saleMonth.Month.ToString());
+            string jsonArray = CommonFunction.GetContentByUrl(tempSerialSaleRankUrl, "utf-8");
             List<SerialSaleCount> serialSaleList = JsonConvert.DeserializeObject<List<SerialSaleCount>>(jsonArray);
+            if (serialSaleList.Count == 0)
+            {
+                saleMonth = DateTime.Now.AddMonths(-2);
+                tempSerialSaleRankUrl = SerialSaleRankUrl.Replace("{year}", saleMonth.Year.ToString()).Replace("{month}", saleMonth.Month.ToString());
+                jsonArray = CommonFunction.GetContentByUrl(tempSerialSaleRankUrl, "utf-8");
+                serialSaleList = JsonConvert.DeserializeObject<List<SerialSaleCount>>(jsonArray);
+                if (serialSaleList.Count == 0)
+                {
+                    Log.WriteErrorLog("车系销量数据为空；");
+                    return;
+                }
+            }
+            
             Dictionary<int, Common.Model.SerialInfo> SerialDic = CommonData.SerialDic;//车系基本信息
             Dictionary<int, string> csPriceRange = CommonData.CsPriceRangeDic;//车系报价区间
             Dictionary<int, string> serialLevelDic = CommonData.SerialLevelDic;//车系级别
