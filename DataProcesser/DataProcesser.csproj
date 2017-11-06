@@ -116,6 +116,7 @@
     <Compile Include="EPProcesser.cs" />
     <Compile Include="InsuranceAndLoan.cs" />
     <Compile Include="KoubeiRatingDetail.cs" />
+    <Compile Include="NewCarIntoMarket.cs" />
     <Compile Include="Repository\CarRepository.cs" />
     <Compile Include="Repository\SerialCityPVRepository.cs" />
     <Compile Include="Repository\SerialRepository.cs" />

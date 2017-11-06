@@ -181,7 +181,7 @@ namespace BitAuto.CarDataUpdate.Tools
                     photo.SerialColorAll(serialId);
                     photo.SerialPhotoList(serialId);
                     photo.SerialPhotoCompare(serialId);
-                    photo.SerialClass(serialId);
+                    //photo.SerialClass(serialId); //del by lisf 2017-11-02
                     //photo.SerialStandardImage(serialId);
                     photo.SerialFocusImage(serialId);
                     //photo.SerialColorCount(serialId);
@@ -197,6 +197,7 @@ namespace BitAuto.CarDataUpdate.Tools
                     //photo.SerialThreeStandardImage(serialId);
                     //photo.SerialYearColorUrl(serialId);
                     photo.SerialYearFocusImage(serialId, 0);
+                    photo.SerialSlidePageImage(serialId);//子品牌幻灯页图片
                 }
                 if (funcArgs.Length <= 1) return;
                 int carId = 0;
@@ -250,7 +251,7 @@ namespace BitAuto.CarDataUpdate.Tools
                 photo.SerialPhotoList(serial.Id);
                 //modified by sk 接口改为按车款获取
                 //photo.SerialPhotoCompare(serial.Id);
-                photo.SerialClass(serial.Id);
+                //photo.SerialClass(serial.Id); //del by lisf 2017-11-02
                 //photo.SerialStandardImage(serial.Id);
                 photo.SerialFocusImage(serial.Id);
                 //photo.SerialColorCount(serial.Id);
@@ -266,7 +267,10 @@ namespace BitAuto.CarDataUpdate.Tools
                 //photo.SerialThreeStandardImage(serial.Id);
                 //photo.SerialYearColorUrl(serial.Id);
                 photo.SerialYearFocusImage(serial.Id, 0);
+                photo.SerialSlidePageImage(serial.Id);//子品牌幻灯页图片
             }
+
+
             OnLog("已经生成子品牌：" + dict.Count, true);
             OnLog("开始子品牌车型年款：", true);
             Dictionary<int, CarEntity> dictCar = CommonData.GetAllCarData();
@@ -793,7 +797,44 @@ namespace BitAuto.CarDataUpdate.Tools
                 Common.Log.WriteErrorLog("保存图片数据异常：" + ex.ToString());
             }
         }
+        /// <summary>
+        /// 仅供上线使用生成综述页焦点区图片
+        /// </summary>
+        public void SaveSerialFocusAndSlideImage()
+        {
+            try
+            {
+                PhotoImageService photo = new PhotoImageService();
+                Dictionary<int, SerialInfo> dict = CommonData.SerialDic;
+                OnLog("开始生成图片数据", true);
 
+                int sId = 0;
+                if (funcArgs != null && funcArgs.Length > 0)
+                {
+                    if (Int32.TryParse(funcArgs[0], out sId))
+                    {
+                    }
+                }
+                foreach (SerialInfo serial in dict.Values)
+                {
+                    // 如果传了子品牌ID，则不是此子品牌的不生成
+                    if (sId > 0 && serial.Id != sId)
+                    {
+                        continue;
+                    }
+                    int serialId = serial.Id;
+
+                    OnLog("开始生成焦点区图片,子品牌：" + serialId, true);
+                    photo.SerialFocusImage(serialId);
+                    photo.SerialSlidePageImage(serialId);//子品牌幻灯页图片;
+                }
+                OnLog("保存图片数据结束", true);
+            }
+            catch (Exception ex)
+            {
+                Common.Log.WriteErrorLog("保存图片数据异常：" + ex.ToString());
+            }
+        }
 
         /// <summary>
         /// 生成1200版 互联互通导航
@@ -3167,13 +3208,17 @@ namespace BitAuto.CarDataUpdate.Tools
 		{
 			Common.Log.WriteLog("请求carser接口开始：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 			List<int> carIdList = new List<int>();
-			if (funcArgs != null && funcArgs.Length > 0)
-			{
-				int carid = ConvertHelper.GetInteger(funcArgs[0]);
-				if (carid > 0)
-				{
-					carIdList.Add(carid);
-				}
+            if (funcArgs != null && funcArgs.Length > 0)
+            {
+                string[] carIdArr = funcArgs[0].Split(',');
+                foreach (string id in carIdArr)
+                {
+                    int carid = ConvertHelper.GetInteger(id);
+                    if (carid > 0)
+                    {
+                        carIdList.Add(carid);
+                    }
+                }
 			}
 			if (carIdList.Count == 0)
 			{
@@ -3195,6 +3240,18 @@ namespace BitAuto.CarDataUpdate.Tools
             SerialSaleRank serialSaleRank = new SerialSaleRank();
             serialSaleRank.GetSaleRank();
             Common.Log.WriteLog("请求车系销售排行结束");
+        }
+
+        /// <summary>
+		/// 新车上市文本提示
+		/// </summary>
+		[Description("GetSerialSaleRank 说明：生成新车上市文本XML")]
+        public void GetNewCarIntoMarket()
+        {
+            Common.Log.WriteLog("请求新车上市文本开始：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            NewCarIntoMarket newCarIntoMarket = new NewCarIntoMarket();
+            newCarIntoMarket.GetNewCarIntoMarket();
+            Common.Log.WriteLog("请求新车上市文本结束" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         }
     }
 }

@@ -217,6 +217,14 @@ namespace BitAuto.CarDataUpdate.Config
                 return (string)base["SerialCarReallyImagePath"];
             }
         }
+        [ConfigurationProperty("SerialSlidePageImagePath")]
+        public string SerialSlidePageImagePath
+        {
+            get
+            {
+                return (string)base["SerialSlidePageImagePath"];
+            }
+        }
         //[ConfigurationProperty("SerialThreeStandardImagePath")]
         //public string SerialThreeStandardImagePath
         //{

@@ -32,9 +32,9 @@ namespace BitAuto.CarDataUpdate.CarMessageProcesser.Photo
 					photo.SerialColorAll(serialId);
 					photo.SerialPhotoList(serialId);
 					photo.SerialPhotoCompare(serialId);
-					photo.SerialClass(serialId);
-					//photo.SerialStandardImage(serialId);  //del by lisf 2016-01-06
-					photo.SerialFocusImage(serialId);
+                    //photo.SerialClass(serialId);  //del by lisf 2017-11-02
+                    //photo.SerialStandardImage(serialId);  //del by lisf 2016-01-06
+                    photo.SerialFocusImage(serialId);
                     //photo.SerialColorCount(serialId);//del by lisf 2016-01-06
 					//photo.SerialPhotoHtml(serialId);
                     photo.SerialPhotoHtmlNew(serialId);
@@ -46,6 +46,7 @@ namespace BitAuto.CarDataUpdate.CarMessageProcesser.Photo
                     //photo.SerialThreeStandardImage(serialId);
                     //photo.SerialYearColorUrl(serialId);
                     photo.SerialYearFocusImage(serialId, 0);
+                    photo.SerialSlidePageImage(serialId);
                     Dictionary<int, CarEntity> dictCar = CommonData.GetCarDataBySerialId(serialId);
 					foreach (CarEntity car in dictCar.Values)
 					{

@@ -18,8 +18,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
 
         public SerialSaleRank()
         {
-            DateTime saleMonth = DateTime.Now.AddMonths(-2);
-            SerialSaleRankUrl = CommonData.CommonSettings.SerialSaleRankUrl.Replace("{year}", saleMonth.Year.ToString()).Replace("{month}", saleMonth.Month.ToString());
+            SerialSaleRankUrl = CommonData.CommonSettings.SerialSaleRankUrl;
 
             FileName = string.Concat(CommonData.CommonSettings.SavePath, "\\SerialSet\\SerialSaleRank.xml");
         }
@@ -34,20 +33,31 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 Log.WriteErrorLog("车系销量排行接口为空；");
                 return;
             }
-            string jsonArray = CommonFunction.GetContentByUrl(SerialSaleRankUrl, "utf-8");
-            if (string.IsNullOrEmpty(jsonArray))
-            {
-                Log.WriteErrorLog("车系销量数据为空；");
-                return;
-            }
+            DateTime saleMonth = DateTime.Now.AddMonths(-1);
+            string  tempSerialSaleRankUrl = SerialSaleRankUrl.Replace("{year}", saleMonth.Year.ToString()).Replace("{month}", saleMonth.Month.ToString());
+            string jsonArray = CommonFunction.GetContentByUrl(tempSerialSaleRankUrl, "utf-8");
             List<SerialSaleCount> serialSaleList = JsonConvert.DeserializeObject<List<SerialSaleCount>>(jsonArray);
+            if (serialSaleList.Count == 0)
+            {
+                saleMonth = DateTime.Now.AddMonths(-2);
+                tempSerialSaleRankUrl = SerialSaleRankUrl.Replace("{year}", saleMonth.Year.ToString()).Replace("{month}", saleMonth.Month.ToString());
+                jsonArray = CommonFunction.GetContentByUrl(tempSerialSaleRankUrl, "utf-8");
+                serialSaleList = JsonConvert.DeserializeObject<List<SerialSaleCount>>(jsonArray);
+                if (serialSaleList.Count == 0)
+                {
+                    Log.WriteErrorLog("车系销量数据为空；");
+                    return;
+                }
+            }
+            
             Dictionary<int, Common.Model.SerialInfo> SerialDic = CommonData.SerialDic;//车系基本信息
             Dictionary<int, string> csPriceRange = CommonData.CsPriceRangeDic;//车系报价区间
             Dictionary<int, string> serialLevelDic = CommonData.SerialLevelDic;//车系级别
             Dictionary<int, string> dicSerialNewPhoto = CommonData.dicSerialNewPhoto;//车系白底图
             if (serialSaleList.Count > 0)
             {
-                serialSaleList.Sort((x,y)=>y.SellNum - x.SellNum);
+                //serialSaleList.Sort((x,y)=>y.SellNum - x.SellNum);
+                serialSaleList = serialSaleList.OrderByDescending(x => x.SellNum).ThenBy(x => x.CsId).ToList();
                 foreach (SerialSaleCount ssc in serialSaleList)
                 {
                     if (!SerialDic.ContainsKey(ssc.CsId))
@@ -64,6 +74,11 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                     { serialPrice = "未上市"; }
                     else
                     { serialPrice = csPriceRange.ContainsKey(ssc.CsId) ? csPriceRange[ssc.CsId] : "暂无报价"; }
+                    if (serialPrice.IndexOf("万-") > -0)
+                    {
+                        serialPrice = serialPrice.Replace("万-", "-");
+                    }
+
                     ssc.PriceRange = serialPrice;
 
                     ssc.Level = serialLevelDic.ContainsKey(ssc.CsId) ? serialLevelDic[ssc.CsId] : string.Empty;

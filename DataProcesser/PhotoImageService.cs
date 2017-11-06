@@ -1047,7 +1047,69 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 Common.Log.WriteErrorLog(ex.ToString());
             }
         }
+        /// <summary>
+        /// 保存车系幻灯页图片
+        /// </summary>
+        /// <param name="serialId"></param>
+        public void SerialSlidePageImage(int serialId)
+        {
+            string fileName = Path.Combine(photoConfig.SavePath, string.Format(@"SerialSlidePageImage\{0}.xml", serialId));
+            try
+            {
+                string path = Path.GetDirectoryName(fileName);
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
 
+                string json = CommonFunction.GetResponseFromUrl(string.Format(photoConfig.SerialSlidePageImagePath, serialId));
+                JObject jobject = (JObject)JsonConvert.DeserializeObject(json);
+
+                List<XElement> elementList = new List<XElement>();
+                if (string.IsNullOrEmpty(jobject["Data"].ToString()))
+                {
+
+                    XDocument docEmpty = new XDocument(
+                     new XElement("ImageData",
+                      new XAttribute("ImageUrlBase", "http://image.bitautoimg.com/autoalbum/"),
+                       new XElement("ImageList")
+                         )
+                     );
+                    docEmpty.Save(fileName);
+                    return;
+                }
+                foreach (var item in (JArray)jobject["Data"]["DataList"])
+                {
+                    elementList.Add(
+                            new XElement("ImageInfo",
+                                 new XAttribute("ImageId", item["PhotoId"].ToString()),
+                                 new XAttribute("ImageName", item["PositionName"].ToString()),
+                                 new XAttribute("ImageUrl", string.Format(item["PhotoUrl"].ToString(), 4)),
+                                 new XAttribute("GroupName", item["GroupName"].ToString()),
+                                 new XAttribute("ClassId", "0"),
+                                 new XAttribute("SerialId", item["ModelId"].ToString()),
+                                 new XAttribute("CarId", item["StyleId"].ToString()),
+                                 new XAttribute("CarYear", "0"),
+                                 new XAttribute("CarModelName", item["StyleName"].ToString()),
+                                 new XAttribute("Link", item["Url"].ToString())
+                         ));
+                    if (elementList.Count >= 8)
+                    {
+                        break;
+                    }
+                }
+
+                XDocument doc = new XDocument(
+                 new XElement("ImageData",
+                  new XAttribute("ImageUrlBase", "http://image.bitautoimg.com/autoalbum/"),
+                   new XElement("ImageList", elementList)
+                     )
+                 );
+                doc.Save(fileName);
+            }
+            catch (Exception ex)
+            {
+                OnLog(ex.ToString(), true);
+            }
+        }
         /*
 		/// <summary>
 		/// 子品牌三个外观标准图
