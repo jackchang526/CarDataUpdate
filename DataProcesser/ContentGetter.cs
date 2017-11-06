@@ -98,8 +98,8 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 //级别新闻
                 CreateLevelDataPath();
                 GetNewsCategorys();
-                GetLevelVideos();
-                GetLevelCarCost();
+                //GetLevelVideos(); lisf 2017-11-02
+                //GetLevelCarCost();
                 GetImgUrl();
 
                 //品牌列表

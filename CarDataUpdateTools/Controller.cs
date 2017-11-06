@@ -181,7 +181,7 @@ namespace BitAuto.CarDataUpdate.Tools
                     photo.SerialColorAll(serialId);
                     photo.SerialPhotoList(serialId);
                     photo.SerialPhotoCompare(serialId);
-                    photo.SerialClass(serialId);
+                    //photo.SerialClass(serialId); //del by lisf 2017-11-02
                     //photo.SerialStandardImage(serialId);
                     photo.SerialFocusImage(serialId);
                     //photo.SerialColorCount(serialId);
@@ -251,7 +251,7 @@ namespace BitAuto.CarDataUpdate.Tools
                 photo.SerialPhotoList(serial.Id);
                 //modified by sk 接口改为按车款获取
                 //photo.SerialPhotoCompare(serial.Id);
-                photo.SerialClass(serial.Id);
+                //photo.SerialClass(serial.Id); //del by lisf 2017-11-02
                 //photo.SerialStandardImage(serial.Id);
                 photo.SerialFocusImage(serial.Id);
                 //photo.SerialColorCount(serial.Id);
