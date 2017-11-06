@@ -39,6 +39,10 @@
     <Reference Include="BitAuto.Beyond.Caching.FileCache">
       <HintPath>..\..\..\packages\BitAuto.Beyond.Caching.FileCache.dll</HintPath>
     </Reference>
+    <Reference Include="BitAuto.CarUtils, Version=1.2.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\BitAuto.CarUtils.dll</HintPath>
+    </Reference>
     <Reference Include="BitAuto.Services, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\BitAuto.Services.dll</HintPath>
@@ -54,12 +58,11 @@
     <Reference Include="log4net">
       <HintPath>..\..\..\packages\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MongoDB.Bson">
-      <HintPath>..\..\..\packages\MongoDB.Bson.dll</HintPath>
+      <HintPath>..\..\..\packages\Mongodb.1.9.2\MongoDB.Bson.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Driver">
-      <HintPath>..\..\..\packages\MongoDB.Driver.dll</HintPath>
+      <HintPath>..\..\..\packages\Mongodb.1.9.2\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -102,6 +105,7 @@
     <Compile Include="AskDataService.cs" />
     <Compile Include="AskHtmlChunkGenerator.cs" />
     <Compile Include="CarDataCompare.cs" />
+    <Compile Include="CarEvaluation.cs" />
     <Compile Include="CarGroupByLevelAndPrice.cs" />
     <Compile Include="CarInfoForSelecting.cs" />
     <Compile Include="CarNewsTypeUpdate.cs" />
