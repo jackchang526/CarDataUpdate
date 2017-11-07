@@ -121,8 +121,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
 
         private Dictionary<int, bool> dictHasSerialNews = new Dictionary<int, bool>();
 
-        //超级评测
-        private List<CarEvaluationReport> carEvaluationReportList = null;
+        
 
         // 子品牌易车惠
         // private Dictionary<int, string> dicCsGoods = new Dictionary<int, string>();
@@ -287,9 +286,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 CachingProvider = new DefaultCachingProvider(t => { })
             };
             _razorEngineService = RazorEngineService.Create(templateConfig);
-            Engine.Razor = _razorEngineService;
-
-            carEvaluationReportList = CarEvaluation.GetList();
+            Engine.Razor = _razorEngineService;            
         }
 
         #region 生成导航头
@@ -3434,11 +3431,15 @@ namespace BitAuto.CarDataUpdate.DataProcesser
         private CarEvaluationReport GetCarEvaluationReport(int serialId)
         {
             CarEvaluationReport item = null;
-            IEnumerable<CarEvaluationReport> templist = carEvaluationReportList.Where(i => i.SerialId == serialId);
-            if (templist.Count()>0)
+            List<CarEvaluationReport> carEvaluationReportList = CommonData.CarEvaluationReportList;
+            if (carEvaluationReportList != null)
             {
-                item = carEvaluationReportList.Where(i => i.SerialId == serialId).First();
-            }            
+                IEnumerable<CarEvaluationReport> templist = carEvaluationReportList.Where(i => i.SerialId == serialId);
+                if (templist.Count() > 0)
+                {
+                    item = carEvaluationReportList.Where(i => i.SerialId == serialId).First();
+                }
+            }                    
             return item;
         }
 

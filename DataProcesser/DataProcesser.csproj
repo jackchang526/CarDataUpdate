@@ -105,7 +105,6 @@
     <Compile Include="AskDataService.cs" />
     <Compile Include="AskHtmlChunkGenerator.cs" />
     <Compile Include="CarDataCompare.cs" />
-    <Compile Include="CarEvaluation.cs" />
     <Compile Include="CarGroupByLevelAndPrice.cs" />
     <Compile Include="CarInfoForSelecting.cs" />
     <Compile Include="CarNewsTypeUpdate.cs" />

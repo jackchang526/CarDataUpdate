@@ -1,19 +1,19 @@
-﻿using BitAuto.CarDataUpdate.Common;
-using BitAuto.CarUtils.MongoDB;
+﻿using BitAuto.CarUtils;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace BitAuto.CarDataUpdate.DataProcesser
+namespace BitAuto.CarDataUpdate.Common.Services
 {
     /// <summary>
     /// 超级评测相关
     /// </summary>
-    public class CarEvaluation
+    public class CarEvaluationService
     {
         private const string _DataBaseName = "CarsEvaluationReport";
         private const string _CollectionName = "assessmentdata";
@@ -22,7 +22,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
         {
             List<CarEvaluationReport> target = new List<CarEvaluationReport>();
 
-            List<CarEvaluationReport> list = new List<CarEvaluationReport>();            
+            List<CarEvaluationReport> list = new List<CarEvaluationReport>();
             List<int> esixt = new List<int>();
             try
             {
@@ -35,7 +35,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                     "EvaluationId",
                     "CreateDateTime"
                 };
-                MongoCursor<BsonDocument> mongoCursor = MongoDBHelper.GetFields(CommonData.ConnectionStringSettings.MongoDBCarsEvaluationConnString, _DataBaseName, _CollectionName, query,paraList.ToArray());
+                MongoCursor<BsonDocument> mongoCursor =BitAuto.CarUtils.MongoDB.MongoDBHelper.GetFields(CommonData.ConnectionStringSettings.MongoDBCarsEvaluationConnString, _DataBaseName, _CollectionName, query, paraList.ToArray());
 
                 foreach (BsonDocument item in mongoCursor)
                 {
@@ -71,5 +71,4 @@ namespace BitAuto.CarDataUpdate.DataProcesser
             return target;
         }
     }
-
 }
