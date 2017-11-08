@@ -276,6 +276,10 @@ namespace BitAuto.CarDataUpdate.Common
         /// 口碑评分明细本地路径
         /// </summary>
         public static string KoubeiRatingLocalUrl;
+
+        //超级评测
+        public static List<CarEvaluationReport> CarEvaluationReportList = null;
+
         static CommonData()
         {
             _applicationPath = AppDomain.CurrentDomain.BaseDirectory;
@@ -332,6 +336,9 @@ namespace BitAuto.CarDataUpdate.Common
             InitKoubeiRatingDic();
             // 子品牌报价区间
             GetSerialPriceRange();
+
+            //超级评测报告
+            CarEvaluationReportList = Common.Services.CarEvaluationService.GetList();
         }
 
         #region  车型基础信息

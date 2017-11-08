@@ -51,7 +51,11 @@ namespace BitAuto.CarDataUpdate.DataProcesser
             try
             {
                 OnLog("数据更新至mongodb中...", true);
-                MongoServer server = MongoServer.Create(CommonData.ConnectionStringSettings.MongoDBConnectionString);
+                //MongoServer server = MongoServer.Create(CommonData.ConnectionStringSettings.MongoDBConnectionString);
+
+                MongoClient client = new MongoClient(CommonData.ConnectionStringSettings.MongoDBConnectionString);
+                MongoServer server = client.GetServer();
+
                 MongoDatabase database = server.GetDatabase(_DataBaseName);
                 var dealers = database.GetCollection(_CollectionName);
                 if (dealers == null)
@@ -69,11 +73,12 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 }
                 else if (dealers.Count() > 0)
                 {
-                    dealers.RemoveAll(SafeMode.True);
+                    dealers.RemoveAll();//dealers.RemoveAll(SafeMode.True);
                 }
                 if (_List != null && _List.Count > 0)
-                {
-                    dealers.InsertBatch(_List, SafeMode.True);
+                {                    
+                    dealers.InsertBatch(_List);//dealers.InsertBatch(_List, SafeMode.True);
+
                     dealers.CreateIndex("vendorID");
                 }
 

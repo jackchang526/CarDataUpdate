@@ -65,5 +65,11 @@ namespace BitAuto.CarDataUpdate.Config
 		{
 			get { return (string)base["BuyCarServiceConnectionString"]; }
 		}
+
+        [ConfigurationProperty("MongoDBCarsEvaluationConnString")]
+        public string MongoDBCarsEvaluationConnString
+        {
+            get { return (string)base["MongoDBCarsEvaluationConnString"]; }
+        }
     }
 }

@@ -119,7 +119,9 @@ namespace BitAuto.CarDataUpdate.DataProcesser
         // 子品牌改款上市时间
         private Dictionary<int, SerialMarketTimeEntity> dictCarMarkTime = new Dictionary<int, SerialMarketTimeEntity>();
 
-        private Dictionary<int, bool> dictHasSerialNews = new Dictionary<int, bool>();        
+        private Dictionary<int, bool> dictHasSerialNews = new Dictionary<int, bool>();
+
+        
 
         // 子品牌易车惠
         // private Dictionary<int, string> dicCsGoods = new Dictionary<int, string>();
@@ -284,7 +286,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 CachingProvider = new DefaultCachingProvider(t => { })
             };
             _razorEngineService = RazorEngineService.Create(templateConfig);
-            Engine.Razor = _razorEngineService;
+            Engine.Razor = _razorEngineService;            
         }
 
         #region 生成导航头
@@ -2673,28 +2675,43 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 temp = temp.Replace("#DaoGouURL#", "<li><a class=\"nolink\">车型详解</a></li>");
             }
              */
-            if (urlDaoGou != "")
+
+
+            //有没有评测报告
+            CarEvaluationReport carEvaluationReport = GetCarEvaluationReport(csid);
+            if (carEvaluationReport != null)
             {
-                if (isYear)
-                {
-                    // 增加安全 add by chengl Jun.12.2012
-                    // 年款
-                    temp = temp.Replace("#DaoGouURL#", "<li id=\"liDaoGou\" class=\"#ClassTag22#\"><a target=\"_self\" data-channelid=\"2.21.784\" href=\"" + string.Format(baseURL + urlDaoGou, dr["csAllSpell"].ToString().Trim().ToLower()).Replace("#year#", "{0}") + "\">车型详解</a></li>");
-                }
-                else
-                {
-                    // 增加安全 add by chengl Jun.12.2012
-                    // 非年款
-                    temp = temp.Replace("#DaoGouURL#", "<li id=\"liDaoGou\" class=\"#ClassTag22#\"><a target=\"_self\" data-channelid=\"2.21.784\" href=\"" + string.Format(baseURL + urlDaoGou, dr["csAllSpell"].ToString().Trim().ToLower()).Replace("#year#/", string.Empty) + "\">车型详解</a></li>");
-                }
+                var pingceUrl = string.Format("http://pingce.bitauto.com/details/{0}-2.html", carEvaluationReport.EvaluationId);
+                temp = temp.Replace("#DaoGouURL#", "<li id=\"liDaoGou\" class=\"#ClassTag22#\"><a target=\"_blank\" data-channelid=\"2.21.784\" href=\"" + pingceUrl + "\">车型详解</a></li>");
             }
             else
             {
-                // modified by chengl Jun.8.2011
-                // temp = temp.Replace("#DaoGouURL#", "车型详解");
-                // modified by chengl May.10.2012
-                temp = temp.Replace("#DaoGouURL#", "<li><a data-channelid=\"2.21.784\" class=\"no-link\">车型详解</a></li>");
+                if (urlDaoGou != "")
+                {
+
+                    if (isYear)
+                    {
+                        // 增加安全 add by chengl Jun.12.2012
+                        // 年款
+                        temp = temp.Replace("#DaoGouURL#", "<li id=\"liDaoGou\" class=\"#ClassTag22#\"><a target=\"_self\" data-channelid=\"2.21.784\" href=\"" + string.Format(baseURL + urlDaoGou, dr["csAllSpell"].ToString().Trim().ToLower()).Replace("#year#", "{0}") + "\">车型详解</a></li>");
+                    }
+                    else
+                    {
+                        // 增加安全 add by chengl Jun.12.2012
+                        // 非年款
+                        temp = temp.Replace("#DaoGouURL#", "<li id=\"liDaoGou\" class=\"#ClassTag22#\"><a target=\"_self\" data-channelid=\"2.21.784\" href=\"" + string.Format(baseURL + urlDaoGou, dr["csAllSpell"].ToString().Trim().ToLower()).Replace("#year#/", string.Empty) + "\">车型详解</a></li>");
+                    }
+                }
+                else
+                {
+                    // modified by chengl Jun.8.2011
+                    // temp = temp.Replace("#DaoGouURL#", "车型详解");
+                    // modified by chengl May.10.2012
+                    temp = temp.Replace("#DaoGouURL#", "<li><a data-channelid=\"2.21.784\" class=\"no-link\">车型详解</a></li>");
+                }
             }
+
+            
             #endregion
 
             #region 文章
@@ -3415,6 +3432,21 @@ namespace BitAuto.CarDataUpdate.DataProcesser
             }
 
             return showText;
+        }
+
+        private CarEvaluationReport GetCarEvaluationReport(int serialId)
+        {
+            CarEvaluationReport item = null;
+            List<CarEvaluationReport> carEvaluationReportList = CommonData.CarEvaluationReportList;
+            if (carEvaluationReportList != null)
+            {
+                IEnumerable<CarEvaluationReport> templist = carEvaluationReportList.Where(i => i.SerialId == serialId);
+                if (templist.Count() > 0)
+                {
+                    item = carEvaluationReportList.Where(i => i.SerialId == serialId).First();
+                }
+            }                    
+            return item;
         }
 
     }
