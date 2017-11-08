@@ -3330,13 +3330,19 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                     if (newCarMarketDateTimeList.Count() > 0)
                     {
                         TimeTagEntity car = newCarMarketDateTimeList.First();//倒叙排列，取第一个即可
+                        TimeTagEntity carOld = newCarMarketDateTimeList.Last();//上市时间最老的车
                         if (car != null)
                         {
                             int days = GetDaysAboutCurrentDateTime(car.MarketDateTime);
+                            int daysOld = -1;
+                            if (carOld != null)
+                            {
+                                daysOld = GetDaysAboutCurrentDateTime(carOld.MarketDateTime);
+                            }
                             if (days >= 0 && days <= 30)
                             {
                                 //只有一个年款    ***新车上市***
-                                if (carList.GroupBy(i => i.CarYearType).Count() == 1)
+                                if (carList.GroupBy(i => i.CarYearType).Count() == 1 && daysOld >= 0 && daysOld <= 30)
                                 {
                                     showText = "新车上市";
                                 }

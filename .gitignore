@@ -5,7 +5,6 @@
 /.vs/config/applicationhost.config
 [oO]bj/
 [bB]in/
-*.suo
-*.user
 .suo
-*.user
+.user
+.vs/
