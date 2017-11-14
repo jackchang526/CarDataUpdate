@@ -198,12 +198,12 @@ namespace BitAuto.CarDataUpdate.HtmlBuilder
 
                 sb.Append("	<div class=\"row col3-240-box\">");
                 int loop = 0;
-                List<long> vedioIdList = new List<long>();
+                //List<long> vedioIdList = new List<long>();
                 foreach (VideoEntityV2 entity in videoList)
                 {
                     loop++;
                     if (loop > 3) break;
-                    vedioIdList.Add(entity.VideoId);
+                    //vedioIdList.Add(entity.VideoId);
 
                     string shortTitle = StringHelper.RemoveHtmlTag(entity.ShortTitle);
                     string imgUrl = entity.ImageLink;
@@ -215,19 +215,19 @@ namespace BitAuto.CarDataUpdate.HtmlBuilder
                     string drationFortter = dration.TotalMinutes > 9 ? (Math.Floor(dration.TotalMinutes) + ":" + (dration.Seconds > 9 ? dration.Seconds.ToString() : ("0" + dration.Seconds)))
                         : ("0" + dration.Minutes + ":" + (dration.Seconds > 9 ? dration.Seconds.ToString() : ("0" + dration.Seconds)));
 
-                    sb.AppendFormat("<div class=\"img-info-layout-vertical img-info-layout-video img-info-layout-vertical-240135\" data-id=\"{0}\" data-channelid=\"2.21.812\">", entity.VideoId);
+                    sb.AppendFormat("<div class=\"img-info-layout-vertical img-info-layout-video img-info-layout-vertical-240135\" data-type=\"{1}\" data-id=\"{0}\" data-channelid=\"2.21.812\">", entity.VideoId,entity.Source == 1 ? "vf":"v");
                     sb.Append("       <div class=\"img\">");
 					sb.AppendFormat("           <a href=\"{0}\" target=\"_blank\"><img data-original=\"{1}\"></a>", filepath, imgUrl);
                     sb.Append("       </div>");
                     sb.Append("       <ul class=\"p-list\">");
                     sb.AppendFormat("           <li class=\"video\"><a href=\"{0}\" target=\"_blank\"></a></li>", filepath);
                     sb.AppendFormat("           <li class=\"name\"><a href=\"{0}\" target=\"_blank\">{1}</a></li>", filepath, shortTitle);
-                    sb.AppendFormat("           <li class=\"num\"><span class=\"play\"></span> <span class=\"comment\"></span> <span class=\"time\">{0}</span></li>", drationFortter);
+                    sb.AppendFormat("           <li class=\"num\"><span class=\"play\">0</span> <span class=\"comment\">0</span> <span class=\"time\">{0}</span></li>", drationFortter);
                     sb.Append("       </ul>");
                     sb.Append("   </div>");
                 }
                 sb.Append("</div></div>");
-                sb.AppendFormat("<script type=\"text/javascript\">var vedioIds = \"{0}\";</script>",string.Join(",", vedioIdList));
+                //sb.AppendFormat("<script type=\"text/javascript\">var vedioIds = \"{0}\";</script>",string.Join(",", vedioIdList));
                 bool success = CommonHtmlService.UpdateCommonHtml(new Common.Model.CommonHtmlEntity()
                 {
                     ID = serialId,
