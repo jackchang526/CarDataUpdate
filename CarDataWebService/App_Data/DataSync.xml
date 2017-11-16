@@ -78,6 +78,11 @@
     <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.VideoSyncService</sourceClass>
     <sourceFunction>UpdateBaa</sourceFunction>
   </item>
+  <item>
+    <key>203_VideoForum_Delete</key>
+    <sourceClass>BitAuto.CarDataUpdate.WebServiceBLL.VideoSyncService</sourceClass>
+    <sourceFunction>Delete</sourceFunction>
+  </item>
   <!--视频 end-->
   <!-- 2014-3- -2014-4 购车返现 -->
   <!--<item>
