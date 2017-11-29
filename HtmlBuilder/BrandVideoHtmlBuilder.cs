@@ -214,7 +214,7 @@ namespace BitAuto.CarDataUpdate.HtmlBuilder
                     TimeSpan dration = new TimeSpan(0, 0, entity.Duration);
                     string drationFortter = dration.TotalMinutes > 9 ? (Math.Floor(dration.TotalMinutes) + ":" + (dration.Seconds > 9 ? dration.Seconds.ToString() : ("0" + dration.Seconds)))
                         : ("0" + dration.Minutes + ":" + (dration.Seconds > 9 ? dration.Seconds.ToString() : ("0" + dration.Seconds)));
-                    htmlCode.AppendLine(string.Format("<div class=\"img-info-layout-vertical img-info-layout-video img-info-layout-vertical-240135\" data-videoid=\"{0}\">",entity.VideoId));
+                    htmlCode.AppendLine(string.Format("<div class=\"img-info-layout-vertical img-info-layout-video img-info-layout-vertical-240135\" data-type=\"{1}\" data-videoid=\"{0}\">",entity.VideoId,entity.Source == 1 ? "vf":"v"));
                     htmlCode.AppendFormat(
                         " <div class=\"img\"><a href=\"{0}\" target=\"_blank\" rel=\"nofollow\"><img src=\"{1}\" alt=\"{2}\"  /></a></div>",
                         filepath, imgUrl, videoTitle);

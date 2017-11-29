@@ -5,9 +5,6 @@
 /.vs/config/applicationhost.config
 [oO]bj/
 [bB]in/
-*.suo
-*.user
-.suo
 *.user
 *.json
 /CarDataWebService/log
