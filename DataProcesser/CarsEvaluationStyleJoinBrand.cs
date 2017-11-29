@@ -21,7 +21,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                                   MasterBrandName, MakeId, MakeName,
                                   MakeCountry, ModelId, ModelName, CreateTime,
                                   UpdateTime, MasterBrandSpell, MakeSpell,
-                                  ModelSpell,ModelDisplayName )
+                                  ModelSpell,ModelDisplayName,FuelType ,ModelLevel,ModelAllSpell)
                          SELECT  car.Car_Id, car.Car_YearType, car.Car_Name, car.car_ReferPrice,
                                         CASE WHEN CHARINDEX('.', cdb.Pvalue) > 0
                                              THEN cdb.Pvalue + N'L'
@@ -29,6 +29,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                                         END, mb.bs_Id, mb.bs_Name, cb.cb_Id, cb.cb_Name, cb.cb_country,
                                         cs.cs_Id, cs.csName, car.CreateTime, car.UpdateTime, mb.spell,
                                         cb.spell, cs.spell,cs.csShowName
+										,cdb1.Pvalue as FuelType,cla.classvalue as ModelLevel,cs.allSpell
                                 FROM    AutoStorageNew.dbo.Car_relation car
                                         LEFT JOIN AutoStorageNew.dbo.Car_Serial cs ON cs.cs_Id = car.Cs_Id
                                         LEFT JOIN AutoStorageNew.dbo.Car_Brand cb ON cb.cb_Id = cs.cb_Id
@@ -36,6 +37,9 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                                         LEFT JOIN AutoStorageNew.dbo.Car_MasterBrand mb ON mb.bs_Id = cmb.bs_Id
                                         LEFT JOIN AutoStorageNew.dbo.CarDataBase cdb ON cdb.CarId = car.Car_Id
                                                                                       AND ParamId = 785
+                                        LEFT JOIN AutoStorageNew.dbo.CarDataBase cdb1 ON cdb1.CarId = car.Car_Id
+                                                                                      AND cdb1.ParamId = 578
+                                        LEFT JOIN AutoStorageNew.dbo.class cla ON cla.classid=cs.carlevel
                                 WHERE   car.IsState = 0
                                         AND cs.IsState = 0
                                         AND cb.IsState = 0

@@ -279,7 +279,7 @@ namespace BitAuto.CarDataUpdate.Common
 
         //超级评测
         public static List<CarEvaluationReport> CarEvaluationReportList = null;
-
+        public static Dictionary<int, int> DicEvaluationIdCarId = new Dictionary<int, int>();
         static CommonData()
         {
             _applicationPath = AppDomain.CurrentDomain.BaseDirectory;
@@ -338,7 +338,8 @@ namespace BitAuto.CarDataUpdate.Common
             GetSerialPriceRange();
 
             //超级评测报告
-            CarEvaluationReportList = Common.Services.CarEvaluationService.GetList();
+            CarEvaluationReportList = Common.Services.CarEvaluationService.GetNewCarEvaluationReport();
+            DicEvaluationIdCarId = Common.Services.CarEvaluationService.GetEvaluationReportDicForCar();
         }
 
         #region  车型基础信息

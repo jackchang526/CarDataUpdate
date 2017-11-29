@@ -123,6 +123,7 @@
     <Compile Include="Model\CommonHtmlEntity.cs" />
     <Compile Include="Model\ContentMessage.cs" />
     <Compile Include="Model\CrumbInfo.cs" />
+    <Compile Include="Model\EvaluationRankEntity.cs" />
     <Compile Include="Model\JiangJiaNews\JiangJiaNewsCarContent.cs" />
     <Compile Include="Model\JiangJiaNews\JiangJiaNewsContent.cs" />
     <Compile Include="Model\JiangJiaNews\JiangJiaNewsRelatedData.cs" />
