@@ -406,14 +406,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 XElement evaluationRank = new XElement("EvaluationRank");
                 evaluationRank.Add(new XElement("StyleId", item.StyleId));
                 evaluationRank.Add(new XElement("PropertyId", item.PropertyId));
-                if (propertyId == 132)
-                {
-                    evaluationRank.Add(new XElement("PropertyValue", Math.Round(item.PropertyValue, 2)));
-                }
-                else
-                {
-                    evaluationRank.Add(new XElement("PropertyValue", Math.Round(item.PropertyValue, 1)));
-                }                
+                evaluationRank.Add(new XElement("PropertyValue", Math.Round(item.PropertyValue, 1)));
                 evaluationRank.Add(new XElement("EvaluationId", item.EvaluationId));
                 evaluationRank.Add(new XElement("EditorsName", item.EditorsName));
                 evaluationRank.Add(new XElement("Weather", item.Weather));
