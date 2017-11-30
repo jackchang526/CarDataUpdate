@@ -3253,5 +3253,22 @@ namespace BitAuto.CarDataUpdate.Tools
             newCarIntoMarket.GetNewCarIntoMarket();
             Common.Log.WriteLog("请求新车上市文本结束" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
         }
+
+        public void GenerateEvaluationRank()
+        {
+            Common.Log.WriteLog("生成评测报告页面中的排行数据：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            EvaluationService evaluationService = new EvaluationService();
+            evaluationService.SaveEvaluationRankToXml();
+            Common.Log.WriteLog("生成评测报告页面中的排行数据结束" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        }
+
+        public void SaveExistEvaluationReportDataToXml()
+        {
+            Common.Log.WriteLog("保存有评测报告的评测ID和车款ID到XML文件中：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            EvaluationService evaluationService = new EvaluationService();
+            evaluationService.SaveExistEvaluationReportDataToXml();
+            Common.Log.WriteLog("保存有评测报告的评测ID和车款ID到XML文件中" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        }
+
     }
 }

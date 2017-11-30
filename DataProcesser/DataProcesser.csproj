@@ -113,6 +113,7 @@
     <Compile Include="CarsEvaluationStyleJoinBrand.cs" />
     <Compile Include="CarSummaryKouBei.cs" />
     <Compile Include="EPProcesser.cs" />
+    <Compile Include="EvaluationService.cs" />
     <Compile Include="InsuranceAndLoan.cs" />
     <Compile Include="KoubeiRatingDetail.cs" />
     <Compile Include="NewCarIntoMarket.cs" />
