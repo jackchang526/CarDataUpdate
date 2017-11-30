@@ -1304,7 +1304,6 @@ namespace BitAuto.CarDataUpdate.DataProcesser
         /// <param name="serialId"></param>
         public void GetSerialKoubeiImpression(int serialId)
         {
-            SerialKoubeiHtmlBuilder koubei = new SerialKoubeiHtmlBuilder();
             List<int> serialList = null;
             if (serialId == 0)
             { serialList = CommonFunction.GetSerialList(); }
@@ -1313,6 +1312,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 serialList = new List<int>();
                 serialList.Add(serialId);
             }
+            SerialKoubeiHtmlBuilder koubei = new SerialKoubeiHtmlBuilder(serialList);
             int counter = 0;
             foreach (int csID in serialList)
             {
@@ -2817,7 +2817,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
                 serialList = new List<int>();
                 serialList.Add(sId);
             }
-            SerialKoubeiHtmlBuilder koubei = new SerialKoubeiHtmlBuilder();
+            SerialKoubeiHtmlBuilder koubei = new SerialKoubeiHtmlBuilder(serialList);
             foreach (int serialId in serialList)
             {
                 Common.Log.WriteLog("更新子品牌口碑块 start serialId=" + serialId);

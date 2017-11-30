@@ -688,5 +688,14 @@ namespace BitAuto.CarDataUpdate.Config
             get { return (string)base["SerialSaleRankUrl"]; }
         }
 
+        /// <summary>
+        /// 精品口碑
+        /// isgood=1精华帖，datatype为xml或json
+        /// </summary>
+        [ConfigurationProperty("JingPinKoubeiUrl", DefaultValue = "")]
+        public string JingPinKoubeiUrl
+        {
+            get { return (string)base["JingPinKoubeiUrl"]; }
+        }
     }
 }

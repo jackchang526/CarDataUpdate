@@ -42,13 +42,16 @@ namespace BitAuto.CarDataUpdate.HtmlBuilder
         private XmlNodeList quedianNodes;
         private XmlDocument xmlKouBeiReport;
         private XmlDocument xmlRating;
+        private XmlDocument jingpinKoubeiXml;
 		private DataRow drTuiJianKoubei = null;
 		private string KoubeiDetailRatingUrl = CommonData.CommonSettings.KoubeiDetailRatingUrl;//口碑评分明细接口
 		//private readonly Dictionary<int, DataRow> _koubeiTuijianDic = new Dictionary<int, DataRow>();
         public readonly Dictionary<int, Dictionary<string, string>> _koubeiRatingDic = new Dictionary<int,Dictionary<string,string>>();
+        CommonSettings m_config = Common.CommonData.CommonSettings;
+        private Dictionary<int, CarEntity> AllCarData = null;
+        private string CarKoubeiSavePath = string.Empty;//精品口碑保存地址
 
-
-        public SerialKoubeiHtmlBuilder()
+        public SerialKoubeiHtmlBuilder(List<int> serialList = null)
         {
 			//carService = new carService()
 			//{
@@ -58,6 +61,7 @@ namespace BitAuto.CarDataUpdate.HtmlBuilder
 			//		AppPwd = "EAB934E5-6021-48DF-BA69-B063FCFEA72B"
 			//	}
 			//};
+            CarKoubeiSavePath = Path.Combine(m_config.SavePath, "koubei\\JingPin\\Car\\{0}.xml");
             topicService = new topicService()
             {
                 ApiSoapHeaderValue = new com.bitauto.baa.api.ApiSoapHeader()
@@ -83,15 +87,20 @@ namespace BitAuto.CarDataUpdate.HtmlBuilder
                 }
             };
 
+            AllCarData = CommonData.GetAllCarData();
+
             //InitKoubeiTuijianDic();
+            if (serialList == null || serialList.Count == 0)
+            {
+                serialList = CommonFunction.GetSerialList();
+            }
 
-
-			InitKoubeiRating();
+			InitKoubeiRating(serialList);
         }
 
-		private void InitKoubeiRating()
+		private void InitKoubeiRating(List<int> serialList)
 		{
-			List<int> serialList = CommonFunction.GetSerialList();
+			//List<int> serialList = CommonFunction.GetSerialList();
 			List<Tuple<int, string, string>> koubeiKeyTuple = new List<Tuple<int, string, string>>()
 			{ 
 				new Tuple<int,string,string>(1,"WaiGuan","WaiGuan"),
@@ -226,41 +235,39 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
                 {
                     quedianNodes = xmlQuedian.SelectNodes("ImpressionList/Item");
                 }
-
-                // 更新口碑基础数据到数据库 用于排序 [AutoCarChannel].[dbo].[Car_CsKouBeiBaseInfo],在方法UpdateKoubeiRaingDetail里统一更新
-                //UpdateCsKouBeiBaseInfo();
-				
-				//更新口碑印象块
-				//RenderKoubeiImpressionHtml();
-				//更新口碑内容块
-				//RenderKoubeiHtml();
+                
+                jingpinKoubeiXml = GetJingPinKoubeiXml(SerialId, 0);
+                if (jingpinKoubeiXml != null)
+                {
+                    //网友口碑 pc车系综述页
+                    RenderKoubeiHtmlNew();
+                    //H5 V3
+                    H5KoubeiV3();
+                    //更新移动站口碑块内容-增加一篇口碑
+                    RenderWirelessKoubeiHtmlV2(_serialInfo.AllSpell);
+                }
+                //生成车款精品口碑文件
+                RenderJingpinKoubei();
+                
 				//更新H5口碑内容快
-				RenderFourthStageKoubeiHtml();
-				//更新移动站口碑块内容
-				//RenderWirelessKoubeiHtml();
-				//更新移动站口碑块内容-增加一篇口碑
-				RenderWirelessKoubeiHtmlV2(_serialInfo.AllSpell);
-
-				//H5 V3
-				H5KoubeiV3();
+                //RenderFourthStageKoubeiHtml();
 
 				//更新车型详解页面推荐口碑报告块
-				//RenderKoubeiTuijianHtml();//弃用 2017-01-04 
 				RenderKoubeiTuijianHtmlV2();
 
 				//口碑排行块
-				//RenderKoubeiRatingHtml();//弃用 2017-01-04 
 				RenderKoubeiRatingHtmlV2();
 
 				//口碑对比--网友点评
-				RenderKoubeiDuiBiHtml();
+				//RenderKoubeiDuiBiHtml();
 				//口碑报告
 				RendSerialKoubeiRatingHtml();
-				//网友口碑
-				RenderKoubeiHtmlNew();
+                
+                
 				//车型详解页面，竞品车型
 				SerialCompetitiveKoubeiHtmlBuilder koubei = new SerialCompetitiveKoubeiHtmlBuilder(_koubeiRatingDic);
 				koubei.BuilderDataOrHtml(_serialInfo.Id);
+                
             }
             catch (Exception ex)
             {
@@ -837,11 +844,11 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
             #endregion
 
             #region 网友点评
-
-            List<string> topicIdList = new List<string>();
-            XmlNodeList nodeTopic = koubeiReportRoot.SelectNodes("./Item");
+            
+            //List<string> topicIdList = new List<string>();
+            XmlNodeList nodeTopic = jingpinKoubeiXml.SelectNodes("DataList/Item");
             int topicLoop = 0;
-            int lastKoubeiId = 0;
+            //int lastKoubeiId = 0;
             sbHtml.Append("<div class=\"row\">");
             foreach (XmlNode node in nodeTopic)
             {
@@ -862,14 +869,14 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
 				var carName = node.SelectSingleNode("./TrimName").InnerText;
                 if (Fuel > 0) Fuel = Math.Round(Fuel, 2);
                 var DealerName = node.SelectSingleNode("./DealerName").InnerText;
-                topicIdList.Add(ID);
-				lastKoubeiId = ConvertHelper.GetInteger(ID);
+                //topicIdList.Add(ID);
+				//lastKoubeiId = ConvertHelper.GetInteger(ID);
 				string koubeiDetailUrl = string.Format("http://car.bitauto.com/{0}/koubei/{1}/", _serialInfo.AllSpell, ID);
                 string userImage = "http://pic.baa.bitautotech.com/newavatar/60.jpg";
                 string userUrl = "#";
                 if (UserType == 0 && UserId > 0)
                 {
-                    userImage = GetUserImage(UserId, out UserName);
+                    userImage = node.SelectSingleNode("HeadUrl").InnerText; //GetUserImage(UserId, out UserName);
                     userUrl = "http://i.qichetong.com/u" + UserId + "/";
                 }
 
@@ -920,12 +927,12 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
                 sbHtml.Append("</div>");
                 sbHtml.Append("</div>");
             }
-            if (TopicCount > 3)
-            {
+            //if (TopicCount > 3)
+            //{
                 sbHtml.AppendFormat(
-                    "<div class=\"btn-box1\"><a class=\"btn btn-default\" target=\"_blank\" href=\"http://car.bitauto.com/{0}/koubei/gengduo/{1}\" data-channelid=\"2.21.1529\"><span class=\"more\">更多口碑</span></a></div>"
-                    , _serialInfo.AllSpell, lastKoubeiId > 0 ? "#" + lastKoubeiId : "");
-            }
+                    "<div class=\"btn-box1\"><a class=\"btn btn-default\" target=\"_blank\" href=\"http://car.bitauto.com/{0}/koubei/\" data-channelid=\"2.21.1529\"><span class=\"more\">更多口碑</span></a></div>"
+                    , _serialInfo.AllSpell);
+            //}
             sbHtml.Append("</div>");
 
             #endregion
@@ -1298,15 +1305,11 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
         /// <returns></returns>
         private string GetSummaryFirstKoubeiHtmlForWap()
         {
-            var TopicCount = 0;
-            XmlNode koubeiReportRoot = null;
-            if (xmlKouBeiReport != null)
-            {
-                koubeiReportRoot = xmlKouBeiReport.DocumentElement;
-                TopicCount = ConvertHelper.GetInteger(koubeiReportRoot.Attributes["TotalCount"].Value);
-            }
+            
+            XmlNode root = jingpinKoubeiXml.SelectSingleNode("DataList");
+            var TopicCount = ConvertHelper.GetInteger(root.Attributes["DataCount"].Value);
 
-            if (xmlKouBeiReport == null || koubeiReportRoot == null || TopicCount <= 0)
+            if (TopicCount <= 0 && root.Attributes["Code"].Value == "200")
             {
                 bool delSuccess = CommonHtmlService.DeleteCommonHtml(
                     SerialId,
@@ -1315,16 +1318,12 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
                     CommonHtmlEnum.BlockIdEnum.KoubeiReportNew);
                 return "";
             }
-            if (xmlKouBeiReport != null)
-            {
-                koubeiReportRoot = xmlKouBeiReport.DocumentElement;
-                TopicCount = ConvertHelper.GetInteger(koubeiReportRoot.Attributes["TotalCount"].Value);
-            }
+
             StringBuilder sbHtml = new StringBuilder();
             sbHtml.Append("<div class=\"kb-list b-shadow\">");
             sbHtml.Append("<ul data-channelid=\"27.23.1334\">");
 
-            XmlNodeList nodeTopic = koubeiReportRoot.SelectNodes("./Item");
+            XmlNodeList nodeTopic = root.SelectNodes("Item");
             int topicLoop = 0;
             foreach (XmlNode node in nodeTopic)
             {
@@ -1351,7 +1350,7 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
                 string userUrl = "#";
                 if (UserType == 0 && UserId > 0)
                 {
-                    userImage = GetUserImage(UserId, out UserName);
+                    userImage = node.SelectSingleNode("./HeadUrl").InnerText;
                     userUrl = "http://i.qichetong.com/u" + UserId + "/";
                 }
                 sbHtml.Append("<li>");
@@ -1375,7 +1374,7 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
 
             sbHtml.Append("</ul>");
             sbHtml.AppendFormat(
-                "<a href=\"http://car.bitauto.com/{0}/koubei/\" class=\"btn-more\" data-channelid=\"27.23.1343\"><i>查看全部{1}条网友口碑</i></a>",
+                "<a href=\"http://car.m.yiche.com/{0}/koubei/\" class=\"btn-more\" data-channelid=\"27.23.1343\"><i>查看全部{1}条网友口碑</i></a>",
                 _serialInfo.AllSpell, TopicCount);
             sbHtml.Append("</div>");
             return sbHtml.ToString();
@@ -2181,6 +2180,8 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
         private string GetUserImage(int userId, out string showName)
         {
             string userImage = "http://pic.baa.bitautotech.com/newavatar/60.jpg";
+            showName = string.Empty;
+            return userImage;//测试
             try
             {
                 using (DataCenter.WCF.DataProvideClient client = new DataCenter.WCF.DataProvideClient())
@@ -2204,15 +2205,18 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
         private void RenderFourthStageKoubeiHtml()
         {
             StringBuilder sbHtml = new StringBuilder();
-            var TopicCount = 0;
-            XmlNode koubeiReportRoot = null;
-            if (xmlKouBeiReport != null)
-            {
-                koubeiReportRoot = xmlKouBeiReport.DocumentElement;
-                TopicCount = ConvertHelper.GetInteger(koubeiReportRoot.Attributes["TotalCount"].Value);
-            }
+          
+            XmlNode root = jingpinKoubeiXml.SelectSingleNode("DataList");
+            //if (root == null || root.Attributes["Code"].Value != "200") return;
+            var TopicCount = ConvertHelper.GetInteger(root.Attributes["DataCount"].Value);
+            //XmlNode koubeiReportRoot = null;
+            //if (xmlKouBeiReport != null)
+            //{
+            //    koubeiReportRoot = xmlKouBeiReport.DocumentElement;
+            //    TopicCount = ConvertHelper.GetInteger(koubeiReportRoot.Attributes["TotalCount"].Value);
+            //}
 
-            if (xmlKouBeiReport == null || koubeiReportRoot == null || TopicCount <= 0)
+            if (TopicCount <= 0)
             {
                 bool delSuccess = CommonHtmlService.DeleteCommonHtml(
                     SerialId,
@@ -2223,7 +2227,7 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
             }
             List<string> topicIdList = new List<string>();
 
-            XmlNodeList nodeTopic = koubeiReportRoot.SelectNodes("./Item");
+            XmlNodeList nodeTopic = root.SelectNodes("Item");
             int topicLoop = 0;
             int lastKoubeiId = 0;
             sbHtml.Append("<ul>");
@@ -2245,7 +2249,7 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
                 string userUrl = "#";
                 if (UserType == 0 && UserId > 0)
                 {
-                    userImage = GetUserImage(UserId, out UserName);
+                    userImage = node.SelectSingleNode("HeadUrl").InnerText;//GetUserImage(UserId, out UserName);
                     userUrl = "http://i.qichetong.com/u" + UserId + "/";
                 }
 
@@ -2481,25 +2485,17 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
                 #endregion
 
                 #region 评论文章
-
-                var topicCount = 0;
+                XmlNode jingpinRoot = jingpinKoubeiXml.SelectSingleNode("DataList");
+                var topicCount = ConvertHelper.GetInteger(jingpinRoot.Attributes["DataCount"].Value);
                 var articsEle = new XElement("CommentArtics", new XAttribute("TopicCount", topicCount));
+                articsEle.SetAttributeValue("TopicCount", topicCount);
 
                 #region 循环
 
-                if (xmlKouBeiReport != null)
+                if (topicCount > 0)
                 {
-                    XmlNode koubeiReportRoot = xmlKouBeiReport.DocumentElement;
-                    if (koubeiReportRoot != null)
-                    {
-                        if (koubeiReportRoot.Attributes != null)
-                        {
-                            topicCount = ConvertHelper.GetInteger(koubeiReportRoot.Attributes["TotalCount"].Value);
-                            articsEle.SetAttributeValue("TopicCount", topicCount);
-                        }
-
-                        var nodeTopic = koubeiReportRoot.SelectNodes("./Item");
-                        if (nodeTopic != null)
+                    XmlNodeList nodeTopic = jingpinRoot.SelectNodes("Item");
+                    if (nodeTopic != null)
                         {
                             var loopCount = 0;
                             foreach (XmlNode node in nodeTopic)
@@ -2523,7 +2519,7 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
                                 var userUrl = "#";
                                 if (ConvertHelper.GetInteger(userType) == 0 && ConvertHelper.GetInteger(userId) > 0)
                                 {
-                                    userImage = GetUserImage(ConvertHelper.GetInteger(userId), out userName);
+                                userImage = node.SelectSingleNode("./HeadUrl").InnerText;// GetUserImage(ConvertHelper.GetInteger(userId), out userName);
                                     userUrl = "http://i.qichetong.com/u" + userId + "/";
                                 }
                                 var koubeiUrl = string.Format("http://car.m.yiche.com/{0}/koubei/{1}/",
@@ -2549,7 +2545,6 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
                                 loopCount++;
                             }
                         }
-                    }
                 }
 
                 #endregion
@@ -2574,21 +2569,71 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
         }
 
         /// <summary>
+        /// 生成车款精品口碑文件
+        /// 前5条
+        /// </summary>
+        private void RenderJingpinKoubei()
+        {
+            var serialCarData = AllCarData.Values.Where(kv => kv.CsId == SerialId);
+            foreach (var car in serialCarData)
+            {
+                XmlDocument xml = GetJingPinKoubeiXml(SerialId, car.CarId, 1, 1, 3);
+                if (xml != null)
+                {
+                    XmlNodeList nodeList = xml.SelectNodes("DataList/Item/TopicImages");
+                    if (nodeList != null && nodeList.Count > 0)
+                    {
+                        foreach (XmlNode node in nodeList)
+                        {
+                            node.RemoveAll();
+                        }
+                    }
+                    nodeList = xml.SelectNodes("DataList/Item/TopicItems");
+                    if (nodeList != null && nodeList.Count > 0)
+                    {
+                        foreach (XmlNode node in nodeList)
+                        {
+                            node.RemoveAll();
+                        }
+                    }
+                    
+                    CommonFunction.SaveXMLDocument(xml, string.Format(CarKoubeiSavePath, car.CarId));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取精品口碑XML
+        /// </summary>
+        /// <param name="csId">车系id</param>
+        /// <param name="carId">车款id</param>
+        /// <param name="type">1：精华 贴</param>
+        /// <param name="page"></param>
+        /// <param name="size"></param>
+        /// <param name="format">xml或json</param>
+        /// <returns></returns>
+        private XmlDocument GetJingPinKoubeiXml(int csId,int carId,int type = 1,int page = 1,int size = 5,string format = "xml")
+        {
+            string jingpinKoubeiUrl = string.Format(m_config.JingPinKoubeiUrl, SerialId, carId, 1, 1, 5, "xml");
+            XmlDocument xmlDoc = CommonFunction.GetXmlDocument(jingpinKoubeiUrl);
+            if (xmlDoc == null) return null;
+            XmlNode root = xmlDoc.SelectSingleNode("DataList");
+            if (root == null || root.Attributes["Code"].Value != "200") return null;
+            return xmlDoc;
+        }
+
+        /// <summary>
         /// 生成PC端口碑对比--网友点评块
         /// </summary>
         private void RenderKoubeiDuiBiHtml()
         {
             //CommonFunction.GetCarList();
             StringBuilder sbHtml = new StringBuilder();
-            var TopicCount = 0;
-            XmlNode koubeiReportRoot = null;
-            if (xmlKouBeiReport != null)
-            {
-                koubeiReportRoot = xmlKouBeiReport.DocumentElement;
-                TopicCount = ConvertHelper.GetInteger(koubeiReportRoot.Attributes["TotalCount"].Value);
-            }
+            XmlNode root = jingpinKoubeiXml.SelectSingleNode("DataList");
+            if (root == null || root.Attributes["Code"].Value != "200") return;
+            var TopicCount = ConvertHelper.GetInteger(jingpinKoubeiXml.SelectSingleNode("DataList").Attributes["DataCount"].Value);
 
-            if (xmlKouBeiReport == null || koubeiReportRoot == null || TopicCount <= 0)
+            if (TopicCount <= 0)
             {
                 bool delSuccess = CommonHtmlService.DeleteCommonHtml(
                     SerialId,
@@ -2611,7 +2656,7 @@ and CarNewsTypeId=17 ORDER BY T1.PublishTime DESC)) AS t LEFT JOIN dbo.News n ON
 			//}
             double sum = (ConvertHelper.GetDouble(AverageRating)/5)*100;
             List<string> topicIdList = new List<string>();
-            XmlNodeList nodeTopic = koubeiReportRoot.SelectNodes("./Item");
+            XmlNodeList nodeTopic = root.SelectNodes("Item");
             int topicLoop = 0;
             int lastKoubeiId = 0;
 
