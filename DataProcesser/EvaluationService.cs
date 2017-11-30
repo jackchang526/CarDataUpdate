@@ -395,7 +395,7 @@ namespace BitAuto.CarDataUpdate.DataProcesser
             foreach (var item in targetList)
             {
                 int levelId = CarLevelDefine.GetLevelIdByName(item.ModelLevel);
-                string tabText = GetTabText(item.PropertyId, item.PropertyValue, levelId, item.FuelType);
+                string tabText = GetTabText(item.PropertyId, Math.Round(item.PropertyValue,1), levelId, item.FuelType);
 
                 if (item.StyleId == carId)
                 {
